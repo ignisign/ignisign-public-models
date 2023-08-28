@@ -3,18 +3,13 @@
     "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
-
+    "sourceMap": false,
     "strict": false,
-
     "skipLibCheck": true,
-    "jsx": "react",
     "module": "commonjs",
     "moduleResolution": "node",
     "target": "es2015",
-
     "composite": true,
-
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowJs": false,
