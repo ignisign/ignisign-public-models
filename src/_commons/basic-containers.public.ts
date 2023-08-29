@@ -2,7 +2,7 @@ import { IsEnum, IsOptional, IsString, Length } from "class-validator";
 import { IGNISIGN_USER_STATUS } from "../users/users.public";
 import { IGNISIGN_APPLICATION_USER_STATUS } from "../users/users-invitations-app.public";
 import { IGNISIGN_ORGANIZATION_USER_STATUS } from "../users/users-invitations-org.public";
-import { IGNISIGN_ORGANIZATION_FEATURES, IGNISIGN_ORGANIZATION_STATUS } from "../organizations/organizations.public";
+import { IGNISIGN_ORGANIZATION_STATUS } from "../organizations/organizations.public";
 import { IGNISIGN_APPLICATION_STATUS } from "../applications/applications.public";
 
 export class IgnisignUrlContainerDto {
@@ -87,8 +87,4 @@ export class IgnisignNameContainerDto {
   @IsString()
   @Length(1, 256) 
   name : string;
-}
-
-export class IgnisignOrganizationFeaturesDto {
-  features : { [key in IGNISIGN_ORGANIZATION_FEATURES] : boolean };
 }

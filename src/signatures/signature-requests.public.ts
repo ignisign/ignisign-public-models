@@ -6,7 +6,6 @@ import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IgnisignApplicationSignatureMetadata } from "./signatures.public";
 import { Ignisign_SignatureProfile } from "./signature-profiles.public";
 import { IgnisignSignerSummary } from "../signers/signers.public";
-import { IGNISIGN_ORGANIZATION_LEGAL_SIGNER_AUTH_PROCESS_MODE_REF } from "../organizations/organizations.public";
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
   SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
@@ -125,12 +124,6 @@ export class Ignisign_SignatureRequest_UpdateDto {
   @IsOptional()
   @IsArray()
   signerIds ?: string[];
-}
-
-export class Ignisign_SignatureRequest_LegalSignerDto extends Ignisign_SignatureRequest_UpdateDto {
-  @IsOptional()
-  @IsEnum(IGNISIGN_ORGANIZATION_LEGAL_SIGNER_AUTH_PROCESS_MODE_REF)
-  legalSignerMethod?: IGNISIGN_ORGANIZATION_LEGAL_SIGNER_AUTH_PROCESS_MODE_REF
 }
 
 export class IgnisignSignatureRequestIdContainer {
