@@ -1,5 +1,4 @@
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IgnisignOrganization, IgnisignOrganizationConfiguration } from "../organizations/organizations.public";
 import { IGNISIGN_APPLICATION_USER_STATUS } from "./users-invitations-app.public";
 import { IGNISIGN_ORGANIZATION_USER_STATUS } from "./users-invitations-org.public";
 import { IGNISIGN_USER_GLOBAL_ROLES, IGNISIGN_USER_STATUS } from "./users.public";
@@ -63,10 +62,4 @@ export class IgnisignOrganizationUserDetails {
   lastLoginDate ?: Date;
   orgId          : string;
   orgRoles       : IGNISIGN_ORGANIZATION_ROLES[] = [];
-}
-
-export class IgnisignOrganizationContext{
-  org                     : IgnisignOrganization;
-  orgConfig               : IgnisignOrganizationConfiguration;
-  currentOrganizationUser : IgnisignOrganizationUser;
 }
