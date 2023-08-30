@@ -50,7 +50,6 @@ export class IgnisignSignatureRequest {
   status                                 : IGNISIGN_SIGNATURE_REQUEST_STATUS;
   language                              ?: IGNISIGN_SIGNATURE_LANGUAGES;
   documentIds                           ?: string[];
-  documentRequestsNeedValidation        ?: boolean; 
   externalId                            ?: string;
   diffusionMode                         ?: IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE;
   diffusionDate                         ?: Date;
@@ -100,10 +99,6 @@ export class Ignisign_SignatureRequest_UpdateDto {
   @IsOptional()
   @IsString({ each: true })
   documentIds ?: string[];
-
-  @IsOptional()
-  @IsBoolean()
-  documentRequestsNeedValidation ?: boolean;
 
   @IsOptional()
   @IsString()
