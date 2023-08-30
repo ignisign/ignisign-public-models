@@ -84,8 +84,8 @@ export type IGNISIGN_BROADCASTABLE_ACTIONS_SIGNATURE_FINALIZED = {
 export type IGNISIGN_BROADCASTABLE_ACTIONS_SIGNATURE_ERROR = {
   type: IGNISIGN_BROADCASTABLE_ACTIONS.SIGNATURE_ERROR,
   data: {
-    errorCode           : IGNISIGN_ERROR_CODES
-    errorContext        : any
+    errorCode     : IGNISIGN_ERROR_CODES;
+    errorContext ?: any;
   }
 }
 
