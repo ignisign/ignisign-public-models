@@ -131,21 +131,22 @@ export class Ignisign_SignatureSession_AuthInfo{
 }
 
 export class Ignisign_SignatureSession_ExecutionContext{
-  sessionId               : string;
-  signatureModes          : IGNISIGN_SIGNATURE_MODE[];
+  sessionId                  : string;
+  signatureModes             : IGNISIGN_SIGNATURE_MODE[];
 
-  authAttempt            : IgnisignSignatureAuthentificationAttempt;
-  authInfos              ?: Ignisign_SignatureSession_AuthInfo[];
-  idProofingInfos        ?: Ignisign_SignatureSession_IdProofing_Info[];
-  authRegistrationInfos  ?: Ignisign_SignatureSession_AuthRegistration_Info[];
+  authAttempt                : IgnisignSignatureAuthentificationAttempt;
+  authInfos                 ?: Ignisign_SignatureSession_AuthInfo[];
+  idProofingInfos           ?: Ignisign_SignatureSession_IdProofing_Info[];
+  authRegistrationInfos     ?: Ignisign_SignatureSession_AuthRegistration_Info[];
 
-  signerIsFullyIdentified : boolean;
-  isFullyAuthenticated    : boolean;
-  authsAreInitialized     : boolean;
+  signerIsFullyIdentified    : boolean;
+  isFullyAuthenticated       : boolean;
+  authsAreInitialized        : boolean;
 
-  signatureToken?         : string;
+  signatureToken            ?: string;
 
-  isEmbedded              : boolean;
+  isEmbedded                 : boolean;
+  authMethodRefConfirmation ?: IGNISIGN_AUTH_REGISTRATION_REF[]
 }
 
 export class Ignisign_SignatureSessionContext {
