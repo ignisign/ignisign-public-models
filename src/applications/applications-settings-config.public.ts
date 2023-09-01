@@ -65,7 +65,6 @@ export class IgnisignApplicationSettings {
   secondaryColor        ?: VariationColor
   smsSentByEmailInDev    : boolean = true;
   smsSentByEmailInTest   : boolean = true;
-  // TODO integrate Options
 }
 
 
