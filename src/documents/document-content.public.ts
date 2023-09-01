@@ -31,6 +31,10 @@ export class IgnisignDocumentCreationFileDto {
 }
 
 export class IgnisignPrivateFileDto {
+  @IsOptional()
+  @IsString()
+  documentId ?: string;
+
   @IsString()
   fileUrl  : string;   
   
@@ -40,7 +44,8 @@ export class IgnisignPrivateFileDto {
   @IsString()
   fileName : string;     
   
+  @IsOptional()
   @IsString()
-  bearer   : string;   
+  bearer  ?: string;   
   
 }
