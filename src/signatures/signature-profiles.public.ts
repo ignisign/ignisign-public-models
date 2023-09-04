@@ -6,6 +6,7 @@ import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from "./signature-auth.public";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";
 import { IGNISIGN_INTEGRATION_MODE } from "./signatures.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
+import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
 
 export enum IGNISIGN_SIGNATURE_PROFILE_STATUS {
   PUBLISHED = "PUBLISHED",
@@ -74,4 +75,9 @@ export class Ignisign_SignatureProfile_StatusWrapper {
 
 export class Ignisign_SignatureProfile_ImportDto {
   signatureProfilesIds            : string[];
+}
+
+
+export class Ignisign_SignatureProfileSignerInputsConstraints {
+  additionalInputsNeeded  : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
