@@ -16,3 +16,4 @@ echo "tsconfig.tsbuildinfo => Removed";
 yarn install 
 yarn build 
 npm publish
+
