@@ -6,6 +6,7 @@ export enum IGNISIGN_ID_PROOFING_METHOD_PROCESSING_KIND {
 }
 
 export enum IGNISIGN_ID_PROOFING_METHOD_REF {
+  VIDEO_ROBOT_AES             = "VIDEO_ROBOT_AES",
   VIDEO_ROBOT_QES             = "VIDEO_ROBOT_QES",
   BANK_ACCOUNT_CHECK          = "BANK_ACCOUNT_CHECK",
   E_ID                        = "E_ID",
