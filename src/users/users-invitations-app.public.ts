@@ -12,7 +12,7 @@ export enum IGNISIGN_APPLICATION_INVITED_USER_STATUS {
   CANCELED = 'CANCELED'
 }
 
-export class IgnisignApplicationInvitedUser {
+export class IgnisignApplication_InvitedUser {
   _id        ?: string;
   email       : string;
   appId       : string;
@@ -20,12 +20,12 @@ export class IgnisignApplicationInvitedUser {
   roles       : {[key in IGNISIGN_APPLICATION_ENV] : IGNISIGN_APPLICATION_ROLES[]};
 } 
 
-export class IgnisignAppRoles {
+export class IgnisignApplication_Roles {
   [IGNISIGN_APPLICATION_ENV.DEVELOPMENT] : IGNISIGN_APPLICATION_ROLES[];
   [IGNISIGN_APPLICATION_ENV.STAGING]     : IGNISIGN_APPLICATION_ROLES[];
   [IGNISIGN_APPLICATION_ENV.PRODUCTION]  : IGNISIGN_APPLICATION_ROLES[];
 }
-export class IgnisignApplicationInvitedUserCreationRequestDto {
+export class IgnisignApplication_InvitedUser_CreationRequestDto {
   @IsEmail()
   readonly email: string;
 
@@ -33,11 +33,11 @@ export class IgnisignApplicationInvitedUserCreationRequestDto {
   @IsNotEmptyObject()
   @IsObject()
   @ValidateNested()  
-  @Type(() => IgnisignAppRoles)
-  readonly roles: IgnisignAppRoles;
+  @Type(() => IgnisignApplication_Roles)
+  readonly roles: IgnisignApplication_Roles;
 }
 
-export class IgnisignApplicationUserEditRequestDto {
+export class IgnisignApplication_User_EditRequestDto {
   // @IsString()
   // _id: string;
 
@@ -45,6 +45,6 @@ export class IgnisignApplicationUserEditRequestDto {
   @IsNotEmptyObject()
   @IsObject()
   @ValidateNested()  
-  @Type(() => IgnisignAppRoles)
-  readonly roles: IgnisignAppRoles;
+  @Type(() => IgnisignApplication_Roles)
+  readonly roles: IgnisignApplication_Roles;
 }

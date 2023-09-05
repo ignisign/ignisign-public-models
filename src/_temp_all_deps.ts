@@ -44,90 +44,90 @@ import {
   IGNISIGN_WEBHOOK_EVENT_FILTER,
   IGNISIGN_WEBHOOK_EVENT_STATUS,
 
-  IGNISIGN_WEBHOOK_ACTION__PDF,                     // IGNISIGN_WEBHOOK_ACTION_PDF
-  IGNISIGN_WEBHOOK_ACTION__SIGNATURE_IMAGE,         // IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE
-  IGNISIGN_WEBHOOK_ACTION__DOCUMENT,                // IGNISIGN_WEBHOOK_ACTION_DOCUMENT
-  IGNISIGN_WEBHOOK_ACTION__SIGNATURE,               // IGNISIGN_WEBHOOK_ACTION_SIGNATURE
-  IGNISIGN_WEBHOOK_ACTION__SIGNER,                  // IGNISIGN_WEBHOOK_ACTION_SIGNER
-  IGNISIGN_WEBHOOK_ACTION__SIGNATURE_SESSION,       // IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION
-  IGNISIGN_SIGNATURE_REQUEST_WEBHOOK_ACTION,        // IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST
+  IGNISIGN_WEBHOOK_ACTION_PDF,                     // IGNISIGN_WEBHOOK_ACTION_PDF
+  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE,         // IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE
+  IGNISIGN_WEBHOOK_ACTION_DOCUMENT,                // IGNISIGN_WEBHOOK_ACTION_DOCUMENT
+  IGNISIGN_WEBHOOK_ACTION_SIGNATURE,               // IGNISIGN_WEBHOOK_ACTION_SIGNATURE
+  IGNISIGN_WEBHOOK_ACTION_SIGNER,                  // IGNISIGN_WEBHOOK_ACTION_SIGNER
+  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION,       // IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION
+  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST,        // IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST
 
-  IgnisignApplicationInvitedUser,                   // IgnisignApplication_InvitedUser
-  IgnisignApplicationInvitedUserCreationRequestDto, // IgnisignApplication_InvitedUser_CreationRequestDto
-  IgnisignAppRoles,                                 // IgnisignApplication_Roles           
-  IgnisignApplicationUserEditRequestDto,            // IgnisignApplication_User_EditRequestDto
-  IgnisignApplicationSignatureMetadata,             // IgnisignApplication_SignatureMetadata
-  IgnisignApplicationContext,                       // IgnisignApplication_Context
+  IgnisignApplication_InvitedUser,                   // IgnisignApplication_InvitedUser
+  IgnisignApplication_InvitedUser_CreationRequestDto, // IgnisignApplication_InvitedUser_CreationRequestDto
+  IgnisignApplication_Roles,                                 // IgnisignApplication_Roles           
+  IgnisignApplication_User_EditRequestDto,            // IgnisignApplication_User_EditRequestDto
+  IgnisignApplication_SignatureMetadata,             // IgnisignApplication_SignatureMetadata
+  IgnisignApplication_Context,                       // IgnisignApplication_Context
   IgnisignApplication,                              // IgnisignApplication         
-  IgnisignApplicationConfiguration,                 // IgnisignApplication_Configuration  
-  IgnisignApplicationEnvSettings,                   // IgnisignApplication_EnvSettings
-  IgnisignApplicationSettings,                      // IgnisignApplication_Settings
-  VariationColor,                                   // IgnisignApplication_VariationColor             
+  IgnisignApplication_Configuration,                 // IgnisignApplication_Configuration  
+  IgnisignApplication_EnvSettings,                   // IgnisignApplication_EnvSettings
+  IgnisignApplication_Settings,                      // IgnisignApplication_Settings
+  IgnisignApplication_VariationColor,                                   // IgnisignApplication_IgnisignApplication_VariationColor             
 
   IgnisignDocument,                                   // IgnisignDocument
-  IgnisignDocumentContext,                            // IgnisignDocument_Context     
-  IgnisignDocumentInitializationDto,                  // IgnisignDocument_InitializationDto
-  IgnisignDocumentUpdateDto,                          // IgnisignDocument_UpdateDto
+  IgnisignDocument_Context,                            // IgnisignDocument_Context     
+  IgnisignDocument_InitializationDto,                  // IgnisignDocument_InitializationDto
+  IgnisignDocument_UpdateDto,                          // IgnisignDocument_UpdateDto
   
 
-  IgnisignDocumentContentCreation_DataJsonDto,        // IgnisignDocument_ContentCreation_DataJsonDto
-  IgnisignDocumentContentCreation_PrivateContentDto,  // IgnisignDocument_ContentCreation_PrivateContentDto
+  IgnisignDocument_ContentCreation_DataJsonDto,        // IgnisignDocument_ContentCreation_DataJsonDto
+  IgnisignDocument_ContentCreation_PrivateContentDto,  // IgnisignDocument_ContentCreation_PrivateContentDto
 
   IgnisignDocumentRequest,                            // IgnisignDocumentRequest
-  IgnisignDocumentRequestDto,                         // IgnisignDocumentRequest_RequestDto
+  IgnisignDocumentRequest_RequestDto,                         // IgnisignDocumentRequest_RequestDto
   
   IgnisignJwtContainer,                               // IgnisignJwtContainer
   
-  IgnisignPrivateFileDto,                   // TO DOC // IgnisignDocument_PrivateFileDto
+  IgnisignDocument_PrivateFileDto,                   // TO DOC // IgnisignDocument_PrivateFileDto
 
-  Ignisign_SignatureProfile,                                   // IgnisignSignatureProfile         
-  Ignisign_SignatureProfileIdContainerDto,                     // IgnisignSignatureProfile_IdContainerDto
-  Ignisign_SignatureProfile_StatusWrapper,                     // IgnisignSignatureProfile_StatusWrapper
-  Ignisign_SignatureProfileSignerInputsConstraints, // TO DOC  // IgnisignSignatureProfile_SignerInputsConstraints
+  IgnisignSignatureProfile,                                   // IgnisignSignatureProfile         
+  IgnisignSignatureProfile_IdContainerDto,                     // IgnisignSignatureProfile_IdContainerDto
+  IgnisignSignatureProfile_StatusWrapper,                     // IgnisignSignatureProfile_StatusWrapper
+  IgnisignSignatureProfile_SignerInputsConstraints, // TO DOC  // IgnisignSignatureProfile_SignerInputsConstraints
 
-  Ignisign_SignatureRequest_UpdateDto,          // IgnisignSignatureRequest_UpdateDto
-  Ignisign_SignatureRequest_Statement,          // IgnisignSignatureRequest_Statement
-  IgnisignSignatureRequestWithDocName,          // IgnisignSignatureRequest_WithDocName
-  IgnisignSignatureRequest,                     // IgnisignSignatureRequest      
-  IgnisignSignatureRequestIdContainer,          // IgnisignSignatureRequest_IdContainer
-  IgnisignSignatureRequestContext,              // IgnisignSignatureRequest_Context
-  IgnisignSignatureRequestsPaginate,            // IgnisignSignatureRequests_Paginate
+  IgnisignSignatureRequest_UpdateDto,            // IgnisignSignatureRequest_UpdateDto
+  IgnisignSignatureRequest_Statement,            // IgnisignSignatureRequest_Statement
+  IgnisignSignatureRequest_WithDocName,          // IgnisignSignatureRequest_WithDocName
+  IgnisignSignatureRequest,                      // IgnisignSignatureRequest      
+  IgnisignSignatureRequest_IdContainer,          // IgnisignSignatureRequest_IdContainer
+  IgnisignSignatureRequest_Context,              // IgnisignSignatureRequest_Context
+  IgnisignSignatureRequests_Paginate,            // IgnisignSignatureRequests_Paginate
   
   IgnisignSignature,                            // IgnisignSignature
-  DocumentSignatureImagesDto,     // TO DOC     // Ignisign_SignatureImagesDto
+  Ignisign_SignatureImagesDto,     // TO DOC     // Ignisign_SignatureImagesDto
   
-  IgnisignSigner_Creation_RequestDto,           // IgnisignSigner_CreationRequestDto
-  IgnisignSigner_Creation_ResponseDto,          // IgnisignSigner_CreationResponseDto
-  IgnisignSigner_Update_RequestDto,             // IgnisignSigner_UpdateRequestDto
-  IgnisignSignersSearchResultDto,               // IgnisignSigners_SearchResultDto
-  IgnisignSignerContext,                        // IgnisignSigner_Context
-  IgnisignSignerSummary,                        // IgnisignSigner_Summary
+  IgnisignSigner_CreationRequestDto,           // IgnisignSigner_CreationRequestDto
+  IgnisignSigner_CreationResponseDto,          // IgnisignSigner_CreationResponseDto
+  IgnisignSigner_UpdateRequestDto,             // IgnisignSigner_UpdateRequestDto
+  IgnisignSigners_SearchResultDto,               // IgnisignSigners_SearchResultDto
+  IgnisignSigner_Context,                        // IgnisignSigner_Context
+  IgnisignSigner_Summary,                        // IgnisignSigner_Summary
   
 
-  IgnisignTechnicalTokenCheckAndConsumeDto, // TO DOC  // IgnisignTechnicalToken_CheckAndConsumeDto
-  IgnisignTechnicalTokenCheckDto,           // TO DOC  // IgnisignTechnicalToken_CheckDto
+  IgnisignTechnicalToken_CheckAndConsumeDto, // TO DOC  // IgnisignTechnicalToken_CheckAndConsumeDto
+  IgnisignTechnicalToken_CheckDto,           // TO DOC  // IgnisignTechnicalToken_CheckDto
   
   IgnisignWebhook,                              // IgnisignWebhook
-  IgnisignWebhookActionDto,                     // IgnisignWebhook_ActionDto
-  IgnisignWebhookCallback,                      // IgnisignWebhook_Callback         
-  IgnisignWebhookEndpointDto,                   // IgnisignWebhook_EndpointDto   
-  IgnisignWebhookSettingsDescription,           // IgnisignWebhook_SettingsDescription
+  IgnisignWebhook_ActionDto,                     // IgnisignWebhook_ActionDto
+  IgnisignWebhook_Callback,                      // IgnisignWebhook_Callback         
+  IgnisignWebhook_EndpointDto,                   // IgnisignWebhook_EndpointDto   
+  IgnisignWebhook_SettingsDescription,           // IgnisignWebhook_SettingsDescription
 
   IgnisignWebhookEvent,                         // IgnisignWebhookEvent    
-  IgnisignWebhookEventResponseDto,              // IgnisignWebhookEvent_ResponseDto
+  IgnisignWebhookEvent_ResponseDto,              // IgnisignWebhookEvent_ResponseDto
       
   
 
-  IgnisignAdvancedProof_Generation_WebhookDto,                            // IgnisignWebhookDto_AdvancedProofGeneration
-  IgnisignSigner_CreationSuccess_WebhookResultDto,     // TO DOC (main)   // IgnisignWebhookDto_SignerCreationSuccess
-  IgnisignSigner_CreationFailed_WebhookResultDto,      // TO DOC (main)   // IgnisignWebhookDto_SignerCreationFailed
-  IgnisignDocumentRequestWebhookContext,                                  // IgnisignWebhookDto_DocumentRequestCreation         
-  IGNISIGN_WEBHOOK_DTO__SIGNATURE_SESSION_INITIALIZED, // TO DOC          // IgnisignWebhookDto_SignatureSessionInitialized
-  IgnisignSignatureRequest_WebhookResult_SignerDescription,               // IgnisignWebhookDto_SignerDescription // TO DELETE
-  IgnisignSignatureRequest_WebhookResult,                                 // IgnisignWebhookDto_SignatureSessionResult         
-  IgnisignSignatureProof_Generation_WebhookDto,                           // IgnisignWebhookDto_SignatureProofGeneration
-  IgnisignSignatureImage_Generation_WebhookDto,                           // IgnisignWebhookDto_SignatureImageGeneration
-  IgnisignSignatureWebhookResultDto,                                      // IgnisignWebhookDto_SignatureFinalization             
+  IgnisignWebhookDto_AdvancedProofGeneration,                      // IgnisignWebhookDto_AdvancedProofGeneration
+  IgnisignWebhookDto_SignerCreationSuccess,     // TO DOC (main)   // IgnisignWebhookDto_SignerCreationSuccess
+  IgnisignWebhookDto_SignerCreationFailed,      // TO DOC (main)   // IgnisignWebhookDto_SignerCreationFailed
+  IgnisignWebhookDto_DocumentRequestCreation,                      // IgnisignWebhookDto_DocumentRequestCreation         
+  IgnisignWebhookDto_SignatureSessionInitialized, // TO DOC        // IgnisignWebhookDto_SignatureSessionInitialized
+  IgnisignWebhookDto_SignerDescription,                            // IgnisignWebhookDto_SignerDescription // TO DELETE
+  IgnisignWebhookDto_SignatureSessionResult,                       // IgnisignWebhookDto_SignatureSessionResult         
+  IgnisignWebhookDto_SignatureProofGeneration,                     // IgnisignWebhookDto_SignatureProofGeneration
+  IgnisignWebhookDto_SignatureImageGeneration,                     // IgnisignWebhookDto_SignatureImageGeneration
+  IgnisignWebhookDto_SignatureFinalization,                        // IgnisignWebhookDto_SignatureFinalization             
 
   
   

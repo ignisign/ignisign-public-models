@@ -32,7 +32,7 @@ export class IgnisignDocumentRequest {
   }
 }
 
-export class IgnisignDocumentRequestDto {
+export class IgnisignDocumentRequest_RequestDto {
   
   @IsEnum(IGNISIGN_DOCUMENT_REQUEST_TARGET)
   target : IGNISIGN_DOCUMENT_REQUEST_TARGET;

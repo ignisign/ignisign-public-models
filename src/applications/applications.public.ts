@@ -1,6 +1,6 @@
 
-import { IgnisignApplicationConfiguration, IgnisignApplicationEnvSettings, IgnisignApplicationSettings } from "./applications-settings-config.public";
-import { Ignisign_SignatureProfile } from "../signatures/signature-profiles.public";
+import { IgnisignApplication_Configuration, IgnisignApplication_EnvSettings, IgnisignApplication_Settings } from "./applications-settings-config.public";
+import { IgnisignSignatureProfile } from "../signatures/signature-profiles.public";
 
 export enum IGNISIGN_APPLICATION_STATUS {
   ACTIVE       = "ACTIVE",
@@ -23,10 +23,10 @@ export class IgnisignApplication {
   _createdAt  ?: Date;
 }
 
-export class IgnisignApplicationContext extends IgnisignApplication {
-  config              : IgnisignApplicationConfiguration;
-  envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] : IgnisignApplicationEnvSettings };
-  settings            : IgnisignApplicationSettings;
-  signatureProfiles   : Ignisign_SignatureProfile[];
+export class IgnisignApplication_Context extends IgnisignApplication {
+  config              : IgnisignApplication_Configuration;
+  envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] : IgnisignApplication_EnvSettings };
+  settings            : IgnisignApplication_Settings;
+  signatureProfiles   : IgnisignSignatureProfile[];
 }
 

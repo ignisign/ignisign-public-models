@@ -1,5 +1,5 @@
 
-export class IgnisignTechnicalTokenCheckDto {
+export class IgnisignTechnicalToken_CheckDto {
   constructor(
     public isValid: boolean = false,
     public context: any     = null
@@ -13,6 +13,6 @@ export class IgnisignTechnicalTokenCheckDto {
   errorStr?         : string;
 }
 
-export class IgnisignTechnicalTokenCheckAndConsumeDto extends IgnisignTechnicalTokenCheckDto{
+export class IgnisignTechnicalToken_CheckAndConsumeDto extends IgnisignTechnicalToken_CheckDto{
   haveBeenConsumed  : boolean = false;
 }

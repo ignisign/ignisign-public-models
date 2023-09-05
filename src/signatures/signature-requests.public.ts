@@ -1,11 +1,11 @@
 import { Type } from "class-transformer";
 import { IsArray, IsBoolean, IsDateString, IsEnum, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IgnisignDocumentContext } from "../documents/document-entities.public";
+import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
-import { IgnisignApplicationSignatureMetadata } from "./signatures.public";
-import { Ignisign_SignatureProfile } from "./signature-profiles.public";
-import { IgnisignSignerSummary } from "../signers/signers.public";
+import { IgnisignApplication_SignatureMetadata } from "./signatures.public";
+import { IgnisignSignatureProfile } from "./signature-profiles.public";
+import { IgnisignSigner_Summary } from "../signers/signers.public";
 import "reflect-metadata";
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
@@ -62,7 +62,7 @@ export class IgnisignSignatureRequest {
   // legalSignerMethod                     ?: IGNISIGN_ORGANIZATION_LEGAL_SIGNER_AUTH_PROCESS_MODE_REF;
 }
 
-export class Ignisign_SignatureRequest_Statement {
+export class IgnisignSignatureRequest_Statement {
   _id                ?: string;
   appId               : string;
   appEnv              : IGNISIGN_APPLICATION_ENV;
@@ -72,7 +72,7 @@ export class Ignisign_SignatureRequest_Statement {
   labelMd           : string;
 }
 
-export class Ignisign_SignatureRequest_UpdateDto {
+export class IgnisignSignatureRequest_UpdateDto {
   @IsString()
   @IsOptional()
   @MaxLength(1024)
@@ -114,34 +114,34 @@ export class Ignisign_SignatureRequest_UpdateDto {
 
   @IsOptional()
   @ValidateNested({ each: true })
-  @Type(() => Ignisign_SignatureRequest_Statement)
-  statements ?: Ignisign_SignatureRequest_Statement[];
+  @Type(() => IgnisignSignatureRequest_Statement)
+  statements ?: IgnisignSignatureRequest_Statement[];
 
   @IsOptional()
   @IsArray()
   signerIds ?: string[];
 }
 
-export class IgnisignSignatureRequestIdContainer {
+export class IgnisignSignatureRequest_IdContainer {
   signatureRequestId?               : string;
 }
 
-export class IgnisignSignatureRequestWithDocName extends IgnisignSignatureRequest {
+export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureRequest {
   docFileName ?: string;  
   docLabel    ?: string;
 }
 
-export class IgnisignSignatureRequestsPaginate {
-  signatureRequests:  IgnisignSignatureRequestWithDocName[];
+export class IgnisignSignatureRequests_Paginate {
+  signatureRequests:  IgnisignSignatureRequest_WithDocName[];
   paginationData: { total: number, page: number, nbEventsPerPage: number };
 }
 
-export class IgnisignSignatureRequestContext extends IgnisignSignatureRequest {
-  signers               : IgnisignSignerSummary[];
-  documents             : IgnisignDocumentContext[];  
-  statements           ?: Ignisign_SignatureRequest_Statement[];
-  signatureProfile      : Ignisign_SignatureProfile;
-  applicationMetadata  ?: IgnisignApplicationSignatureMetadata;
+export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
+  signers               : IgnisignSigner_Summary[];
+  documents             : IgnisignDocument_Context[];  
+  statements           ?: IgnisignSignatureRequest_Statement[];
+  signatureProfile      : IgnisignSignatureProfile;
+  applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
   signatureProofsUrl   ?: string;
 }
 

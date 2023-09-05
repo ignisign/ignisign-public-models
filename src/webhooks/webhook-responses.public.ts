@@ -7,13 +7,13 @@ import { IGNISIGN_INTEGRATION_MODE } from "../signatures/signatures.public";
 
 
 
-export class IGNISIGN_WEBHOOK_DTO__SIGNATURE_SESSION_INITIALIZED {
+export class IgnisignWebhookDto_SignatureSessionInitialized {
   signerId: string
   signatureRequestId: string
 }
 
 
-export class IgnisignSignatureRequest_WebhookResult_SignerDescription {
+export class IgnisignWebhookDto_SignerDescription {
   signerId  : string;
   lastName?       : string;
   firstName?      : string;
@@ -22,16 +22,16 @@ export class IgnisignSignatureRequest_WebhookResult_SignerDescription {
   tokenValue?     : string;
   signerSecret?   : string;
 }
-export class IgnisignSignatureRequest_WebhookResult {
+export class IgnisignWebhookDto_SignatureSessionResult {
   signatureRequestId?   : string;
   documentIds           : string[];
   integrationMode         : IGNISIGN_INTEGRATION_MODE;
   signatureMethodRefs   : IGNISIGN_SIGNATURE_METHOD_REF[];
-  signers               : IgnisignSignatureRequest_WebhookResult_SignerDescription[];
+  signers               : IgnisignWebhookDto_SignerDescription[];
 }
 
 
-export class IgnisignSignatureWebhookResultDto {
+export class IgnisignWebhookDto_SignatureFinalization {
   appId           : string;
   appEnv          : IGNISIGN_APPLICATION_ENV;
   documentNature  : IGNISIGN_DOCUMENT_TYPE;
@@ -41,7 +41,7 @@ export class IgnisignSignatureWebhookResultDto {
   signatureId     : string
 }
 
-export class IgnisignSignatureProof_Generation_WebhookDto {
+export class IgnisignWebhookDto_SignatureProofGeneration {
   @IsString()
   signatureProofId : string;
 
@@ -53,7 +53,7 @@ export class IgnisignSignatureProof_Generation_WebhookDto {
   appEnv      : IGNISIGN_APPLICATION_ENV;
 }
 
-export class IgnisignSignatureImage_Generation_WebhookDto {
+export class IgnisignWebhookDto_SignatureImageGeneration {
   @IsString()
   signatureImageId : string;
 
@@ -65,7 +65,7 @@ export class IgnisignSignatureImage_Generation_WebhookDto {
   appEnv      : IGNISIGN_APPLICATION_ENV;
 }
 
-export class IgnisignAdvancedProof_Generation_WebhookDto {
+export class IgnisignWebhookDto_AdvancedProofGeneration {
   @IsString()
   advancedProofId : string;
 
@@ -77,20 +77,20 @@ export class IgnisignAdvancedProof_Generation_WebhookDto {
   appEnv      : IGNISIGN_APPLICATION_ENV;
 }
 
-export class IgnisignSigner_CreationSuccess_WebhookResultDto {
+export class IgnisignWebhookDto_SignerCreationSuccess {
   appId                     : string;
   appEnv                    : IGNISIGN_APPLICATION_ENV
   signerId                  : string;
   signerSecret              : string;
 }
 
-export class IgnisignSigner_CreationFailed_WebhookResultDto {
+export class IgnisignWebhookDto_SignerCreationFailed {
   signerId : string;
   appId    : string;
   appEnv   : IGNISIGN_APPLICATION_ENV;
 }
 
-export class IgnisignDocumentRequestWebhookContext {
+export class IgnisignWebhookDto_DocumentRequestCreation {
   document : {
     documentId                 : string;
     externalId                ?: string;
