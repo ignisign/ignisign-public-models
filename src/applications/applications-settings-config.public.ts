@@ -3,7 +3,7 @@ import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 
 
-export class VariationColor {
+export class IgnisignApplication_VariationColor {
   50   : string;
   100  : string;
   200  : string;
@@ -23,12 +23,12 @@ export class VariationColor {
 /******************** GLOBAL CONFIG *******************/
 
 // managed by Ignisign
-export class IgnisignApplicationConfiguration {
+export class IgnisignApplication_Configuration {
   appId  : string;
   orgId  : string;
 }
 
-export class IgnisignWebhookSettingsDescription {
+export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;
   url          : string;
   description ?: string;
@@ -36,11 +36,11 @@ export class IgnisignWebhookSettingsDescription {
 }
 
 /******************** ENV Settings *******************/
-export class IgnisignApplicationEnvSettings {
+export class IgnisignApplication_EnvSettings {
   appId                     : string;
   orgId                     : string;
   appEnv                    : IGNISIGN_APPLICATION_ENV;
-  webhooks                  : IgnisignWebhookSettingsDescription[];
+  webhooks                  : IgnisignWebhook_SettingsDescription[];
   appRootUrl               ?: string;
   authorizedRedirectionUrls : string[];
   hasKey                   ?: boolean; // Only used in appContext
@@ -51,15 +51,15 @@ export class IgnisignApplicationEnvSettings {
 /******************** COMMON SETTINGS *******************/
 //managed by the application owners
 
-export class IgnisignApplicationSettings {
+export class IgnisignApplication_Settings {
   appId                  : string;
   orgId                  : string;
   customerSupportEmail  ?: string;
   defaultLanguage       ?: IGNISIGN_SIGNATURE_LANGUAGES;
   logoB64               ?: string;
   logoDarkB64           ?: string;
-  primaryColor          ?: VariationColor
-  secondaryColor        ?: VariationColor
+  primaryColor          ?: IgnisignApplication_VariationColor
+  secondaryColor        ?: IgnisignApplication_VariationColor
   smsSentByEmailInDev    : boolean = true;
   smsSentByEmailInTest   : boolean = true;
 }

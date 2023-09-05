@@ -1,4 +1,4 @@
-import { VariationColor } from "../applications/applications-settings-config.public";
+import { IgnisignApplication_VariationColor } from "../applications/applications-settings-config.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
 export const IGNISIGN_SIGNATURE_PUBLIC_FIELDS = ['_id', 'appId', 'signerId', 'signerKeyId', 'documentId', 'mode', 'status', 'signature', 'contentHash', 'signatureValue', 'signedPropertiesHash', 'signingTime', 'signingIp', 'certificate', ];
@@ -43,15 +43,15 @@ export class IgnisignSignature {
   certificate?           : string;
 }
 
-export class IgnisignApplicationSignatureMetadata {
+export class IgnisignApplication_SignatureMetadata {
   appName         : string;
   logoB64        ?: string;
   logoDarkB64    ?: string;
   rootUrl        ?: string;
-  primaryColor   ?: VariationColor;
-  secondaryColor ?: VariationColor;
+  primaryColor   ?: IgnisignApplication_VariationColor;
+  secondaryColor ?: IgnisignApplication_VariationColor;
 }
-export class DocumentSignatureImagesDto {
+export class Ignisign_SignatureImagesDto {
   documentId : string;
   signatures : { signerId: string, imgB64: string }[];
 }

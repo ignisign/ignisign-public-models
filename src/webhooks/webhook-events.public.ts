@@ -60,7 +60,7 @@ export class IgnisignWebhookEvent {
 }
 
 
-export class IgnisignWebhookEventResponseDto {
+export class IgnisignWebhookEvent_ResponseDto {
   events : IgnisignWebhookEvent[];
   searchData: { total: number, page: number, nbEventsPerPage: number }
 }

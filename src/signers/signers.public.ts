@@ -1,7 +1,7 @@
 import { IsDateString, IsEmail, IsEnum, IsMongoId, IsOptional, IsPhoneNumber, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
-import { IgnisignSignatureRequestWithDocName } from "../signatures/signature-requests.public";
+import { IgnisignSignatureRequest_WithDocName } from "../signatures/signature-requests.public";
 
 import { IGNISIGN_SIGNER_CLAIM_REF, IGNISIGN_SIGNER_CLAIM_STATUS } from "./signer-claims.public";
 
@@ -48,7 +48,7 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
 }
 
 
-export class IgnisignSigner_Creation_RequestDto {
+export class IgnisignSigner_CreationRequestDto {
   @IsString()
   signatureProfileId : string;
 
@@ -89,7 +89,7 @@ export class IgnisignSigner_Creation_RequestDto {
   externalId ?: string;
 }
 
-export class IgnisignSigner_Update_RequestDto {
+export class IgnisignSigner_UpdateRequestDto {
   @IsOptional()
   @IsMongoId()
   signerId ?: string;
@@ -135,18 +135,18 @@ export class IgnisignSigner_Update_RequestDto {
   externalId ?: string;
 }
 
-export class IgnisignSigner_Creation_ResponseDto {
+export class IgnisignSigner_CreationResponseDto {
   signerId               : string;
   entityType             : IGNISIGN_SIGNER_ENTITY_TYPE;
   authSecret?:  string;
 }
 
-export class IgnisignSignersSearchResultDto {
-  signers : IgnisignSignerSummary[];
+export class IgnisignSigners_SearchResultDto {
+  signers : IgnisignSigner_Summary[];
   total   : number;
 }
 
-export class IgnisignSignerSummary {
+export class IgnisignSigner_Summary {
   @IsOptional()
   @IsString()
   signerId ?: string;
@@ -173,10 +173,10 @@ export class IgnisignSignerSummary {
 }
 
 
-export class IgnisignSignerContext extends IgnisignSignerSummary {
+export class IgnisignSigner_Context extends IgnisignSigner_Summary {
   claims    : {
     claimRef : IGNISIGN_SIGNER_CLAIM_REF;
     status   : IGNISIGN_SIGNER_CLAIM_STATUS;
   }[];
-  latestSignatureRequests : IgnisignSignatureRequestWithDocName[];
+  latestSignatureRequests : IgnisignSignatureRequest_WithDocName[];
 }

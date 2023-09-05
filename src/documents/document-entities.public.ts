@@ -1,6 +1,6 @@
 import { IsMongoId, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { Ignisign_SignatureRequest_Statement } from "../signatures/signature-requests.public";
+import { IgnisignSignatureRequest_Statement } from "../signatures/signature-requests.public";
 import { IgnisignDocumentRequest } from "./document-request.public";
 
 
@@ -52,8 +52,8 @@ export class IgnisignDocument {
   _createdAt                ?: Date;
 }
 
-export class IgnisignDocumentContext extends IgnisignDocument {
-  statements         ?: Ignisign_SignatureRequest_Statement[];  
+export class IgnisignDocument_Context extends IgnisignDocument {
+  statements         ?: IgnisignSignatureRequest_Statement[];  
   documentRequest    ?: IgnisignDocumentRequest;
   signatureSummaries  :  {
     signatureId : string,
@@ -62,7 +62,7 @@ export class IgnisignDocumentContext extends IgnisignDocument {
   } [];
 }
 
-export class IgnisignDocumentInitializationDto {
+export class IgnisignDocument_InitializationDto {
   @IsMongoId()
   signatureRequestId          : string;
 
@@ -84,7 +84,7 @@ export class IgnisignDocumentInitializationDto {
 
 }
 
-export class IgnisignDocumentUpdateDto {
+export class IgnisignDocument_UpdateDto {
   @IsOptional()
   @IsString()
   label                      ?: string;

@@ -24,33 +24,33 @@ export enum IGNISIGN_WEBHOOK_TOPICS {
   SIGNATURE_SESSION= "SIGNATURE_SESSION"
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION__PDF {
+export enum IGNISIGN_WEBHOOK_ACTION_PDF {
   GENERATED = 'GENERATED'
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION__SIGNATURE_IMAGE {
+export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE {
   GENERATED = 'GENERATED'
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION__DOCUMENT {
+export enum IGNISIGN_WEBHOOK_ACTION_DOCUMENT {
   PROVIDED = 'PROVIDED'
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION__SIGNATURE {
+export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE {
   CREATED = 'CREATED',
   FAILED  = 'FAILED',
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION__SIGNER {
+export enum IGNISIGN_WEBHOOK_ACTION_SIGNER {
   CREATED = 'CREATED',
   LAUNCHED = 'LAUNCHED',
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION__SIGNATURE_SESSION {
+export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION {
   INITIALIZED = 'INITIALIZED'
 }
 
-export enum IGNISIGN_SIGNATURE_REQUEST_WEBHOOK_ACTION {
+export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   INITIALIZED       = 'INITIALIZED',
   UPDATED           = 'UPDATED',
   READY             = 'READY',
@@ -65,15 +65,15 @@ export class IgnisignWebhook {
   _createdAt  ?: Date;
 }
 
-export class IgnisignWebhookEndpointDto {
+export class IgnisignWebhook_EndpointDto {
   url          : string;
   description ?: string;
 }
 
 
-export type IgnisignWebhookCallback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE) => Promise<any>
+export type IgnisignWebhook_Callback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE) => Promise<any>
 
-export class IgnisignWebhookActionDto {
+export class IgnisignWebhook_ActionDto {
   @IsString()
   @MaxLength(512)
   appId             : string;

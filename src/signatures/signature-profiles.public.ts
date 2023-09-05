@@ -13,7 +13,7 @@ export enum IGNISIGN_SIGNATURE_PROFILE_STATUS {
   ARCHIVED  = "ARCHIVED",
 }
 
-export class Ignisign_SignatureProfile {
+export class IgnisignSignatureProfile {
   _id?                            : string;
   appId                           : string;
   appEnv                          : IGNISIGN_APPLICATION_ENV; 
@@ -33,16 +33,16 @@ export class Ignisign_SignatureProfile {
   createdByDefault               ?: boolean = false;
 }
 
-export class Ignisign_SignatureProfile_StatusWrapper {
+export class IgnisignSignatureProfile_StatusWrapper {
   @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
   status                          : IGNISIGN_SIGNATURE_PROFILE_STATUS;
 }
 
-export class Ignisign_SignatureProfileSignerInputsConstraints {
+export class IgnisignSignatureProfile_SignerInputsConstraints {
   additionalInputsNeeded  : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
-export class Ignisign_SignatureProfileIdContainerDto {
+export class IgnisignSignatureProfile_IdContainerDto {
   @IsString()
   signatureProfileId : string;
 }
