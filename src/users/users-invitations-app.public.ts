@@ -37,7 +37,7 @@ export class IgnisignApplication_InvitedUser_CreationRequestDto {
   readonly roles: IgnisignApplication_Roles;
 }
 
-export class IgnisignApplication_User_EditRequestDto {
+export class IgnisignApplicationUser_EditRequestDto {
   // @IsString()
   // _id: string;
 
