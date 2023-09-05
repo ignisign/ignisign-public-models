@@ -144,7 +144,3 @@ export class IgnisignSignatureRequestContext extends IgnisignSignatureRequest {
   signatureProofsUrl   ?: string;
 }
 
-export class Ignisign_SignatureProfileIdContainerDto {
-  @IsString()
-  signatureProfileId : string;
-}

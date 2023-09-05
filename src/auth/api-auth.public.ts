@@ -1,10 +1,6 @@
-
-import {IsBoolean, IsEnum, IsOptional, IsString, ValidateNested} from "class-validator";
-import {Type} from "class-transformer";
-import 'reflect-metadata';
+import {IsEnum, IsString} from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
-// PUBLIC
 export class IgnisignApiAuth_RequestDto {
   @IsString()
   appId  : string;

@@ -2,8 +2,6 @@ import { IsDate, IsArray, IsEnum, IsMongoId, IsNumber, IsOptional, IsString, Val
 import { Type } from "class-transformer";
 import 'reflect-metadata';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IGNISIGN_ID_PROOFING_METHOD_REF } from "../id-proofing/id-proofing-methods.public";
-import { IGNISIGN_AUTH_REGISTRATION_REF, IGNISIGN_SINGLE_AUTH_METHOD_REF } from "../signatures/signature-auth.public";
 
 export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
   INFO      = "INFO",
@@ -46,42 +44,10 @@ export enum IGNISIGN_WEBHOOK_ACTION__SIGNATURE {
 export enum IGNISIGN_WEBHOOK_ACTION__SIGNER {
   CREATED = 'CREATED',
   LAUNCHED = 'LAUNCHED',
-  INITIALIZED_AUTH = 'INITIALIZED_AUTH',
-  FINALIZED_AUTH = 'FINALIZED_AUTH',
 }
-
-export class IGNISIGN_WEBHOOK_DTO__SIGNER_INITIALIZED_AUTH {
-  signerId: string
-  authRef: IGNISIGN_SINGLE_AUTH_METHOD_REF
-}
-
-export class IGNISIGN_WEBHOOK_DTO__SIGNER_FINALIZED_AUTH {
-  signerId: string
-  authRef: IGNISIGN_SINGLE_AUTH_METHOD_REF
-}
-
-export enum IGNISIGN_WEBHOOK_ACTION__ID_PROOFING {
-  INITIALIZED = 'INITIALIZED',
-  FINALIZED = 'FINALIZED'
-}
-export class IGNISIGN_WEBHOOK_DTO__ID_PROOFING_INITIALIZED {
-  signerId: string
-  idProofingRef: IGNISIGN_ID_PROOFING_METHOD_REF
-}
-export class IGNISIGN_WEBHOOK_DTO__ID_PROOFING_FINALIZED {
-  signerId: string
-  idProofingRef: IGNISIGN_ID_PROOFING_METHOD_REF
-}
-
-
 
 export enum IGNISIGN_WEBHOOK_ACTION__SIGNATURE_SESSION {
   INITIALIZED = 'INITIALIZED'
-}
-
-export class IGNISIGN_WEBHOOK_DTO__SIGNATURE_SESSION_INITIALIZED {
-  signerId: string
-  signatureRequestId: string
 }
 
 export enum IGNISIGN_SIGNATURE_REQUEST_WEBHOOK_ACTION {
@@ -130,14 +96,4 @@ export class IgnisignWebhookActionDto {
   msgNature         : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
 
   content           : any;
-}
-
-export class IgnisignWebhookContext {
-  webhookEventId : string;
-  appId          : string;
-  appEnv         : IGNISIGN_APPLICATION_ENV;
-  topic          : IGNISIGN_WEBHOOK_TOPICS;
-  action         : string;
-  msgNature      : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
-  content        : any;
 }

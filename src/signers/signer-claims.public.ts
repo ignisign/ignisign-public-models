@@ -1,5 +1,3 @@
-import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "./signers.public";
 
 export enum IGNISIGN_SIGNER_CLAIM_REF {
   EID_POSSESSION               = 'EID_POSSESSION',
@@ -21,63 +19,10 @@ export enum IGNISIGN_SIGNER_CLAIM_REF {
   BIRTH_INFO                   = "BIRTH_INFO",
 }
 
-export const IGNISIGN_SIGNER_CLAIM_REF_UNIQUE = [
-  IGNISIGN_SIGNER_CLAIM_REF.PHONE_NUMBER_POSSESSION,
-  IGNISIGN_SIGNER_CLAIM_REF.EMAIL_POSSESSION,
-]
-
-export const IGNISIGN_SIGNER_CLAIM_REF_SEARCHABLE = [
-  IGNISIGN_SIGNER_CLAIM_REF.NATURAL_PERSON_NAME,
-  IGNISIGN_SIGNER_CLAIM_REF.LEGAL_PERSON_NAME 
-]
 
 export enum IGNISIGN_SIGNER_CLAIM_STATUS {
   DECLARED    = 'DECLARED',
   VERIFIED    = 'VERIFIED',
   REJECTED    = 'REJECTED',
   DEPRECATED  = 'DEPRECATED',
-}
-
-export class IgnisignSignerClaim {
-  _id             ?: string;
-  appId            : string;
-  appEnv           : IGNISIGN_APPLICATION_ENV;
-  signerId         : string;
-  idProofingId    ?: string;
-
-  claimRef         : IGNISIGN_SIGNER_CLAIM_REF;
-  status           : IGNISIGN_SIGNER_CLAIM_STATUS;
-  searchableValue ?: string;
-  effectiveDate   ?: Date;
-  expirationDate  ?: Date;
-  value           ?: string;
-  context         ?: any;
-  statusHistory    : { status : IGNISIGN_SIGNER_CLAIM_STATUS, effectiveDate: Date, value : string, expirationDate  ?: Date; context: any}[] = [];
-}
-
-export type ClaimProcessing     = { value : string, status : IGNISIGN_SIGNER_CLAIM_STATUS, expirationDate ?: Date, context? : any };
-export type ClaimProcessingMap  = { [key in IGNISIGN_SIGNER_CLAIM_REF]? : ClaimProcessing };
-
-export class Ignisign_SignerClaimEvolution {
-  ref              : IGNISIGN_SIGNER_CLAIM_REF;
-  statusFrom       : IGNISIGN_SIGNER_CLAIM_STATUS;
-  statusTo         : IGNISIGN_SIGNER_CLAIM_STATUS;
-  inputs          ?: IGNISIGN_SIGNER_CREATION_INPUT_REF[] = [];
-}
-export class IgnisignSigner_ClaimsConstraint {
-  ref       : IGNISIGN_SIGNER_CLAIM_REF;
-  minStatus : IGNISIGN_SIGNER_CLAIM_STATUS;
-};
-
-export class IgnisignSignerCheckExistence_RequestDto {
-  claimsToCheck :  {
-    [key in IGNISIGN_SIGNER_CLAIM_REF] ?: string 
-  }
-  // claimsToCheck :  {
-  //    [key in IGNISIGN_SIGNER_CLAIM_REF] ?: string 
-  // }[]
-}
-
-export class IgnisignSignerCheckExistence_ResponseDto {
-  signerExists : boolean;
 }

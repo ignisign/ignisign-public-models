@@ -1,6 +1,5 @@
 import { IsEmail, IsEnum, IsMongoId, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IgnisignDocument } from "./document-entities.public";
 
 export enum IGNISIGN_DOCUMENT_REQUEST_TARGET {
   APPLICATION = 'APPLICATION',
@@ -16,16 +15,6 @@ export enum IGNISIGN_DOCUMENT_REQUEST_STATUS {
   VALIDATED            = 'VALIDATED',
   REJECTED             = 'REJECTED', 
 }
-
-export enum IGNISIGN_DOCUMENT_REQUEST_ACTION {
-  CREATED   = 'CREATED',
-  REMOVED   = 'REMOVED',
-  VALIDATED = 'VALIDATED',
-  REJECTED  = 'REJECTED'
-}
-
-export type IGNISIGN_DOCUMENT_REQUEST_VALIDATION_STATUS = IGNISIGN_DOCUMENT_REQUEST_STATUS.VALIDATED | IGNISIGN_DOCUMENT_REQUEST_STATUS.REJECTED;
-
 export class IgnisignDocumentRequest {
   _id                          ?: string;
   appId                         : string;
@@ -41,14 +30,6 @@ export class IgnisignDocumentRequest {
     lastName  ?: string;
     email      : string;
   }
-  // documentNature : IGNISIGN_DOCUMENT_TYPE; // ?
-}
-
-
-
-export class IgnisignDocumentRequestWithDocument extends IgnisignDocumentRequest {
-  document      : IgnisignDocument;
-  onlyPdfAllow ?: boolean;
 }
 
 export class IgnisignDocumentRequestDto {
@@ -79,13 +60,4 @@ export class IgnisignDocumentRequestDto {
   @IsEmail()
   email   ?: string;
 
-}
-
-export class IgnisignDocumentRequestValidationDto {
-  documentId        : string;
-  documentRequestId : string;
-  status            : IGNISIGN_DOCUMENT_REQUEST_VALIDATION_STATUS;
-}
-export class IgnisignDocumentIdContainerDto {
-  documentId : string;
 }

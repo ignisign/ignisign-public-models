@@ -46,6 +46,14 @@ import {
   IGNISIGN_WEBHOOK_EVENT_FILTER,
   IGNISIGN_WEBHOOK_EVENT_STATUS,
 
+  IGNISIGN_WEBHOOK_ACTION__PDF,
+  IGNISIGN_WEBHOOK_ACTION__SIGNATURE_IMAGE,
+  IGNISIGN_WEBHOOK_ACTION__DOCUMENT,
+  IGNISIGN_WEBHOOK_ACTION__SIGNATURE,
+  IGNISIGN_WEBHOOK_ACTION__SIGNER,
+  IGNISIGN_WEBHOOK_ACTION__SIGNATURE_SESSION,
+  IGNISIGN_SIGNATURE_REQUEST_WEBHOOK_ACTION,
+
   
   IgnisignApplicationInvitedUser,
   IgnisignApplicationInvitedUserCreationRequestDto,
@@ -62,8 +70,10 @@ import {
 
   IgnisignDocument, 
   IgnisignDocumentContext,
+  IgnisignDocumentRequest,
   IgnisignDocumentContentCreation_DataJsonDto, 
   IgnisignDocumentInitializationDto,
+  IgnisignDocumentUpdateDto,
   IgnisignDocumentContentCreation_PrivateContentDto,
   IgnisignDocumentRequestDto,
   
@@ -101,6 +111,18 @@ import {
   IgnisignWebhookEventResponseDto,
   IgnisignWebhookEvent, 
   IgnisignWebhook,
+
+
+  IgnisignSignatureRequest_WebhookResult_SignerDescription,
+  IgnisignSignatureRequest_WebhookResult,
+  IgnisignSignatureWebhookResultDto,
+  IgnisignSignatureProof_Generation_WebhookDto,
+  IgnisignSignatureImage_Generation_WebhookDto,
+  IgnisignAdvancedProof_Generation_WebhookDto,
+  IgnisignSigner_CreationSuccess_WebhookResultDto,
+  IgnisignSigner_CreationFailed_WebhookResultDto,
+  IgnisignDocumentRequestWebhookContext,
+  IGNISIGN_WEBHOOK_DTO__SIGNATURE_SESSION_INITIALIZED,
 
   VariationColor,
   DocumentSignatureImagesDto, 
