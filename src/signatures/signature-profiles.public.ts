@@ -33,51 +33,16 @@ export class Ignisign_SignatureProfile {
   createdByDefault               ?: boolean = false;
 }
 
-export class Ignisign_SignatureProfile_CreationDto {
-  @IsString()
-  name                            : string;
-  
-  @IsEnum(IGNISIGN_INTEGRATION_MODE)
-  integrationMode                 : IGNISIGN_INTEGRATION_MODE;
-
-  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
-  signatureMethodRef              : IGNISIGN_SIGNATURE_METHOD_REF;
-
-  @IsEnum(IGNISIGN_ID_PROOFING_METHOD_REF, { each: true })
-  idProofings                     : IGNISIGN_ID_PROOFING_METHOD_REF[];
-
-  @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
-  authMethods                     : IGNISIGN_AUTH_FULL_MECHANISM_REF[];
-
-  @IsEnum(IGNISIGN_DOCUMENT_TYPE, { each: true })
-  documentTypes                   : IGNISIGN_DOCUMENT_TYPE[];
-
-  @IsBoolean()
-  documentRequestActivated        : boolean;
-
-  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
-  defaultLanguage                 : IGNISIGN_SIGNATURE_LANGUAGES;
-
-  @IsBoolean()
-  languageCanBeChanged            : boolean;
-
-  @IsBoolean()
-  authSessionEnabled              : boolean;
-
-  @IsBoolean()
-  statementsEnabled               : boolean;
-}
-
 export class Ignisign_SignatureProfile_StatusWrapper {
   @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
   status                          : IGNISIGN_SIGNATURE_PROFILE_STATUS;
 }
 
-export class Ignisign_SignatureProfile_ImportDto {
-  signatureProfilesIds            : string[];
-}
-
-
 export class Ignisign_SignatureProfileSignerInputsConstraints {
   additionalInputsNeeded  : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+}
+
+export class Ignisign_SignatureProfileIdContainerDto {
+  @IsString()
+  signatureProfileId : string;
 }

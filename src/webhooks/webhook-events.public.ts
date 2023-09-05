@@ -16,22 +16,6 @@ export enum IGNISIGN_WEBHOOK_EVENT_STATUS {
 }
 
 
-export class IgnisignWebhookEventsRequestDto {
-  @IsString()
-  @MaxLength(512)
-  appId     : string;
-
-  @IsString()
-  @MaxLength(512)
-  webhookId : string;
-
-  @IsEnum(IGNISIGN_WEBHOOK_TOPICS)
-  filter   ?: IGNISIGN_WEBHOOK_EVENT_FILTER;
-  
-  @IsNumber()
-  page     ?: number;
-}
-
 
 export class IgnisignWebhookEvent {
   _id        ?: string;
@@ -75,12 +59,6 @@ export class IgnisignWebhookEvent {
   _createdAt ?: Date;
 }
 
-export class IgnisignWebhookEventsResponseInitDto {
-  webhookId       : string;
-  [IGNISIGN_WEBHOOK_EVENT_FILTER.ALL]     : IgnisignWebhookEventResponseDto;
-  [IGNISIGN_WEBHOOK_EVENT_FILTER.SUCCESS] : IgnisignWebhookEventResponseDto;
-  [IGNISIGN_WEBHOOK_EVENT_FILTER.FAILED]  : IgnisignWebhookEventResponseDto;
-}
 
 export class IgnisignWebhookEventResponseDto {
   events : IgnisignWebhookEvent[];

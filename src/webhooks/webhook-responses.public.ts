@@ -4,7 +4,14 @@ import { IGNISIGN_DOCUMENT_TYPE } from "../documents/document-entities.public";
 import { IGNISIGN_DOCUMENT_REQUEST_TARGET } from "../documents/document-request.public";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
 import { IGNISIGN_INTEGRATION_MODE } from "../signatures/signatures.public";
-import { IGNISIGN_SIGNER_KEY_LOCATIONS, IGNISIGN_SIGNER_KEY_ROLES } from "../signers/signer-keys.public";
+
+
+
+export class IGNISIGN_WEBHOOK_DTO__SIGNATURE_SESSION_INITIALIZED {
+  signerId: string
+  signatureRequestId: string
+}
+
 
 export class IgnisignSignatureRequest_WebhookResult_SignerDescription {
   signerId  : string;
@@ -33,8 +40,6 @@ export class IgnisignSignatureWebhookResultDto {
   documentId      : string
   signatureId     : string
 }
-
-
 
 export class IgnisignSignatureProof_Generation_WebhookDto {
   @IsString()
@@ -77,19 +82,6 @@ export class IgnisignSigner_CreationSuccess_WebhookResultDto {
   appEnv                    : IGNISIGN_APPLICATION_ENV
   signerId                  : string;
   signerSecret              : string;
-}
-
-export class IgnisignSignerKey_CreationSuccess_WebhookResultDto {
-  _id             ?: string
-  signerId        ?: string
-  location        ?: IGNISIGN_SIGNER_KEY_LOCATIONS;
-  pubKey          ?: string;
-  appEnv          ?: IGNISIGN_APPLICATION_ENV
-  appId           ?: string;
-  certificateId   ?: string;
-  roles           ?: IGNISIGN_SIGNER_KEY_ROLES[];
-  deviceId        ?: string;
-  uuidAuthBCrypt  ?: string;
 }
 
 export class IgnisignSigner_CreationFailed_WebhookResultDto {

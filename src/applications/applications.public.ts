@@ -1,4 +1,4 @@
-import { IsString } from "class-validator";
+
 import { IgnisignApplicationConfiguration, IgnisignApplicationEnvSettings, IgnisignApplicationSettings } from "./applications-settings-config.public";
 import { Ignisign_SignatureProfile } from "../signatures/signature-profiles.public";
 
@@ -28,18 +28,5 @@ export class IgnisignApplicationContext extends IgnisignApplication {
   envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] : IgnisignApplicationEnvSettings };
   settings            : IgnisignApplicationSettings;
   signatureProfiles   : Ignisign_SignatureProfile[];
-}
-
-export class IgnisignApplication_Creation_RequestDto {
-  @IsString()
-  readonly appName: string;
-
-  @IsString()
-  readonly orgId: string;
-}
-
-
-export class IgnisignApplicationDeletionResponseDto {
-  appId : string
 }
 

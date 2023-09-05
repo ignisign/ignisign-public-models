@@ -1,4 +1,3 @@
-
 export enum COUNTRIES {
   AW = 'AW', AF = 'AF', AO = 'AO', AI = 'AI', AL = 'AL', AD = 'AD', AE = 'AE', AR = 'AR', AM = 'AM', AS = 'AS', AG = 'AG', AU = 'AU', AT = 'AT',
   AZ = 'AZ', BI = 'BI', BE = 'BE', BJ = 'BJ', BF = 'BF', BD = 'BD', BG = 'BG', BH = 'BH', BS = 'BS', BA = 'BA', BL = 'BL', BY = 'BY', BZ = 'BZ',

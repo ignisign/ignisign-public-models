@@ -52,9 +52,6 @@ export class IgnisignDocument {
   _createdAt                ?: Date;
 }
 
-
-
-
 export class IgnisignDocumentContext extends IgnisignDocument {
   statements         ?: Ignisign_SignatureRequest_Statement[];  
   documentRequest    ?: IgnisignDocumentRequest;

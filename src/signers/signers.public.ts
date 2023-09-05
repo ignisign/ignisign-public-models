@@ -3,12 +3,12 @@ import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
 import { IgnisignSignatureRequestWithDocName } from "../signatures/signature-requests.public";
 
-import { IGNISIGN_SIGNER_CLAIM_REF, IGNISIGN_SIGNER_CLAIM_STATUS, IgnisignSignerClaim } from "./signer-claims.public";
-import { IgnisignSignerKey } from "./signer-keys.public";
+import { IGNISIGN_SIGNER_CLAIM_REF, IGNISIGN_SIGNER_CLAIM_STATUS } from "./signer-claims.public";
+
 import { COUNTRIES } from "../_commons/countries.public";
 
 /*********************************** SIGNER ***********************************/
-export const IGNISIGN_SIGNER_SELF_SESSION_DTO_FIELDS = ['signerId', 'externalId', 'firstName', 'lastName', 'email', 'status', 'phoneNumber', 'agreedLegalTerms', 'certificateDisseminationAgreement'];
+
 
 export enum IGNISIGN_SIGNER_ENTITY_TYPE {
     NATURAL = 'NATURAL',
@@ -47,7 +47,7 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   BIRTH_COUNTRY = "birthCountry",
 }
 
-export type IgnisignSigner_Creation_InputMap = { [key in IGNISIGN_SIGNER_CREATION_INPUT_REF] ?: string };
+
 export class IgnisignSigner_Creation_RequestDto {
   @IsString()
   signatureProfileId : string;
@@ -141,31 +141,9 @@ export class IgnisignSigner_Creation_ResponseDto {
   authSecret?:  string;
 }
 
-
-export class IgnisignSigner_Details extends IgnisignSigner{
-  signerKeys  : IgnisignSignerKey[];
-  claims      : IgnisignSignerClaim[];
-}
-
 export class IgnisignSignersSearchResultDto {
   signers : IgnisignSignerSummary[];
   total   : number;
-}
-
-
-export class PaginateApplicationSignersDto {
-  total         : number;
-  signerPerPage : number;
-  currentPage   : number;
-  signers       : IgnisignSignerSummary[];
-}
-
-export class IgnisignSignerSignatureProofDto {
-  signerId       : string;
-  firstName      : string;
-  lastName       : string;
-  email          : string;
-  verifiedClaims : IGNISIGN_SIGNER_CLAIM_REF[];
 }
 
 export class IgnisignSignerSummary {
@@ -202,14 +180,3 @@ export class IgnisignSignerContext extends IgnisignSignerSummary {
   }[];
   latestSignatureRequests : IgnisignSignatureRequestWithDocName[];
 }
-
-
-export class IgnisignSignerSelfSessionDto extends IgnisignSignerSummary {
-  @IsOptional()
-  @IsPhoneNumber()
-  phoneNumber ?: string;
-
-  agreedLegalTerms                  : boolean;
-  certificateDisseminationAgreement : boolean;
-}
-

@@ -12,12 +12,6 @@ export enum IGNISIGN_APPLICATION_INVITED_USER_STATUS {
   CANCELED = 'CANCELED'
 }
 
-export enum IGNISIGN_APPLICATION_USER_STATUS {
-  ACTIVE  = 'ACTIVE',
-  BLOCKED = 'BLOCKED'
-}
-
-
 export class IgnisignApplicationInvitedUser {
   _id        ?: string;
   email       : string;
@@ -54,50 +48,3 @@ export class IgnisignApplicationUserEditRequestDto {
   @Type(() => IgnisignAppRoles)
   readonly roles: IgnisignAppRoles;
 }
-
-export class IgnisignApplicationInvitedUserSpecificationsRequestDto {
-  @IsString()
-  readonly appName: string;
-
-  @IsEmail()
-  readonly invitedUserEmail: string;
-
-  @IsDefined()
-  @IsNotEmptyObject()
-  @IsObject()
-  @ValidateNested()  
-  @Type(() => IgnisignAppRoles)
-  readonly roles: IgnisignAppRoles;
-}
-
-export class IgnisignApplicationInvitedUserResponseRequestDto {
-  @IsString()
-  readonly token: string
-
-  @IsEmail()
-  readonly email : string
-
-  @IsBoolean()
-  readonly isAccepted : boolean
-}
-
-export class IgnisignApplicationInvitedUserResponseAndUserCreationRequestDto {
-  @IsString()
-  readonly token: string;
-
-  @IsString()
-  readonly firstName: string;
-
-  @IsString()
-  readonly lastName: string;
-
-  @IsString()
-  readonly password: string;
-
-  @IsBoolean()
-  termsOfUseAccepted : boolean;
-
-  @IsBoolean()
-  privacyPolicyAccepted : boolean;
-}
-
