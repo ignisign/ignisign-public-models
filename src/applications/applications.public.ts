@@ -25,7 +25,7 @@ export class IgnisignApplication {
 
 export class IgnisignApplication_Context extends IgnisignApplication {
   config              : IgnisignApplication_Configuration;
-  envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] : IgnisignApplication_EnvSettings };
+  envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignApplication_EnvSettings };
   settings            : IgnisignApplication_Settings;
   signatureProfiles   : IgnisignSignatureProfile[];
 }
