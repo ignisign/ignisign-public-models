@@ -12,10 +12,10 @@ export enum IGNISIGN_AUTH_FULL_MECHANISM_REF {
 
 
 export enum IGNISIGN_BROADCASTABLE_ACTIONS {
-  NEED_PRIVATE_FILE_URL   = 'NEED_PRIVATE_FILE_URL',
-  OPEN_URL                = 'OPEN_URL',
-  SIGNATURE_FINALIZED     = 'SIGNATURE_FINALIZED',
-  SIGNATURE_ERROR         = 'SIGNATURE_ERROR',
+  NEED_PRIVATE_FILE_URL                                 = 'NEED_PRIVATE_FILE_URL',
+  OPEN_URL                                              = 'OPEN_URL',
+  SIGNATURE_FINALIZED                                   = 'SIGNATURE_FINALIZED',
+  SIGNATURE_ERROR                                       = 'SIGNATURE_ERROR'
 }
 
 export type IGNISIGN_BROADCASTABLE_ACTIONS_TYPE = 
