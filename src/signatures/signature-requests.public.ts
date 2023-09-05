@@ -6,6 +6,7 @@ import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IgnisignApplicationSignatureMetadata } from "./signatures.public";
 import { Ignisign_SignatureProfile } from "./signature-profiles.public";
 import { IgnisignSignerSummary } from "../signers/signers.public";
+import "reflect-metadata";
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
   SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
