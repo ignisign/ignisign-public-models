@@ -104,4 +104,7 @@ export class IgnisignWebhook_ActionDto {
   msgNature         : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
 
   content           : any;
+
+  @IsOptional()
+  error            ?: any;
 }
