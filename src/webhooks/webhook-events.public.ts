@@ -42,6 +42,9 @@ export class IgnisignWebhookEvent {
   content : any;
   
   @IsOptional()
+  error ?: any;
+
+  @IsOptional()
   @ValidateNested()
   response   ?: {
     status     ?: number;

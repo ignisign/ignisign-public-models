@@ -30,6 +30,50 @@ export class IgnisignWebhookDto_SignatureSessionResult {
   signers               : IgnisignWebhookDto_SignerDescription[];
 }
 
+export class IgnisignWebhookDto_DocumentProvided {
+  documentId     : string;
+  documentNature : string;
+  mimeType       : string;
+}
+
+export class IgnisignWebhookDto_SignatureProofGenerated {
+  appId              : string;
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+  documentId         : string;
+  signatureRequestId : string;
+}
+
+export class IgnisignWebhookDto_AdvancedProofGenerated {
+  appId              : string;
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+  documentId         : string;
+  signatureRequestId : string;
+}
+
+export class IgnisignWebhookDto_SignatureImageGenerated {
+  appId              : string;
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+  documentId         : string;
+  signatureRequestId : string;
+  signerId           : string;
+}
+
+export class IgnisignWebhookDto_SignatureRequest {
+  signatureRequestId  : string;
+  externalId         ?: string;
+}
+
+export class IgnisignWebhookDto_SignatureProfileCreated {
+  signatureProfileId  : string;
+}
+
+export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhookDto_SignatureRequest {
+  signers : {
+    signerId   : string;
+    externalId : string;
+    token      : string;
+  }[]
+}
 
 export class IgnisignWebhookDto_SignatureFinalization {
   appId           : string;
