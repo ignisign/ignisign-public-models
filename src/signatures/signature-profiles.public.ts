@@ -14,35 +14,36 @@ export enum IGNISIGN_SIGNATURE_PROFILE_STATUS {
 }
 
 export class IgnisignSignatureProfile {
-  _id?                            : string;
-  appId                           : string;
-  appEnv                          : IGNISIGN_APPLICATION_ENV; 
-  orgId                           : string;
-  name                            : string;
-  status                          : IGNISIGN_SIGNATURE_PROFILE_STATUS;
-  integrationMode                 : IGNISIGN_INTEGRATION_MODE;
-  signatureMethodRef              : IGNISIGN_SIGNATURE_METHOD_REF;
-  idProofings                     : IGNISIGN_ID_PROOFING_METHOD_REF[];
-  authMethods                     : IGNISIGN_AUTH_FULL_MECHANISM_REF[];
-  documentTypes                   : IGNISIGN_DOCUMENT_TYPE[];
-  documentRequestActivated        : boolean;
-  defaultLanguage                 : IGNISIGN_SIGNATURE_LANGUAGES;
-  languageCanBeChanged            : boolean;
-  authSessionEnabled              : boolean;
-  statementsEnabled               : boolean;
-  createdByDefault               ?: boolean = false;
+  _id?                      : string;
+  appId                     : string;
+  appEnv                    : IGNISIGN_APPLICATION_ENV; 
+  orgId                     : string;
+  
+  name                      : string;
+  status                    : IGNISIGN_SIGNATURE_PROFILE_STATUS;
+  integrationMode           : IGNISIGN_INTEGRATION_MODE;
+  signatureMethodRef        : IGNISIGN_SIGNATURE_METHOD_REF;
+  idProofings               : IGNISIGN_ID_PROOFING_METHOD_REF[];
+  authMethods               : IGNISIGN_AUTH_FULL_MECHANISM_REF[];
+  documentTypes             : IGNISIGN_DOCUMENT_TYPE[];
+  defaultLanguage           : IGNISIGN_SIGNATURE_LANGUAGES;
+  documentRequestActivated  : boolean;
+  languageCanBeChanged      : boolean;
+  authSessionEnabled        : boolean;
+  statementsEnabled         : boolean;
+  createdByDefault         ?: boolean = false;
 }
 
 export class IgnisignSignatureProfile_StatusWrapper {
   @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
-  status                          : IGNISIGN_SIGNATURE_PROFILE_STATUS;
+  status: IGNISIGN_SIGNATURE_PROFILE_STATUS;
 }
 
 export class IgnisignSignatureProfile_SignerInputsConstraints {
-  additionalInputsNeeded  : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+  additionalInputsNeeded: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
 export class IgnisignSignatureProfile_IdContainerDto {
   @IsString()
-  signatureProfileId : string;
+  signatureProfileId: string;
 }

@@ -70,17 +70,17 @@ export class IgnisignWebhookDto_AdvancedProofGeneration {
 
   @IsOptional()
   @IsString()
-  appId      ?: string;
+  appId ?: string;
 
   @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv      : IGNISIGN_APPLICATION_ENV;
+  appEnv : IGNISIGN_APPLICATION_ENV;
 }
 
 export class IgnisignWebhookDto_SignerCreationSuccess {
-  appId                     : string;
-  appEnv                    : IGNISIGN_APPLICATION_ENV
-  signerId                  : string;
-  signerSecret              : string;
+  appId        : string;
+  appEnv       : IGNISIGN_APPLICATION_ENV
+  signerId     : string;
+  signerSecret : string;
 }
 
 export class IgnisignWebhookDto_SignerCreationFailed {
@@ -91,16 +91,14 @@ export class IgnisignWebhookDto_SignerCreationFailed {
 
 export class IgnisignWebhookDto_DocumentRequestCreation {
   document : {
-    documentId                 : string;
-    externalId                ?: string;
-    externalDocRequestOwnerId ?: string;
+    documentId   : string;
+    externalId  ?: string;
   };
   documentRequest : {
-    documentRequestId          : string;
-    target                     : IGNISIGN_DOCUMENT_REQUEST_TARGET;
-    externalId                ?: string;
-    externalDocRequestOwnerId ?: string;
-    token                     ?: string;
-    email                     ?: string;
+    documentRequestId   : string;
+    target              : IGNISIGN_DOCUMENT_REQUEST_TARGET;
+    externalId         ?: string;
+    token              ?: string;
+    email              ?: string;
   }
 }

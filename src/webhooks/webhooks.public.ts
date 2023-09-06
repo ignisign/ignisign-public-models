@@ -11,17 +11,25 @@ export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
 }
 
 export enum IGNISIGN_WEBHOOK_TOPICS {
-  APP                       = "APP",
-  SIGNATURE                 = "SIGNATURE",
-  SIGNATURE_REQUEST         = "SIGNATURE_REQUEST",
-  SIGNER                    = "SIGNER",
-  DOCUMENT                  = "DOCUMENT",
-  DOCUMENT_REQUEST          = "DOCUMENT_REQUEST",
-  SIGNER_KEY                = "SIGNER_KEY",
-  ID_PROOFING               = "ID_PROOFING",
-  PDF                       = "PDF",
-  SIGNATURE_IMAGE           = "SIGNATURE_IMAGE",
-  SIGNATURE_SESSION= "SIGNATURE_SESSION"
+  APP                       = "APP", // SETTINGS_UPDATED, MEMBERSHIP_UPDATED, ARCHIVED
+  SIGNATURE                 = "SIGNATURE", // signature failed, signature finalized
+  SIGNATURE_REQUEST         = "SIGNATURE_REQUEST", //INIT UPDATE, PUBLISH, LAUNCHED
+  SIGNER                    = "SIGNER", //  CREATED, CLAIM_UPDATED
+  
+  DOCUMENT_REQUEST          = "DOCUMENT_REQUEST", // DOC_PROVIDED, FAILED
+
+  SIGNATURE_PROFILE         = "SIGNATURE_PROFILE", //CREATED, ARCHIVED
+
+  SIGNATURE_SESSION         = "SIGNATURE_SESSION", // STARTED
+  SIGNATURE_PROOF           = "SIGNATURE_PROOF", // AdvancedProofGenerated, SignatureProofGenerated
+
+  SIGNER_ID_PROOFING        = "ID_PROOFING", // TODO: POSTPONED
+  SIGNER_AUTH               = "SIGNER_AUTH", // TODO: POSTPONED
+
+  PDF                       = "PDF", // TODO : delete
+  SIGNATURE_IMAGE           = "SIGNATURE_IMAGE", // TODO : delete
+  DOCUMENT                  = "DOCUMENT", // TODO : delete
+  SIGNER_KEY                = "SIGNER_KEY", // TODO : delete
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_PDF {
@@ -42,8 +50,8 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE {
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNER {
-  CREATED = 'CREATED',
-  LAUNCHED = 'LAUNCHED',
+  CREATED   = 'CREATED',
+  LAUNCHED  = 'LAUNCHED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION {

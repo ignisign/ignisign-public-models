@@ -19,12 +19,12 @@ export class IgnisignDocumentRequest {
   _id                          ?: string;
   appId                         : string;
   appEnv                        : IGNISIGN_APPLICATION_ENV;
-  signatureRequestId            : string;
-  documentId                    : string;
   target                        : IGNISIGN_DOCUMENT_REQUEST_TARGET;
   status                        : IGNISIGN_DOCUMENT_REQUEST_STATUS;
+  signatureRequestId            : string;
+  documentId                    : string;
   externalId                   ?: string;
-  externalDocRequestOwnerId    ?: string;
+
   user                         ?: {
     firstName ?: string;
     lastName  ?: string;
@@ -43,10 +43,6 @@ export class IgnisignDocumentRequest_RequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
-
-  @IsOptional()
-  @IsString()
-  externalDocRequestOwnerId ?: string;
 
   @IsOptional()
   @IsString()
