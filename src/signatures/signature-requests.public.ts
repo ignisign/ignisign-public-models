@@ -39,27 +39,26 @@ export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
 ]
 
 export class IgnisignSignatureRequest {
-  _id                                   ?: string;
-  appId                                  : string;
-  appEnv                                 : IGNISIGN_APPLICATION_ENV;
-  signatureProfileId                     : string;
-  title                                 ?: string;
-  description                           ?: string;
-  expirationDate                        ?: Date;
-  expirationDateIsActivated             ?: boolean;
-  status                                 : IGNISIGN_SIGNATURE_REQUEST_STATUS;
-  language                              ?: IGNISIGN_SIGNATURE_LANGUAGES;
-  documentIds                           ?: string[];
-  externalId                            ?: string;
-  diffusionMode                         ?: IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE;
-  diffusionDate                         ?: Date;
-  signerIds                             ?: string[];
-  signedBy                              ?: string[];
-  _createdAt                            ?: Date;
-  isFakeIdProofing                      ?: boolean;
-  isFakeSms                             ?: boolean;
-  creatorId                             ?: string;
-  // legalSignerMethod                     ?: IGNISIGN_ORGANIZATION_LEGAL_SIGNER_AUTH_PROCESS_MODE_REF;
+  _id                       ?: string;
+  _createdAt                ?: Date;
+  appId                      : string;
+  appEnv                     : IGNISIGN_APPLICATION_ENV;
+  signatureProfileId         : string;
+  title                     ?: string;
+  description               ?: string;
+  expirationDate            ?: Date;
+  expirationDateIsActivated ?: boolean;
+  status                     : IGNISIGN_SIGNATURE_REQUEST_STATUS;
+  language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
+  documentIds               ?: string[];
+  externalId                ?: string;
+  diffusionMode             ?: IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE;
+  diffusionDate             ?: Date;
+  signerIds                 ?: string[];
+  signedBy                  ?: string[];  
+  isFakeIdProofing          ?: boolean;
+  isFakeSms                 ?: boolean;
+  creatorId                 ?: string;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -69,7 +68,7 @@ export class IgnisignSignatureRequest_Statement {
   signatureRequestId  : string;
   documentId         ?: string;
   target              : IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET;
-  labelMd           : string;
+  labelMd             : string;
 }
 
 export class IgnisignSignatureRequest_UpdateDto {
@@ -85,7 +84,6 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsDateString()
-  // @IsDate()
   expirationDate ?: Date;
 
   @IsOptional()
@@ -123,7 +121,7 @@ export class IgnisignSignatureRequest_UpdateDto {
 }
 
 export class IgnisignSignatureRequest_IdContainer {
-  signatureRequestId?               : string;
+  signatureRequestId?: string;
 }
 
 export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureRequest {
@@ -132,8 +130,8 @@ export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureReque
 }
 
 export class IgnisignSignatureRequests_Paginate {
-  signatureRequests:  IgnisignSignatureRequest_WithDocName[];
-  paginationData: { total: number, page: number, nbEventsPerPage: number };
+  signatureRequests :  IgnisignSignatureRequest_WithDocName[];
+  paginationData    : { total: number, page: number, nbEventsPerPage: number };
 }
 
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {

@@ -3,6 +3,46 @@ import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 
 
+
+/******************** GLOBAL CONFIG *******************/
+
+// managed by Ignisign
+export class IgnisignApplication_Configuration {
+  appId  : string;
+  orgId  : string;
+}
+
+
+/******************** ENV Settings *******************/
+export class IgnisignApplication_EnvSettings {
+  appId                     : string;
+  orgId                     : string;
+  appEnv                    : IGNISIGN_APPLICATION_ENV;
+  webhooks                  : IgnisignWebhook_SettingsDescription[];
+  appRootUrl               ?: string;
+  authorizedRedirectionUrls : string[];
+  hasKey                   ?: boolean; // Only used in appContext
+}
+export class IgnisignWebhook_SettingsDescription {
+  _id         ?: string;
+  _createdAt  ?: Date;
+  url          : string;
+  description ?: string;
+}
+
+
+/******************** COMMON SETTINGS *******************/
+//managed by the application owners
+export class IgnisignApplication_Settings {
+  appId                  : string;
+  orgId                  : string;
+  defaultLanguage       ?: IGNISIGN_SIGNATURE_LANGUAGES;
+  customerSupportEmail  ?: string;
+  logoB64               ?: string;
+  logoDarkB64           ?: string;
+  primaryColor          ?: IgnisignApplication_VariationColor
+  secondaryColor        ?: IgnisignApplication_VariationColor
+}
 export class IgnisignApplication_VariationColor {
   50   : string;
   100  : string;
@@ -20,47 +60,4 @@ export class IgnisignApplication_VariationColor {
   A700 : string;
 }
 
-/******************** GLOBAL CONFIG *******************/
-
-// managed by Ignisign
-export class IgnisignApplication_Configuration {
-  appId  : string;
-  orgId  : string;
-}
-
-export class IgnisignWebhook_SettingsDescription {
-  _id         ?: string;
-  url          : string;
-  description ?: string;
-  _createdAt  ?: Date;
-}
-
-/******************** ENV Settings *******************/
-export class IgnisignApplication_EnvSettings {
-  appId                     : string;
-  orgId                     : string;
-  appEnv                    : IGNISIGN_APPLICATION_ENV;
-  webhooks                  : IgnisignWebhook_SettingsDescription[];
-  appRootUrl               ?: string;
-  authorizedRedirectionUrls : string[];
-  hasKey                   ?: boolean; // Only used in appContext
-}
-
-
-
-/******************** COMMON SETTINGS *******************/
-//managed by the application owners
-
-export class IgnisignApplication_Settings {
-  appId                  : string;
-  orgId                  : string;
-  customerSupportEmail  ?: string;
-  defaultLanguage       ?: IGNISIGN_SIGNATURE_LANGUAGES;
-  logoB64               ?: string;
-  logoDarkB64           ?: string;
-  primaryColor          ?: IgnisignApplication_VariationColor
-  secondaryColor        ?: IgnisignApplication_VariationColor
-  smsSentByEmailInDev    : boolean = true;
-  smsSentByEmailInTest   : boolean = true;
-}
 

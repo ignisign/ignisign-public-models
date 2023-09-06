@@ -9,7 +9,6 @@ import { COUNTRIES } from "../_commons/countries.public";
 
 /*********************************** SIGNER ***********************************/
 
-
 export enum IGNISIGN_SIGNER_ENTITY_TYPE {
     NATURAL = 'NATURAL',
     LEGAL   = 'LEGAL',
@@ -28,13 +27,11 @@ export class IgnisignSigner {
   appEnv                            : IGNISIGN_APPLICATION_ENV;
   status                            : IGNISIGN_SIGNER_STATUS;
   entityType                        : IGNISIGN_SIGNER_ENTITY_TYPE;
-  // signerSecretBcrypt?               : string; // used in the context => to move inside a claim
   _createdAt?                       : Date;
   agreedLegalTerms                  ?: boolean
   certificateDisseminationAgreement ?: boolean
   externalId                        ?: string
 }
-
 
 export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   FIRST_NAME    = "firstName",
@@ -46,8 +43,6 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   BIRTH_PLACE   = "birthPlace",
   BIRTH_COUNTRY = "birthCountry",
 }
-
-
 export class IgnisignSigner_CreationRequestDto {
   @IsString()
   signatureProfileId : string;

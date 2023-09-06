@@ -15,44 +15,41 @@ export enum IGNISIGN_WEBHOOK_EVENT_STATUS {
   FAILED  = "FAILED"
 }
 
-
-
 export class IgnisignWebhookEvent {
-  _id        ?: string;
+  _id ?: string;
   
   @IsString()
   @MaxLength(512)
-  appId             : string;
+  appId : string;
 
   @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv            : IGNISIGN_APPLICATION_ENV;  
+  appEnv : IGNISIGN_APPLICATION_ENV;  
 
   @IsString()
-  webhookId   : string;
+  webhookId : string;
   
   @IsEnum(IGNISIGN_WEBHOOK_TOPICS)
-  topic             : IGNISIGN_WEBHOOK_TOPICS;
+  topic : IGNISIGN_WEBHOOK_TOPICS;
 
   @IsString()
   @MaxLength(512)
-  action            : string;
+  action : string;
 
   @IsEnum(IGNISIGN_WEBHOOK_MESSAGE_NATURE)
-  msgNature         : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
+  msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
 
   @IsDefined()
-  content           : any;
+  content : any;
   
   @IsOptional()
   @ValidateNested()
   response   ?: {
-    // data       ?: any;
     status     ?: number;
     statusText ?: string;
   }
 
   @IsEnum(IGNISIGN_WEBHOOK_EVENT_STATUS)
-  status      : IGNISIGN_WEBHOOK_EVENT_STATUS;
+  status : IGNISIGN_WEBHOOK_EVENT_STATUS;
 
   @IsOptional()
   @IsDate()

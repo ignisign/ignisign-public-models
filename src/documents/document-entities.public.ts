@@ -20,8 +20,8 @@ export enum IGNISIGN_DOCUMENT_STATUS {
 
 export enum GET_PRIVATE_FILE_ERRORS {
   DOCUMENT_HASH_DOES_NOT_MATCH_PROVIDED_ONE = 'DOCUMENT_HASH_DOES_NOT_MATCH_PROVIDED_ONE',
-  NOT_AUTHORIZED_TO_GET = 'NOT_AUTHORIZED_TO_GET',
-  CANNOT_GET_FILE = 'CANNOT_GET_FILE',
+  NOT_AUTHORIZED_TO_GET                     = 'NOT_AUTHORIZED_TO_GET',
+  CANNOT_GET_FILE                           = 'CANNOT_GET_FILE',
 }
 
 export const ACCEPTED_DOCS = [
@@ -35,21 +35,22 @@ export const ACCEPTED_DOCS = [
 
 export class IgnisignDocument {
   _id                       ?: string;
+  _createdAt                ?: Date;
   appId                      : string;
   appEnv                     : IGNISIGN_APPLICATION_ENV;
-  externalId                ?: string;
-  externalDocOwnerId        ?: string;
   documentNature             : IGNISIGN_DOCUMENT_TYPE;
-  fileName                  ?: string;
-  fileSize                  ?: number;
-  label                     ?: string;
-  description               ?: string;
-  mimeType                  ?: string;
-  documentHash               : string;
   status                     : IGNISIGN_DOCUMENT_STATUS;
+  
   documentRequestId         ?: string;
   signatureRequestId         : string;
-  _createdAt                ?: Date;
+  externalId                ?: string;
+  
+  label                     ?: string;
+  description               ?: string;
+  fileName                  ?: string;
+  fileSize                  ?: number;
+  mimeType                  ?: string;
+  documentHash               : string;
 }
 
 export class IgnisignDocument_Context extends IgnisignDocument {
@@ -68,36 +69,27 @@ export class IgnisignDocument_InitializationDto {
 
   @IsOptional()
   @IsString()
+  externalId                 ?: string;
+
+  @IsOptional()
+  @IsString()
   label                      ?: string;
 
   @IsOptional()
   @IsString()
   description                ?: string;
-
-  @IsOptional()
-  @IsString()
-  externalId                 ?: string;
-
-  @IsOptional()
-  @IsString()
-  externalDocOwnerId         ?: string;
-
 }
 
 export class IgnisignDocument_UpdateDto {
   @IsOptional()
   @IsString()
+  externalId                 ?: string;
+
+  @IsOptional()
+  @IsString()
   label                      ?: string;
 
   @IsOptional()
   @IsString()
   description                ?: string;
-
-  @IsOptional()
-  @IsString()
-  externalId                 ?: string;
-
-  @IsOptional()
-  @IsString()
-  externalDocOwnerId         ?: string;
 }

@@ -16,13 +16,14 @@ export enum IGNISIGN_APPLICATION_ENV {
 }
 
 export class IgnisignApplication {
+  _createdAt  ?: Date;
   appId       ?: string;
+  orgId        : string;
   appName      : string;
   status       : IGNISIGN_APPLICATION_STATUS;
-  orgId        : string;
-  _createdAt  ?: Date;
 }
 
+// https://app.clickup.com/t/860rnx794
 export class IgnisignApplication_Context extends IgnisignApplication {
   config              : IgnisignApplication_Configuration;
   envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignApplication_EnvSettings };
