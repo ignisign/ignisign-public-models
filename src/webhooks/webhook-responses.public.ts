@@ -35,10 +35,9 @@ export class IgnisignWebhookDto_SignatureFinalization {
   appId           : string;
   appEnv          : IGNISIGN_APPLICATION_ENV;
   documentNature  : IGNISIGN_DOCUMENT_TYPE;
-
-  signerId        : string
-  documentId      : string
-  signatureId     : string
+  signerId        : string;
+  documentId      : string;
+  signatureId     : string;
 }
 
 export class IgnisignWebhookDto_SignatureProofGeneration {
