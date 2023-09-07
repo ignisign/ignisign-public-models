@@ -4,6 +4,8 @@ import { IGNISIGN_DOCUMENT_TYPE } from "../documents/document-entities.public";
 import { IGNISIGN_DOCUMENT_REQUEST_TARGET } from "../documents/document-request.public";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
 import { IGNISIGN_INTEGRATION_MODE } from "../signatures/signatures.public";
+import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
+
 
 
 
@@ -11,7 +13,6 @@ export class IgnisignWebhookDto_SignatureSessionInitialized {
   signerId: string
   signatureRequestId: string
 }
-
 
 export class IgnisignWebhookDto_SignerDescription {
   signerId  : string;
@@ -41,6 +42,13 @@ export class IgnisignWebhookDto_SignatureProofGenerated {
   appEnv             : IGNISIGN_APPLICATION_ENV;
   documentId         : string;
   signatureRequestId : string;
+}
+
+export class IgnisignWebhookDto_Signer {
+  appId       : string;
+  appEnv      : IGNISIGN_APPLICATION_ENV;
+  signerId    : string;
+  inputs      : IGNISIGN_SIGNER_CREATION_INPUT_REF[]
 }
 
 export class IgnisignWebhookDto_AdvancedProofGenerated {
@@ -118,19 +126,6 @@ export class IgnisignWebhookDto_AdvancedProofGeneration {
 
   @IsEnum(IGNISIGN_APPLICATION_ENV)
   appEnv : IGNISIGN_APPLICATION_ENV;
-}
-
-export class IgnisignWebhookDto_SignerCreationSuccess {
-  appId        : string;
-  appEnv       : IGNISIGN_APPLICATION_ENV
-  signerId     : string;
-  signerSecret : string;
-}
-
-export class IgnisignWebhookDto_SignerCreationFailed {
-  signerId : string;
-  appId    : string;
-  appEnv   : IGNISIGN_APPLICATION_ENV;
 }
 
 export class IgnisignWebhookDto_DocumentRequestCreation {

@@ -39,7 +39,7 @@ import {
   IGNISIGN_SIGNER_ENTITY_TYPE,
   IGNISIGN_SIGNER_STATUS,
 
-  IGNISIGN_WEBHOOK_ACTION_PDF,                     
+  // IGNISIGN_WEBHOOK_ACTION_PDF,                     
   IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE,         
   IGNISIGN_WEBHOOK_ACTION_DOCUMENT,                
   IGNISIGN_WEBHOOK_ACTION_SIGNATURE,               
@@ -118,10 +118,10 @@ import {
   
 
   IgnisignWebhookDto_AdvancedProofGeneration,                    
-  IgnisignWebhookDto_SignerCreationSuccess,     
-  IgnisignWebhookDto_SignerCreationFailed,      
+  // IgnisignWebhookDto_SignerCrea1.0.20tionSuccess,     
+  // IgnisignWebhookDto_SignerCrea1.0.20tionFailed,      
   IgnisignWebhookDto_DocumentRequestCreation,                    
-  IgnisignWebhookDto_SignatureSessionInitialized, // TO DOC      
+  // IgnisignWebhookDto_SignatureSe1.0.20ssionInitialized, // TO DOC      
   IgnisignWebhookDto_SignerDescription,                          
   IgnisignWebhookDto_SignatureSessionResult,                     
   IgnisignWebhookDto_SignatureProofGeneration,                   
