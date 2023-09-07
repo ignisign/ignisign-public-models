@@ -37,11 +37,16 @@ export class IgnisignWebhookDto_DocumentRequest {
   mimeType       : string;
 }
 
-export class IgnisignWebhookDto_SignatureProofGenerated {
+export class IgnisignWebhookDto_SignatureProof {
   appId              : string;
   appEnv             : IGNISIGN_APPLICATION_ENV;
   documentId         : string;
   signatureRequestId : string;
+}
+
+
+export class IgnisignWebhookDto_Application {
+  userId ?: string
 }
 
 export class IgnisignWebhookDto_Signer {
@@ -51,14 +56,7 @@ export class IgnisignWebhookDto_Signer {
   inputs      : IGNISIGN_SIGNER_CREATION_INPUT_REF[]
 }
 
-export class IgnisignWebhookDto_AdvancedProofGenerated {
-  appId              : string;
-  appEnv             : IGNISIGN_APPLICATION_ENV;
-  documentId         : string;
-  signatureRequestId : string;
-}
-
-export class IgnisignWebhookDto_SignatureImageGenerated {
+export class IgnisignWebhookDto_SignatureImage {
   appId              : string;
   appEnv             : IGNISIGN_APPLICATION_ENV;
   documentId         : string;

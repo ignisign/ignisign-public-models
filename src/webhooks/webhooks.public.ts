@@ -2,6 +2,7 @@ import { IsDate, IsArray, IsEnum, IsMongoId, IsNumber, IsOptional, IsString, Val
 import { Type } from "class-transformer";
 import 'reflect-metadata';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
+import { IgnisignError } from "../_commons/ignisign-errors.public";
 
 export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
   INFO      = "INFO",
@@ -87,7 +88,7 @@ export class IgnisignWebhook_EndpointDto {
 }
 
 
-export type IgnisignWebhook_Callback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE) => Promise<any>
+export type IgnisignWebhook_Callback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE, error ?: IgnisignError) => Promise<any>
 
 export class IgnisignWebhook_ActionDto {
   @IsString()
@@ -114,5 +115,5 @@ export class IgnisignWebhook_ActionDto {
   content           : any;
 
   @IsOptional()
-  error            ?: any;
+  error            ?: IgnisignError;
 }
