@@ -117,15 +117,15 @@ import {
       
   
 
-  IgnisignWebhookDto_AdvancedProofGeneration,                    
+  IgnisignWebhookDto_AdvancedProof,                    
   // IgnisignWebhookDto_SignerCrea1.0.20tionSuccess,     
   // IgnisignWebhookDto_SignerCrea1.0.20tionFailed,      
   IgnisignWebhookDto_DocumentRequestCreation,                    
   // IgnisignWebhookDto_SignatureSe1.0.20ssionInitialized, // TO DOC      
   IgnisignWebhookDto_SignerDescription,                          
   IgnisignWebhookDto_SignatureSessionResult,                     
-  IgnisignWebhookDto_SignatureProofGeneration,                   
-  IgnisignWebhookDto_SignatureImageGeneration,                   
+  IgnisignWebhookDto_SignatureProof,                   
+  IgnisignWebhookDto_SignatureImage,                   
   IgnisignWebhookDto_Signature,                      
   
   
