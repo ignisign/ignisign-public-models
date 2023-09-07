@@ -1,4 +1,4 @@
-import { IsDate, IsArray, IsEnum, IsMongoId, IsNumber, IsOptional, IsString, ValidateNested, IsBoolean, MaxLength } from "class-validator";
+import { IsDate, IsArray, IsEnum, IsUrl, IsMongoId, IsNumber, IsOptional, IsString, ValidateNested, IsBoolean, MaxLength } from "class-validator";
 import { Type } from "class-transformer";
 import 'reflect-metadata';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
@@ -82,10 +82,13 @@ export class IgnisignWebhook {
 }
 
 export class IgnisignWebhook_EndpointDto {
+  @IsUrl()
   url          : string;
+
+  @IsOptional()
+  @IsString()
   description ?: string;
 }
-
 
 export type IgnisignWebhook_Callback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE) => Promise<any>
 
