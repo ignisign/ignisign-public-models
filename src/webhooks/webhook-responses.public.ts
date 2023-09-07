@@ -9,7 +9,7 @@ import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
 
 
 
-export class IgnisignWebhookDto_SignatureSessionInitialized {
+export class IgnisignWebhookDto_SignatureSession {
   signerId: string
   signatureRequestId: string
 }
@@ -31,7 +31,7 @@ export class IgnisignWebhookDto_SignatureSessionResult {
   signers               : IgnisignWebhookDto_SignerDescription[];
 }
 
-export class IgnisignWebhookDto_DocumentProvided {
+export class IgnisignWebhookDto_DocumentRequest {
   documentId     : string;
   documentNature : string;
   mimeType       : string;
@@ -70,11 +70,6 @@ export class IgnisignWebhookDto_SignatureRequest {
   signatureRequestId  : string;
   externalId         ?: string;
 }
-
-export class IgnisignWebhookDto_SignatureProfileCreated {
-  signatureProfileId  : string;
-}
-
 export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhookDto_SignatureRequest {
   signers : {
     signerId   : string;
@@ -83,7 +78,12 @@ export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhook
   }[]
 }
 
-export class IgnisignWebhookDto_SignatureFinalization {
+export class IgnisignWebhookDto_SignatureProfileCreated {
+  signatureProfileId  : string;
+}
+
+
+export class IgnisignWebhookDto_Signature {
   appId           : string;
   appEnv          : IGNISIGN_APPLICATION_ENV;
   documentNature  : IGNISIGN_DOCUMENT_TYPE;

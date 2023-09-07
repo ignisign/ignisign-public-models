@@ -126,7 +126,7 @@ import {
   IgnisignWebhookDto_SignatureSessionResult,                     
   IgnisignWebhookDto_SignatureProofGeneration,                   
   IgnisignWebhookDto_SignatureImageGeneration,                   
-  IgnisignWebhookDto_SignatureFinalization,                      
+  IgnisignWebhookDto_Signature,                      
   
   
 } from "./index";
