@@ -76,7 +76,7 @@ export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhook
   }[]
 }
 
-export class IgnisignWebhookDto_SignatureProfileCreated {
+export class IgnisignWebhookDto_SignatureProfile {
   signatureProfileId  : string;
 }
 
@@ -90,31 +90,7 @@ export class IgnisignWebhookDto_Signature {
   signatureId     : string;
 }
 
-export class IgnisignWebhookDto_SignatureProofGeneration {
-  @IsString()
-  signatureProofId : string;
-
-  @IsOptional()
-  @IsString()
-  appId      ?: string;
-
-  @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv      : IGNISIGN_APPLICATION_ENV;
-}
-
-export class IgnisignWebhookDto_SignatureImageGeneration {
-  @IsString()
-  signatureImageId : string;
-
-  @IsOptional()
-  @IsString()
-  appId      ?: string;
-
-  @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv      : IGNISIGN_APPLICATION_ENV;
-}
-
-export class IgnisignWebhookDto_AdvancedProofGeneration {
+export class IgnisignWebhookDto_AdvancedProof {
   @IsString()
   advancedProofId : string;
 
