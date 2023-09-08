@@ -14,22 +14,6 @@ export class IgnisignWebhookDto_SignatureSession {
   signatureRequestId: string
 }
 
-export class IgnisignWebhookDto_SignerDescription {
-  signerId  : string;
-  lastName?       : string;
-  firstName?      : string;
-  email?          : string;
-  phoneNumber?    : string;
-  tokenValue?     : string;
-  signerSecret?   : string;
-}
-export class IgnisignWebhookDto_SignatureSessionResult {
-  signatureRequestId?   : string;
-  documentIds           : string[];
-  integrationMode         : IGNISIGN_INTEGRATION_MODE;
-  signatureMethodRefs   : IGNISIGN_SIGNATURE_METHOD_REF[];
-  signers               : IgnisignWebhookDto_SignerDescription[];
-}
 
 export class IgnisignWebhookDto_DocumentRequest {
   documentId     : string;
@@ -67,9 +51,7 @@ export class IgnisignWebhookDto_SignatureImage {
 export class IgnisignWebhookDto_SignatureRequest {
   signatureRequestId  : string;
   externalId         ?: string;
-}
-export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhookDto_SignatureRequest {
-  signers : {
+  signers            ?: {
     signerId   : string;
     externalId : string;
     token      : string;
