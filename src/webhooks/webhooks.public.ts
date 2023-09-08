@@ -35,42 +35,35 @@ export enum IGNISIGN_WEBHOOK_ACTION_APPLICATION {
   SETTINGS_UPDATED   = 'SETTINGS_UPDATED',
   MEMBERSHIP_UPDATED = 'MEMBERSHIP_UPDATED',
   ARCHIVED           = 'ARCHIVED',
-  ALL                = 'ALL'
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF {
   SIGNATURE_PROOF_GENERATED = 'SIGNATURE_PROOF_GENERATED',
   ADVANCED_PROOF_GENERATED  = 'ADVANCED_PROOF_GENERATED',
-  ALL                       = 'ALL'
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE {
   CREATED  = 'CREATED',
   ARCHIVED = 'ARCHIVED',
-  ALL      = 'ALL'
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE {
   GENERATED = 'GENERATED',
-  ALL       = 'ALL'
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_DOCUMENT {
   PROVIDED = 'PROVIDED',
-  ALL      = 'ALL'
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE {
   CREATED = 'CREATED',
   FAILED  = 'FAILED',
-  ALL     = 'ALL'
 
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNER {
   CREATED         = 'CREATED',
   CLAIMS_UPDATED  = 'CLAIMS_UPDATED',
-  ALL             = 'ALL'
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION {
@@ -83,8 +76,10 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   READY             = 'READY',
   WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
   LAUNCHED          = 'LAUNCHED',
-  ALL               = 'ALL'
 }
+
+type IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
+export const IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
 
 export type IgnisignWebhook_Action = IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
                                     IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION |
@@ -94,7 +89,8 @@ export type IgnisignWebhook_Action = IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST |
                                     IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE |
                                     IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
                                     IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF |
-                                    IGNISIGN_WEBHOOK_ACTION_APPLICATION;
+                                    IGNISIGN_WEBHOOK_ACTION_APPLICATION |
+                                    IGNISIGN_WEBHOOK_ACTION_ALL;
 
 export class IgnisignWebhook {
   _id         ?: string;
