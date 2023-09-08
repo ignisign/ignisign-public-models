@@ -97,3 +97,15 @@ export class IgnisignWebhookDto_DocumentRequestCreation {
     email              ?: string;
   }
 }
+
+export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
+                                  IgnisignWebhookDto_DocumentRequest |  
+                                  IgnisignWebhookDto_SignatureRequest |
+                                  IgnisignWebhookDto_SignatureProfile |
+                                  IgnisignWebhookDto_Signer |
+                                  IgnisignWebhookDto_Signature |
+                                  IgnisignWebhookDto_SignatureImage |
+                                  IgnisignWebhookDto_SignatureProof |
+                                  IgnisignWebhookDto_Application |
+                                  IgnisignWebhookDto_AdvancedProof |
+                                  IgnisignWebhookDto_DocumentRequestCreation;

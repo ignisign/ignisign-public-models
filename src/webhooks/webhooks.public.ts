@@ -3,6 +3,7 @@ import { Type } from "class-transformer";
 import 'reflect-metadata';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignError } from "../_commons/ignisign-errors.public";
+import { IgnisignWebhookDto } from "./webhook-responses.public";
 
 export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
   INFO      = "INFO",
@@ -120,12 +121,12 @@ export class IgnisignWebhook_ActionDto {
 
   @IsString()
   @MaxLength(512)
-  action            : string;
+  action            : IgnisignWebhook_Action;
 
   @IsEnum(IGNISIGN_WEBHOOK_MESSAGE_NATURE)
   msgNature         : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
 
-  content           : any;
+  content           : IgnisignWebhookDto;
 
   @IsOptional()
   error            ?: IgnisignError;
