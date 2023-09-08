@@ -12,6 +12,7 @@ export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
 }
 
 export enum IGNISIGN_WEBHOOK_TOPICS {
+  ALL                       = 'ALL',
   APP                       = "APP",               // SETTINGS_UPDATED, MEMBERSHIP_UPDATED, ARCHIVED
   SIGNATURE                 = "SIGNATURE",         // signature failed, signature finalized
   SIGNATURE_REQUEST         = "SIGNATURE_REQUEST", // INIT UPDATE, PUBLISH, LAUNCHED
@@ -73,6 +74,7 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   READY             = 'READY',
   WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
   LAUNCHED          = 'LAUNCHED',
+  ALL               = 'ALL'
 }
 
 export type IgnisignWebhook_Action = IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
@@ -101,7 +103,13 @@ export class IgnisignWebhook_EndpointDto {
   description ?: string;
 }
 
-export type IgnisignWebhook_Callback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE, error ?: IgnisignError) => Promise<any>
+export type IgnisignWebhook_Callback<T = any> = (
+  content     : T,
+  error      ?: IgnisignError,
+  msgNature  ?: IGNISIGN_WEBHOOK_MESSAGE_NATURE,
+  action     ?: string,
+  topic      ?: IGNISIGN_WEBHOOK_TOPICS
+) => Promise<any>
 
 export class IgnisignWebhook_ActionDto {
   @IsString()
