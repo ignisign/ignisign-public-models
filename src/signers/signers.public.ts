@@ -1,4 +1,4 @@
-import { IsDateString, IsEmail, IsEnum, IsMongoId, IsOptional, IsPhoneNumber, IsString } from "class-validator";
+import { IsDateString, IsEmail, IsEnum, IsMongoId, IsOptional, IsPhoneNumber, isString, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
 import { IgnisignSignatureRequest_WithDocName } from "../signatures/signature-requests.public";
@@ -131,8 +131,14 @@ export class IgnisignSigner_UpdateRequestDto {
 }
 
 export class IgnisignSigner_CreationResponseDto {
+  @IsString()
   signerId               : string;
+
+  @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
   entityType             : IGNISIGN_SIGNER_ENTITY_TYPE;
+
+  @IsOptional()
+  @IsString()
   authSecret?:  string;
 }
 

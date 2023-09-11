@@ -2,6 +2,8 @@ import { IsDate, IsArray, IsEnum, IsUrl, IsMongoId, IsNumber, IsOptional, IsStri
 import { Type } from "class-transformer";
 import 'reflect-metadata';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
+import { IgnisignError } from "../_commons/ignisign-errors.public";
+import { IgnisignWebhookDto } from "./webhook-responses.public";
 
 export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
   INFO      = "INFO",
@@ -11,6 +13,7 @@ export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
 }
 
 export enum IGNISIGN_WEBHOOK_TOPICS {
+  ALL                       = 'ALL',
   APP                       = "APP",               // SETTINGS_UPDATED, MEMBERSHIP_UPDATED, ARCHIVED
   SIGNATURE                 = "SIGNATURE",         // signature failed, signature finalized
   SIGNATURE_REQUEST         = "SIGNATURE_REQUEST", // INIT UPDATE, PUBLISH, LAUNCHED
@@ -31,17 +34,17 @@ export enum IGNISIGN_WEBHOOK_TOPICS {
 export enum IGNISIGN_WEBHOOK_ACTION_APPLICATION {
   SETTINGS_UPDATED   = 'SETTINGS_UPDATED',
   MEMBERSHIP_UPDATED = 'MEMBERSHIP_UPDATED',
-  ARCHIVED           = 'ARCHIVED'
+  ARCHIVED           = 'ARCHIVED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF {
   SIGNATURE_PROOF_GENERATED = 'SIGNATURE_PROOF_GENERATED',
-  ADVANCED_PROOF_GENERATED  = 'ADVANCED_PROOF_GENERATED'
+  ADVANCED_PROOF_GENERATED  = 'ADVANCED_PROOF_GENERATED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE {
   CREATED  = 'CREATED',
-  ARCHIVED = 'ARCHIVED'
+  ARCHIVED = 'ARCHIVED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE {
@@ -49,12 +52,13 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE {
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_DOCUMENT {
-  PROVIDED = 'PROVIDED'
+  PROVIDED = 'PROVIDED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE {
   CREATED = 'CREATED',
   FAILED  = 'FAILED',
+
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNER {
@@ -74,6 +78,20 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   LAUNCHED          = 'LAUNCHED',
 }
 
+type IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
+export const IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
+
+export type IgnisignWebhook_Action = IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
+                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION |
+                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE |
+                                    IGNISIGN_WEBHOOK_ACTION_SIGNER |
+                                    IGNISIGN_WEBHOOK_ACTION_DOCUMENT |
+                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE |
+                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
+                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF |
+                                    IGNISIGN_WEBHOOK_ACTION_APPLICATION |
+                                    IGNISIGN_WEBHOOK_ACTION_ALL;
+
 export class IgnisignWebhook {
   _id         ?: string;
   url          : string;
@@ -90,7 +108,13 @@ export class IgnisignWebhook_EndpointDto {
   description ?: string;
 }
 
-export type IgnisignWebhook_Callback<T = any> = (content : T, topic : IGNISIGN_WEBHOOK_TOPICS, action : string, msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE) => Promise<any>
+export type IgnisignWebhook_Callback<T = any> = (
+  content     : T,
+  error      ?: IgnisignError,
+  msgNature  ?: IGNISIGN_WEBHOOK_MESSAGE_NATURE,
+  action     ?: string,
+  topic      ?: IGNISIGN_WEBHOOK_TOPICS
+) => Promise<any>
 
 export class IgnisignWebhook_ActionDto {
   @IsString()
@@ -109,13 +133,13 @@ export class IgnisignWebhook_ActionDto {
 
   @IsString()
   @MaxLength(512)
-  action            : string;
+  action            : IgnisignWebhook_Action;
 
   @IsEnum(IGNISIGN_WEBHOOK_MESSAGE_NATURE)
   msgNature         : IGNISIGN_WEBHOOK_MESSAGE_NATURE;
 
-  content           : any;
+  content           : IgnisignWebhookDto;
 
   @IsOptional()
-  error            ?: any;
+  error            ?: IgnisignError;
 }

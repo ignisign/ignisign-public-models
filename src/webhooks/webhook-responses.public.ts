@@ -64,8 +64,7 @@ export class IgnisignWebhookDto_DocumentRequest {
   @IsString()
   mimeType       : string;
 }
-
-export class IgnisignWebhookDto_SignatureProofGenerated {
+export class IgnisignWebhookDto_SignatureProof {
   @IsString()
   appId              : string;
 
@@ -77,6 +76,11 @@ export class IgnisignWebhookDto_SignatureProofGenerated {
 
   @IsString()
   signatureRequestId : string;
+}
+
+
+export class IgnisignWebhookDto_Application {
+  userId ?: string
 }
 
 export class IgnisignWebhookDto_Signer {
@@ -107,7 +111,7 @@ export class IgnisignWebhookDto_AdvancedProofGenerated {
   signatureRequestId : string;
 }
 
-export class IgnisignWebhookDto_SignatureImageGenerated {
+export class IgnisignWebhookDto_SignatureImage {
   @IsString()
   appId              : string;
 
@@ -145,7 +149,14 @@ export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhook
 }
 
 export class IgnisignWebhookDto_SignatureProfileCreated {
-  @IsString()
+  signers            ?: {
+    signerId   : string;
+    externalId : string;
+    token      : string;
+  }[]
+}
+
+export class IgnisignWebhookDto_SignatureProfile {
   signatureProfileId  : string;
 }
 
@@ -170,31 +181,7 @@ export class IgnisignWebhookDto_Signature {
   signatureId     : string;
 }
 
-export class IgnisignWebhookDto_SignatureProofGeneration {
-  @IsString()
-  signatureProofId : string;
-
-  @IsOptional()
-  @IsString()
-  appId      ?: string;
-
-  @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv      : IGNISIGN_APPLICATION_ENV;
-}
-
-export class IgnisignWebhookDto_SignatureImageGeneration {
-  @IsString()
-  signatureImageId : string;
-
-  @IsOptional()
-  @IsString()
-  appId      ?: string;
-
-  @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv      : IGNISIGN_APPLICATION_ENV;
-}
-
-export class IgnisignWebhookDto_AdvancedProofGeneration {
+export class IgnisignWebhookDto_AdvancedProof {
   @IsString()
   advancedProofId : string;
 
@@ -219,3 +206,15 @@ export class IgnisignWebhookDto_DocumentRequestCreation {
     email              ?: string;
   }
 }
+
+export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
+                                  IgnisignWebhookDto_DocumentRequest |  
+                                  IgnisignWebhookDto_SignatureRequest |
+                                  IgnisignWebhookDto_SignatureProfile |
+                                  IgnisignWebhookDto_Signer |
+                                  IgnisignWebhookDto_Signature |
+                                  IgnisignWebhookDto_SignatureImage |
+                                  IgnisignWebhookDto_SignatureProof |
+                                  IgnisignWebhookDto_Application |
+                                  IgnisignWebhookDto_AdvancedProof |
+                                  IgnisignWebhookDto_DocumentRequestCreation;
