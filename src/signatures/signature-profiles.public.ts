@@ -40,7 +40,7 @@ export class IgnisignSignatureProfile_StatusWrapper {
 }
 
 export class IgnisignSignatureProfile_SignerInputsConstraints {
-  additionalInputsNeeded: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+  inputsNeeded: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
 export class IgnisignSignatureProfile_IdContainerDto {

@@ -1,6 +1,6 @@
 import { IsDate, IsArray, IsEnum, IsMongoId, IsNumber, IsOptional, IsString, ValidateNested, IsBoolean, MaxLength, IsDefined } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IGNISIGN_WEBHOOK_MESSAGE_NATURE, IGNISIGN_WEBHOOK_TOPICS } from "./webhooks.public";
+import { IGNISIGN_WEBHOOK_MESSAGE_NATURE, IGNISIGN_WEBHOOK_TOPICS, IgnisignWebhook_Action } from "./webhooks.public";
 import { Type } from "class-transformer";
 
 export enum IGNISIGN_WEBHOOK_EVENT_FILTER {
@@ -33,7 +33,7 @@ export class IgnisignWebhookEvent {
 
   @IsString()
   @MaxLength(512)
-  action : string;
+  action : IgnisignWebhook_Action;
 
   @IsEnum(IGNISIGN_WEBHOOK_MESSAGE_NATURE)
   msgNature : IGNISIGN_WEBHOOK_MESSAGE_NATURE;

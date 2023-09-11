@@ -23,11 +23,10 @@ export class IgnisignApplication {
   status       : IGNISIGN_APPLICATION_STATUS;
 }
 
-// https://app.clickup.com/t/860rnx794
 export class IgnisignApplication_Context extends IgnisignApplication {
   config              : IgnisignApplication_Configuration;
   envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignApplication_EnvSettings };
   settings            : IgnisignApplication_Settings;
-  signatureProfiles   : IgnisignSignatureProfile[];
+  signatureProfiles   : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignatureProfile[] };
 }
 
