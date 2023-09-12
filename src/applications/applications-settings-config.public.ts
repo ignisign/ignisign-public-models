@@ -21,7 +21,7 @@ export class IgnisignApplication_EnvSettings {
   webhooks                  : IgnisignWebhook_SettingsDescription[];
   appRootUrl               ?: string;
   authorizedRedirectionUrls : string[];
-  hasKey                   ?: boolean; // Only used in appContext
+  isApiKeyGenerated        ?: boolean; // Only used in appContext
 }
 export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;

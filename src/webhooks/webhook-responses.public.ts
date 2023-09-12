@@ -3,11 +3,9 @@ import { Type } from "class-transformer";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_DOCUMENT_TYPE } from "../documents/document-entities.public";
 import { IGNISIGN_DOCUMENT_REQUEST_TARGET } from "../documents/document-request.public";
-import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
-import { IGNISIGN_INTEGRATION_MODE } from "../signatures/signatures.public";
 import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
-
-
+import { IGNISIGN_INTEGRATION_MODE } from "../signatures/signatures.public";
+import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
 
 
 export class IgnisignWebhookDto_SignatureSession {

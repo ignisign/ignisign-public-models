@@ -81,17 +81,17 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
 type IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
 export const IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
 
-export type IgnisignWebhook_Action = IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
-                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION |
-                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE |
-                                    IGNISIGN_WEBHOOK_ACTION_SIGNER |
-                                    IGNISIGN_WEBHOOK_ACTION_DOCUMENT |
-                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE |
-                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
-                                    IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF |
-                                    IGNISIGN_WEBHOOK_ACTION_APPLICATION |
-                                    IGNISIGN_WEBHOOK_ACTION_ALL;
-
+export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
+                                      IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION |
+                                      IGNISIGN_WEBHOOK_ACTION_SIGNATURE         |
+                                      IGNISIGN_WEBHOOK_ACTION_SIGNER            |
+                                      IGNISIGN_WEBHOOK_ACTION_DOCUMENT          |
+                                      IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE   |
+                                      IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
+                                      IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF   |
+                                      IGNISIGN_WEBHOOK_ACTION_APPLICATION       |
+                                      IGNISIGN_WEBHOOK_ACTION_ALL;
+  
 export class IgnisignWebhook {
   _id         ?: string;
   url          : string;
