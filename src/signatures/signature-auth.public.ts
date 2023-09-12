@@ -4,6 +4,7 @@ export enum IGNISIGN_AUTH_FULL_MECHANISM_REF {
   PHONE_CALL            = 'PHONE_CALL',
   TOTP                  = "TOTP",
   PASS_KEY_POSSESSION   = 'PASS_KEY_POSSESSION',
-  EID                   = 'EID',
+  AES_EID = "AES_EID",
+  QES_EID = "QES_EID"
 }
 
