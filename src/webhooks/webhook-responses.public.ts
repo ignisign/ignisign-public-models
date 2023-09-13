@@ -130,7 +130,7 @@ export class IgnisignWebhookDto_SignatureRequest {
   @IsOptional()
   @ValidateNested({ each: true })
   @Type(() => IgnisignWebhookDto_SignatureRequestSigner)
-  signers: IgnisignWebhookDto_SignatureRequestSigner[]
+  signers ?: IgnisignWebhookDto_SignatureRequestSigner[];
 }
 export class IgnisignWebhookDto_SignatureRequestSigner {
   signerId   : string;
