@@ -44,13 +44,6 @@ export class IgnisignWebhookDto_SignerDescription {
   @IsString()
   signerSecret?   : string;
 }
-export class IgnisignWebhookDto_SignatureSessionResult {
-  signatureRequestId?   : string;
-  documentIds           : string[];
-  integrationMode         : IGNISIGN_INTEGRATION_MODE;
-  signatureMethodRefs   : IGNISIGN_SIGNATURE_METHOD_REF[];
-  signers               : IgnisignWebhookDto_SignerDescription[];
-}
 
 export class IgnisignWebhookDto_DocumentRequest {
   @IsString()
@@ -133,19 +126,17 @@ export class IgnisignWebhookDto_SignatureRequest {
   @IsOptional()
   @IsString()
   externalId         ?: string;
-}
 
-export class IgnisignWebhookDto_SignatureRequestLaunchedSigner {
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignWebhookDto_SignatureRequestSigner)
+  signers: IgnisignWebhookDto_SignatureRequestSigner[]
+}
+export class IgnisignWebhookDto_SignatureRequestSigner {
   signerId   : string;
   externalId : string;
   token      : string;
 }
-export class IgnisignWebhookDto_SignatureRequestLaunched extends IgnisignWebhookDto_SignatureRequest {
-  @ValidateNested({ each: true })
-  @Type(() => IgnisignWebhookDto_SignatureRequestLaunchedSigner)
-  signers: IgnisignWebhookDto_SignatureRequestLaunchedSigner[]
-}
-
 export class IgnisignWebhookDto_SignatureProfileCreated {
   signers            ?: {
     signerId   : string;
@@ -191,19 +182,6 @@ export class IgnisignWebhookDto_AdvancedProof {
   appEnv : IGNISIGN_APPLICATION_ENV;
 }
 
-export class IgnisignWebhookDto_DocumentRequestCreation {
-  document : {
-    documentId   : string;
-    externalId  ?: string;
-  };
-  documentRequest : {
-    documentRequestId   : string;
-    target              : IGNISIGN_DOCUMENT_REQUEST_TARGET;
-    externalId         ?: string;
-    token              ?: string;
-    email              ?: string;
-  }
-}
 
 export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
                                   IgnisignWebhookDto_DocumentRequest |  
@@ -214,5 +192,4 @@ export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
                                   IgnisignWebhookDto_SignatureImage |
                                   IgnisignWebhookDto_SignatureProof |
                                   IgnisignWebhookDto_Application |
-                                  IgnisignWebhookDto_AdvancedProof |
-                                  IgnisignWebhookDto_DocumentRequestCreation;
+                                  IgnisignWebhookDto_AdvancedProof;
