@@ -16,7 +16,7 @@ export enum IGNISIGN_SIGNATURE_STATUS {
 
 
 export enum IGNISIGN_INTEGRATION_MODE {
-  MANAGED   = "MANAGED",
+  BY_SIDE   = "BY_SIDE",
   EMBEDDED  = "EMBEDDED"
 }
 
@@ -51,7 +51,7 @@ export class IgnisignApplication_SignatureMetadata {
   primaryColor   ?: IgnisignApplication_VariationColor;
   secondaryColor ?: IgnisignApplication_VariationColor;
 }
-export class Ignisign_SignatureImagesDto {
+export class IgnisignSignatureImages_Dto {
   documentId : string;
   signatures : { signerId: string, imgB64: string }[];
 }

@@ -24,7 +24,7 @@ export enum GET_PRIVATE_FILE_ERRORS {
   CANNOT_GET_FILE                           = 'CANNOT_GET_FILE',
 }
 
-export const ACCEPTED_DOCS = [
+export const IGNISIGN_ACCEPTED_DOCS = [
   '.ai',   '.bmp',    '.gif', '.ico', '.jpeg',  '.jpg', '.png',   '.ps',  '.psd', '.svg',
   '.tif',  '.tiff',   '.key', '.odp', '.pps',   '.ppt', '.pptx',  '.ods', '.xls', '.xlsm',
   '.xlsx', '.3g2',    '.3gp', '.flv', '.h264',  '.m4v', '.mkv',   '.mov', '.mp4', '.mpg',
