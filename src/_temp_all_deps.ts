@@ -113,7 +113,7 @@ import {
   IgnisignWebhook_EndpointDto,           
   IgnisignWebhook_SettingsDescription,   
   IgnisignWebhookEvent,                  
-  IgnisignWebhookEvent_ResponseDto,      
+  IgnisignWebhookEvent_ListingDto,      
       
   
 
