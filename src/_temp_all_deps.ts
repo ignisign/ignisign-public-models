@@ -41,7 +41,7 @@ import {
 
   // IGNISIGN_WEBHOOK_ACTION_PDF,                     
   IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE,         
-  IGNISIGN_WEBHOOK_ACTION_DOCUMENT,                
+  IGNISIGN_WEBHOOK_ACTION_DOCUMENT_REQUEST,                
   IGNISIGN_WEBHOOK_ACTION_SIGNATURE,               
   IGNISIGN_WEBHOOK_ACTION_SIGNER,                  
   IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION,       
@@ -117,7 +117,7 @@ import {
       
   
 
-  IgnisignWebhookDto_AdvancedProof,                    
+  // IgnisignWebhookDto_AdvancedProof,                    
   // IgnisignWebhookDto_SignerCrea1.0.20tionSuccess,     
   // IgnisignWebhookDto_SignerCrea1.0.20tionFailed,      
   // IgnisignWebhookDto_SignatureSe1.0.20ssionInitialized, // TO DOC      

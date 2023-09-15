@@ -14,40 +14,30 @@ export class IgnisignWebhookDto_SignatureSession {
 
   @IsString()
   signatureRequestId: string
-}
-
-export class IgnisignWebhookDto_SignerDescription {
-  @IsString()
-  signerId        : string;
 
   @IsOptional()
   @IsString()
-  lastName?       : string;
+  signatureRequestExternalId   ?: string;
 
   @IsOptional()
   @IsString()
-  firstName?      : string;
-
-  @IsOptional()
-  @IsString()
-  email?          : string;
-
-  @IsOptional()
-  @IsString()
-  phoneNumber?    : string;
-
-  @IsOptional()
-  @IsString()
-  tokenValue?     : string;
-
-  @IsOptional()
-  @IsString()
-  signerSecret?   : string;
+  signerExternalId   ?: string;
 }
 
 export class IgnisignWebhookDto_DocumentRequest {
   @IsString()
+  signatureRequestId : string;
+
+  @IsOptional()
+  @IsString()
+  signatureRequestExternalId   ?: string;
+
+  @IsString()
   documentId     : string;
+
+  @IsOptional()
+  @IsString()
+  documentExternalId         : string;
 
   @IsString()
   documentNature : string;
@@ -55,6 +45,7 @@ export class IgnisignWebhookDto_DocumentRequest {
   @IsString()
   mimeType       : string;
 }
+
 export class IgnisignWebhookDto_SignatureProof {
   @IsString()
   appId              : string;
@@ -65,10 +56,17 @@ export class IgnisignWebhookDto_SignatureProof {
   @IsString()
   documentId         : string;
 
+  @IsOptional()
+  @IsString()
+  documentExternalId         : string;
+
   @IsString()
   signatureRequestId : string;
-}
 
+  @IsOptional()
+  @IsString()
+  signatureRequestExternalId   ?: string;
+}
 
 export class IgnisignWebhookDto_Application {
   userId ?: string
@@ -84,22 +82,16 @@ export class IgnisignWebhookDto_Signer {
   @IsString()
   signerId    : string;
 
-  @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF, { each: true })
-  inputs      : IGNISIGN_SIGNER_CREATION_INPUT_REF[]
-}
-
-export class IgnisignWebhookDto_AdvancedProofGenerated {
+  @IsOptional()
   @IsString()
-  appId              : string;
+  authSecret ?: string;
 
-  @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv             : IGNISIGN_APPLICATION_ENV;
-
+  @IsOptional()
   @IsString()
-  documentId         : string;
+  signerExternalId  ?: string;
 
-  @IsString()
-  signatureRequestId : string;
+  @IsOptional()
+  inputsAdded ?: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
 export class IgnisignWebhookDto_SignatureImage {
@@ -112,11 +104,23 @@ export class IgnisignWebhookDto_SignatureImage {
   @IsString()
   documentId         : string;
 
+  @IsOptional()
+  @IsString()
+  documentExternalId   ?: string;
+
   @IsString()
   signatureRequestId : string;
 
+  @IsOptional()
+  @IsString()
+  signatureRequestExternalId   ?: string;
+
   @IsString()
   signerId           : string;
+
+  @IsOptional()
+  @IsString()
+  signerExternalId   ?: string;
 }
 
 export class IgnisignWebhookDto_SignatureRequest {
@@ -125,7 +129,7 @@ export class IgnisignWebhookDto_SignatureRequest {
 
   @IsOptional()
   @IsString()
-  externalId         ?: string;
+  signatureRequestExternalId         ?: string;
 
   @IsOptional()
   @ValidateNested({ each: true })
@@ -134,15 +138,8 @@ export class IgnisignWebhookDto_SignatureRequest {
 }
 export class IgnisignWebhookDto_SignatureRequestSigner {
   signerId   : string;
-  externalId : string;
+  signerExternalId : string;
   token      : string;
-}
-export class IgnisignWebhookDto_SignatureProfileCreated {
-  signers            ?: {
-    signerId   : string;
-    externalId : string;
-    token      : string;
-  }[]
 }
 
 export class IgnisignWebhookDto_SignatureProfile {
@@ -162,24 +159,27 @@ export class IgnisignWebhookDto_Signature {
 
   @IsString()
   signerId        : string;
+
+  @IsOptional()
+  @IsString()
+  signerExternalId   ?: string;
   
   @IsString()
   documentId      : string;
 
+  @IsOptional()
   @IsString()
-  signatureId     : string;
-}
+  documentExternalId   ?: string;
 
-export class IgnisignWebhookDto_AdvancedProof {
   @IsString()
-  advancedProofId : string;
+  signatureRequestId  : string;
 
   @IsOptional()
   @IsString()
-  appId ?: string;
+  signatureRequestExternalId         ?: string;
 
-  @IsEnum(IGNISIGN_APPLICATION_ENV)
-  appEnv : IGNISIGN_APPLICATION_ENV;
+  @IsString()
+  signatureId     : string;
 }
 
 
@@ -191,5 +191,4 @@ export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
                                   IgnisignWebhookDto_Signature |
                                   IgnisignWebhookDto_SignatureImage |
                                   IgnisignWebhookDto_SignatureProof |
-                                  IgnisignWebhookDto_Application |
-                                  IgnisignWebhookDto_AdvancedProof;
+                                  IgnisignWebhookDto_Application;

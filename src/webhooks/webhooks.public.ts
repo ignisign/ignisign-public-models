@@ -51,19 +51,19 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE {
   GENERATED = 'GENERATED',
 }
 
-export enum IGNISIGN_WEBHOOK_ACTION_DOCUMENT {
+export enum IGNISIGN_WEBHOOK_ACTION_DOCUMENT_REQUEST {
   PROVIDED = 'PROVIDED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE {
-  CREATED = 'CREATED',
-  FAILED  = 'FAILED',
+  FINALIZED = 'FINALIZED',
+  FAILED    = 'FAILED',
 
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNER {
-  CREATED         = 'CREATED',
-  CLAIMS_UPDATED  = 'CLAIMS_UPDATED',
+  CREATED       = 'CREATED',
+  INPUTS_ADDED  = 'INPUTS_ADDED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION {
@@ -85,7 +85,7 @@ export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST 
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE         |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNER            |
-                                      IGNISIGN_WEBHOOK_ACTION_DOCUMENT          |
+                                      IGNISIGN_WEBHOOK_ACTION_DOCUMENT_REQUEST          |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE   |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF   |

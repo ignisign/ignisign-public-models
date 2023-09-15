@@ -136,7 +136,7 @@ export class IgnisignSigner_CreationResponseDto {
 
   @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
   entityType             : IGNISIGN_SIGNER_ENTITY_TYPE;
-
+  
   @IsOptional()
   @IsString()
   authSecret?:  string;
