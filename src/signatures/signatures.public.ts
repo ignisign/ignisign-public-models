@@ -51,7 +51,7 @@ export class IgnisignApplication_SignatureMetadata {
   primaryColor   ?: IgnisignApplication_VariationColor;
   secondaryColor ?: IgnisignApplication_VariationColor;
 }
-export class Ignisign_SignatureImagesDto {
+export class IgnisignSignatureImages_Dto {
   documentId : string;
   signatures : { signerId: string, imgB64: string }[];
 }

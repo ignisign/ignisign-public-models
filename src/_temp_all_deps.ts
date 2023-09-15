@@ -9,10 +9,10 @@ import {
   IGNISIGN_AUTH_FULL_MECHANISM_REF,
 
   IGNISIGN_BROADCASTABLE_ACTIONS, // TO DOC
-  IGNISIGN_BROADCASTABLE_ACTIONS_TYPE, // TO DOC
-  IGNISIGN_BROADCASTABLE_ACTIONS_NEED_PRIVATE_FILE, // TO DOC
-  IGNISIGN_BROADCASTABLE_ACTIONS_SIGNATURE_ERROR, // TO DOC
-  IGNISIGN_BROADCASTABLE_ACTIONS_SIGNATURE_FINALIZED, // TO DOC
+  IgnisignBroadcastableAction_Dto, // TO DOC
+  IgnisignBroadcastableAction_PrivateFileRequestDto, // TO DOC
+  IgnisignBroadcastableAction_SignatureErrorDto, // TO DOC
+  IgnisignBroadcastableAction_SignatureFinalizedDto, // TO DOC
 
   IGNISIGN_DOCUMENT_REQUEST_TARGET,
   IGNISIGN_DOCUMENT_REQUEST_STATUS,
@@ -94,7 +94,7 @@ import {
   IgnisignSignatureRequests_Paginate,            
   
   IgnisignSignature,                           
-  Ignisign_SignatureImagesDto,
+  IgnisignSignatureImages_Dto,
 
   IgnisignSigner_CreationRequestDto,           
   IgnisignSigner_CreationResponseDto,          
