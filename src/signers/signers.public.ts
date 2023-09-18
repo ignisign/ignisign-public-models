@@ -171,6 +171,10 @@ export class IgnisignSigner_Summary {
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNER_STATUS)
   status ?: IGNISIGN_SIGNER_STATUS;
+
+  @IsOptional()
+  @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF, { each: true })
+  alreadyProvidedInputs ?: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
 
