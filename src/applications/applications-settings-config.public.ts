@@ -15,13 +15,14 @@ export class IgnisignApplication_Configuration {
 
 /******************** ENV Settings *******************/
 export class IgnisignApplication_EnvSettings {
-  appId                     : string;
-  orgId                     : string;
-  appEnv                    : IGNISIGN_APPLICATION_ENV;
-  webhooks                  : IgnisignWebhook_SettingsDescription[];
-  appRootUrl               ?: string;
-  authorizedRedirectionUrls : string[];
-  isApiKeyGenerated        ?: boolean; // Only used in appContext
+  appId                      : string;
+  orgId                      : string;
+  appEnv                     : IGNISIGN_APPLICATION_ENV;
+  webhooks                   : IgnisignWebhook_SettingsDescription[];
+  appRootUrl                ?: string;
+  authorizedRedirectionUrls  : string[];
+  isApiKeyGenerated         ?: boolean; // Only used in appContext
+  defaultSignatureProfileId ?: string;
 }
 export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;
