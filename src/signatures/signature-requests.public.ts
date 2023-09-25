@@ -187,6 +187,13 @@ export class IgnisignSignatureRequests_Paginate {
   paginationData    : { total: number, page: number, nbEventsPerPage: number };
 }
 
+export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
+  NOT_INITIALIZED = "NOT_INITIALIZED",
+  IN_PROGRESS     = "IN_PROGRESS",
+  WAITING_IMAGES  = "WAITING_IMAGES",
+  ON_ERROR        = "ON_ERROR",
+  CREATED         = "CREATED",
+}
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
   documents             : IgnisignDocument_Context[];  
@@ -194,5 +201,6 @@ export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signatureProfile      : IgnisignSignatureProfile;
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
   signatureProofsUrl   ?: string;
+  signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;
 }
 
