@@ -1,4 +1,4 @@
-import { IsDateString, IsEmail, IsEnum, IsMongoId, IsOptional, IsPhoneNumber, isString, IsString } from "class-validator";
+import { IsDateString, IsEmail, IsEnum, IsMongoId, IsNumber, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
 import { IgnisignSignatureRequest_WithDocName } from "../signatures/signature-requests.public";
@@ -144,6 +144,8 @@ export class IgnisignSigner_CreationResponseDto {
 
 export class IgnisignSigners_SearchResultDto {
   signers : IgnisignSigner_Summary[];
+
+  @IsNumber()
   total   : number;
 }
 

@@ -1,3 +1,4 @@
+import { IsEnum } from "class-validator";
 import { IGNISIGN_ERROR_CODES } from "../_commons/ignisign-errors.public";
 
 export enum IGNISIGN_BROADCASTABLE_ACTIONS {
@@ -15,8 +16,10 @@ export type IgnisignBroadcastableAction_Dto =
 
 
 
-export type IgnisignBroadcastableAction_PrivateFileRequestDto = {
-  type: IGNISIGN_BROADCASTABLE_ACTIONS.NEED_PRIVATE_FILE_URL,
+export class IgnisignBroadcastableAction_PrivateFileRequestDto {
+  @IsEnum(IGNISIGN_BROADCASTABLE_ACTIONS)
+  type: IGNISIGN_BROADCASTABLE_ACTIONS.NEED_PRIVATE_FILE_URL
+  
   data: {
     documentId: string
     externalDocumentId?: string
