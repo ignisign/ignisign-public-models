@@ -62,5 +62,9 @@ export class IgnisignWebhookEvent {
 
 export class IgnisignWebhookEvent_ListingDto {
   events : IgnisignWebhookEvent[];
-  searchData: { total: number, page: number, nbEventsPerPage: number }
+  searchData: { 
+    total: number, 
+    page: number, 
+    nbEventsPerPage: number 
+  }
 }
