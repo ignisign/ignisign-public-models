@@ -66,6 +66,14 @@ export class IgnisignWebhookDto_SignatureProof {
   @IsOptional()
   @IsString()
   signatureRequestExternalId   ?: string;
+
+  @IsOptional()
+  @IsString()
+  signatureProofToken?: string;
+  
+  @IsOptional()
+  @IsString()
+  signatureProofUrl?: string;
 }
 
 export class IgnisignWebhookDto_Application {
