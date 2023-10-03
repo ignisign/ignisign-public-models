@@ -38,7 +38,7 @@ export enum IGNISIGN_WEBHOOK_ACTION_APPLICATION {
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF {
-  GENERATED = 'GENERATED',
+  SIGNATURE_PROOF_GENERATED = 'SIGNATURE_PROOF_GENERATED',
   ADV_GENERATED  = 'ADV_GENERATED',
 }
 
@@ -76,7 +76,7 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   READY             = 'READY',
   WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
   LAUNCHED          = 'LAUNCHED',
-  
+  FAILED            = 'FAILED',
   CANCELLED         = 'CANCELLED', // Only send if no signature has been done => else send COMPLETED
   EXPIRED           = 'EXPIRED',   // Only send if no signature has been done => else send COMPLETED
   COMPLETED         = 'COMPLETED',
