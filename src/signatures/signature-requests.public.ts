@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsBoolean, IsDateString, IsEnum, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
@@ -40,24 +40,77 @@ export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
 
 export class IgnisignSignatureRequest {
   _id                       ?: string;
+
+  @IsOptional()
+  @IsDate()
   _createdAt                ?: Date;
+
+  @IsString()
   appId                      : string;
+
+  @IsEnum(IGNISIGN_APPLICATION_ENV)
   appEnv                     : IGNISIGN_APPLICATION_ENV;
+
+  @IsString()
   signatureProfileId         : string;
+
+  @IsOptional()
+  @IsString()
   title                     ?: string;
+
+  @IsOptional()
+  @IsString()
   description               ?: string;
+
+  @IsOptional()
+  @IsDate()
   expirationDate            ?: Date;
+
+  @IsOptional()
+  @IsBoolean()
   expirationDateIsActivated ?: boolean;
+
+  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_STATUS)
   status                     : IGNISIGN_SIGNATURE_REQUEST_STATUS;
+
+  @IsOptional()
+  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
   language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
+
+  @IsOptional()
+  @IsString({each: true})
   documentIds               ?: string[];
+
+  @IsOptional()
+  @IsString()
   externalId                ?: string;
+
+  @IsOptional()
+  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE)
   diffusionMode             ?: IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE;
+
+  @IsOptional()
+  @IsDate()
   diffusionDate             ?: Date;
+
+  @IsOptional()
+  @IsString({each: true})
   signerIds                 ?: string[];
+
+  @IsOptional()
+  @IsString({each: true})
   signedBy                  ?: string[];  
+
+  @IsOptional()
+  @IsBoolean()
   isFakeIdProofing          ?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
   isFakeSms                 ?: boolean;
+
+  @IsOptional()
+  @IsString()
   creatorId                 ?: string;
 }
 
