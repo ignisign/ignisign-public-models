@@ -24,8 +24,8 @@
     "watch-fo-api" : "tsc -b -w --preserveWatchOutput"
   },
   "dependencies": {
-    "class-transformer": "^0.3.1",
-    "class-validator": "^0.13.1",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
