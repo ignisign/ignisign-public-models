@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
@@ -113,6 +113,15 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString()
   creatorId                 ?: string;
+
+  @IsOptional()
+  @IsString()
+  templateDisplayerId      ?: string;
+
+  @IsOptional()
+  @IsNumber()
+  templateDisplayerVersion ?: number;
+
 }
 
 export class IgnisignSignatureRequest_Statement {
