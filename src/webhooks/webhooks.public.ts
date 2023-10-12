@@ -112,13 +112,15 @@ export class IgnisignWebhook_EndpointDto {
   description ?: string;
 }
 
-export type IgnisignWebhook_Callback<T = any> = (
+export type IgnisignWebhook_CallbackParams<T = any> = {
   content     : T,
   error      ?: IgnisignError,
   msgNature  ?: IGNISIGN_WEBHOOK_MESSAGE_NATURE,
   action     ?: string,
   topic      ?: IGNISIGN_WEBHOOK_TOPICS
-) => Promise<any>
+}
+
+export type IgnisignWebhook_Callback<T = any> = ({content, error, msgNature, action, topic}: IgnisignWebhook_CallbackParams<T>) => Promise<any>
 
 export class IgnisignWebhook_ActionDto {
   @IsString()
