@@ -14,19 +14,20 @@ export enum IGNISIGN_SIGNATURE_PROFILE_STATUS {
 }
 
 export class IgnisignSignatureProfile {
-  @IsBoolean()
+  @IsOptional()
+  @IsString()
   _id?                      : string;
 
-  @IsBoolean()
+  @IsString()
   appId                     : string;
 
   @IsEnum(IGNISIGN_APPLICATION_ENV)
   appEnv                    : IGNISIGN_APPLICATION_ENV; 
 
-  @IsBoolean()
+  @IsString()
   orgId                     : string;
   
-  @IsBoolean()
+  @IsString()
   name                      : string;
 
   @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
@@ -61,6 +62,10 @@ export class IgnisignSignatureProfile {
 
   @IsBoolean()
   statementsEnabled         : boolean;
+
+  @IsOptional()
+  @IsString()
+  templateDisplayerId      ?: string;
 
   @IsOptional()
   @IsBoolean()
