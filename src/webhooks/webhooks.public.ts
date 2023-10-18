@@ -9,7 +9,7 @@ export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
   INFO      = "INFO",
   SUCCESS   = "SUCCESS",
   WARNING   = "WARNING",
-  ERROR     = "ERROR"
+  ERROR     = "ERROR",
 }
 
 export enum IGNISIGN_WEBHOOK_TOPICS {
@@ -82,7 +82,7 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   COMPLETED         = 'COMPLETED',
 }
 
-type IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
+export type IGNISIGN_WEBHOOK_ALL_TYPE = 'ALL';
 export const IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
 
 export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
@@ -94,7 +94,7 @@ export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST 
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF   |
                                       IGNISIGN_WEBHOOK_ACTION_APPLICATION       |
-                                      IGNISIGN_WEBHOOK_ACTION_ALL;
+                                      IGNISIGN_WEBHOOK_ALL_TYPE;
   
 export class IgnisignWebhook {
   _id         ?: string;
