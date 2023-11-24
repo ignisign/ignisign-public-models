@@ -108,6 +108,10 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsBoolean()
+  isIdProofingSession          ?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
   isFakeSms                 ?: boolean;
 
   @IsOptional()

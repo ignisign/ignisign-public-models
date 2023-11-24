@@ -155,6 +155,13 @@ export class IgnisignWebhookDto_SignatureProfile {
   signatureProfileId  : string;
 }
 
+export class IgnisignWebhookDto_IdProofing {
+  signatureRequestId : string;
+  signatureRequestExternalId ?: string;
+  signerId   : string;
+  signerExternalId ?: string;
+  token      : string;
+}
 
 export class IgnisignWebhookDto_Signature {
   @IsString()
@@ -200,4 +207,5 @@ export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
                                   IgnisignWebhookDto_Signature |
                                   IgnisignWebhookDto_SignatureImage |
                                   IgnisignWebhookDto_SignatureProof |
-                                  IgnisignWebhookDto_Application;
+                                  IgnisignWebhookDto_Application 
+                                  | IgnisignWebhookDto_IdProofing;

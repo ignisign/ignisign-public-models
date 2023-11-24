@@ -82,6 +82,11 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   COMPLETED         = 'COMPLETED',
 }
 
+export enum IGNISIGN_WEBHOOK_ACTION_ID_PROOFING {
+  LAUNCHED          = 'LAUNCHED',
+  COMPLETED         = 'COMPLETED',
+}
+
 export type IGNISIGN_WEBHOOK_ALL_TYPE = 'ALL';
 export const IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
 
@@ -93,6 +98,7 @@ export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST 
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE   |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF   |
+                                      IGNISIGN_WEBHOOK_ACTION_ID_PROOFING       |
                                       IGNISIGN_WEBHOOK_ACTION_APPLICATION       |
                                       IGNISIGN_WEBHOOK_ALL_TYPE;
   
