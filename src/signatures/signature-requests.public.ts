@@ -218,3 +218,14 @@ export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;
 }
 
+
+export class IgnisignSignatureRequestIdsContainerDto { 
+  signatureRequestIds: string[];
+}
+
+export class IgnisignSignatureRequests_StatusContainer {
+  signatureRequests : { 
+    signatureRequestId: string,
+    status: IGNISIGN_SIGNATURE_REQUEST_STATUS
+  }[];
+}
