@@ -53,6 +53,10 @@ export class IgnisignDocument {
   documentHash               : string;
 }
 
+export class IgnisignDocumentContainer {
+  document                   : IgnisignDocument;
+}
+
 export class IgnisignDocument_Context extends IgnisignDocument {
   statements         ?: IgnisignSignatureRequest_Statement[];  
   documentRequest    ?: IgnisignDocumentRequest;
