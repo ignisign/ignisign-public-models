@@ -191,6 +191,16 @@ export class IgnisignSignatureRequest_IdContainer {
   signatureRequestId?: string;
 }
 
+export declare class IgnisignSignatureRequest_PublishBySide extends IgnisignSignatureRequest_IdContainer {}
+
+export declare class IgnisignSignatureRequest_PublishEmbedded extends IgnisignSignatureRequest_IdContainer {
+  signers: {
+    signerId: string;
+    signerExternalId: string;
+    token: string;
+  }[]
+}
+
 export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureRequest {
   docFileName ?: string;  
   docLabel    ?: string;
