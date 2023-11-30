@@ -9,7 +9,7 @@ export enum IGNISIGN_WEBHOOK_MESSAGE_NATURE {
   INFO      = "INFO",
   SUCCESS   = "SUCCESS",
   WARNING   = "WARNING",
-  ERROR     = "ERROR"
+  ERROR     = "ERROR",
 }
 
 export enum IGNISIGN_WEBHOOK_TOPICS {
@@ -38,8 +38,8 @@ export enum IGNISIGN_WEBHOOK_ACTION_APPLICATION {
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF {
-  SIGNATURE_PROOF_GENERATED = 'SIGNATURE_PROOF_GENERATED',
-  ADVANCED_PROOF_GENERATED  = 'ADVANCED_PROOF_GENERATED',
+  GENERATED      = 'GENERATED',
+  ADV_GENERATED  = 'ADV_GENERATED',
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE {
@@ -76,13 +76,18 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   READY             = 'READY',
   WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
   LAUNCHED          = 'LAUNCHED',
-  
+  FAILED            = 'FAILED',
   CANCELLED         = 'CANCELLED', // Only send if no signature has been done => else send COMPLETED
   EXPIRED           = 'EXPIRED',   // Only send if no signature has been done => else send COMPLETED
   COMPLETED         = 'COMPLETED',
 }
 
-type IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
+export enum IGNISIGN_WEBHOOK_ACTION_ID_PROOFING {
+  LAUNCHED          = 'LAUNCHED',
+  COMPLETED         = 'COMPLETED',
+}
+
+export type IGNISIGN_WEBHOOK_ALL_TYPE = 'ALL';
 export const IGNISIGN_WEBHOOK_ACTION_ALL = 'ALL';
 
 export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST | 
@@ -93,8 +98,9 @@ export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST 
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE   |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF   |
+                                      IGNISIGN_WEBHOOK_ACTION_ID_PROOFING       |
                                       IGNISIGN_WEBHOOK_ACTION_APPLICATION       |
-                                      IGNISIGN_WEBHOOK_ACTION_ALL;
+                                      IGNISIGN_WEBHOOK_ALL_TYPE;
   
 export class IgnisignWebhook {
   _id         ?: string;
@@ -112,13 +118,15 @@ export class IgnisignWebhook_EndpointDto {
   description ?: string;
 }
 
-export type IgnisignWebhook_Callback<T = any> = (
+export type IgnisignWebhook_CallbackParams<T = any> = {
   content     : T,
   error      ?: IgnisignError,
   msgNature  ?: IGNISIGN_WEBHOOK_MESSAGE_NATURE,
   action     ?: string,
   topic      ?: IGNISIGN_WEBHOOK_TOPICS
-) => Promise<any>
+}
+
+export type IgnisignWebhook_Callback<T = any> = ({content, error, msgNature, action, topic}: IgnisignWebhook_CallbackParams<T>) => Promise<any>
 
 export class IgnisignWebhook_ActionDto {
   @IsString()

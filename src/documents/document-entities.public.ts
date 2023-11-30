@@ -35,22 +35,23 @@ export const IGNISIGN_ACCEPTED_DOCS = [
 
 export class IgnisignDocument {
   _id                       ?: string;
-  _createdAt                ?: Date;
   appId                      : string;
   appEnv                     : IGNISIGN_APPLICATION_ENV;
   documentNature             : IGNISIGN_DOCUMENT_TYPE;
   status                     : IGNISIGN_DOCUMENT_STATUS;
-  
-  documentRequestId         ?: string;
+  documentHash               : string;
   signatureRequestId         : string;
+  documentRequestId         ?: string;
   externalId                ?: string;
-  
   label                     ?: string;
   description               ?: string;
   fileName                  ?: string;
   fileSize                  ?: number;
   mimeType                  ?: string;
-  documentHash               : string;
+  dataJsonContent           ?: string;
+  relatedDocumentId         ?: string;
+  relatedDocumentType       ?: IGNISIGN_DOCUMENT_TYPE;
+  _createdAt                ?: Date;
 }
 
 export class IgnisignDocumentContainer {

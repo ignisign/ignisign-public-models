@@ -2,10 +2,8 @@ import { IsEnum, IsOptional, IsString, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_DOCUMENT_TYPE } from "../documents/document-entities.public";
-import { IGNISIGN_DOCUMENT_REQUEST_TARGET } from "../documents/document-request.public";
 import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
-import { IGNISIGN_INTEGRATION_MODE } from "../signatures/signatures.public";
-import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
+import { IGNISIGN_SIGNATURE_REQUEST_STATUS } from "../signatures/signature-requests.public";
 
 
 export class IgnisignWebhookDto_SignatureSession {
@@ -133,11 +131,14 @@ export class IgnisignWebhookDto_SignatureImage {
 
 export class IgnisignWebhookDto_SignatureRequest {
   @IsString()
-  signatureRequestId  : string;
+  signatureRequestId : string;
+
+  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_STATUS)
+  status : IGNISIGN_SIGNATURE_REQUEST_STATUS;
 
   @IsOptional()
   @IsString()
-  signatureRequestExternalId         ?: string;
+  signatureRequestExternalId ?: string;
 
   @IsOptional()
   @ValidateNested({ each: true })
@@ -154,6 +155,13 @@ export class IgnisignWebhookDto_SignatureProfile {
   signatureProfileId  : string;
 }
 
+export class IgnisignWebhookDto_IdProofing {
+  signatureRequestId : string;
+  signatureRequestExternalId ?: string;
+  signerId   : string;
+  signerExternalId ?: string;
+  token      : string;
+}
 
 export class IgnisignWebhookDto_Signature {
   @IsString()
@@ -199,4 +207,5 @@ export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
                                   IgnisignWebhookDto_Signature |
                                   IgnisignWebhookDto_SignatureImage |
                                   IgnisignWebhookDto_SignatureProof |
-                                  IgnisignWebhookDto_Application;
+                                  IgnisignWebhookDto_Application 
+                                  | IgnisignWebhookDto_IdProofing;

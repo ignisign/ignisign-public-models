@@ -56,3 +56,7 @@ export class IgnisignSignatureImages_Dto {
   signatures : { signerId: string, imgB64: string }[];
 }
 
+
+export class IgnisignDocumentSignatureProof_CustomizationDto {
+  html : string;
+}

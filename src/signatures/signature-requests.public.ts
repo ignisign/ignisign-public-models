@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
@@ -22,6 +22,7 @@ export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   DRAFT             = 'DRAFT',
 
   WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
+  WAITING_DOCUMENTS_GENERATION = 'WAITING_DOCUMENTS_GENERATION',
   READY             = 'READY',
   IN_PROGRESS       = 'IN_PROGRESS',
   
@@ -107,11 +108,24 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsBoolean()
+  isIdProofingSession          ?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
   isFakeSms                 ?: boolean;
 
   @IsOptional()
   @IsString()
   creatorId                 ?: string;
+
+  @IsOptional()
+  @IsString()
+  templateDisplayerId      ?: string;
+
+  @IsOptional()
+  @IsNumber()
+  templateDisplayerVersion ?: number;
+
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -177,6 +191,16 @@ export class IgnisignSignatureRequest_IdContainer {
   signatureRequestId?: string;
 }
 
+export declare class IgnisignSignatureRequest_PublishBySide extends IgnisignSignatureRequest_IdContainer {}
+
+export declare class IgnisignSignatureRequest_PublishEmbedded extends IgnisignSignatureRequest_IdContainer {
+  signers: {
+    signerId: string;
+    signerExternalId: string;
+    token: string;
+  }[]
+}
+
 export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureRequest {
   docFileName ?: string;  
   docLabel    ?: string;
@@ -204,3 +228,14 @@ export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;
 }
 
+
+export class IgnisignSignatureRequestIdsContainerDto { 
+  signatureRequestIds: string[];
+}
+
+export class IgnisignSignatureRequests_StatusContainer {
+  signatureRequests : { 
+    signatureRequestId: string,
+    status: IGNISIGN_SIGNATURE_REQUEST_STATUS
+  }[];
+}
