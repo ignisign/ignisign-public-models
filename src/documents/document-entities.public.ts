@@ -54,7 +54,7 @@ export class IgnisignDocument {
   _createdAt                ?: Date;
 }
 
-export class IgnisignDocumentContainer {
+export class IgnisignDocument_Container {
   document                   : IgnisignDocument;
 }
 
