@@ -31,7 +31,7 @@ export const IGNISIGN_ACCEPTED_DOCS = [
   '.xlsx', '.3g2',    '.3gp', '.flv', '.h264',  '.m4v', '.mkv',   '.mov', '.mp4', '.mpg',
   '.mpeg', '.rm',     '.swf', '.vob', '.wmv',   '.doc', '.docx',  '.odt', '.pdf', '.rtf',
   '.tex',  '.wpd',    '.csv', '.tar', '.json',  '.xml', '.7z',    '.arj', '.deb', '.rar',
-  '.rpm',  '.z',   '.zip',
+  '.rpm',  '.z',      '.zip', '.txt', '.md'
 ]
 
 export class IgnisignDocument {
