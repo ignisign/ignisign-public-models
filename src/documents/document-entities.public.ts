@@ -5,10 +5,11 @@ import { IgnisignDocumentRequest } from "./document-request.public";
 
 
 export enum IGNISIGN_DOCUMENT_TYPE {
-  PDF          = "PDF",
-  FILE         = "FILE",
-  DATA_JSON    = "DATA_JSON",
-  PRIVATE_FILE = "PRIVATE_FILE",  
+  PDF             = "PDF",
+  PDF_ENCRYPTED   = "PDF_ENCRYPTED",
+  FILE            = "FILE",
+  DATA_JSON       = "DATA_JSON",
+  PRIVATE_FILE    = "PRIVATE_FILE",  
 }
 
 export enum IGNISIGN_DOCUMENT_STATUS {
