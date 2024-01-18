@@ -5,10 +5,11 @@ import { IgnisignDocumentRequest } from "./document-request.public";
 
 
 export enum IGNISIGN_DOCUMENT_TYPE {
-  PDF          = "PDF",
-  FILE         = "FILE",
-  DATA_JSON    = "DATA_JSON",
-  PRIVATE_FILE = "PRIVATE_FILE",  
+  PDF             = "PDF",
+  PDF_ENCRYPTED   = "PDF_ENCRYPTED",
+  FILE            = "FILE",
+  DATA_JSON       = "DATA_JSON",
+  PRIVATE_FILE    = "PRIVATE_FILE",  
 }
 
 export enum IGNISIGN_DOCUMENT_STATUS {
@@ -30,7 +31,7 @@ export const IGNISIGN_ACCEPTED_DOCS = [
   '.xlsx', '.3g2',    '.3gp', '.flv', '.h264',  '.m4v', '.mkv',   '.mov', '.mp4', '.mpg',
   '.mpeg', '.rm',     '.swf', '.vob', '.wmv',   '.doc', '.docx',  '.odt', '.pdf', '.rtf',
   '.tex',  '.wpd',    '.csv', '.tar', '.json',  '.xml', '.7z',    '.arj', '.deb', '.rar',
-  '.rpm',  '.z',   '.zip',
+  '.rpm',  '.z',      '.zip', '.txt', '.md'
 ]
 
 export class IgnisignDocument {
