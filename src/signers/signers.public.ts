@@ -1,4 +1,4 @@
-import { IsDateString, IsEmail, IsEnum, IsMongoId, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsDateString, IsEmail, IsEnum, IsMongoId, IsNumber, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
 import { IgnisignSignatureRequest_WithDocName } from "../signatures/signature-requests.public";
@@ -28,9 +28,10 @@ export class IgnisignSigner {
   status                            : IGNISIGN_SIGNER_STATUS;
   entityType                        : IGNISIGN_SIGNER_ENTITY_TYPE;
   _createdAt?                       : Date;
-  agreedLegalTerms                  ?: boolean
-  certificateDisseminationAgreement ?: boolean
-  externalId                        ?: string
+  agreedLegalTerms                  ?: boolean;
+  certificateDisseminationAgreement ?: boolean;
+  externalId                        ?: string;
+  isRecurrent                       ?: boolean;
 }
 
 export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
@@ -82,6 +83,10 @@ export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isRecurrent ?: boolean;
 }
 
 export class IgnisignSigner_UpdateRequestDto {
@@ -128,6 +133,10 @@ export class IgnisignSigner_UpdateRequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  isRecurrent ?: boolean;
 }
 
 export class IgnisignSigner_CreationResponseDto {
@@ -177,6 +186,10 @@ export class IgnisignSigner_Summary {
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF, { each: true })
   alreadyProvidedInputs ?: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+
+  @IsOptional()
+  @IsBoolean()
+  isRecurrent ?: boolean;
 }
 
 

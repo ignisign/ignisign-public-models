@@ -63,6 +63,9 @@ export class IgnisignSignatureProfile {
   @IsBoolean()
   statementsEnabled         : boolean;
 
+  @IsBoolean()
+  recurrentSigners          : boolean = false;
+
   @IsOptional()
   @IsString()
   templateDisplayerId      ?: string;
@@ -70,6 +73,7 @@ export class IgnisignSignatureProfile {
   @IsOptional()
   @IsBoolean()
   createdByDefault         ?: boolean = false;
+
 }
 
 export class IgnisignSignatureProfile_StatusWrapper {
