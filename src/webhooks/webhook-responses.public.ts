@@ -90,10 +90,6 @@ export class IgnisignWebhookDto_Signer {
 
   @IsOptional()
   @IsString()
-  authSecret ?: string;
-
-  @IsOptional()
-  @IsString()
   signerExternalId  ?: string;
 
   @IsOptional()
