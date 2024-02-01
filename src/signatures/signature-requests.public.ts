@@ -192,7 +192,7 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsString({ each: true })
-  signerIdsToMakeReccurent ?: string[];
+  signerIdsToMakeReccurent ?: string[]; 
 }
 
 export class IgnisignSignatureRequest_IdContainer {

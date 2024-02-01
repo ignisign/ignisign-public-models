@@ -21,7 +21,7 @@ export enum IGNISIGN_SIGNER_STATUS {
   BLOCKED = "BLOCKED",
   ACTIVE  = "ACTIVE",
 }
-export class IgnisignSigner {
+export class IgnisignSigner { 
   _id?                              : string;
   appId                             : string;
   appEnv                            : IGNISIGN_APPLICATION_ENV;
@@ -34,7 +34,7 @@ export class IgnisignSigner {
   isRecurrent                       ?: boolean;
 }
 
-export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
+export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 
   FIRST_NAME    = "firstName",
   LAST_NAME     = "lastName",
   EMAIL         = "email",
@@ -122,7 +122,7 @@ export class IgnisignSigner_UpdateRequestDto {
   @IsDateString()
   birthDate ?: string;
 
-  @IsOptional()
+  @IsOptional() 
   @IsString()
   birthPlace ?: string;
 
