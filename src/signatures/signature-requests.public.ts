@@ -97,10 +97,6 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString({each: true})
   signerIds                 ?: string[];
-
-  @IsOptional()
-  @IsString({each: true})
-  signerIdsToMakeReccurent  ?: string[];
   
   @IsOptional()
   @IsString({each: true})
@@ -189,10 +185,6 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsString({ each: true })
   signerIds ?: string[];
-
-  @IsOptional()
-  @IsString({ each: true })
-  signerIdsToMakeReccurent ?: string[]; 
 }
 
 export class IgnisignSignatureRequest_IdContainer {
@@ -247,3 +239,4 @@ export class IgnisignSignatureRequests_StatusContainer {
     status: IGNISIGN_SIGNATURE_REQUEST_STATUS
   }[];
 }
+

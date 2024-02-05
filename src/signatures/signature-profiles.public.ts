@@ -64,7 +64,7 @@ export class IgnisignSignatureProfile {
   statementsEnabled         : boolean;
 
   @IsBoolean()
-  recurrentSigners          : boolean = false;
+  forceRecurrentSigners     : boolean = false;
 
   @IsOptional()
   @IsString()
@@ -90,3 +90,4 @@ export class IgnisignSignatureProfile_IdContainerDto {
   @IsString()
   signatureProfileId: string;
 }
+
