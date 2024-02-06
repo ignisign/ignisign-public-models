@@ -56,10 +56,7 @@ export class IgnisignSignatureProfile {
 
   @IsBoolean()
   languageCanBeChanged      : boolean;
-
-  @IsBoolean()
-  authSessionEnabled        : boolean;
-
+  
   @IsBoolean()
   statementsEnabled         : boolean;
 
