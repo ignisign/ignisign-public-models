@@ -128,6 +128,10 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsBoolean()
+  makeOneSignatureRequestPerSigner?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
   extendedAuthSessionEnabled ?: boolean;
 }
 
@@ -188,6 +192,10 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsString({ each: true })
   signerIds ?: string[];
+
+  @IsOptional()
+  @IsBoolean()
+  makeOneSignatureRequestPerSigner?: boolean;
 
   @IsOptional()
   @IsBoolean()
