@@ -126,6 +126,9 @@ export class IgnisignSignatureRequest {
   @IsNumber()
   templateDisplayerVersion ?: number;
 
+  @IsOptional()
+  @IsBoolean()
+  makeOneSignatureRequestPerSigner?: boolean;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -185,6 +188,10 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsString({ each: true })
   signerIds ?: string[];
+
+  @IsOptional()
+  @IsBoolean()
+  makeOneSignatureRequestPerSigner?: boolean;
 }
 
 export class IgnisignSignatureRequest_IdContainer {
