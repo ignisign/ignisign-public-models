@@ -108,7 +108,7 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsBoolean()
-  isIdProofingSession          ?: boolean;
+  isIdProofingSession       ?: boolean;
 
   @IsOptional()
   @IsBoolean()
@@ -124,11 +124,15 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsNumber()
-  templateDisplayerVersion ?: number;
+  templateDisplayerVersion   ?: number;
 
   @IsOptional()
   @IsBoolean()
   makeOneSignatureRequestPerSigner?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  extendedAuthSessionEnabled ?: boolean;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -192,6 +196,10 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsBoolean()
   makeOneSignatureRequestPerSigner?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  extendedAuthSessionEnabled ?: boolean;
 }
 
 export class IgnisignSignatureRequest_IdContainer {
