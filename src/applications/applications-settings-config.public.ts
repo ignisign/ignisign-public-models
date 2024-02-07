@@ -41,7 +41,8 @@ export class IgnisignApplication_Settings {
   customerSupportEmail  ?: string;
   logoB64               ?: string;
   logoDarkB64           ?: string;
-  colors                ?: CustomPalette;
+  primaryColor          ?: IgnisignApplication_VariationColor
+  secondaryColor        ?: IgnisignApplication_VariationColor
 }
 
 export class CustomPalette {
