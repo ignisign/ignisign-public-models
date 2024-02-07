@@ -30,6 +30,8 @@ export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   EXPIRED           = 'EXPIRED',
   FAILED            = 'FAILED',
   CANCELLED         = 'CANCELLED',
+
+  PROCESSING        = 'PROCESSING',
 }
 
 export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
@@ -133,6 +135,10 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsBoolean()
   extendedAuthSessionEnabled ?: boolean;
+
+  @IsOptional()
+  @IsString()
+  bulkReferralId ?: string;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -200,6 +206,10 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsBoolean()
   extendedAuthSessionEnabled ?: boolean;
+
+  @IsOptional()
+  @IsString()
+  bulkReferralId ?: string;
 }
 
 export class IgnisignSignatureRequest_IdContainer {
