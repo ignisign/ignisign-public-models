@@ -139,6 +139,14 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString()
   bulkReferralId ?: string;
+
+  @IsOptional()
+  @IsString({ each: true })
+  isCosigners ?: string[];
+
+  @IsOptional()
+  @IsBoolean()
+  isCosignersSession ?: boolean;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -210,6 +218,10 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsString()
   bulkReferralId ?: string;
+
+  @IsOptional()
+  @IsString({ each: true })
+  isCosigners ?: string[];
 }
 
 export class IgnisignSignatureRequest_IdContainer {
@@ -245,6 +257,7 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
+  isCosigners           ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
   signatureProfile      : IgnisignSignatureProfile;
