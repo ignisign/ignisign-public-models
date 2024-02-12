@@ -9,9 +9,9 @@ export enum IGNISIGN_BROADCASTABLE_ACTIONS {
 }
 
 export type IgnisignBroadcastableAction_Dto = 
-  IgnisignBroadcastableAction_PrivateFileRequestDto   |
-  IgnisignBroadcastableAction_OpenUrlRequestDto            |
-  IgnisignBroadcastableAction_SignatureFinalizedDto |
+  IgnisignBroadcastableAction_PrivateFileRequestDto  |
+  IgnisignBroadcastableAction_OpenUrlRequestDto      |
+  IgnisignBroadcastableAction_SignatureFinalizedDto  |
   IgnisignBroadcastableAction_SignatureErrorDto;
 
 

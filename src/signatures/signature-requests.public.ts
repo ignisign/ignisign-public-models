@@ -41,6 +41,21 @@ export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
   IGNISIGN_SIGNATURE_REQUEST_STATUS.CANCELLED
 ]
 
+export enum IGNISIGN_SIGNATURE_REQUEST_TYPE {
+  STANDARD            = "STANDARD",
+  ID_PROOFING_SESSION = "ID_PROOFING_SESSION",
+  BULK                = "BULK",
+  // BULK_CO_SIGNERS        = "BULK_CO_SIGNERS",
+}
+
+export enum IGNISIGN_SIGNATURE_REQUEST_POST_PROCESSING_MECHANISM {
+  SIGNATURE_PROOF = "SIGNATURE_PROOF",
+  // SEAL                   = "SEAL",
+  // VERIFIABLE_CREDENTIALS = "VERIFIABLE_CREDENTIALS",
+  // DELEGATED_PROCESSING   = "DELEGATED_PROCESSING"
+
+}
+
 export class IgnisignSignatureRequest {
   _id                       ?: string;
 
@@ -54,8 +69,7 @@ export class IgnisignSignatureRequest {
   @IsEnum(IGNISIGN_APPLICATION_ENV)
   appEnv                     : IGNISIGN_APPLICATION_ENV;
 
-  @IsString()
-  signatureProfileId         : string;
+
 
   @IsOptional()
   @IsString()
@@ -66,6 +80,25 @@ export class IgnisignSignatureRequest {
   description               ?: string;
 
   @IsOptional()
+  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
+  language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
+
+  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_STATUS)
+  status                     : IGNISIGN_SIGNATURE_REQUEST_STATUS;
+
+  @IsOptional()
+  @IsString()
+  externalId                ?: string;
+
+  @IsOptional()
+  @IsString()
+  creatorId                 ?: string;
+
+  @IsString()
+  signatureProfileId         : string;
+
+
+  @IsOptional()
   @IsDate()
   expirationDate            ?: Date;
 
@@ -73,21 +106,12 @@ export class IgnisignSignatureRequest {
   @IsBoolean()
   expirationDateIsActivated ?: boolean;
 
-  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_STATUS)
-  status                     : IGNISIGN_SIGNATURE_REQUEST_STATUS;
-
-  @IsOptional()
-  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
-  language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
 
   @IsOptional()
   @IsString({each: true})
   documentIds               ?: string[];
 
-  @IsOptional()
-  @IsString()
-  externalId                ?: string;
-
+  
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE)
   diffusionMode             ?: IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE;
@@ -99,7 +123,7 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString({each: true})
   signerIds                 ?: string[];
-  
+
   @IsOptional()
   @IsString({each: true})
   signedBy                  ?: string[];  
@@ -110,15 +134,13 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsBoolean()
-  isIdProofingSession       ?: boolean;
+  isIdProofingSession          ?: boolean;
 
   @IsOptional()
   @IsBoolean()
   isFakeSms                 ?: boolean;
 
-  @IsOptional()
-  @IsString()
-  creatorId                 ?: string;
+  
 
   @IsOptional()
   @IsString()
@@ -126,9 +148,9 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsNumber()
-  templateDisplayerVersion   ?: number;
+  templateDisplayerVersion ?: number;
 
-  @IsOptional()
+@IsOptional()
   @IsBoolean()
   makeOneSignatureRequestPerSigner?: boolean;
 
@@ -196,20 +218,8 @@ export class IgnisignSignatureRequest_UpdateDto {
   statements ?: IgnisignSignatureRequest_Statement[];
 
   @IsOptional()
-  @IsString({ each: true })
+  @IsArray()
   signerIds ?: string[];
-
-  @IsOptional()
-  @IsBoolean()
-  makeOneSignatureRequestPerSigner?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
-  extendedAuthSessionEnabled ?: boolean;
-
-  @IsOptional()
-  @IsString()
-  bulkReferralId ?: string;
 }
 
 export class IgnisignSignatureRequest_IdContainer {
@@ -264,4 +274,3 @@ export class IgnisignSignatureRequests_StatusContainer {
     status: IGNISIGN_SIGNATURE_REQUEST_STATUS
   }[];
 }
-
