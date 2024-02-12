@@ -7,6 +7,7 @@ import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";
 import { IGNISIGN_INTEGRATION_MODE } from "./signatures.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
+import { IGNISIGN_SIGNATURE_REQUEST_TYPE } from "./signature-requests.public";
 
 export enum IGNISIGN_SIGNATURE_PROFILE_STATUS {
   PUBLISHED = "PUBLISHED",
@@ -50,6 +51,9 @@ export class IgnisignSignatureProfile {
 
   @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
   defaultLanguage           : IGNISIGN_SIGNATURE_LANGUAGES;
+
+  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
+  signatureRequestType      : IGNISIGN_SIGNATURE_REQUEST_TYPE = IGNISIGN_SIGNATURE_REQUEST_TYPE.STANDARD;
 
   @IsBoolean()
   documentRequestActivated  : boolean;
