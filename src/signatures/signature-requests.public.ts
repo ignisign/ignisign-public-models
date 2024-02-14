@@ -34,6 +34,7 @@ export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   PROCESSING        = 'PROCESSING',
 }
 
+
 export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
   IGNISIGN_SIGNATURE_REQUEST_STATUS.COMPLETED,
   IGNISIGN_SIGNATURE_REQUEST_STATUS.EXPIRED,
@@ -42,6 +43,7 @@ export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
 ]
 
 export enum IGNISIGN_SIGNATURE_REQUEST_TYPE {
+
   STANDARD            = "STANDARD",
   ID_PROOFING_SESSION = "ID_PROOFING_SESSION",
   BULK                = "BULK",
@@ -78,6 +80,7 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString()
   description               ?: string;
+
 
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
@@ -156,13 +159,9 @@ export class IgnisignSignatureRequest {
   isCosigners ?: string[];
 
 
-  @IsOptional()
-  @IsBoolean()
-  isIdProofingSession          ?: boolean;
-
   // @IsOptional()
   // @IsBoolean()
-  // makeOneSignatureRequestPerSigner?: boolean;
+  // isIdProofingSession          ?: boolean;
 
   // @IsOptional()
   // @IsBoolean()
@@ -236,11 +235,6 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsArray()
   signerIds ?: string[];
-
-
-  // @IsOptional()
-  // @IsBoolean()
-  // makeOneSignatureRequestPerSigner?: boolean;
 
   @IsOptional()
   @IsBoolean()
