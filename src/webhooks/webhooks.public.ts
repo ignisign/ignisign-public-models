@@ -106,6 +106,7 @@ export class IgnisignWebhook {
   _id         ?: string;
   url          : string;
   description ?: string;
+  isDisabled  ?: boolean;
   _createdAt  ?: Date;
 }
 
