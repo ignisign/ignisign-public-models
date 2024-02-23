@@ -44,9 +44,11 @@ export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
 
 export enum IGNISIGN_SIGNATURE_REQUEST_TYPE {
 
-  STANDARD            = "STANDARD",
-  ID_PROOFING_SESSION = "ID_PROOFING_SESSION",
-  BULK                = "BULK",
+  STANDARD       = "STANDARD",
+  SIGNER_SETUP   = "SIGNER_SETUP",
+  // REGISTERED_LETTER     = "REGISTERED_LETTER",
+  // SEAL                  = "SEAL",
+  // VERIFIED_CREDENTIALS  = "VERIFIED_CREDENTIALS",
 }
 
 export enum IGNISIGN_SIGNATURE_REQUEST_POST_PROCESSING_MECHANISM {
@@ -156,7 +158,7 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsString({ each: true })
-  isCosigners ?: string[];
+  signersAsApprover ?: string[];
 
 
   // @IsOptional()
@@ -165,7 +167,7 @@ export class IgnisignSignatureRequest {
 
   // @IsOptional()
   // @IsBoolean()
-  // isCosignersSession ?: boolean;
+  // signersAsApproverSession ?: boolean;
 
   // @IsOptional()
   // @IsBoolean()
@@ -246,7 +248,7 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsString({ each: true })
-  isCosigners ?: string[];
+  signersAsApprover ?: string[];
 
 }
 
@@ -283,7 +285,7 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
-  isCosigners           ?: string[];
+  signersAsApprover           ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
   signatureProfile      : IgnisignSignatureProfile;

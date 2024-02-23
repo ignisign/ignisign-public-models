@@ -77,10 +77,13 @@ export class IgnisignSignatureProfile {
   extendedAuthSessionEnabled    : boolean;
 
   @IsBoolean()
-  coSignersEnabled?             : boolean;
+  approverEnabled?             : boolean;
   
   @IsBoolean()
   recipientEnabled?    : boolean;
+
+  @IsBoolean()
+  individualizeRequests? : boolean;
 
 
 

@@ -8,12 +8,12 @@ export enum IGNISIGN_SIGNATURE_MODE {
   CLIENT_SIDE_SIGNATURE           = "CLIENT_SIDE_SIGNATURE",
 }
 
+
 export enum IGNISIGN_SIGNATURE_STATUS {
   INIT       = 'INIT',
   SIGNED     = 'SIGNED',
   FAILED     = 'FAILED',
 }
-
 
 export enum IGNISIGN_INTEGRATION_MODE {
   BY_SIDE   = "BY_SIDE",
