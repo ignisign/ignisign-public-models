@@ -29,6 +29,7 @@ export class IgnisignWebhook_SettingsDescription {
   _createdAt  ?: Date;
   url          : string;
   description ?: string;
+  isDisabled  ?: boolean;
 }
 
 
