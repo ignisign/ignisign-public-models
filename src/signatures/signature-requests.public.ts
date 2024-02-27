@@ -145,8 +145,6 @@ export class IgnisignSignatureRequest {
   templateDisplayerVersion ?: number;
 
 
-
-
   @IsOptional()
   @IsBoolean()
   extendedAuthSessionEnabled ?: boolean;
