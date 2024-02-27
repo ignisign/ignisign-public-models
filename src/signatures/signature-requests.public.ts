@@ -158,7 +158,10 @@ export class IgnisignSignatureRequest {
   @IsString({ each: true })
   signersAsApprover ?: string[];
 
-
+  @IsOptional()
+  @IsString({ each: true })
+  recipients ?: string[];
+  
   // @IsOptional()
   // @IsBoolean()
   // isIdProofingSession          ?: boolean;
@@ -247,6 +250,11 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsString({ each: true })
   signersAsApprover ?: string[];
+
+  @IsOptional()
+  @IsString({ each: true })
+  recipients ?: string[];
+  
 
 }
 
