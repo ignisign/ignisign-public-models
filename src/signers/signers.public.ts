@@ -45,8 +45,9 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   BIRTH_COUNTRY = "birthCountry",
 }
 export class IgnisignSigner_CreationRequestDto {
+  @IsOptional()
   @IsString()
-  signatureProfileId : string;
+  signatureProfileId ?: string;
 
   @IsOptional()
   @IsString()
@@ -94,8 +95,9 @@ export class IgnisignSigner_UpdateRequestDto {
   @IsMongoId()
   signerId ?: string;
 
+  @IsOptional()
   @IsString()
-  signatureProfileId : string;
+  signatureProfileId ?: string;
 
   @IsOptional()
   @IsString()
