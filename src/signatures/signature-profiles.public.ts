@@ -85,7 +85,8 @@ export class IgnisignSignatureProfile {
   @IsBoolean()
   individualizeRequests? : boolean;
 
-
+  @IsBoolean()
+  sharingRestricted?    : boolean;
 
   // @IsBoolean()
   // forceRecurrentSigners     : boolean = false;
