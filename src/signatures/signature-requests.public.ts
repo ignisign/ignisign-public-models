@@ -83,7 +83,6 @@ export class IgnisignSignatureRequest {
   @IsString()
   description               ?: string;
 
-
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
   language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
@@ -99,11 +98,8 @@ export class IgnisignSignatureRequest {
   @IsString()
   creatorId                 ?: string;
 
-
-
   @IsString()
   signatureProfileId         : string;
-
 
   @IsOptional()
   @IsString({each: true})
@@ -116,7 +112,6 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString({each: true})
   signedBy                  ?: string[];  
-
 
   @IsOptional()
   @IsDate()
@@ -134,8 +129,6 @@ export class IgnisignSignatureRequest {
   @IsDate()
   diffusionDate             ?: Date;
 
-  
-
   @IsOptional()
   @IsString()
   templateDisplayerId      ?: string;
@@ -143,12 +136,6 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsNumber()
   templateDisplayerVersion ?: number;
-
-
-  @IsOptional()
-  @IsBoolean()
-  extendedAuthSessionEnabled ?: boolean;
-
 
   @IsOptional()
   @IsString()
@@ -161,23 +148,6 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString({ each: true })
   recipients ?: string[];
-  
-  // @IsOptional()
-  // @IsBoolean()
-  // isIdProofingSession          ?: boolean;
-
-  // @IsOptional()
-  // @IsBoolean()
-  // signersAsApproverSession ?: boolean;
-
-  // @IsOptional()
-  // @IsBoolean()
-  // isFakeIdProofing          ?: boolean;
-
-  // @IsOptional()
-  // @IsBoolean()
-  // isFakeSms                 ?: boolean;
-
 
 }
 
