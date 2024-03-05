@@ -32,8 +32,9 @@ export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   CANCELLED         = 'CANCELLED',
 
   PROCESSING        = 'PROCESSING',
+  CHILDREN_GERENATED = 'CHILDREN_GERENATED'
 }
-
+ 
 
 export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
   IGNISIGN_SIGNATURE_REQUEST_STATUS.COMPLETED,
@@ -139,7 +140,7 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsString()
-  bulkReferralId ?: string;
+  initialSignatureRequestId ?: string;
 
   @IsOptional()
   @IsString({ each: true })
@@ -215,7 +216,7 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsString()
-  bulkReferralId ?: string;
+  initialSignatureRequestId ?: string;
 
   @IsOptional()
   @IsString({ each: true })

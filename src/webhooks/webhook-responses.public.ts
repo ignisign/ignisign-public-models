@@ -140,6 +140,10 @@ export class IgnisignWebhookDto_SignatureRequest {
   @ValidateNested({ each: true })
   @Type(() => IgnisignWebhookDto_SignatureRequestSigner)
   signers ?: IgnisignWebhookDto_SignatureRequestSigner[];
+
+  @IsOptional()
+  @IsString()
+  initialSignatureRequestId ?: string;
 }
 export class IgnisignWebhookDto_SignatureRequestSigner {
   signerId   : string;
@@ -149,14 +153,6 @@ export class IgnisignWebhookDto_SignatureRequestSigner {
 
 export class IgnisignWebhookDto_SignatureProfile {
   signatureProfileId  : string;
-}
-
-export class IgnisignWebhookDto_IdProofing {
-  signatureRequestId : string;
-  signatureRequestExternalId ?: string;
-  signerId   : string;
-  signerExternalId ?: string;
-  token      : string;
 }
 
 export class IgnisignWebhookDto_Signature {
@@ -203,5 +199,4 @@ export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
                                   IgnisignWebhookDto_Signature |
                                   IgnisignWebhookDto_SignatureImage |
                                   IgnisignWebhookDto_SignatureProof |
-                                  IgnisignWebhookDto_Application 
-                                  | IgnisignWebhookDto_IdProofing;
+                                  IgnisignWebhookDto_Application

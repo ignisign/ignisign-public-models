@@ -71,20 +71,16 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_SESSION {
 }
 
 export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
-  INITIALIZED       = 'INITIALIZED',
-  UPDATED           = 'UPDATED',
-  READY             = 'READY',
-  WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
-  LAUNCHED          = 'LAUNCHED',
-  FAILED            = 'FAILED',
-  CANCELLED         = 'CANCELLED', // Only send if no signature has been done => else send COMPLETED
-  EXPIRED           = 'EXPIRED',   // Only send if no signature has been done => else send COMPLETED
-  COMPLETED         = 'COMPLETED',
-}
-
-export enum IGNISIGN_WEBHOOK_ACTION_ID_PROOFING {
-  LAUNCHED          = 'LAUNCHED',
-  COMPLETED         = 'COMPLETED',
+  INITIALIZED         = 'INITIALIZED',
+  UPDATED             = 'UPDATED',
+  READY               = 'READY',
+  WAITING_DOCUMENTS   = 'WAITING_DOCUMENTS',
+  LAUNCHED            = 'LAUNCHED',
+  FAILED              = 'FAILED',
+  CANCELLED           = 'CANCELLED', // Only send if no signature has been done => else send COMPLETED
+  EXPIRED             = 'EXPIRED',   // Only send if no signature has been done => else send COMPLETED
+  COMPLETED           = 'COMPLETED',
+  CHILDREN_GERENATED = 'CHILDREN_GERENATED'
 }
 
 export type IGNISIGN_WEBHOOK_ALL_TYPE = 'ALL';
@@ -98,7 +94,6 @@ export type IgnisignWebhook_Action =  IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST 
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_IMAGE   |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROFILE |
                                       IGNISIGN_WEBHOOK_ACTION_SIGNATURE_PROOF   |
-                                      IGNISIGN_WEBHOOK_ACTION_ID_PROOFING       |
                                       IGNISIGN_WEBHOOK_ACTION_APPLICATION       |
                                       IGNISIGN_WEBHOOK_ALL_TYPE;
   
