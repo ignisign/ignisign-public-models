@@ -32,6 +32,7 @@ export class IgnisignSigner {
   certificateDisseminationAgreement ?: boolean;
   externalId                        ?: string;
   isRecurrent                       ?: boolean;
+  fromUserId                        ?: string;
 }
 
 export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 
