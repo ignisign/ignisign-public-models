@@ -85,7 +85,8 @@ export class IgnisignSignatureProfile {
   @IsBoolean()
   individualizeRequests? : boolean;
 
-
+  @IsBoolean()
+  sharingRestricted?    : boolean;
 
   // @IsBoolean()
   // forceRecurrentSigners     : boolean = false;
@@ -107,3 +108,13 @@ export class IgnisignSignatureProfile_IdContainerDto {
   signatureProfileId: string;
 }
 
+export class IgnisignSignerStatus_FromSignatureProfile {
+  @IsBoolean()
+  signerIsSetup     : boolean;
+
+  @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF, { each: true })
+  inputsNeeded      : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+
+  @IsEnum(IGNISIGN_ID_PROOFING_METHOD_REF, { each: true })
+  idProofingRefs       : IGNISIGN_ID_PROOFING_METHOD_REF[];
+}

@@ -15,7 +15,7 @@ export enum IGNISIGN_SIGNER_ENTITY_TYPE {
     VIRTUAL = 'VIRTUAL'
 }
 
-export enum IGNISIGN_SIGNER_STATUS {
+export enum IGNISIGN_SIGNER_STATUS { 
   CREATED = "CREATED",
   PENDING = "PENDING",
   BLOCKED = "BLOCKED",
@@ -32,6 +32,7 @@ export class IgnisignSigner {
   certificateDisseminationAgreement ?: boolean;
   externalId                        ?: string;
   isRecurrent                       ?: boolean;
+  fromUserId                        ?: string;
 }
 
 export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 

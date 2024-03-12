@@ -32,8 +32,9 @@ export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   CANCELLED         = 'CANCELLED',
 
   PROCESSING        = 'PROCESSING',
+  CHILDREN_GERENATED = 'CHILDREN_GERENATED'
 }
-
+ 
 
 
 export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
@@ -84,7 +85,6 @@ export class IgnisignSignatureRequest {
   @IsString()
   description               ?: string;
 
-
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
   language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
@@ -100,11 +100,8 @@ export class IgnisignSignatureRequest {
   @IsString()
   creatorId                 ?: string;
 
-
-
   @IsString()
   signatureProfileId         : string;
-
 
   @IsOptional()
   @IsString({each: true})
@@ -117,7 +114,6 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString({each: true})
   signedBy                  ?: string[];  
-
 
   @IsOptional()
   @IsDate()
@@ -135,8 +131,6 @@ export class IgnisignSignatureRequest {
   @IsDate()
   diffusionDate             ?: Date;
 
-  
-
   @IsOptional()
   @IsString()
   templateDisplayerId      ?: string;
@@ -145,39 +139,17 @@ export class IgnisignSignatureRequest {
   @IsNumber()
   templateDisplayerVersion ?: number;
 
-
-
-
-  @IsOptional()
-  @IsBoolean()
-  extendedAuthSessionEnabled ?: boolean;
-
-
   @IsOptional()
   @IsString()
-  bulkReferralId ?: string;
+  initialSignatureRequestId ?: string;
 
   @IsOptional()
   @IsString({ each: true })
   signersAsApprover ?: string[];
 
-
-  // @IsOptional()
-  // @IsBoolean()
-  // isIdProofingSession          ?: boolean;
-
-  // @IsOptional()
-  // @IsBoolean()
-  // signersAsApproverSession ?: boolean;
-
-  // @IsOptional()
-  // @IsBoolean()
-  // isFakeIdProofing          ?: boolean;
-
-  // @IsOptional()
-  // @IsBoolean()
-  // isFakeSms                 ?: boolean;
-
+  @IsOptional()
+  @IsString({ each: true })
+  recipients ?: string[];
 
 }
 
@@ -245,11 +217,16 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsString()
-  bulkReferralId ?: string;
+  initialSignatureRequestId ?: string;
 
   @IsOptional()
   @IsString({ each: true })
   signersAsApprover ?: string[];
+
+  @IsOptional()
+  @IsString({ each: true })
+  recipients ?: string[];
+  
 
 }
 
