@@ -44,7 +44,7 @@ export class IgnisignWebhookDto_DocumentRequest {
   mimeType       : string;
 }
 
-export class IgnisignWebhookDto_SignatureProof {
+export class IgnisignWebhookDto_SignatureProof_Error {
   @IsString()
   appId              : string;
 
@@ -73,6 +73,80 @@ export class IgnisignWebhookDto_SignatureProof {
   @IsString()
   signatureProofUrl?: string;
 }
+
+class IgnisignWebhookDto_SignatureProof_Document {
+  @IsString()
+  documentId : string;
+
+  @IsOptional()
+  @IsString()
+  documentExternalId ?: string;
+
+  @IsString()
+  token : string;
+
+  @IsString()
+  url : string;
+
+}
+export class IgnisignWebhookDto_SignatureProof_Success {
+  @IsString()
+  appId              : string;
+
+  @IsEnum(IGNISIGN_APPLICATION_ENV)
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignWebhookDto_SignatureProof_Document)
+  documents
+
+  @IsString()
+  signatureRequestId : string;
+
+  @IsOptional()
+  @IsString()
+  signatureRequestExternalId   ?: string;
+
+  @IsOptional()
+  @IsString()
+  signatureProofToken?: string;
+  
+  @IsOptional()
+  @IsString()
+  signatureProofUrl?: string;
+}
+
+
+export class IgnisignWebhookDto_SignatureAdvancedProof {
+  @IsString()
+  appId              : string;
+
+  @IsEnum(IGNISIGN_APPLICATION_ENV)
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+
+  @IsString()
+  documentId         : string;
+
+  @IsOptional()
+  @IsString()
+  documentExternalId         : string;
+
+  @IsString()
+  signatureRequestId : string;
+
+  @IsOptional()
+  @IsString()
+  signatureRequestExternalId   ?: string;
+
+  @IsOptional()
+  @IsString()
+  signatureProofToken?: string;
+  
+  @IsOptional()
+  @IsString()
+  signatureProofUrl?: string;
+}
+
 
 export class IgnisignWebhookDto_Application {
   userId ?: string
@@ -191,12 +265,14 @@ export class IgnisignWebhookDto_Signature {
 }
 
 
-export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession |
-                                  IgnisignWebhookDto_DocumentRequest |  
-                                  IgnisignWebhookDto_SignatureRequest |
-                                  IgnisignWebhookDto_SignatureProfile |
-                                  IgnisignWebhookDto_Signer |
-                                  IgnisignWebhookDto_Signature |
-                                  IgnisignWebhookDto_SignatureImage |
-                                  IgnisignWebhookDto_SignatureProof |
+export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession        |
+                                  IgnisignWebhookDto_DocumentRequest        |  
+                                  IgnisignWebhookDto_SignatureRequest       |
+                                  IgnisignWebhookDto_SignatureProfile       |
+                                  IgnisignWebhookDto_Signer                 |
+                                  IgnisignWebhookDto_Signature              |
+                                  IgnisignWebhookDto_SignatureImage         |
+                                  IgnisignWebhookDto_SignatureProof_Error   |
+                                  IgnisignWebhookDto_SignatureProof_Success |
+                                  IgnisignWebhookDto_SignatureAdvancedProof |
                                   IgnisignWebhookDto_Application

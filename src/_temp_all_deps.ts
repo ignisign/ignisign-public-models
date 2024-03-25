@@ -121,7 +121,7 @@ import {
   // IgnisignWebhookDto_SignerCrea1.0.20tionSuccess,     
   // IgnisignWebhookDto_SignerCrea1.0.20tionFailed,      
   // IgnisignWebhookDto_SignatureSe1.0.20ssionInitialized, // TO DOC      
-  IgnisignWebhookDto_SignatureProof,                   
+  // IgnisignWebhookDto_SignatureProof,                   
   IgnisignWebhookDto_SignatureImage,                   
   IgnisignWebhookDto_Signature,                      
   
