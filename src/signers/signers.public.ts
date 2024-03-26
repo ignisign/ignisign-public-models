@@ -45,6 +45,8 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   BIRTH_PLACE   = "birthPlace",
   BIRTH_COUNTRY = "birthCountry",
 }
+
+
 export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
