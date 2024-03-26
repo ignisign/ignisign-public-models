@@ -1,4 +1,4 @@
-import { IsArray, IsBoolean, IsEmail, IsOptional, IsString, IsUrl, Validate, ValidateNested } from "class-validator";
+import { IsBoolean, IsOptional, IsString, IsUrl } from "class-validator";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 
@@ -14,6 +14,46 @@ export class IgnisignApplication_Configuration {
 
 
 /******************** ENV Settings *******************/
+export class Ignisign_OAuth2_Settings {
+  @IsOptional()
+  @IsBoolean()
+  isActivated?: boolean;
+
+  @IsOptional()
+  @IsString()
+  clientId?: string;
+
+  @IsString()
+  @IsOptional()
+  clientSecret?: string;
+
+  @IsOptional()
+  @IsUrl()
+  serverUrl?: string;
+
+  @IsOptional()
+  @IsUrl()
+  callbackUrl?: string;
+}
+
+export class Ignisign_SAML_Settings {
+  @IsOptional()
+  @IsBoolean()
+  isActivated?: boolean;
+
+  @IsOptional()
+  @IsString()
+  idpMetadataUrl?: string;
+
+  @IsOptional()
+  @IsString()
+  spEntityId?: string;
+
+  @IsOptional()
+  @IsString()
+  callbackUrl?: string;
+}
+
 export class IgnisignApplication_EnvSettings {
   appId                      : string;
   orgId                      : string;
@@ -23,6 +63,8 @@ export class IgnisignApplication_EnvSettings {
   authorizedRedirectionUrls  : string[];
   isApiKeyGenerated         ?: boolean; // Only used in appContext
   defaultSignatureProfileId ?: string;
+  oAuth2                    ?: Ignisign_OAuth2_Settings;
+  saml                      ?: Ignisign_SAML_Settings;
 }
 export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;

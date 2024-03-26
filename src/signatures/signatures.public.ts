@@ -16,8 +16,9 @@ export enum IGNISIGN_SIGNATURE_STATUS {
 }
 
 export enum IGNISIGN_INTEGRATION_MODE {
-  BY_SIDE   = "BY_SIDE",
-  EMBEDDED  = "EMBEDDED"
+  BY_SIDE            = "BY_SIDE",
+  EMBEDDED           = "EMBEDDED",
+  MACHINE_TO_MACHINE = "MACHINE_TO_MACHINE",
 }
 
 export class IgnisignSignature {
@@ -30,10 +31,8 @@ export class IgnisignSignature {
   documentId             : string;
   status                 : IGNISIGN_SIGNATURE_STATUS;
   mode                   : IGNISIGN_SIGNATURE_MODE;
-
   ocspCheckValue        ?: any;
   contentHash           ?: string;
-
   signature             ?: string;
   signatureValue        ?: string;
   signedProperties      ?: string
