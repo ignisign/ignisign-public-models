@@ -30,10 +30,6 @@ export class Ignisign_OAuth2_Settings {
   @IsOptional()
   @IsUrl()
   serverUrl?: string;
-
-  @IsOptional()
-  @IsUrl()
-  callbackUrl?: string;
 }
 
 export class Ignisign_SAML_Settings {
@@ -48,10 +44,6 @@ export class Ignisign_SAML_Settings {
   @IsOptional()
   @IsString()
   spEntityId?: string;
-
-  @IsOptional()
-  @IsString()
-  callbackUrl?: string;
 }
 
 export class IgnisignApplication_EnvSettings {
