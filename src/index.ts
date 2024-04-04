@@ -13,6 +13,7 @@ export * from "./applications/applications-settings-config.public";
 export * from "./documents/document-content.public";
 export * from "./documents/document-entities.public";
 export * from "./documents/document-request.public";
+export * from "./documents/document-seal.public";
 
 export * from "./id-proofing/id-proofing-methods.public";
 
