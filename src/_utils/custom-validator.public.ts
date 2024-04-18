@@ -1,4 +1,4 @@
-import { registerDecorator, ValidationOptions, ValidationArguments } from 'class-validator';
+import { registerDecorator, ValidationOptions, ValidationArguments, ValidateBy, isURL } from 'class-validator';
 
 export function IsNonPrimitiveArray(validationOptions?: ValidationOptions) {
   return (object: any, propertyName: string) => {
@@ -15,4 +15,17 @@ export function IsNonPrimitiveArray(validationOptions?: ValidationOptions) {
       },
     });
   };
+}
+
+
+export function IsUrlOrEmpty(validationOptions?: ValidationOptions) {
+  return ValidateBy({
+    name: 'isUrlOrEmpty',
+    validator: {
+      validate: (value, args): boolean => {
+        return typeof value === 'string' && (value === '' || isURL(value));
+      },
+      defaultMessage: () => `The value must be a valid URL or an empty string`,
+    },
+  }, validationOptions);
 }

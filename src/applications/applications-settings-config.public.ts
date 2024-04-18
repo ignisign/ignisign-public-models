@@ -1,6 +1,7 @@
 import { IsBoolean, IsOptional, IsString, IsUrl } from "class-validator";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
+import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
 
 
 
@@ -28,7 +29,7 @@ export class Ignisign_OAuth2_Settings {
   clientSecret?: string;
 
   @IsOptional()
-  @IsUrl()
+  @IsUrlOrEmpty()
   serverUrl?: string;
 }
 
