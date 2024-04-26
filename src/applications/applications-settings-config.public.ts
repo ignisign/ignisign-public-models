@@ -1,9 +1,7 @@
-import { IsBoolean, IsOptional, IsString, IsUrl } from "class-validator";
+import { IsBoolean, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
-
-
 
 /******************** GLOBAL CONFIG *******************/
 
@@ -33,6 +31,8 @@ export class Ignisign_OAuth2_Settings {
   serverUrl?: string;
 }
 
+export const MANDATORY_FIELDS_TO_ACTIVATE_OAUTH2 = ['clientId', 'clientSecret', 'serverUrl'];
+
 export class Ignisign_SAML_Settings {
   @IsOptional()
   @IsBoolean()
@@ -46,6 +46,8 @@ export class Ignisign_SAML_Settings {
   @IsString()
   spEntityId?: string;
 }
+
+export const MANDATORY_FIELDS_TO_ACTIVATE_SAML = ['idpMetadataUrl', 'spEntityId'];
 
 export class IgnisignApplication_EnvSettings {
   appId                      : string;
