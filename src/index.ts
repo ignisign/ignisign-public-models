@@ -31,6 +31,7 @@ export * from "./users/users-roles.public";
 
 export * from "./signers/signer-claims.public";
 export * from "./signers/signers.public";
+export * from "./signers/signer-groups.public";
 
 export * from "./webhooks/webhook-events.public";
 export * from "./webhooks/webhook-responses.public";
