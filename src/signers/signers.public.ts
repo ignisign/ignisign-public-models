@@ -42,9 +42,11 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   PHONE         = "phoneNumber",
   NATIONALITY   = "nationality",
   BIRTH_DATE    = "birthDate",
-  BIRTH_PLACE   = "birthPlace",
+  BIRTH_PLACE   = "birthPlace", 
   BIRTH_COUNTRY = "birthCountry",
 }
+
+
 export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()

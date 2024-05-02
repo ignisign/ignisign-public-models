@@ -98,7 +98,7 @@ export class IgnisignWebhookDto_SignatureProof_Success {
 
   @ValidateNested({ each: true })
   @Type(() => IgnisignWebhookDto_SignatureProof_Document)
-  documents
+  documents : IgnisignWebhookDto_SignatureProof_Document[];
 
   @IsString()
   signatureRequestId : string;
