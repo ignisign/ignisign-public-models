@@ -150,6 +150,9 @@ export class IgnisignSignatureRequest {
   @IsString({ each: true })
   recipients ?: string[];
 
+  @IsNumber()
+  appEnvSettingVersion : number;
+
 }
 
 export class IgnisignSignatureRequest_Statement {

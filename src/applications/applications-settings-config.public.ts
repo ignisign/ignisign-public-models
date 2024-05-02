@@ -50,16 +50,21 @@ export class Ignisign_SAML_Settings {
 export const MANDATORY_FIELDS_TO_ACTIVATE_SAML = ['idpMetadataUrl', 'spEntityId'];
 
 export class IgnisignApplication_EnvSettings {
-  appId                      : string;
-  orgId                      : string;
-  appEnv                     : IGNISIGN_APPLICATION_ENV;
-  webhooks                   : IgnisignWebhook_SettingsDescription[];
-  appRootUrl                ?: string;
-  authorizedRedirectionUrls  : string[];
-  isApiKeyGenerated         ?: boolean; // Only used in appContext
-  defaultSignatureProfileId ?: string;
-  oAuth2                    ?: Ignisign_OAuth2_Settings;
-  saml                      ?: Ignisign_SAML_Settings;
+  appId                        : string;
+  orgId                        : string;
+  appEnv                       : IGNISIGN_APPLICATION_ENV;
+  isApiKeyGenerated           ?: boolean; // Only used in appContext
+  // defaultSignatureProfileId   ?: string;
+  currentVersion               : number;
+  webhooks                     : IgnisignWebhook_SettingsDescription[];
+  authorizedRedirectionUrls    : string[];
+  appRootUrl                  ?: string;
+  defaultLanguage             ?: IGNISIGN_SIGNATURE_LANGUAGES;
+  languageCanBeChanged        ?: boolean;
+  extendedAuthSessionEnabled   : boolean;
+  sharingRestricted            : boolean;
+  fullPrivacy                 ?: boolean;
+
 }
 export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;
