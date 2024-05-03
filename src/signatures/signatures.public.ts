@@ -48,7 +48,6 @@ export class IgnisignApplication_SignatureMetadata {
   appName         : string;
   logoB64        ?: string;
   logoDarkB64    ?: string;
-  rootUrl        ?: string;
   colors         ?: CustomPalette;
 }
 export class IgnisignSignatureImages_Dto {

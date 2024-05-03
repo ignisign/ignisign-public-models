@@ -2,6 +2,7 @@ import { IsBoolean, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
+import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
 
 /******************** GLOBAL CONFIG *******************/
 
@@ -49,6 +50,21 @@ export class Ignisign_SAML_Settings {
 
 export const MANDATORY_FIELDS_TO_ACTIVATE_SAML = ['idpMetadataUrl', 'spEntityId'];
 
+export enum IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS {
+  ACTIVE    = 'ACTIVE',
+  REVOCATED = 'REVOCATED',
+}
+
+export class IgnisignApplication_EnvApiKeys {
+  _id               ?: string;
+  appId              : string;
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+  isRestricted       : boolean;
+  permissions       ?: IGNISIGN_IAM_PERMISSIONS[];
+  displayableSecret  : string; // Like stripe, we display the first and last 4 digits
+  status             : IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS;
+}
+
 export class IgnisignApplication_EnvSettings {
   appId                        : string;
   orgId                        : string;
@@ -57,15 +73,14 @@ export class IgnisignApplication_EnvSettings {
   // defaultSignatureProfileId   ?: string;
   currentVersion               : number;
   webhooks                     : IgnisignWebhook_SettingsDescription[];
-  authorizedRedirectionUrls    : string[];
-  appRootUrl                  ?: string;
   defaultLanguage             ?: IGNISIGN_SIGNATURE_LANGUAGES;
   languageCanBeChanged        ?: boolean;
   extendedAuthSessionEnabled   : boolean;
   sharingRestricted            : boolean;
   fullPrivacy                 ?: boolean;
-
+  apiKeys                      : IgnisignApplication_EnvApiKeys[];
 }
+
 export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;
   _createdAt  ?: Date;
