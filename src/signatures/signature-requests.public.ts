@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsObject, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
@@ -159,7 +159,10 @@ export class IgnisignSignatureRequest {
   appEnvSettingVersion ?: number;
 
   @IsOptional()
-  signerGroupsUsed : IgnisignSignatureRequest_SignerGroup[];
+  @IsObject({ each: true })
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignSignatureRequest_SignerGroup)
+  signerGroupsUsed ?: IgnisignSignatureRequest_SignerGroup[];
 }
 
 export class IgnisignSignatureRequest_SignerGroup {
