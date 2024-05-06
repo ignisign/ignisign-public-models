@@ -151,13 +151,20 @@ export class IgnisignSignatureRequest {
   recipients ?: string[];
 
   @IsOptional()
+  @IsBoolean()
+  fullPrivacy ?: boolean;
+
+  @IsOptional()
   @IsNumber()
   appEnvSettingVersion ?: number;
 
   @IsOptional()
-  @IsBoolean()
-  fullPrivacy ?: boolean;
+  signerGroupsUsed : IgnisignSignatureRequest_SignerGroup[];
+}
 
+export class IgnisignSignatureRequest_SignerGroup {
+  signerGroupId : string;
+  version       : number;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -234,6 +241,9 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsString({ each: true })
   recipients ?: string[];
   
+  @IsOptional()
+  @IsBoolean()
+  fullPrivacy ?: boolean;
 
 }
 

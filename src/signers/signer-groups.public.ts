@@ -1,4 +1,4 @@
-import { IsBoolean, IsEnum, IsObject, IsOptional, IsString, ValidateNested } from "class-validator";
+import { IsBoolean, IsEnum, IsNumber, IsObject, IsOptional, IsString, ValidateNested } from "class-validator";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from './../signatures/signature-methods.public';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNER_ENTITY_TYPE } from "./signers.public";
@@ -7,7 +7,7 @@ import { IGNISIGN_ID_PROOFING_METHOD_REF } from '../id-proofing/id-proofing-meth
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from '../signatures/signature-auth.public';
 import { Type } from "class-transformer";
 
-export class IgnisignSignerGroup {
+export class IgnisignSignerGroupSummary {
   @IsOptional()
   @IsString()
   _id                     ?: string;
@@ -24,6 +24,9 @@ export class IgnisignSignerGroup {
   @IsOptional()
   @IsString()
   description             ?: string;
+
+  @IsNumber()
+  version                  : number;
 
   @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
   signerTypeAllowed        : IGNISIGN_SIGNER_ENTITY_TYPE[];
@@ -47,6 +50,7 @@ export class IgnisignSignerGroup {
   // TODO add class-validator
   signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods[] };
 }
+
 
 export class IgnisignSigner_To_SignerGroup { 
   @IsString()
