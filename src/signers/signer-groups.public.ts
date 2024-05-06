@@ -1,10 +1,11 @@
-import { IsBoolean, IsEnum, IsObject, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsEnum, IsObject, IsOptional, IsString, ValidateNested } from "class-validator";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from './../signatures/signature-methods.public';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNER_ENTITY_TYPE } from "./signers.public";
 import { IGNISIGN_INTEGRATION_MODE } from '../signatures/signatures.public';
 import { IGNISIGN_ID_PROOFING_METHOD_REF } from '../id-proofing/id-proofing-methods.public';
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from '../signatures/signature-auth.public';
+import { Type } from "class-transformer";
 
 export class IgnisignSignerGroup {
   @IsOptional()
@@ -41,14 +42,10 @@ export class IgnisignSignerGroup {
   ssoConfigId ?: string;
 
   @IsObject()
-  idProofings : { // TODO class-validator
-    [IGNISIGN_SIGNATURE_METHOD_REF.ADVANCED_STD]  : SignerGroup_IdProofing,
-    [IGNISIGN_SIGNATURE_METHOD_REF.QUALIFIED_STD] : SignerGroup_IdProofing
-  }
-
-  @IsOptional()
-  @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
-  authMethods     ?: IGNISIGN_AUTH_FULL_MECHANISM_REF[];
+  // @ValidateNested({ each: true })
+  // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
+  // TODO add class-validator
+  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods[] };
 }
 
 export class IgnisignSigner_To_SignerGroup { 
@@ -59,14 +56,19 @@ export class IgnisignSigner_To_SignerGroup {
   signerGroupId : string;
 }
 
-export class SignerGroup_IdProofing {
+export class IgnisignSignerGroup_SignatureAuthMethods {
   @IsBoolean()
   isAllowed : boolean;
 
   @IsOptional()
   @IsEnum(IGNISIGN_ID_PROOFING_METHOD_REF, { each: true })
-  methods   ?: IGNISIGN_ID_PROOFING_METHOD_REF[];
+  idProofings ?: IGNISIGN_ID_PROOFING_METHOD_REF[];
+
+  @IsOptional()
+  @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
+  authMethods ?: IGNISIGN_AUTH_FULL_MECHANISM_REF[];
 }
+
 
 
 //? SIGNATURE PROFILE TO APP CONFIG : Dans appEnvConfig

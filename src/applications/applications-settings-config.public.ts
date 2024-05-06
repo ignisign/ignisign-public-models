@@ -16,10 +16,6 @@ export class IgnisignApplication_Configuration {
 /******************** ENV Settings *******************/
 export class Ignisign_OAuth2_Settings {
   @IsOptional()
-  @IsBoolean()
-  isActivated?: boolean;
-
-  @IsOptional()
   @IsString()
   clientId?: string;
 
@@ -35,10 +31,6 @@ export class Ignisign_OAuth2_Settings {
 export const MANDATORY_FIELDS_TO_ACTIVATE_OAUTH2 = ['clientId', 'clientSecret', 'serverUrl'];
 
 export class Ignisign_SAML_Settings {
-  @IsOptional()
-  @IsBoolean()
-  isActivated?: boolean;
-
   @IsOptional()
   @IsString()
   idpMetadataUrl?: string;

@@ -154,6 +154,10 @@ export class IgnisignSignatureRequest {
   @IsNumber()
   appEnvSettingVersion ?: number;
 
+  @IsOptional()
+  @IsBoolean()
+  fullPrivacy ?: boolean;
+
 }
 
 export class IgnisignSignatureRequest_Statement {
