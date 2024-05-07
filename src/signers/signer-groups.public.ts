@@ -51,6 +51,10 @@ export class IgnisignSignerGroupSummary {
   signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods[] };
 }
 
+export enum IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS {
+  ACTIVE   = "ACTIVE",
+  INACTIVE = "INACTIVE",
+}
 
 export class IgnisignSigner_To_SignerGroup { 
   @IsString()
@@ -58,6 +62,15 @@ export class IgnisignSigner_To_SignerGroup {
 
   @IsString()
   signerGroupId : string;
+
+  @IsEnum(IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS)
+  status       : IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS;
+
+  history       ?: {
+    status :  IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS;
+    date   : Date;
+  }[];
+
 }
 
 export class IgnisignSignerGroup_SignatureAuthMethods {

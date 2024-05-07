@@ -165,9 +165,11 @@ export class IgnisignSignatureRequest {
   signerGroupsUsed ?: IgnisignSignatureRequest_SignerGroup[];
 }
 
+
 export class IgnisignSignatureRequest_SignerGroup {
   signerGroupId : string;
   version       : number;
+  signerIds     : string[];
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -283,7 +285,7 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
-  signersAsApprover           ?: string[];
+  signersAsApprover    ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
   signatureProfile      : IgnisignSignatureProfile;

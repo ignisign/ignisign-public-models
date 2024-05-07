@@ -50,6 +50,8 @@ export enum IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS {
 export class IgnisignApplication_EnvApiKeys {
   _id               ?: string;
   appId              : string;
+  name               : string;
+  description       ?: string;
   appEnv             : IGNISIGN_APPLICATION_ENV;
   isRestricted       : boolean;
   permissions       ?: IGNISIGN_IAM_PERMISSIONS[];
