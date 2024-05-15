@@ -31,7 +31,7 @@ export class IgnisignSignerGroupSummary {
   signerTypeAllowed        : IGNISIGN_SIGNER_ENTITY_TYPE[];
 
   @IsBoolean()
-  isEmailSentByIgnisign    : boolean; // => mode ultime: => une gestion par EMAIL_TEMPLATE_ID => (avec des groups)
+  isEmailProofSentByIgnisign    : boolean; // => mode ultime: => une gestion par EMAIL_TEMPLATE_ID => (avec des groups)
 
   @IsBoolean()
   isRecurrent              : boolean;
@@ -47,7 +47,7 @@ export class IgnisignSignerGroupSummary {
   // @ValidateNested({ each: true })
   // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
   // TODO add class-validator
-  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods[] };
+  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods };
 }
 
 export class IgnisignSignerGroupDto {
@@ -59,7 +59,7 @@ export class IgnisignSignerGroupDto {
 
   @IsString()
   name                     : string;
-  
+
   @IsOptional()
   @IsString()
   description             ?: string;
@@ -68,7 +68,7 @@ export class IgnisignSignerGroupDto {
   signerTypeAllowed        : IGNISIGN_SIGNER_ENTITY_TYPE[];
 
   @IsBoolean()
-  isEmailSentByIgnisign    : boolean; // => mode ultime: => une gestion par EMAIL_TEMPLATE_ID => (avec des groups)
+  isEmailProofSentByIgnisign    : boolean; // => mode ultime: => une gestion par EMAIL_TEMPLATE_ID => (avec des groups)
 
   @IsBoolean()
   isRecurrent              : boolean;
@@ -84,7 +84,7 @@ export class IgnisignSignerGroupDto {
   // @ValidateNested({ each: true })
   // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
   // TODO add class-validator
-  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods[] };
+  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods };
 }
 
 
