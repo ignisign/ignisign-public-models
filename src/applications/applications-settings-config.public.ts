@@ -59,6 +59,28 @@ export class IgnisignApplication_EnvApiKeys {
   status             : IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS;
 }
 
+export enum IGNISIGN_SSO_CONFIG_TYPES {
+  OAUTH2 = 'OAUTH2',
+  SAML   = 'SAML'
+}
+
+export enum IGNISIGN_SSO_CONFIG_STATUS {
+  PENDING  = 'PENDING',
+  ACTIVE   = 'ACTIVE',
+}
+
+export class IgnisignApplicationEnv_SSO_Config {
+  _id            ?: string;
+  appId           : string;
+  appEnv          : IGNISIGN_APPLICATION_ENV;
+  type            : IGNISIGN_SSO_CONFIG_TYPES;
+  status          : IGNISIGN_SSO_CONFIG_STATUS;
+  // config         : Ignisign_OAuth2_Settings | Ignisign_SAML_Settings;
+  settingsOAuth2 ?: Ignisign_OAuth2_Settings;
+  settingsSAML   ?: Ignisign_SAML_Settings;
+}
+
+
 export class IgnisignApplication_EnvSettings {
   appId                        : string;
   orgId                        : string;
@@ -73,6 +95,7 @@ export class IgnisignApplication_EnvSettings {
   sharingRestricted            : boolean;
   fullPrivacy                 ?: boolean;
   apiKeys                      : IgnisignApplication_EnvApiKeys[];
+  ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
 }
 
 export class IgnisignWebhook_SettingsDescription {
