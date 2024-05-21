@@ -48,6 +48,9 @@ export class IgnisignSignerGroupSummary {
   // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
   // TODO add class-validator
   signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods };
+
+  @IsString({ each: true })
+  emailDomains ?: string[];
 }
 
 export class IgnisignSignerGroupDto {
@@ -85,6 +88,9 @@ export class IgnisignSignerGroupDto {
   // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
   // TODO add class-validator
   signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods };
+
+  @IsString({ each: true })
+  emailDomains ?: string[];
 }
 
 

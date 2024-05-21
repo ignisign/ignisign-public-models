@@ -195,6 +195,10 @@ export class IgnisignSigner_Summary {
   @IsOptional()
   @IsBoolean()
   isRecurrent ?: boolean;
+
+  @IsOptional()
+  @IsString()
+  signerGroupId ?: string;
 }
 
 
