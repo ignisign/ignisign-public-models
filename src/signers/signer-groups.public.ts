@@ -51,6 +51,9 @@ export class IgnisignSignerGroupSummary {
 
   @IsString({ each: true })
   emailDomains ?: string[];
+
+  @IsString({ each: true })
+  signerIds ?: string[];
 }
 
 export class IgnisignSignerGroupDto {
@@ -100,6 +103,12 @@ export enum IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS {
 }
 
 export class IgnisignSigner_To_SignerGroup { 
+  @IsString()
+  appId   : string;
+
+  @IsEnum(IGNISIGN_APPLICATION_ENV)
+  appEnv  : IGNISIGN_APPLICATION_ENV;
+
   @IsString()
   signerId      : string;
 

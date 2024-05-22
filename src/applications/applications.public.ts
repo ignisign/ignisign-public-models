@@ -1,6 +1,7 @@
 
 import { IgnisignApplication_Configuration, IgnisignApplication_EnvSettings, IgnisignApplication_Settings } from "./applications-settings-config.public";
 import { IgnisignSignatureProfile } from "../signatures/signature-profiles.public";
+import { IgnisignSignerGroupSummary } from "../signers/signer-groups.public";
 
 export enum IGNISIGN_APPLICATION_STATUS {
   ACTIVE       = "ACTIVE",
@@ -27,6 +28,7 @@ export class IgnisignApplication_Context extends IgnisignApplication {
   config              : IgnisignApplication_Configuration;
   envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignApplication_EnvSettings };
   settings            : IgnisignApplication_Settings;
-  signatureProfiles   : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignatureProfile[] };
+  signerGroups        : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignerGroupSummary[] };
+  signatureProfiles   : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignatureProfile[] }; //! TO REMOVE
 }
 
