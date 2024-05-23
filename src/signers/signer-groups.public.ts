@@ -1,4 +1,4 @@
-import { IsBoolean, IsEnum, IsNumber, IsObject, IsOptional, IsString } from "class-validator";
+import { IsArray, IsBoolean, IsEnum, IsNumber, IsObject, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from './../signatures/signature-methods.public';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNER_ENTITY_TYPE } from "./signers.public";
@@ -26,9 +26,6 @@ export class IgnisignSignerGroupSummary {
 
   @IsNumber()
   version                  : number;
-
-  @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
-  signerTypeAllowed        : IGNISIGN_SIGNER_ENTITY_TYPE[];
 
   @IsBoolean()
   isEmailProofSentByIgnisign    : boolean; // => mode ultime: => une gestion par EMAIL_TEMPLATE_ID => (avec des groups)
@@ -69,9 +66,6 @@ export class IgnisignSignerGroupDto {
   @IsOptional()
   @IsString()
   description             ?: string;
-
-  @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
-  signerTypeAllowed        : IGNISIGN_SIGNER_ENTITY_TYPE[];
 
   @IsBoolean()
   isEmailProofSentByIgnisign    : boolean; // => mode ultime: => une gestion par EMAIL_TEMPLATE_ID => (avec des groups)

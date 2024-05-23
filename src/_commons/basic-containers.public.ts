@@ -12,3 +12,8 @@ export class IgnisignDocument_AuthenticityValidationContainer {
   @IsBoolean()
   authenticityValidated : boolean;
 }
+
+export class IgnisignSignerIdsContainer {
+  @IsString({ each: true })
+  signerIds : string[];
+}
