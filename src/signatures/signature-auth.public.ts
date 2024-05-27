@@ -10,3 +10,4 @@ export enum IGNISIGN_AUTH_FULL_MECHANISM_REF {
   AUTOMATE              = "AUTOMATE",
 }
 
+
