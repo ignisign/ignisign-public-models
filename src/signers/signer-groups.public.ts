@@ -1,7 +1,7 @@
 import { IsArray, IsBoolean, IsEnum, IsNumber, IsObject, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from './../signatures/signature-methods.public';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IGNISIGN_SIGNER_ENTITY_TYPE } from "./signers.public";
+import { IGNISIGN_SIGNER_CREATION_INPUT_REF, IGNISIGN_SIGNER_ENTITY_TYPE } from "./signers.public";
 import { IGNISIGN_INTEGRATION_MODE } from '../signatures/signatures.public';
 import { IGNISIGN_ID_PROOFING_METHOD_REF } from '../id-proofing/id-proofing-methods.public';
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from '../signatures/signature-auth.public';
@@ -90,12 +90,6 @@ export class IgnisignSignerGroupDto {
   emailDomains ?: string[];
 }
 
-
-export enum IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS {
-  ACTIVE   = "ACTIVE",
-  INACTIVE = "INACTIVE",
-}
-
 export class IgnisignSigner_To_SignerGroup { 
   @IsString()
   appId   : string;
@@ -109,12 +103,9 @@ export class IgnisignSigner_To_SignerGroup {
   @IsString()
   signerGroupId : string;
 
-  @IsEnum(IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS)
-  status       : IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS;
-
   history       ?: {
-    status :  IGNISIGN_SIGNER_TO_SIGNER_GROUP_STATUS;
-    date   : Date;
+    signerGroupId : string;
+    date          : Date;
   }[];
 
 }
@@ -130,6 +121,14 @@ export class IgnisignSignerGroup_SignatureAuthMethods {
   @IsOptional()
   @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
   authMethods ?: IGNISIGN_AUTH_FULL_MECHANISM_REF[];
+}
+
+export class IgnisignInputNeedsDto {
+  @IsString()
+  signerGroupId : string;
+
+  @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF)
+  inputNeeds : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
 
