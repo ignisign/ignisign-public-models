@@ -87,6 +87,7 @@ export class IgnisignApplication_EnvSettings {
   appEnv                       : IGNISIGN_APPLICATION_ENV;
   isApiKeyGenerated           ?: boolean; // Only used in appContext
   // defaultSignatureProfileId   ?: string;
+  defaultSignerGroupId        ?: string;
   currentVersion               : number;
   webhooks                     : IgnisignWebhook_SettingsDescription[];
   defaultLanguage             ?: IGNISIGN_SIGNATURE_LANGUAGES;

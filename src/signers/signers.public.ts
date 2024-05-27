@@ -50,7 +50,7 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
 export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
-  signatureProfileId ?: string;
+  signerGroupId ?: string;
 
   @IsOptional()
   @IsString()
@@ -88,6 +88,9 @@ export class IgnisignSigner_CreationRequestDto {
   @IsString()
   externalId ?: string;
 
+  /**
+  * @deprecated this field is not used anymore
+  **/
   @IsOptional()
   @IsBoolean()
   isRecurrent ?: boolean;
@@ -100,7 +103,7 @@ export class IgnisignSigner_UpdateRequestDto {
 
   @IsOptional()
   @IsString()
-  signatureProfileId ?: string;
+  signerGroupId ?: string;
 
   @IsOptional()
   @IsString()
@@ -139,6 +142,9 @@ export class IgnisignSigner_UpdateRequestDto {
   @IsString()
   externalId ?: string;
 
+  /**
+  * @deprecated this field is not used anymore
+  **/
   @IsOptional()
   @IsBoolean()
   isRecurrent ?: boolean;
@@ -150,6 +156,12 @@ export class IgnisignSigner_CreationResponseDto {
 
   @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
   entityType             : IGNISIGN_SIGNER_ENTITY_TYPE;
+
+  @IsBoolean()
+  success : boolean;
+
+  @IsBoolean()
+  alreadyExists : boolean;
   
   @IsOptional()
   @IsString()

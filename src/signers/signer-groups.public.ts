@@ -128,7 +128,10 @@ export class IgnisignInputNeedsDto {
   signerGroupId : string;
 
   @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF)
-  inputNeeds : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+  inputsNeeded    : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
+
+  @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF)
+  optionalInputs  : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
 
