@@ -7,6 +7,7 @@ import { IgnisignApplication_SignatureMetadata } from "./signatures.public";
 import { IgnisignSignatureProfile } from "./signature-profiles.public";
 import { IgnisignSigner_Summary } from "../signers/signers.public";
 import "reflect-metadata";
+import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
   SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
@@ -99,6 +100,9 @@ export class IgnisignSignatureRequest {
   @IsString()
   creatorId                 ?: string;
 
+  /**
+   * @deprecated signatureProfileId will be removed 
+  **/
   @IsString()
   signatureProfileId         : string;
 
@@ -167,9 +171,15 @@ export class IgnisignSignatureRequest {
 
 
 export class IgnisignSignatureRequest_SignerGroup {
-  signerGroupId : string;
-  version       : number;
-  signerIds     : string[];
+  signerGroupId      : string;
+  signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
+  version            : number;
+  signerIds          : string[];
+}
+
+export class IgnisignSignerGroupsSignatureMethod {
+  signerGroupId      : string;
+  signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -249,6 +259,12 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsBoolean()
   fullPrivacy ?: boolean;
+
+  @IsOptional()
+  @IsObject({ each: true })
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignSignerGroupsSignatureMethod)
+  signerGroupsSignatureMethod ?: IgnisignSignerGroupsSignatureMethod[];
 
 }
 
