@@ -100,10 +100,10 @@ export class IgnisignSignatureRequest {
   creatorId                 ?: string;
 
   /**
-   * @deprecated signatureProfileId will be removed 
+   * @deprecated signatureProfileId will be removed
   **/
   @IsString()
-  signatureProfileId         : string;
+  signatureProfileId        ?: string;
 
   @IsOptional()
   @IsString({each: true})
@@ -307,7 +307,10 @@ export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signersAsApprover    ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
-  signatureProfile      : IgnisignSignatureProfile;
+  /**
+   * @deprecated signatureProfile will be removed
+   **/
+  signatureProfile     ?: IgnisignSignatureProfile;
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
   signatureProofsUrl   ?: string;
   signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;

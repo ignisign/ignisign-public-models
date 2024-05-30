@@ -94,7 +94,6 @@ export class IgnisignApplication_EnvSettings {
   languageCanBeChanged        ?: boolean;
   extendedAuthSessionEnabled   : boolean;
   sharingRestricted            : boolean;
-  fullPrivacy                 ?: boolean;
   apiKeys                      : IgnisignApplication_EnvApiKeys[];
   ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
 }
