@@ -21,8 +21,7 @@ export enum IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE {
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   DRAFT             = 'DRAFT',
-
-  WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
+  
   WAITING_DOCUMENTS_GENERATION = 'WAITING_DOCUMENTS_GENERATION',
   READY             = 'READY',
   IN_PROGRESS       = 'IN_PROGRESS',
@@ -167,6 +166,10 @@ export class IgnisignSignatureRequest {
   @ValidateNested({ each: true })
   @Type(() => IgnisignSignatureRequest_SignerGroup)
   signerGroupsUsed ?: IgnisignSignatureRequest_SignerGroup[];
+
+  @IsOptional()
+  @IsBoolean()
+  individualizeRequests ?: boolean;
 }
 
 

@@ -14,8 +14,6 @@ import {
   IgnisignBroadcastableAction_SignatureErrorDto, // TO DOC
   IgnisignBroadcastableAction_SignatureFinalizedDto, // TO DOC
 
-  IGNISIGN_DOCUMENT_REQUEST_TARGET,
-  IGNISIGN_DOCUMENT_REQUEST_STATUS,
 
   IGNISIGN_DOCUMENT_STATUS,
   IGNISIGN_DOCUMENT_TYPE,
@@ -76,8 +74,6 @@ import {
 
   IgnisignDocument_UpdateDto,                          
 
-  IgnisignDocumentRequest,                            
-  IgnisignDocumentRequest_RequestDto,                 
   
   IgnisignJwtContainer,                               
   
