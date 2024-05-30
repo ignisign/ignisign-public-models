@@ -22,28 +22,6 @@ export class IgnisignWebhookDto_SignatureSession {
   signerExternalId   ?: string;
 }
 
-export class IgnisignWebhookDto_DocumentRequest {
-  @IsString()
-  signatureRequestId : string;
-
-  @IsOptional()
-  @IsString()
-  signatureRequestExternalId   ?: string;
-
-  @IsString()
-  documentId     : string;
-
-  @IsOptional()
-  @IsString()
-  documentExternalId         : string;
-
-  @IsString()
-  documentNature : string;
-
-  @IsString()
-  mimeType       : string;
-}
-
 export class IgnisignWebhookDto_SignatureProof_Error {
   @IsString()
   appId              : string;
@@ -266,7 +244,6 @@ export class IgnisignWebhookDto_Signature {
 
 
 export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession        |
-                                  IgnisignWebhookDto_DocumentRequest        |  
                                   IgnisignWebhookDto_SignatureRequest       |
                                   IgnisignWebhookDto_SignatureProfile       |
                                   IgnisignWebhookDto_Signer                 |

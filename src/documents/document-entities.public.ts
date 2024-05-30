@@ -1,7 +1,6 @@
 import { IsMongoId, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignSignatureRequest_Statement } from "../signatures/signature-requests.public";
-import { IgnisignDocumentRequest } from "./document-request.public";
 
 
 export enum IGNISIGN_DOCUMENT_TYPE {
@@ -14,7 +13,6 @@ export enum IGNISIGN_DOCUMENT_TYPE {
 
 export enum IGNISIGN_DOCUMENT_STATUS {
   CREATED          = "CREATED",
-  DOCUMENT_REQUEST = "DOCUMENT_REQUEST",
   PROVIDED         = "PROVIDED",
   ARCHIVED         = "ARCHIVED",
 }
@@ -61,7 +59,6 @@ export class IgnisignDocument_Container {
 
 export class IgnisignDocument_Context extends IgnisignDocument {
   statements         ?: IgnisignSignatureRequest_Statement[];  
-  documentRequest    ?: IgnisignDocumentRequest;
   signatureSummaries  :  {
     signatureId : string,
     signerId    : string,
