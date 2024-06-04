@@ -141,12 +141,12 @@ export class IgnisignInputNeedsDto {
 // languageCanBeChanged
 // extendedAuthSessionEnabled
 // sharingRestricted // Maybe overridable by the signature request
-// fullPrivacy // documentTypes n'existe plus, c'est juste fullPrivacy ou non
 
 //? SIGNATURE PROFILE TO SIGNATURE REQUEST : 
 // individualizeRequests
 // WorkflowType ( ancien signatureRequestType )
 // templateDisplayerId
+// fullPrivacy
 
 //? SIGNATURE PROFILE TO ALWAYS ACTIVE : 
 // statementsEnabled
