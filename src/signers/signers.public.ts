@@ -47,6 +47,9 @@ export class IgnisignM2M {
   signerId     : string;
   publicKey    : string;
   status       : IGNISIGN_M2M_STATUS;
+  title        : string;
+  _updatedAt   : Date;
+  _createdAt   : Date;
 }
 
 export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 
