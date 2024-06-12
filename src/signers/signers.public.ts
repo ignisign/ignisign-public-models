@@ -16,10 +16,11 @@ export enum IGNISIGN_SIGNER_ENTITY_TYPE {
 }
 
 export enum IGNISIGN_SIGNER_STATUS { 
-  CREATED = "CREATED",
-  PENDING = "PENDING",
-  BLOCKED = "BLOCKED",
-  ACTIVE  = "ACTIVE",
+  CREATED   = "CREATED",
+  PENDING   = "PENDING",
+  BLOCKED   = "BLOCKED",
+  ACTIVE    = "ACTIVE",
+  CORRUPTED = "CORRUPTED",
 }
 export class IgnisignSigner { 
   _id?                              : string;
