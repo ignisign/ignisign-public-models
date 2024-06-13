@@ -51,6 +51,9 @@ export class IgnisignSignerGroupSummary {
 
   @IsString({ each: true })
   signerIds ?: string[];
+
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
 export class IgnisignSignerGroupDto {
