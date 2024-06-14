@@ -10,6 +10,12 @@ export enum IGNISIGN_APPLICATION_STATUS {
   ORG_ARCHIVED = "ORG_ARCHIVED",
 }
 
+export enum IGNISIGN_APPLICATION_TYPE {
+  SIGNATURE   = "SIGNATURE",
+  SEAL        = "SEAL",
+  LOG_CAPSULE = "LOG_CAPSULE",
+}
+
 export enum IGNISIGN_APPLICATION_ENV {
   DEVELOPMENT   = "DEVELOPMENT",
   STAGING       = "STAGING",
@@ -22,6 +28,7 @@ export class IgnisignApplication {
   orgId        : string;
   appName      : string;
   status       : IGNISIGN_APPLICATION_STATUS;
+  appType      : IGNISIGN_APPLICATION_TYPE;
 }
 
 export class IgnisignApplication_Context extends IgnisignApplication {
