@@ -44,13 +44,16 @@ export class IgnisignSignerGroupSummary {
   // @ValidateNested({ each: true })
   // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
   // TODO add class-validator
-  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods };
+  signatureAuthMethodsConfiguration : { [key in IGNISIGN_SIGNATURE_METHOD_REF] ?:  IgnisignSignerGroup_SignatureAuthMethods };
 
   @IsString({ each: true })
   emailDomains ?: string[];
 
   @IsString({ each: true })
   signerIds ?: string[];
+
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
 export class IgnisignSignerGroupDto {
@@ -84,7 +87,10 @@ export class IgnisignSignerGroupDto {
   // @ValidateNested({ each: true })
   // @Type(() => IgnisignSignerGroup_SignatureAuthMethods)
   // TODO add class-validator
-  signatureAuthMethods : { [key in IGNISIGN_SIGNATURE_METHOD_REF] :  IgnisignSignerGroup_SignatureAuthMethods };
+  signatureAuthMethodsConfiguration : { [key in IGNISIGN_SIGNATURE_METHOD_REF] ?: IgnisignSignerGroup_SignatureAuthMethods };
+
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 
   @IsString({ each: true })
   emailDomains ?: string[];
@@ -111,9 +117,6 @@ export class IgnisignSigner_To_SignerGroup {
 }
 
 export class IgnisignSignerGroup_SignatureAuthMethods {
-  @IsBoolean()
-  isAllowed : boolean;
-
   @IsOptional()
   @IsEnum(IGNISIGN_ID_PROOFING_METHOD_REF, { each: true })
   idProofings ?: IGNISIGN_ID_PROOFING_METHOD_REF[];
