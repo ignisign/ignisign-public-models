@@ -154,10 +154,6 @@ export class IgnisignSignatureRequest {
   recipients ?: string[];
 
   @IsOptional()
-  @IsBoolean()
-  fullPrivacy ?: boolean;
-
-  @IsOptional()
   @IsNumber()
   appEnvSettingVersion ?: number;
 
@@ -275,14 +271,18 @@ export class IgnisignSignatureRequest_IdContainer {
   signatureRequestId?: string;
 }
 
-export declare class IgnisignSignatureRequest_PublishBySide extends IgnisignSignatureRequest_IdContainer {}
 
-export declare class IgnisignSignatureRequest_PublishEmbedded extends IgnisignSignatureRequest_IdContainer {
-  signers: {
-    signerId: string;
-    signerExternalId: string;
-    token: string;
-  }[]
+export declare class IgnisignSignatureRequest_Publish extends IgnisignSignatureRequest_IdContainer {
+  signersBySide ?: {
+    signerId          : string;
+    signerExternalId  : string;
+  }[];
+
+  signersEmbedded ?: {
+    signerId         : string;
+    signerExternalId : string;
+    token            : string;
+  }[];
 }
 
 export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureRequest {
