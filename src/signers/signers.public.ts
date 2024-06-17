@@ -11,7 +11,7 @@ import { COUNTRIES } from "../_commons/countries.public";
 
 export enum IGNISIGN_SIGNER_ENTITY_TYPE {
     NATURAL = 'NATURAL',
-    LEGAL   = 'LEGAL',
+    SEAL   = 'SEAL',
     M2M = 'M2M'
 }
 
