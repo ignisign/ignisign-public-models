@@ -105,13 +105,6 @@ export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
-
-  /**
-  * @deprecated this field is not used anymore
-  **/
-  @IsOptional()
-  @IsBoolean()
-  isRecurrent ?: boolean;
 }
 
 export class IgnisignSigner_UpdateRequestDto {
@@ -159,13 +152,6 @@ export class IgnisignSigner_UpdateRequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
-
-  /**
-  * @deprecated this field is not used anymore
-  **/
-  @IsOptional()
-  @IsBoolean()
-  isRecurrent ?: boolean;
 }
 
 export class IgnisignSigner_CreationResponseDto {
