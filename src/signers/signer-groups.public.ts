@@ -1,7 +1,7 @@
 import { IsArray, IsBoolean, IsEnum, IsNumber, IsObject, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from './../signatures/signature-methods.public';
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
-import { IGNISIGN_SIGNER_CREATION_INPUT_REF, IGNISIGN_SIGNER_ENTITY_TYPE } from "./signers.public";
+import { IGNISIGN_SIGNER_CREATION_INPUT_REF, IGNISIGN_SIGNER_ENTITY_TYPE, IgnisignSigner_CreationRequestDto } from "./signers.public";
 import { IGNISIGN_INTEGRATION_MODE } from '../signatures/signatures.public';
 import { IGNISIGN_ID_PROOFING_METHOD_REF } from '../id-proofing/id-proofing-methods.public';
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from '../signatures/signature-auth.public';
@@ -137,6 +137,9 @@ export class IgnisignInputNeedsDto {
   optionalInputs  : IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
+export class SignerGroupBulkDto {
+  signers : IgnisignSigner_CreationRequestDto[];
+}
 
 
 //? SIGNATURE PROFILE TO APP CONFIG : Dans appEnvConfig
