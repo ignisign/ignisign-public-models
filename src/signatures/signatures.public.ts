@@ -1,3 +1,4 @@
+import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { CustomPalette, IgnisignApplication_VariationColor } from "../applications/applications-settings-config.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 
@@ -40,6 +41,7 @@ export class IgnisignSignature {
   signingIp             ?: string;
   signingTime?           : string;
   certificate?           : string;
+  eidasLevel?            : IGNISIGN_EIDAS_LEVEL;
 }
 
 export class IgnisignApplication_SignatureMetadata {

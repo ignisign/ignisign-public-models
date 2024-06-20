@@ -50,6 +50,8 @@ export class IgnisignDocument {
   dataJsonContent           ?: string;
   relatedDocumentId         ?: string;
   relatedDocumentType       ?: IGNISIGN_DOCUMENT_TYPE;
+  templateDisplayerId       ?: string;
+  templateDisplayerVersion  ?: number;
   _createdAt                ?: Date;
 }
 

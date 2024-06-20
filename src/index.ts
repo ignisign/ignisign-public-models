@@ -37,4 +37,5 @@ export * from "./webhooks/webhook-responses.public";
 export * from "./webhooks/webhooks.public";
 
 export * from "./auth/right_management_v2.public";
+export * from "./_commons/eidas.public";
 

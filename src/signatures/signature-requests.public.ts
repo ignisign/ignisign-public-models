@@ -99,12 +99,6 @@ export class IgnisignSignatureRequest {
   @IsString()
   creatorId                 ?: string;
 
-  /**
-   * @deprecated signatureProfileId will be removed
-  **/
-  @IsString()
-  signatureProfileId        ?: string;
-
   @IsOptional()
   @IsString({each: true})
   documentIds               ?: string[];
@@ -132,14 +126,6 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsDate()
   diffusionDate             ?: Date;
-
-  @IsOptional()
-  @IsString()
-  templateDisplayerId      ?: string;
-
-  @IsOptional()
-  @IsNumber()
-  templateDisplayerVersion ?: number;
 
   @IsOptional()
   @IsString()
@@ -307,10 +293,6 @@ export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signersAsApprover    ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
-  /**
-   * @deprecated signatureProfile will be removed
-   **/
-  signatureProfile     ?: IgnisignSignatureProfile;
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
   signatureProofsUrl   ?: string;
   signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;
