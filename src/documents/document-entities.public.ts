@@ -1,4 +1,4 @@
-import { IsMongoId, IsOptional, IsString } from "class-validator";
+import { IsMongoId, IsNumber, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignSignatureRequest_Statement } from "../signatures/signature-requests.public";
 
@@ -83,6 +83,14 @@ export class IgnisignDocument_InitializationDto {
   @IsOptional()
   @IsString()
   description                ?: string;
+
+  @IsOptional()
+  @IsString()
+  templateDisplayerId       ?: string;
+
+  @IsOptional()
+  @IsNumber()
+  templateDisplayerVersion  ?: number;
 }
 
 export class IgnisignDocument_UpdateDto {
@@ -97,4 +105,13 @@ export class IgnisignDocument_UpdateDto {
   @IsOptional()
   @IsString()
   description                ?: string;
+
+
+  @IsOptional()
+  @IsString()
+  templateDisplayerId       ?: string;
+
+  @IsOptional()
+  @IsNumber()
+  templateDisplayerVersion  ?: number;
 }
