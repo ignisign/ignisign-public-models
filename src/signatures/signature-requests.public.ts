@@ -8,6 +8,7 @@ import { IgnisignSignatureProfile } from "./signature-profiles.public";
 import { IgnisignSigner_Summary } from "../signers/signers.public";
 import "reflect-metadata";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";
+import { IgnisignSignerProfile } from "../signers/signer-profiles.public";
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
   SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
@@ -310,6 +311,7 @@ export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
   signatureProofsUrl   ?: string;
   signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;
+  signerProfiles       ?: IgnisignSignerProfile[];
 }
 
 
