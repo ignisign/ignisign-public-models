@@ -6,7 +6,7 @@ import { IGNISIGN_INTEGRATION_MODE } from '../signatures/signatures.public';
 import { IGNISIGN_ID_PROOFING_METHOD_REF } from '../id-proofing/id-proofing-methods.public';
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from '../signatures/signature-auth.public';
 
-export class IgnisignSignerProfileSummary {
+export class IgnisignSignerProfile {
   @IsOptional() 
   @IsString()
   _id                     ?: string;
@@ -56,7 +56,7 @@ export class IgnisignSignerProfileSummary {
   defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
-export class IgnisignSignerProfileDto {
+export class IgnisignSignerProfileWithPrivateFieldsDto {
   @IsString()
   appId                    : string;
 
