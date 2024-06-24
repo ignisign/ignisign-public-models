@@ -68,7 +68,7 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
 export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
-  signerGroupId ?: string;
+  signerProfileId ?: string;
 
   @IsOptional()
   @IsString()
@@ -114,7 +114,7 @@ export class IgnisignSigner_UpdateRequestDto {
 
   @IsOptional()
   @IsString()
-  signerGroupId ?: string;
+  signerProfileId ?: string;
 
   @IsOptional()
   @IsString()
@@ -214,7 +214,7 @@ export class IgnisignSigner_Summary {
 
   @IsOptional()
   @IsString()
-  signerGroupId ?: string;
+  signerProfileId ?: string;
 }
 
 

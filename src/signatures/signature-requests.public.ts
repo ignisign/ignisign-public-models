@@ -160,8 +160,8 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
-  @Type(() => IgnisignSignatureRequest_SignerGroup)
-  signerGroupsUsed ?: IgnisignSignatureRequest_SignerGroup[];
+  @Type(() => IgnisignSignatureRequest_SignerProfile)
+  signerProfilesUsed ?: IgnisignSignatureRequest_SignerProfile[];
 
   @IsOptional()
   @IsBoolean()
@@ -169,15 +169,15 @@ export class IgnisignSignatureRequest {
 }
 
 
-export class IgnisignSignatureRequest_SignerGroup {
-  signerGroupId      : string;
+export class IgnisignSignatureRequest_SignerProfile {
+  signerProfileId      : string;
   signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
   version            : number;
   signerIds          : string[];
 }
 
-export class IgnisignSignerGroupsSignatureMethod {
-  signerGroupId      : string;
+export class IgnisignSignerProfilesSignatureMethod {
+  signerProfileId      : string;
   signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
@@ -262,8 +262,8 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
-  @Type(() => IgnisignSignerGroupsSignatureMethod)
-  signerGroupsSignatureMethod ?: IgnisignSignerGroupsSignatureMethod[];
+  @Type(() => IgnisignSignerProfilesSignatureMethod)
+  signerProfilesSignatureMethod ?: IgnisignSignerProfilesSignatureMethod[];
 
 }
 
