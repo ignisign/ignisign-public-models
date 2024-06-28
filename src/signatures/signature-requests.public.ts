@@ -167,6 +167,10 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsBoolean()
   individualizeRequests ?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  signatureMethodRef?: IGNISIGN_SIGNATURE_METHOD_REF
 }
 
 
