@@ -65,12 +65,15 @@ export enum IGNISIGN_SSO_CONFIG_TYPES {
 }
 
 export enum IGNISIGN_SSO_CONFIG_STATUS {
-  PENDING  = 'PENDING',
+  // PENDING  = 'PENDING',
   ACTIVE   = 'ACTIVE',
+  ARCHIVED = 'ARCHIVED'
 }
 
 export class IgnisignApplicationEnv_SSO_Config {
   _id            ?: string;
+  name            : string;
+  description    ?: string;
   appId           : string;
   appEnv          : IGNISIGN_APPLICATION_ENV;
   type            : IGNISIGN_SSO_CONFIG_TYPES;
@@ -80,6 +83,14 @@ export class IgnisignApplicationEnv_SSO_Config {
   settingsSAML   ?: Ignisign_SAML_Settings;
 }
 
+
+export class IgnisignApplicationEnv_SSO_ConfigDto {
+  name            : string;
+  description    ?: string;
+  type            : IGNISIGN_SSO_CONFIG_TYPES;
+  settingsOAuth2 ?: Ignisign_OAuth2_Settings;
+  settingsSAML   ?: Ignisign_SAML_Settings;
+}
 
 export class IgnisignApplication_EnvSettings {
   appId                        : string;
