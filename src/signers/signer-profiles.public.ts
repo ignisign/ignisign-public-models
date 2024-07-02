@@ -56,7 +56,7 @@ export class IgnisignSignerProfile {
   defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
-export class IgnisignSignerProfileWithPrivateFieldsDto {
+export class IgnisignSignerProfileDto {
   @IsString()
   appId                    : string;
 
@@ -113,7 +113,6 @@ export class IgnisignSigner_To_SignerProfile {
     signerProfileId : string;
     date          : Date;
   }[];
-
 }
 
 export class IgnisignSignerProfile_SignatureAuthMethods {
@@ -124,7 +123,31 @@ export class IgnisignSignerProfile_SignatureAuthMethods {
   @IsOptional()
   @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
   authMethods ?: IGNISIGN_AUTH_FULL_MECHANISM_REF[];
+
+  @IsOptional()
+  @IsString()
+  idProofingSsoConfigId ?: string;
+
+  @IsOptional()
+  @IsString()
+  authSsoConfigId ?: string;
 }
+
+// export class IgnisignSignerProfile_SignatureAuthMethods {
+//   @IsOptional()
+//   @IsEnum(IGNISIGN_ID_PROOFING_METHOD_REF, { each: true })
+//   idProofings ?: {
+//     ref          : IGNISIGN_ID_PROOFING_METHOD_REF;
+//     ssoConfigId ?: string;
+//   }[];
+
+//   @IsOptional()
+//   @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
+//   authMethods ?: {
+//     ref          : IGNISIGN_AUTH_FULL_MECHANISM_REF;
+//     ssoConfigId ?: string;
+//   }[];
+// }
 
 export class IgnisignInputNeedsDto {
   @IsString()
