@@ -123,14 +123,6 @@ export class IgnisignSignerProfile_SignatureAuthMethods {
   @IsOptional()
   @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, { each: true })
   authMethods ?: IGNISIGN_AUTH_FULL_MECHANISM_REF[];
-
-  @IsOptional()
-  @IsString()
-  idProofingSsoConfigId ?: string;
-
-  @IsOptional()
-  @IsString()
-  authSsoConfigId ?: string;
 }
 
 // export class IgnisignSignerProfile_SignatureAuthMethods {
