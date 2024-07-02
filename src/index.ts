@@ -31,6 +31,7 @@ export * from "./users/users-roles.public";
 export * from "./signers/signer-claims.public";
 export * from "./signers/signers.public";
 export * from "./signers/signer-profiles.public";
+export * from "./signers/signer-m2m.public";
 
 export * from "./webhooks/webhook-events.public";
 export * from "./webhooks/webhook-responses.public";
@@ -38,4 +39,3 @@ export * from "./webhooks/webhooks.public";
 
 export * from "./auth/right_management_v2.public";
 export * from "./_commons/eidas.public";
-

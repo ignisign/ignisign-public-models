@@ -36,23 +36,6 @@ export class IgnisignSigner {
   fromUserId                        ?: string;
 }
 
-export enum IGNISIGN_M2M_STATUS {
-  ACTIVE  = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
-}
-
-export class IgnisignM2M {
-  _id         ?: string;
-  appId        : string;
-  appEnv       : IGNISIGN_APPLICATION_ENV;
-  signerId     : string;
-  publicKey    : string;
-  status       : IGNISIGN_M2M_STATUS;
-  title        : string;
-  _updatedAt   : Date;
-  _createdAt   : Date;
-}
-
 export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 
   FIRST_NAME    = "firstName",
   LAST_NAME     = "lastName",
