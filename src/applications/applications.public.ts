@@ -11,9 +11,16 @@ export enum IGNISIGN_APPLICATION_STATUS {
 }
 
 export enum IGNISIGN_APPLICATION_TYPE {
-  SIGNATURE   = "SIGNATURE",
-  SEAL        = "SEAL",
-  LOG_CAPSULE = "LOG_CAPSULE",
+  SIGNATURE      = "SIGNATURE",
+  SEAL           = "SEAL",
+  LOG_CAPSULE    = "LOG_CAPSULE",
+
+  BARE_SIGNATURE = "BARE_SIGNATURE",
+  
+  C2PA_SIGNATURE = "C2PA_SIGNATURE",
+  C2PA_SEAL      = "C2PA_SEAL",
+  
+  WEB3_PROOF     = "WEB3_PROOF",
 }
 
 export enum IGNISIGN_APPLICATION_ENV {
@@ -35,7 +42,7 @@ export class IgnisignApplication_Context extends IgnisignApplication {
   config              : IgnisignApplication_Configuration;
   envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignApplication_EnvSettings };
   settings            : IgnisignApplication_Settings;
-  signerProfiles        : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignerProfile[] };
+  signerProfiles      : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignerProfile[] };
   signatureProfiles   : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignatureProfile[] }; //! TO REMOVE
 }
 

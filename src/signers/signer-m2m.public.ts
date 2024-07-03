@@ -1,3 +1,4 @@
+import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
 
@@ -19,15 +20,24 @@ export class IgnisignM2M {
 }
 
 export class IgniSign_CreateM2MSealRequestDto {
-  m2mId                : string;
-  documentHash        ?: string;
-  documentLabel       ?: string;
-  document            ?: any;
-  signatureMethodRef  ?: IGNISIGN_SIGNATURE_METHOD_REF;
+  m2mId          : string;
+  title         ?: string;
+  documentHash  ?: string;
+  documentLabel ?: string;
+  document      ?: any;
+  externalId    ?: string;
+  eidasLevel    ?: IGNISIGN_EIDAS_LEVEL;
 }
 
 
 export class IgniSign_CreateM2MSealResponsetDto {
   signatureRequestId  : string;
   documentHash        : string;
+}
+
+export class IgniSign_SignM2MSealRequestDto {
+ 
+  signatureRequestId : string;
+  documentHash       : string; 
+  signature          : string;
 }
