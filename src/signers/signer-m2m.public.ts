@@ -36,17 +36,8 @@ export class IgniSign_CreateM2MSealResponsetDto {
 }
 
 export class IgniSign_SignM2MSealRequestDto {
-<<<<<<< HEAD
  
   signatureRequestId : string;
   documentHash       : string; 
   signature          : string;
 }
-=======
-  signatureRequestId: string;
-  documentHash: string;
-  signature: string;
-}
-
-
->>>>>>> 08b47d9f9ed39018dbcd38151a1c0452ec0a9bcd
