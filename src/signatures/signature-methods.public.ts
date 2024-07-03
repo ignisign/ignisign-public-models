@@ -7,8 +7,6 @@ export enum IGNISIGN_SIGNATURE_METHOD_REF {
   M2M_AVANCED       = "M2M_AVANCED",
   M2M_QUALIFIED     = "M2M_QUALIFIED",
   M2M_SIMPLE        = "M2M_SIMPLE",
-
-  
 }
 
 

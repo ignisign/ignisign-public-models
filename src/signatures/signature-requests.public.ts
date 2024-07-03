@@ -170,7 +170,11 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsBoolean()
-  signatureMethodRef?: IGNISIGN_SIGNATURE_METHOD_REF
+  signatureMethodRef?: IGNISIGN_SIGNATURE_METHOD_REF;
+
+  @IsOptional()
+  @IsString()
+  m2mId?: string;
 }
 
 
