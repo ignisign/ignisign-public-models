@@ -20,10 +20,14 @@ export class IgnisignM2M {
 
 export class IgniSign_CreateM2MSealRequestDto {
   m2mId                : string;
+  eidasLevel: string;
+
   documentHash        ?: string;
   documentLabel       ?: string;
   document            ?: any;
   signatureMethodRef  ?: IGNISIGN_SIGNATURE_METHOD_REF;
+  title?: string;
+  externalId?: string;
 }
 
 
@@ -31,3 +35,11 @@ export class IgniSign_CreateM2MSealResponsetDto {
   signatureRequestId  : string;
   documentHash        : string;
 }
+
+export class IgniSign_SignM2MSealRequestDto {
+  signatureRequestId: string;
+  documentHash: string;
+  signature: string;
+}
+
+
