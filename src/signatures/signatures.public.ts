@@ -1,6 +1,6 @@
 import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { CustomPalette, IgnisignApplication_VariationColor } from "../applications/applications-settings-config.public";
-import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
+import { IGNISIGN_APPLICATION_ENV, IGNISIGN_APPLICATION_TYPE } from "../applications/applications.public";
 
 export const IGNISIGN_SIGNATURE_PUBLIC_FIELDS = ['_id', 'appId', 'signerId', 'signerKeyId', 'documentId', 'mode', 'status', 'signature', 'contentHash', 'signatureValue', 'signedPropertiesHash', 'signingTime', 'signingIp', 'certificate', ];
 
@@ -48,6 +48,7 @@ export class IgnisignApplication_SignatureMetadata {
   appId           : string;
   appEnv          : IGNISIGN_APPLICATION_ENV;
   appName         : string;
+  appType         : IGNISIGN_APPLICATION_TYPE;
   logoB64        ?: string;
   logoDarkB64    ?: string;
   colors         ?: CustomPalette;
