@@ -16,6 +16,7 @@ export enum IGNISIGN_ERROR_CODES {
   QUERY_VALIDATION_FAILED             = "QUERY_VALIDATION_FAILED",
   INVALID_TOKEN                       = "INVALID_TOKEN",
   UNKNOWN_ERROR                       = "UNKNOWN_ERROR",
+  EMAIL_INVALID                       = "EMAIL_INVALID",
 
   // Context errors
   AUTH_HEADER_NOT_FOUND                 = "AUTH_HEADER_NOT_FOUND",
