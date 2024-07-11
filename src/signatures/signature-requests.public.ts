@@ -62,9 +62,7 @@ export enum IGNISIGN_SIGNATURE_REQUEST_TYPE {
 
   STANDARD       = "STANDARD",
   SIGNER_SETUP   = "SIGNER_SETUP",
-  // REGISTERED_LETTER     = "REGISTERED_LETTER",
-  SEAL                  = "SEAL",
-  // VERIFIED_CREDENTIALS  = "VERIFIED_CREDENTIALS",
+  SEAL           = "SEAL",
 }
 
 export enum IGNISIGN_SIGNATURE_REQUEST_POST_PROCESSING_MECHANISM {
@@ -148,7 +146,7 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsString({ each: true })
-  signersAsApprover ?: string[];
+  signerIdsAsApprover ?: string[];
 
   @IsOptional()
   @IsString({ each: true })
@@ -245,7 +243,7 @@ export class IgnisignSignatureRequest_UpdateDto {
   statements ?: IgnisignSignatureRequest_Statement[];
 
   @IsOptional()
-  @IsArray()
+  @IsString({ each: true })
   signerIds ?: string[];
 
   @IsOptional()
@@ -258,7 +256,7 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsString({ each: true })
-  signersAsApprover ?: string[];
+  signerIdsAsApprover ?: string[];
 
   @IsOptional()
   @IsString({ each: true })
@@ -281,7 +279,7 @@ export class IgnisignSignatureRequest_IdContainer {
 }
 
 
-export declare class IgnisignSignatureRequest_Publish extends IgnisignSignatureRequest_IdContainer {
+export class IgnisignSignatureRequest_Publish_ResponseDTO extends IgnisignSignatureRequest_IdContainer {
   signersBySide ?: {
     signerId          : string;
     signerExternalId  : string;
@@ -313,7 +311,7 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
-  signersAsApprover    ?: string[];
+  signerIdsAsApprover    ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;

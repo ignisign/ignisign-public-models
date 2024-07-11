@@ -40,7 +40,6 @@ export class IgnisignDocument {
   status                     : IGNISIGN_DOCUMENT_STATUS;
   documentHash               : string;
   signatureRequestId         : string;
-  documentRequestId         ?: string;
   externalId                ?: string;
   label                     ?: string;
   description               ?: string;
