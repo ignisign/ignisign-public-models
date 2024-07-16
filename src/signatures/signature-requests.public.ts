@@ -173,6 +173,7 @@ export class IgnisignSignatureRequest {
   @IsOptional()
   @IsString()
   m2mId?: string;
+  
 }
 
 
@@ -271,6 +272,15 @@ export class IgnisignSignatureRequest_UpdateDto {
   @ValidateNested({ each: true })
   @Type(() => IgnisignSignerProfileWithPrivateFieldssSignatureMethod)
   signerProfilesSignatureMethod ?: IgnisignSignerProfileWithPrivateFieldssSignatureMethod[];
+
+  @IsOptional()
+  @IsBoolean()
+  individualizeRequests ?: boolean;
+
+  @IsOptional()
+  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
+  signatureRequestType?: IGNISIGN_SIGNATURE_REQUEST_TYPE;
+
 
 }
 
