@@ -200,11 +200,18 @@ export class IgnisignSigner_Summary {
   signerProfileId ?: string;
 }
 
-
 export class IgnisignSigner_Context extends IgnisignSigner_Summary {
   claims    : {
     claimRef : IGNISIGN_SIGNER_CLAIM_REF;
     status   : IGNISIGN_SIGNER_CLAIM_STATUS;
   }[];
   latestSignatureRequests : IgnisignSignatureRequest_WithDocName[];
+}
+
+export class IgnisignSigner_SelfProvideNameDto {
+  @IsString()
+  firstName : string;
+
+  @IsString()
+  lastName : string;
 }
