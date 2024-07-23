@@ -24,7 +24,8 @@ export enum IGNISIGN_SIGNER_CLAIM_REF {
   GITHUB_ACCOUNT_POSSESSION         = "GITHUB_ACCOUNT_POSSESSION",
   BIRTH_COUNTRY                     = "BIRTH_COUNTRY",
   BIRTH_DATE                        = "BIRTH_DATE",
-  BIRTH_PLACE                       = "BIRTH_PLACE"
+  BIRTH_PLACE                       = "BIRTH_PLACE",
+  CAN_APPROVE_SEAL                  = "CAN_APPROVE_SEAL",
 }
 
 
