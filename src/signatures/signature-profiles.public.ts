@@ -127,10 +127,10 @@ export class IgnisignSignatureProfile_SignerInputsConstraints {
   inputsNeeded: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
-export class IgnisignSignatureProfile_IdContainerDto {
-  @IsString()
-  signatureProfileId: string;
-}
+// export class IgnisignSignatureProfile_IdContainerDto {
+//   @IsString()
+//   signatureProfileId: string;
+// }
 
 export class IgnisignSignerStatus_FromSignatureProfile {
   @IsBoolean()
