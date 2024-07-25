@@ -77,7 +77,8 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   CANCELLED           = 'CANCELLED', // Only send if no signature has been done => else send COMPLETED
   EXPIRED             = 'EXPIRED',   // Only send if no signature has been done => else send COMPLETED
   COMPLETED           = 'COMPLETED',
-  CHILDREN_GENERATED  = 'CHILDREN_GENERATED'
+  CHILDREN_GENERATED  = 'CHILDREN_GENERATED',
+  APPROVER_STEP      = 'APPROVER_STEP',
 }
 
 export type IGNISIGN_WEBHOOK_ALL_TYPE = 'ALL';
