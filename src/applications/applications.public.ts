@@ -19,6 +19,7 @@ export enum IGNISIGN_APPLICATION_TYPE {
   C2PA_SEAL                 = "C2PA_SEAL",
   WEB3_PROOF                = "WEB3_PROOF",
   IGNISIGN_RIGHT_DELEGATION = "IGNISIGN_RIGHT_DELEGATION",
+  HIDDEN                    = "HIDDEN",
 }
 
 export const IGNISIGN_APPLICATION_TYPES_ACTIVATED = [
