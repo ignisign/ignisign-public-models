@@ -167,10 +167,6 @@ export class IgnisignSignatureRequest {
   individualizeRequests ?: boolean;
 
   @IsOptional()
-  @IsBoolean()
-  signatureMethodRef?: IGNISIGN_SIGNATURE_METHOD_REF;
-
-  @IsOptional()
   @IsString()
   m2mId?: string;
   
