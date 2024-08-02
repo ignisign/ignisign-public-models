@@ -2,6 +2,7 @@ export * from "./_commons/basic-containers.public";
 export * from "./_commons/countries.public";
 export * from "./_commons/ignisign-errors.public";
 export * from "./_commons/languages.public";
+export * from "./_commons/ignisign-api-version.public";
 
 export * from "./_utils/custom-validator.public";
 

@@ -1,6 +1,7 @@
 
 import { IgnisignApplication_Configuration, IgnisignApplication_EnvSettings, IgnisignApplication_Settings } from "./applications-settings-config.public";
 import { IgnisignSignatureProfile } from "../signatures/signature-profiles.public";
+import { IGNISIGN_API_VERSION } from "../_commons/ignisign-api-version.public";
 
 export enum IGNISIGN_APPLICATION_STATUS {
   ACTIVE       = "ACTIVE",
@@ -16,11 +17,12 @@ export enum IGNISIGN_APPLICATION_ENV {
 }
 
 export class IgnisignApplication {
-  _createdAt  ?: Date;
-  appId       ?: string;
-  orgId        : string;
-  appName      : string;
-  status       : IGNISIGN_APPLICATION_STATUS;
+  _createdAt          ?: Date;
+  appId               ?: string;
+  orgId                : string;
+  appName              : string;
+  status               : IGNISIGN_APPLICATION_STATUS;
+  ignisignApiVersion  ?: IGNISIGN_API_VERSION;
 }
 
 export class IgnisignApplication_Context extends IgnisignApplication {
