@@ -1,7 +1,11 @@
 
 import { IgnisignApplication_Configuration, IgnisignApplication_EnvSettings, IgnisignApplication_Settings } from "./applications-settings-config.public";
 import { IgnisignSignatureProfile } from "../signatures/signature-profiles.public";
-import { IGNISIGN_API_VERSION } from "../_commons/ignisign-api-version.public";
+
+export enum IGNISIGN_API_VERSION {
+  V3 = "V3",
+  V4 = "V4"
+}
 
 export enum IGNISIGN_APPLICATION_STATUS {
   ACTIVE       = "ACTIVE",
