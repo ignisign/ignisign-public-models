@@ -184,7 +184,7 @@ export class IgnisignSignatureRequest_SignerProfile {
   signerIds          : string[];
 }
 
-export class IgnisignSignerProfileWithPrivateFieldssSignatureMethod {
+export class IgnisignSignerProfileSignatureMethod {
   signerProfileId      : string;
   signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
 }
@@ -270,8 +270,8 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
-  @Type(() => IgnisignSignerProfileWithPrivateFieldssSignatureMethod)
-  signerProfilesSignatureMethod ?: IgnisignSignerProfileWithPrivateFieldssSignatureMethod[];
+  @Type(() => IgnisignSignerProfileSignatureMethod)
+  signerProfilesSignatureMethod ?: IgnisignSignerProfileSignatureMethod[];
 
   @IsOptional()
   @IsBoolean()
