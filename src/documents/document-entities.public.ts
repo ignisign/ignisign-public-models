@@ -8,6 +8,7 @@ export enum IGNISIGN_DOCUMENT_TYPE {
   PDF_ENCRYPTED   = "PDF_ENCRYPTED",
   FILE            = "FILE",
   DATA_JSON       = "DATA_JSON",
+  DATA_XML        = "DATA_XML",
   PRIVATE_FILE    = "PRIVATE_FILE",  
 }
 
