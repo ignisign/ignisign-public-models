@@ -62,6 +62,7 @@ export enum IGNISIGN_SIGNATURE_REQUEST_TYPE {
   STANDARD       = "STANDARD",
   SIGNER_SETUP   = "SIGNER_SETUP",
   SEAL           = "SEAL",
+  SEAL_M2M       = "SEAL_M2M",
   BARE_SIGNATURE = "BARE_SIGNATURE",
 }
 
@@ -70,7 +71,6 @@ export enum IGNISIGN_SIGNATURE_REQUEST_POST_PROCESSING_MECHANISM {
   // SEAL                   = "SEAL",
   // VERIFIABLE_CREDENTIALS = "VERIFIABLE_CREDENTIALS",
   // DELEGATED_PROCESSING   = "DELEGATED_PROCESSING"
-
 }
 
 export class IgnisignSignatureRequest {
@@ -184,7 +184,7 @@ export class IgnisignSignatureRequest_SignerProfile {
   signerIds          : string[];
 }
 
-export class IgnisignSignerProfilesSignatureMethod {
+export class IgnisignSignerProfileSignatureMethod {
   signerProfileId      : string;
   signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
 }
@@ -270,8 +270,9 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
-  @Type(() => IgnisignSignerProfilesSignatureMethod)
-  signerProfilesSignatureMethod ?: IgnisignSignerProfilesSignatureMethod[];
+
+  @Type(() => IgnisignSignerProfileSignatureMethod)
+  signerProfilesSignatureMethod ?: IgnisignSignerProfileSignatureMethod[];
 
   @IsOptional()
   @IsBoolean()

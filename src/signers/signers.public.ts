@@ -12,7 +12,6 @@ import { COUNTRIES } from "../_commons/countries.public";
 export enum IGNISIGN_SIGNER_ENTITY_TYPE {
     NATURAL = 'NATURAL',
     SEAL   = 'SEAL',
-    M2M = 'M2M'
 }
 
 export enum IGNISIGN_SIGNER_STATUS { 
