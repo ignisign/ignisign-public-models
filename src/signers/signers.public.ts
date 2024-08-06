@@ -197,6 +197,10 @@ export class IgnisignSigner_Summary {
   @IsOptional()
   @IsString()
   signerProfileId ?: string;
+
+  @IsOptional()
+  @IsString()
+  hasSealClaim ?: string;
 }
 
 export class IgnisignSigner_Context extends IgnisignSigner_Summary {
