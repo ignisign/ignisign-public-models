@@ -6,6 +6,10 @@ import { IGNISIGN_INTEGRATION_MODE } from '../signatures/signatures.public';
 import { IGNISIGN_ID_PROOFING_METHOD_REF } from '../id-proofing/id-proofing-methods.public';
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from '../signatures/signature-auth.public';
 
+export enum IGNISIGN_SIGNER_PROFILE_STATUS {
+  ACTIVE     = "ACTIVE",
+  ARCHIVED   = "ARCHIVED",
+}
 export class IgnisignSignerProfile {
   @IsOptional() 
   @IsString()
@@ -23,6 +27,9 @@ export class IgnisignSignerProfile {
   @IsOptional()
   @IsString()
   description             ?: string;
+
+  @IsEnum(IGNISIGN_SIGNER_PROFILE_STATUS)
+  status                 : IGNISIGN_SIGNER_PROFILE_STATUS;
 
   @IsNumber()
   version                  : number;

@@ -22,9 +22,6 @@ export class IgnisignM2M {
   _createdAt   : Date;
 }
 
-
-
-
 export class IgniSign_SignM2MDocumentRequestDto {
   documentType : IGNISIGN_DOCUMENT_TYPE;
   documentHash : string;
