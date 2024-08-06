@@ -270,6 +270,7 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
+
   @Type(() => IgnisignSignerProfileSignatureMethod)
   signerProfilesSignatureMethod ?: IgnisignSignerProfileSignatureMethod[];
 
