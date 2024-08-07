@@ -4,12 +4,15 @@ import { IgnisignSignatureRequest_Statement } from "../signatures/signature-requ
 
 
 export enum IGNISIGN_DOCUMENT_TYPE {
-  PDF             = "PDF",
-  PDF_ENCRYPTED   = "PDF_ENCRYPTED",
-  FILE            = "FILE",
-  DATA_JSON       = "DATA_JSON",
-  DATA_XML        = "DATA_XML",
-  PRIVATE_FILE    = "PRIVATE_FILE",  
+  PDF                      = "PDF",
+  PDF_ENCRYPTED            = "PDF_ENCRYPTED",
+  FILE                     = "FILE",
+  DATA_JSON                = "DATA_JSON",
+  DATA_XML                 = "DATA_XML",
+  PRIVATE_FILE             = "PRIVATE_FILE",
+  // VERIFIABLE_CREDENTIAL    = "VERIFIABLE_CREDENTIAL",
+  // WEB3_FILE                = "WEB3_FILE",
+
 }
 
 export enum IGNISIGN_DOCUMENT_STATUS {
@@ -23,6 +26,17 @@ export enum GET_PRIVATE_FILE_ERRORS {
   NOT_AUTHORIZED_TO_GET                     = 'NOT_AUTHORIZED_TO_GET',
   CANNOT_GET_FILE                           = 'CANNOT_GET_FILE',
 }
+
+// Duplicated in ig-private-proof-generator
+export const IMAGE_MIMETYPE_INSERABLE_IN_PDF = [
+  "image/png",
+  "image/jpeg",
+  "image/jpg",
+  "image/gif",
+  "image/bmp",
+  "image/tiff"
+];
+
 
 export const IGNISIGN_ACCEPTED_DOCS = [
   '.ai',   '.bmp',    '.gif', '.ico', '.jpeg',  '.jpg', '.png',   '.ps',  '.psd', '.svg',

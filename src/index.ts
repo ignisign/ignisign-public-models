@@ -23,6 +23,7 @@ export * from "./signatures/signature-methods.public";
 export * from "./signatures/signature-requests.public";;
 export * from "./signatures/signatures.public";
 export * from "./signatures/broadcastable-action.public";
+export * from "./signatures/signature-proofs.public";
 
 export * from "./technical-tokens/technical-tokens.public";
 

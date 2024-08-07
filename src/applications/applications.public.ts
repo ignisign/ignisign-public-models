@@ -1,4 +1,3 @@
-
 import { IgnisignApplication_Configuration, IgnisignApplication_EnvSettings, IgnisignApplication_Settings } from "./applications-settings-config.public";
 import { IgnisignSignatureProfile } from "../signatures/signature-profiles.public";
 import { IgnisignSignerProfile } from "../signers/signer-profiles.public";
@@ -53,6 +52,8 @@ export class IgnisignApplication_Context extends IgnisignApplication {
   envSettings         : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignApplication_EnvSettings };
   settings            : IgnisignApplication_Settings;
   signerProfiles      : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignerProfile[] };
+  
+  /** @deprecated */
   signatureProfiles   : { [ keys in IGNISIGN_APPLICATION_ENV] ?: IgnisignSignatureProfile[] }; //! TO REMOVE
 }
 
