@@ -16,8 +16,6 @@ export enum IGNISIGN_APPLICATION_TYPE {
   SEAL                      = "SEAL",
   LOG_CAPSULE               = "LOG_CAPSULE",
   BARE_SIGNATURE            = "BARE_SIGNATURE",
-  C2PA_SIGNATURE            = "C2PA_SIGNATURE",
-  C2PA_SEAL                 = "C2PA_SEAL",
   WEB3_PROOF                = "WEB3_PROOF",
   IGNISIGN_RIGHT_DELEGATION = "IGNISIGN_RIGHT_DELEGATION",
 }
