@@ -9,6 +9,21 @@ export enum IGNISIGN_SIGNATURE_MODE {
   CLIENT_SIDE_SIGNATURE           = "CLIENT_SIDE_SIGNATURE",
 }
 
+export enum IGNISIGN_SIGNATURE_PROOF_TYPE {
+
+  // HIGH LEVEL
+  PDF_WITH_SIGNATURES      = "PDF_WITH_SIGNATURES",
+  PROOF_WEB_PAGE           = "PROOF_WEB_PAGE",
+  C2PA                     = "C2PA",
+  ADVANCED_LEGAL_KIT       = "ADVANCED_LEGAL_KIT",
+
+  // LOW LEVEL
+  XADES                    = "XADES",
+  CADES                    = "CADES",
+  PKCS7                    = "PKCS7",
+  JWS                      = "JWS",    
+}
+
 
 export enum IGNISIGN_SIGNATURE_STATUS {
   INIT       = 'INIT',
