@@ -3,6 +3,7 @@ import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
 import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
+import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
 
 /******************** GLOBAL CONFIG *******************/
 
@@ -83,7 +84,6 @@ export class IgnisignApplicationEnv_SSO_Config {
   settingsSAML   ?: Ignisign_SAML_Settings;
 }
 
-
 export class IgnisignApplicationEnv_SSO_ConfigDto {
   name            : string;
   description    ?: string;
@@ -91,6 +91,7 @@ export class IgnisignApplicationEnv_SSO_ConfigDto {
   settingsOAuth2 ?: Ignisign_OAuth2_Settings;
   settingsSAML   ?: Ignisign_SAML_Settings;
 }
+
 
 export class IgnisignApplication_EnvSettings {
   appId                        : string;
@@ -107,6 +108,9 @@ export class IgnisignApplication_EnvSettings {
   sharingRestricted            : boolean;
   apiKeys                      : IgnisignApplication_EnvApiKeys[];
   ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
+  activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
+  originalFileRetentionDurationInDays     ?: number; // TODO remove optional
+  highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
 }
 
 export class IgnisignWebhook_SettingsDescription {
