@@ -24,7 +24,9 @@ export enum IGNISIGN_SIGNER_CLAIM_REF {
   BIRTH_COUNTRY                     = "BIRTH_COUNTRY",
   BIRTH_DATE                        = "BIRTH_DATE",
   BIRTH_PLACE                       = "BIRTH_PLACE",
-  CAN_APPROVE_SEAL                  = "CAN_APPROVE_SEAL",
+  CAN_APPROVE_SEAL_SES              = "CAN_APPROVE_SEAL_SES",
+  CAN_APPROVE_SEAL_AES              = "CAN_APPROVE_SEAL_AES",
+  CAN_APPROVE_SEAL_QES              = "CAN_APPROVE_SEAL_QES",
 }
 
 

@@ -18,6 +18,7 @@ export class IgnisignM2M {
   publicKey    : string;
   status       : IGNISIGN_M2M_STATUS;
   title        : string;
+  lastRenewal  : Date;
   _updatedAt   : Date;
   _createdAt   : Date;
 }
