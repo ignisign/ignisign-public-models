@@ -48,15 +48,9 @@ export class IgnisignSignature {
   status                 : IGNISIGN_SIGNATURE_STATUS;
   mode                   : IGNISIGN_SIGNATURE_MODE;
   ocspCheckValue        ?: any;
-  contentHash           ?: string;
-  signature             ?: string;
-  signatureValue        ?: string;
-  signedProperties      ?: string
-  signedPropertiesHash  ?: string;
   signingIp             ?: string;
-  signingTime?           : string;
-  certificate?           : string;
   eidasLevel?            : IGNISIGN_EIDAS_LEVEL;
+  signatures             : { type: IGNISIGN_SIGNATURE_PROOF_TYPE; signatureFilePath: string; signingTime: Date; }[];
 }
 
 export class IgnisignApplication_SignatureMetadata {
