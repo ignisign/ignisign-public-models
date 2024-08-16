@@ -13,3 +13,4 @@ export class IgnisignLogCapsule_ResponseDto {
   // proof_b64    : string;
   // proof_timestamp_b64 : string;
 }
+
