@@ -38,13 +38,14 @@ export enum IGNISIGN_APPLICATION_ENV {
 }
 
 export class IgnisignApplication {
-  _createdAt  ?: Date;
-  appId       ?: string;
-  orgId        : string;
-  appName      : string;
-  status       : IGNISIGN_APPLICATION_STATUS;
-  appType      : IGNISIGN_APPLICATION_TYPE;
-  ignisignApiVersion : IGNISIGN_API_VERSION;
+  _createdAt            ?: Date;
+  appId                 ?: string;
+  orgId                  : string;
+  appName                : string;
+  status                 : IGNISIGN_APPLICATION_STATUS;
+  appType                : IGNISIGN_APPLICATION_TYPE;
+  ignisignApiVersion     : IGNISIGN_API_VERSION;
+  isDefaultApplication  ?: boolean = false;
 }
 
 export class IgnisignApplication_Context extends IgnisignApplication {
