@@ -561,9 +561,9 @@ json-parse-better-errors@^1.0.1:
   integrity sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==
 
 libphonenumber-js@^1.10.53:
-  version "1.11.5"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.11.5.tgz#50a441da5ff9ed9a322d796a14f1e9cbc0fdabdf"
-  integrity sha512-TwHR5BZxGRODtAfz03szucAkjT5OArXr+94SMtAM2pYXIlQNVMrxvb6uSCbnaJJV6QXEyICk7+l6QPgn72WHhg==
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.11.7.tgz#efe4fcf816e1982925e9c800d0013b0ee99b8283"
+  integrity sha512-x2xON4/Qg2bRIS11KIN9yCNYUjhtiEjNyptjX0mX+pyKHecxuJVLIpfX1lq9ZD6CrC/rB+y4GBi18c6CEcUR+A==
 
 load-json-file@^4.0.0:
   version "4.0.0"
