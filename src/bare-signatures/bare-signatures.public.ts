@@ -1,3 +1,4 @@
+import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
 import { IGNISIGN_SIGNER_CLAIM_REF } from "../signers/signer-claims.public";
@@ -55,6 +56,7 @@ export class Ignisign_BareSignature_ProofAccessToken {
 export class Ignisign_BareSignature_Proof {
   appId              : string;
   appEnv             : IGNISIGN_APPLICATION_ENV;
+  documentId         : string;
   signatureRequestId : string;
   signerId           : string;
   proofs             : {
@@ -67,9 +69,19 @@ export class Ignisign_BareSignature_Proof {
   signerInformation : {
     claimRef : IGNISIGN_SIGNER_CLAIM_REF;
     value : any;
+    context : any
   }[];
 
 
 }
+
+export class IgnisignApplication_BareSignatureEnvSettings {
+  appId             : string;
+  appEnv            : IGNISIGN_APPLICATION_ENV;
+  redirectUris      : string[];
+  authorizedOrigins : string[];
+  eidasLevel        : IGNISIGN_EIDAS_LEVEL;
+}
+
 
 
