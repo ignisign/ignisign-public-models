@@ -11,16 +11,16 @@ export enum IGNISIGN_M2M_STATUS {
 }
 
 export class IgnisignM2M {
-  _id         ?: string;
-  appId        : string;
-  appEnv       : IGNISIGN_APPLICATION_ENV;
-  signerId     : string;
-  publicKey    : string;
-  status       : IGNISIGN_M2M_STATUS;
-  title        : string;
-  lastRenewal  : Date;
-  _updatedAt   : Date;
-  _createdAt   : Date;
+  _id           ?: string;
+  appId          : string;
+  appEnv         : IGNISIGN_APPLICATION_ENV;
+  signerId       : string;
+  publicKey      : string;
+  status         : IGNISIGN_M2M_STATUS;
+  title          : string;
+  lastRenewal    : Date;
+  expirationDate : Date;
+  
 }
 
 export class IgniSign_SignM2MDocumentRequestDto {
