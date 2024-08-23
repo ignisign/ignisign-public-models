@@ -56,21 +56,23 @@ export class Ignisign_BareSignature_ProofAccessToken {
 export class Ignisign_BareSignature_Proof {
   appId              : string;
   appEnv             : IGNISIGN_APPLICATION_ENV;
-  documentId         : string;
   signatureRequestId : string;
+  externalId        ?: string;
   signerId           : string;
   proofs             : {
-    type : IGNISIGN_SIGNATURE_PROOF_TYPE;
-    proofB64 : string;
-    timestampSequence : string;
-    signingTime : Date;
+    documentId          : string;
+    type                : IGNISIGN_SIGNATURE_PROOF_TYPE;
+    documentHash        : string;
+    proofB64            : string;
+    timestampSequence  ?: string;
+    signingTime        ?: Date;
   }[];
   
   signerInformation : {
-    claimRef : IGNISIGN_SIGNER_CLAIM_REF;
-    value : any;
-    context : any
-  }[];
+    fullName         : string;
+    lastName        ?: string;
+    firstName       ?: string;
+  };
 
 
 }
