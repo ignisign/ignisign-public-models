@@ -156,6 +156,9 @@ export class IgnisignSignatureRequest {
   @IsNumber()
   appEnvSettingVersion ?: number;
 
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
+
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
@@ -175,9 +178,9 @@ export class IgnisignSignatureRequest {
 
 export class IgnisignSignatureRequest_SignerProfile {
   signerProfileId      : string;
-  signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
-  version            : number;
-  signerIds          : string[];
+  signatureMethodRef   : IGNISIGN_SIGNATURE_METHOD_REF;
+  version              : number;
+  signerIds            : string[];
 }
 
 export class IgnisignSignerProfileSignatureMethod {
@@ -266,6 +269,9 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
+
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 
   @Type(() => IgnisignSignerProfileSignatureMethod)
   signerProfilesSignatureMethod ?: IgnisignSignerProfileSignatureMethod[];

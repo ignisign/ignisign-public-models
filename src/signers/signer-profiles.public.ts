@@ -58,9 +58,6 @@ export class IgnisignSignerProfile {
 
   @IsString({ each: true })
   signerIds ?: string[];
-
-  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
-  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
 export class IgnisignSignerProfileDto {
@@ -95,9 +92,6 @@ export class IgnisignSignerProfileDto {
   // @Type(() => IgnisignSignerProfile_SignatureAuthMethods)
   // TODO add class-validator
   signatureAuthMethodsConfiguration : { [key in IGNISIGN_SIGNATURE_METHOD_REF] ?: IgnisignSignerProfile_SignatureAuthMethods };
-
-  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
-  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
 
   @IsString({ each: true })
   emailDomains ?: string[];
