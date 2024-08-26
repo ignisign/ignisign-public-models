@@ -177,6 +177,18 @@ export class IgnisignWebhookDto_SignatureImage {
   signerExternalId   ?: string;
 }
 
+export class IgnisignWebhookDto_SignatureRequest_Signers {
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignWebhookDto_SignatureRequestSignerBySide)
+  signersBySide ?: IgnisignWebhookDto_SignatureRequestSignerBySide[];
+
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignWebhookDto_SignatureRequestSignerEmbedded)
+  signersEmbedded ?: IgnisignWebhookDto_SignatureRequestSignerEmbedded[];
+}
+
 export class IgnisignWebhookDto_SignatureRequest {
   @IsString()
   signatureRequestId : string;
@@ -189,14 +201,9 @@ export class IgnisignWebhookDto_SignatureRequest {
   signatureRequestExternalId ?: string;
 
   @IsOptional()
-  @ValidateNested({ each: true })
-  @Type(() => IgnisignWebhookDto_SignatureRequestSignerBySide)
-  signersBySide ?: IgnisignWebhookDto_SignatureRequestSignerBySide[];
-
-  @IsOptional()
-  @ValidateNested({ each: true })
-  @Type(() => IgnisignWebhookDto_SignatureRequestSignerEmbedded)
-  signersEmbedded ?: IgnisignWebhookDto_SignatureRequestSignerEmbedded[];
+  @ValidateNested()
+  @Type(() => IgnisignWebhookDto_SignatureRequest_Signers)
+  signers ?: IgnisignWebhookDto_SignatureRequest_Signers;
 
   @IsOptional()
   @IsString()
