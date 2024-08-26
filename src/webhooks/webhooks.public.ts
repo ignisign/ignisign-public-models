@@ -104,7 +104,7 @@ export class IgnisignWebhook {
 }
 
 export class IgnisignWebhook_EndpointDto {
-  @IsUrl()
+  @IsUrl({ require_tld: false }) // To allow localhost
   url          : string;
 
   @IsOptional()
