@@ -265,14 +265,13 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsBoolean()
   fullPrivacy ?: boolean;
-
+  
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
+  
   @IsOptional()
   @IsObject({ each: true })
   @ValidateNested({ each: true })
-
-  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
-  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
-
   @Type(() => IgnisignSignerProfileSignatureMethod)
   signerProfilesSignatureMethod ?: IgnisignSignerProfileSignatureMethod[];
 
