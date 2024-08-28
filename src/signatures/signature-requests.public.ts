@@ -279,9 +279,9 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsBoolean()
   individualizeRequests ?: boolean;
 
-  @IsOptional()
-  @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
-  signatureRequestType?: IGNISIGN_SIGNATURE_REQUEST_TYPE;
+  // @IsOptional()
+  // @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
+  // signatureRequestType?: IGNISIGN_SIGNATURE_REQUEST_TYPE;
 
 
 }
