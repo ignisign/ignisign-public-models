@@ -267,7 +267,7 @@ export class IgnisignSignatureRequest_UpdateDto {
   fullPrivacy ?: boolean;
   
   @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
-  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
+  defaultSignatureMethod ?: IGNISIGN_SIGNATURE_METHOD_REF;
   
   @IsOptional()
   @IsObject({ each: true })

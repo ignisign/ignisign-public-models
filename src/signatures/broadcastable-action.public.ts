@@ -15,7 +15,6 @@ export type IgnisignBroadcastableAction_Dto =
   IgnisignBroadcastableAction_SignatureErrorDto;
 
 
-
 export class IgnisignBroadcastableAction_PrivateFileRequestDto {
   @IsEnum(IGNISIGN_BROADCASTABLE_ACTIONS)
   type: IGNISIGN_BROADCASTABLE_ACTIONS.NEED_PRIVATE_FILE_URL
