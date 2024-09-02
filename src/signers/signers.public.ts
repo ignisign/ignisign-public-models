@@ -200,6 +200,9 @@ export class IgnisignSigner_Summary {
   @IsOptional()
   @IsEnum(IGNISIGN_SIGNER_CLAIM_REF, { each: true })
   sealClaims ?: IGNISIGN_SIGNER_CLAIM_REF[];
+
+  @IsString()
+  fromUserId ?: string;
 }
 
 export class IgnisignSigner_Context extends IgnisignSigner_Summary {
