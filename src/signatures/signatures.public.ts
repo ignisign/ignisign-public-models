@@ -1,11 +1,27 @@
+import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { CustomPalette, IgnisignApplication_VariationColor } from "../applications/applications-settings-config.public";
-import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
+import { IGNISIGN_APPLICATION_ENV, IGNISIGN_APPLICATION_TYPE } from "../applications/applications.public";
 
 export const IGNISIGN_SIGNATURE_PUBLIC_FIELDS = ['_id', 'appId', 'signerId', 'signerKeyId', 'documentId', 'mode', 'status', 'signature', 'contentHash', 'signatureValue', 'signedPropertiesHash', 'signingTime', 'signingIp', 'certificate', ];
 
 export enum IGNISIGN_SIGNATURE_MODE {
   SERVER_SIDE_SIGNATURE           = "SERVER_SIDE_SIGNATURE",
   CLIENT_SIDE_SIGNATURE           = "CLIENT_SIDE_SIGNATURE",
+}
+
+export enum IGNISIGN_SIGNATURE_PROOF_TYPE {
+
+  // HIGH LEVEL
+  PDF_WITH_SIGNATURES      = "PDF_WITH_SIGNATURES",
+  PROOF_WEB_PAGE           = "PROOF_WEB_PAGE",
+  C2PA                     = "C2PA",
+  ADVANCED_LEGAL_KIT       = "ADVANCED_LEGAL_KIT",
+
+  // LOW LEVEL
+  XADES                    = "XADES",
+  CADES                    = "CADES",
+  PKCS7                    = "PKCS7",
+  JWS                      = "JWS",    
 }
 
 
@@ -32,23 +48,18 @@ export class IgnisignSignature {
   status                 : IGNISIGN_SIGNATURE_STATUS;
   mode                   : IGNISIGN_SIGNATURE_MODE;
   ocspCheckValue        ?: any;
-  contentHash           ?: string;
-  signature             ?: string;
-  signatureValue        ?: string;
-  signedProperties      ?: string
-  signedPropertiesHash  ?: string;
   signingIp             ?: string;
-  signingTime?           : string;
-  certificate?           : string;
+  eidasLevel?            : IGNISIGN_EIDAS_LEVEL;
+  signatures             : { type: IGNISIGN_SIGNATURE_PROOF_TYPE; signatureFilePath: string; signingTime: Date; }[];
 }
 
 export class IgnisignApplication_SignatureMetadata {
   appId           : string;
   appEnv          : IGNISIGN_APPLICATION_ENV;
   appName         : string;
+  appType         : IGNISIGN_APPLICATION_TYPE;
   logoB64        ?: string;
   logoDarkB64    ?: string;
-  rootUrl        ?: string;
   colors         ?: CustomPalette;
 }
 export class IgnisignSignatureImages_Dto {

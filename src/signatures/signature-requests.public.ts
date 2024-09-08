@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
+import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsObject, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
@@ -7,6 +7,8 @@ import { IgnisignApplication_SignatureMetadata } from "./signatures.public";
 import { IgnisignSignatureProfile } from "./signature-profiles.public";
 import { IgnisignSigner_Summary } from "../signers/signers.public";
 import "reflect-metadata";
+import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";
+import { IgnisignSignerProfile } from "../signers/signer-profiles.public";
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
   SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
@@ -20,8 +22,7 @@ export enum IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE {
 
 export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   DRAFT             = 'DRAFT',
-
-  WAITING_DOCUMENTS = 'WAITING_DOCUMENTS',
+  
   WAITING_DOCUMENTS_GENERATION = 'WAITING_DOCUMENTS_GENERATION',
   READY             = 'READY',
   IN_PROGRESS       = 'IN_PROGRESS',
@@ -34,7 +35,21 @@ export enum IGNISIGN_SIGNATURE_REQUEST_STATUS {
   PROCESSING        = 'PROCESSING',
   CHILDREN_GENERATED = 'CHILDREN_GENERATED'
 }
- 
+
+export const SIGNATURE_REQUESTS_STATUS_DONE = [
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.COMPLETED,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.EXPIRED,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.FAILED,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.CANCELLED
+];
+
+export const SIGNATURE_REQUESTS_STATUS_IN_PROGRESS = [
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.WAITING_DOCUMENTS_GENERATION,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.READY,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.IN_PROGRESS,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.PROCESSING,
+  IGNISIGN_SIGNATURE_REQUEST_STATUS.CHILDREN_GENERATED
+];
 
 export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
   IGNISIGN_SIGNATURE_REQUEST_STATUS.COMPLETED,
@@ -44,12 +59,11 @@ export const IGNISIGN_SIGNATURE_REQUEST_CLOSED_STATUS = [
 ]
 
 export enum IGNISIGN_SIGNATURE_REQUEST_TYPE {
-
   STANDARD       = "STANDARD",
   SIGNER_SETUP   = "SIGNER_SETUP",
-  // REGISTERED_LETTER     = "REGISTERED_LETTER",
-  // SEAL                  = "SEAL",
-  // VERIFIED_CREDENTIALS  = "VERIFIED_CREDENTIALS",
+  SEAL           = "SEAL",
+  SEAL_M2M       = "SEAL_M2M",
+  BARE_SIGNATURE = "BARE_SIGNATURE",
 }
 
 export enum IGNISIGN_SIGNATURE_REQUEST_POST_PROCESSING_MECHANISM {
@@ -57,7 +71,6 @@ export enum IGNISIGN_SIGNATURE_REQUEST_POST_PROCESSING_MECHANISM {
   // SEAL                   = "SEAL",
   // VERIFIABLE_CREDENTIALS = "VERIFIABLE_CREDENTIALS",
   // DELEGATED_PROCESSING   = "DELEGATED_PROCESSING"
-
 }
 
 export class IgnisignSignatureRequest {
@@ -99,9 +112,6 @@ export class IgnisignSignatureRequest {
   @IsString()
   creatorId                 ?: string;
 
-  @IsString()
-  signatureProfileId         : string;
-
   @IsOptional()
   @IsString({each: true})
   documentIds               ?: string[];
@@ -132,24 +142,50 @@ export class IgnisignSignatureRequest {
 
   @IsOptional()
   @IsString()
-  templateDisplayerId      ?: string;
-
-  @IsOptional()
-  @IsNumber()
-  templateDisplayerVersion ?: number;
-
-  @IsOptional()
-  @IsString()
   initialSignatureRequestId ?: string;
 
   @IsOptional()
   @IsString({ each: true })
-  signersAsApprover ?: string[];
+  signerIdsAsApprover ?: string[];
 
   @IsOptional()
   @IsString({ each: true })
   recipients ?: string[];
 
+  @IsOptional()
+  @IsNumber()
+  appEnvSettingVersion ?: number;
+
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod : IGNISIGN_SIGNATURE_METHOD_REF;
+
+  @IsOptional()
+  @IsObject({ each: true })
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignSignatureRequest_SignerProfile)
+  signerProfilesUsed ?: IgnisignSignatureRequest_SignerProfile[];
+
+  @IsOptional()
+  @IsBoolean()
+  individualizeRequests ?: boolean;
+
+  @IsOptional()
+  @IsString()
+  m2mId?: string;
+  
+}
+
+
+export class IgnisignSignatureRequest_SignerProfile {
+  signerProfileId      : string;
+  signatureMethodRef   : IGNISIGN_SIGNATURE_METHOD_REF;
+  version              : number;
+  signerIds            : string[];
+}
+
+export class IgnisignSignerProfileSignatureMethod {
+  signerProfileId      : string;
+  signatureMethodRef : IGNISIGN_SIGNATURE_METHOD_REF;
 }
 
 export class IgnisignSignatureRequest_Statement {
@@ -207,7 +243,7 @@ export class IgnisignSignatureRequest_UpdateDto {
   statements ?: IgnisignSignatureRequest_Statement[];
 
   @IsOptional()
-  @IsArray()
+  @IsString({ each: true })
   signerIds ?: string[];
 
   @IsOptional()
@@ -220,12 +256,34 @@ export class IgnisignSignatureRequest_UpdateDto {
 
   @IsOptional()
   @IsString({ each: true })
-  signersAsApprover ?: string[];
+  signerIdsAsApprover ?: string[];
 
   @IsOptional()
   @IsString({ each: true })
   recipients ?: string[];
   
+  @IsOptional()
+  @IsBoolean()
+  fullPrivacy ?: boolean;
+  
+  @IsOptional()
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  defaultSignatureMethod ?: IGNISIGN_SIGNATURE_METHOD_REF;
+  
+  @IsOptional()
+  @IsObject({ each: true })
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignSignerProfileSignatureMethod)
+  signerProfilesSignatureMethod ?: IgnisignSignerProfileSignatureMethod[];
+
+  @IsOptional()
+  @IsBoolean()
+  individualizeRequests ?: boolean;
+
+  // @IsOptional()
+  // @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
+  // signatureRequestType?: IGNISIGN_SIGNATURE_REQUEST_TYPE;
+
 
 }
 
@@ -233,14 +291,18 @@ export class IgnisignSignatureRequest_IdContainer {
   signatureRequestId?: string;
 }
 
-export declare class IgnisignSignatureRequest_PublishBySide extends IgnisignSignatureRequest_IdContainer {}
 
-export declare class IgnisignSignatureRequest_PublishEmbedded extends IgnisignSignatureRequest_IdContainer {
-  signers: {
-    signerId: string;
-    signerExternalId: string;
-    token: string;
-  }[]
+export class IgnisignSignatureRequest_Publish_ResponseDTO extends IgnisignSignatureRequest_IdContainer {
+  signersBySide ?: {
+    signerId          : string;
+    signerExternalId  : string;
+  }[];
+
+  signersEmbedded ?: {
+    signerId         : string;
+    signerExternalId : string;
+    token            : string;
+  }[];
 }
 
 export class IgnisignSignatureRequest_WithDocName extends IgnisignSignatureRequest {
@@ -262,13 +324,13 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
-  signersAsApprover           ?: string[];
+  // signerIdsAsApprover    ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
-  signatureProfile      : IgnisignSignatureProfile;
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
   signatureProofsUrl   ?: string;
   signatureProofStatus ?: IGNISIGN_DOCUMENT_GENERATED_STATUS;
+  signerProfiles       ?: IgnisignSignerProfile[];
 }
 
 

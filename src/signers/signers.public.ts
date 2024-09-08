@@ -11,15 +11,15 @@ import { COUNTRIES } from "../_commons/countries.public";
 
 export enum IGNISIGN_SIGNER_ENTITY_TYPE {
     NATURAL = 'NATURAL',
-    LEGAL   = 'LEGAL',
-    VIRTUAL = 'VIRTUAL'
+    SEAL   = 'SEAL',
 }
 
 export enum IGNISIGN_SIGNER_STATUS { 
-  CREATED = "CREATED",
-  PENDING = "PENDING",
-  BLOCKED = "BLOCKED",
-  ACTIVE  = "ACTIVE",
+  CREATED   = "CREATED",
+  PENDING   = "PENDING",
+  BLOCKED   = "BLOCKED",
+  ACTIVE    = "ACTIVE",
+  CORRUPTED = "CORRUPTED",
 }
 export class IgnisignSigner { 
   _id?                              : string;
@@ -46,11 +46,10 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   BIRTH_COUNTRY = "birthCountry",
 }
 
-
 export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
-  signatureProfileId ?: string;
+  signerProfileId ?: string;
 
   @IsOptional()
   @IsString()
@@ -87,10 +86,6 @@ export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
-
-  @IsOptional()
-  @IsBoolean()
-  isRecurrent ?: boolean;
 }
 
 export class IgnisignSigner_UpdateRequestDto {
@@ -100,7 +95,7 @@ export class IgnisignSigner_UpdateRequestDto {
 
   @IsOptional()
   @IsString()
-  signatureProfileId ?: string;
+  signerProfileId ?: string;
 
   @IsOptional()
   @IsString()
@@ -138,10 +133,6 @@ export class IgnisignSigner_UpdateRequestDto {
   @IsOptional()
   @IsString()
   externalId ?: string;
-
-  @IsOptional()
-  @IsBoolean()
-  isRecurrent ?: boolean;
 }
 
 export class IgnisignSigner_CreationResponseDto {
@@ -150,6 +141,12 @@ export class IgnisignSigner_CreationResponseDto {
 
   @IsEnum(IGNISIGN_SIGNER_ENTITY_TYPE)
   entityType             : IGNISIGN_SIGNER_ENTITY_TYPE;
+
+  @IsBoolean()
+  success : boolean;
+
+  @IsBoolean()
+  alreadyExists : boolean;
   
   @IsOptional()
   @IsString()
@@ -195,8 +192,18 @@ export class IgnisignSigner_Summary {
   @IsOptional()
   @IsBoolean()
   isRecurrent ?: boolean;
-}
 
+  @IsOptional()
+  @IsString()
+  signerProfileId ?: string;
+
+  @IsOptional()
+  @IsEnum(IGNISIGN_SIGNER_CLAIM_REF, { each: true })
+  sealClaims ?: IGNISIGN_SIGNER_CLAIM_REF[];
+
+  @IsString()
+  fromUserId ?: string;
+}
 
 export class IgnisignSigner_Context extends IgnisignSigner_Summary {
   claims    : {
@@ -204,4 +211,12 @@ export class IgnisignSigner_Context extends IgnisignSigner_Summary {
     status   : IGNISIGN_SIGNER_CLAIM_STATUS;
   }[];
   latestSignatureRequests : IgnisignSignatureRequest_WithDocName[];
+}
+
+export class IgnisignSigner_SelfProvideNameDto {
+  @IsString()
+  firstName : string;
+
+  @IsString()
+  lastName : string;
 }

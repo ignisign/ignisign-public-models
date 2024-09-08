@@ -1,0 +1,11 @@
+export enum IGNISIGN_EIDAS_LEVEL {
+  SES = "SES",
+  AES = "AES",
+  QES = "QES"
+}
+
+export const IGNISIGN_EIDAS_LEVEL_WEIGHTS = {
+  [IGNISIGN_EIDAS_LEVEL.SES]  : 1,
+  [IGNISIGN_EIDAS_LEVEL.AES]  : 2,
+  [IGNISIGN_EIDAS_LEVEL.QES]  : 3
+};  

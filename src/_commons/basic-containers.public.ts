@@ -12,3 +12,13 @@ export class IgnisignDocument_AuthenticityValidationContainer {
   @IsBoolean()
   authenticityValidated : boolean;
 }
+
+export class IgnisignSignerIdsContainer {
+  @IsString({ each: true })
+  signerIds : string[];
+}
+
+export class IgnisignEmailsContainer {
+  @IsString({ each: true })
+  emails : string[];
+}

@@ -2,6 +2,8 @@ import { IsBoolean, IsOptional, IsString } from "class-validator";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
+import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
+import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
 
 /******************** GLOBAL CONFIG *******************/
 
@@ -14,10 +16,6 @@ export class IgnisignApplication_Configuration {
 
 /******************** ENV Settings *******************/
 export class Ignisign_OAuth2_Settings {
-  @IsOptional()
-  @IsBoolean()
-  isActivated?: boolean;
-
   @IsOptional()
   @IsString()
   clientId?: string;
@@ -35,10 +33,6 @@ export const MANDATORY_FIELDS_TO_ACTIVATE_OAUTH2 = ['clientId', 'clientSecret', 
 
 export class Ignisign_SAML_Settings {
   @IsOptional()
-  @IsBoolean()
-  isActivated?: boolean;
-
-  @IsOptional()
   @IsString()
   idpMetadataUrl?: string;
 
@@ -49,18 +43,76 @@ export class Ignisign_SAML_Settings {
 
 export const MANDATORY_FIELDS_TO_ACTIVATE_SAML = ['idpMetadataUrl', 'spEntityId'];
 
-export class IgnisignApplication_EnvSettings {
-  appId                      : string;
-  orgId                      : string;
-  appEnv                     : IGNISIGN_APPLICATION_ENV;
-  webhooks                   : IgnisignWebhook_SettingsDescription[];
-  appRootUrl                ?: string;
-  authorizedRedirectionUrls  : string[];
-  isApiKeyGenerated         ?: boolean; // Only used in appContext
-  defaultSignatureProfileId ?: string;
-  oAuth2                    ?: Ignisign_OAuth2_Settings;
-  saml                      ?: Ignisign_SAML_Settings;
+export enum IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS {
+  ACTIVE    = 'ACTIVE',
+  REVOCATED = 'REVOCATED',
 }
+
+export class IgnisignApplication_EnvApiKeys {
+  _id               ?: string;
+  appId              : string;
+  name               : string;
+  description       ?: string;
+  appEnv             : IGNISIGN_APPLICATION_ENV;
+  isRestricted       : boolean;
+  permissions       ?: IGNISIGN_IAM_PERMISSIONS[];
+  displayableSecret  : string; // Like stripe, we display the first and last 4 digits
+  status             : IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS;
+}
+
+export enum IGNISIGN_SSO_CONFIG_TYPES {
+  OAUTH2 = 'OAUTH2',
+  SAML   = 'SAML'
+}
+
+export enum IGNISIGN_SSO_CONFIG_STATUS {
+  // PENDING  = 'PENDING',
+  ACTIVE   = 'ACTIVE',
+  ARCHIVED = 'ARCHIVED'
+}
+
+export class IgnisignApplicationEnv_SSO_Config {
+  _id            ?: string;
+  name            : string;
+  description    ?: string;
+  appId           : string;
+  appEnv          : IGNISIGN_APPLICATION_ENV;
+  type            : IGNISIGN_SSO_CONFIG_TYPES;
+  status          : IGNISIGN_SSO_CONFIG_STATUS;
+  // config         : Ignisign_OAuth2_Settings | Ignisign_SAML_Settings;
+  settingsOAuth2 ?: Ignisign_OAuth2_Settings;
+  settingsSAML   ?: Ignisign_SAML_Settings;
+}
+
+export class IgnisignApplicationEnv_SSO_ConfigDto {
+  name            : string;
+  description    ?: string;
+  type            : IGNISIGN_SSO_CONFIG_TYPES;
+  settingsOAuth2 ?: Ignisign_OAuth2_Settings;
+  settingsSAML   ?: Ignisign_SAML_Settings;
+}
+
+
+export class IgnisignApplication_EnvSettings {
+  appId                        : string;
+  orgId                        : string;
+  appEnv                       : IGNISIGN_APPLICATION_ENV;
+  isApiKeyGenerated           ?: boolean; // Only used in appContext
+  // defaultSignatureProfileId   ?: string;
+  defaultSignerProfileId        ?: string;
+  currentVersion               : number;
+  webhooks                     : IgnisignWebhook_SettingsDescription[];
+  defaultLanguage             ?: IGNISIGN_SIGNATURE_LANGUAGES;
+  languageCanBeChanged        ?: boolean;
+  extendedAuthSessionEnabled   : boolean;
+  sharingRestricted            : boolean;
+  apiKeys                      : IgnisignApplication_EnvApiKeys[];
+  ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
+  activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
+  originalFileRetentionDurationInDays     ?: number; // TODO remove optional
+  highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
+}
+
 export class IgnisignWebhook_SettingsDescription {
   _id         ?: string;
   _createdAt  ?: Date;

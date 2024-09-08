@@ -19,8 +19,6 @@ export enum IGNISIGN_WEBHOOK_TOPICS {
   SIGNATURE_REQUEST         = "SIGNATURE_REQUEST", // INIT UPDATE, PUBLISH, LAUNCHED
   SIGNER                    = "SIGNER",            // CREATED, CLAIM_UPDATED
   
-  DOCUMENT_REQUEST          = "DOCUMENT_REQUEST",  // DOC_PROVIDED, FAILED
-
   SIGNATURE_PROFILE         = "SIGNATURE_PROFILE", // CREATED, ARCHIVED
 
   SIGNATURE_SESSION         = "SIGNATURE_SESSION", // STARTED
@@ -74,13 +72,13 @@ export enum IGNISIGN_WEBHOOK_ACTION_SIGNATURE_REQUEST {
   INITIALIZED         = 'INITIALIZED',
   UPDATED             = 'UPDATED',
   READY               = 'READY',
-  WAITING_DOCUMENTS   = 'WAITING_DOCUMENTS',
   LAUNCHED            = 'LAUNCHED',
   FAILED              = 'FAILED',
   CANCELLED           = 'CANCELLED', // Only send if no signature has been done => else send COMPLETED
   EXPIRED             = 'EXPIRED',   // Only send if no signature has been done => else send COMPLETED
   COMPLETED           = 'COMPLETED',
-  CHILDREN_GENERATED  = 'CHILDREN_GENERATED'
+  CHILDREN_GENERATED  = 'CHILDREN_GENERATED',
+  APPROVER_STEP      = 'APPROVER_STEP',
 }
 
 export type IGNISIGN_WEBHOOK_ALL_TYPE = 'ALL';
@@ -106,7 +104,7 @@ export class IgnisignWebhook {
 }
 
 export class IgnisignWebhook_EndpointDto {
-  @IsUrl()
+  @IsUrl({ require_tld: false }) // To allow localhost
   url          : string;
 
   @IsOptional()

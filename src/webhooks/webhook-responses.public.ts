@@ -22,28 +22,6 @@ export class IgnisignWebhookDto_SignatureSession {
   signerExternalId   ?: string;
 }
 
-export class IgnisignWebhookDto_DocumentRequest {
-  @IsString()
-  signatureRequestId : string;
-
-  @IsOptional()
-  @IsString()
-  signatureRequestExternalId   ?: string;
-
-  @IsString()
-  documentId     : string;
-
-  @IsOptional()
-  @IsString()
-  documentExternalId         : string;
-
-  @IsString()
-  documentNature : string;
-
-  @IsString()
-  mimeType       : string;
-}
-
 export class IgnisignWebhookDto_SignatureProof_Error {
   @IsString()
   appId              : string;
@@ -199,6 +177,18 @@ export class IgnisignWebhookDto_SignatureImage {
   signerExternalId   ?: string;
 }
 
+export class IgnisignWebhookDto_SignatureRequest_Signers {
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignWebhookDto_SignatureRequestSignerBySide)
+  signersBySide ?: IgnisignWebhookDto_SignatureRequestSignerBySide[];
+
+  @IsOptional()
+  @ValidateNested({ each: true })
+  @Type(() => IgnisignWebhookDto_SignatureRequestSignerEmbedded)
+  signersEmbedded ?: IgnisignWebhookDto_SignatureRequestSignerEmbedded[];
+}
+
 export class IgnisignWebhookDto_SignatureRequest {
   @IsString()
   signatureRequestId : string;
@@ -211,18 +201,23 @@ export class IgnisignWebhookDto_SignatureRequest {
   signatureRequestExternalId ?: string;
 
   @IsOptional()
-  @ValidateNested({ each: true })
-  @Type(() => IgnisignWebhookDto_SignatureRequestSigner)
-  signers ?: IgnisignWebhookDto_SignatureRequestSigner[];
+  @ValidateNested()
+  @Type(() => IgnisignWebhookDto_SignatureRequest_Signers)
+  signers ?: IgnisignWebhookDto_SignatureRequest_Signers;
 
   @IsOptional()
   @IsString()
   initialSignatureRequestId ?: string;
 }
-export class IgnisignWebhookDto_SignatureRequestSigner {
+export class IgnisignWebhookDto_SignatureRequestSignerBySide {
   signerId   : string;
   signerExternalId : string;
-  token      : string;
+  token?      : string;
+}
+
+export class IgnisignWebhookDto_SignatureRequestSignerEmbedded {
+  signerId   : string;
+  signerExternalId : string;
 }
 
 export class IgnisignWebhookDto_SignatureProfile {
@@ -266,7 +261,6 @@ export class IgnisignWebhookDto_Signature {
 
 
 export type IgnisignWebhookDto = IgnisignWebhookDto_SignatureSession        |
-                                  IgnisignWebhookDto_DocumentRequest        |  
                                   IgnisignWebhookDto_SignatureRequest       |
                                   IgnisignWebhookDto_SignatureProfile       |
                                   IgnisignWebhookDto_Signer                 |

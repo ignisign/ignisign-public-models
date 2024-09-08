@@ -31,9 +31,6 @@ export class IgnisignSignatureProfile {
   @IsString()
   name                      : string;
 
-  @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
-  status                    : IGNISIGN_SIGNATURE_PROFILE_STATUS;
-
   @IsEnum(IGNISIGN_INTEGRATION_MODE)
   integrationMode           : IGNISIGN_INTEGRATION_MODE;
 
@@ -46,9 +43,6 @@ export class IgnisignSignatureProfile {
   @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, {each: true})
   authMethods               : IGNISIGN_AUTH_FULL_MECHANISM_REF[];
 
-  @IsEnum(IGNISIGN_DOCUMENT_TYPE, {each: true})
-  documentTypes             : IGNISIGN_DOCUMENT_TYPE[];
-
   @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
   defaultLanguage           : IGNISIGN_SIGNATURE_LANGUAGES;
 
@@ -56,31 +50,10 @@ export class IgnisignSignatureProfile {
   signatureRequestType      : IGNISIGN_SIGNATURE_REQUEST_TYPE = IGNISIGN_SIGNATURE_REQUEST_TYPE.STANDARD;
 
   @IsBoolean()
-  documentRequestActivated  : boolean;
-
-  @IsBoolean()
   languageCanBeChanged      : boolean;
   
   @IsBoolean()
-  statementsEnabled         : boolean;
-
-  @IsOptional()
-  @IsString()
-  templateDisplayerId      ?: string;
-
-  @IsOptional()
-  @IsBoolean()
-  createdByDefault         ?: boolean = false;
-
-  
-  @IsBoolean()
   extendedAuthSessionEnabled    : boolean;
-
-  @IsBoolean()
-  approverEnabled?             : boolean;
-  
-  @IsBoolean()
-  recipientEnabled?    : boolean;
 
   @IsBoolean()
   individualizeRequests? : boolean;
@@ -88,8 +61,59 @@ export class IgnisignSignatureProfile {
   @IsBoolean()
   sharingRestricted?    : boolean;
 
-  // @IsBoolean()
-  // forceRecurrentSigners     : boolean = false;
+  /**
+  * @deprecated 
+  */
+  @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
+  status                    : IGNISIGN_SIGNATURE_PROFILE_STATUS;
+
+  /**
+  * @deprecated 
+  */
+  @IsBoolean()
+  documentRequestActivated  : boolean;
+
+  /**
+  * @deprecated 
+  */
+  @IsBoolean()
+  statementsEnabled         : boolean;
+
+  /**
+  * @deprecated 
+  */
+  @IsEnum(IGNISIGN_DOCUMENT_TYPE, {each: true})
+  documentTypes             : IGNISIGN_DOCUMENT_TYPE[];
+
+  /**
+  * @deprecated 
+  */
+  @IsOptional()
+  @IsString()
+  templateDisplayerId      ?: string;
+
+  /**
+  * @deprecated 
+  */
+  @IsOptional()
+  @IsBoolean()
+  createdByDefault         ?: boolean = false;
+
+
+  /**
+  * @deprecated 
+  */
+  @IsBoolean()
+  approverEnabled?             : boolean;
+  
+  /**
+  * @deprecated 
+  */
+  @IsBoolean()
+  recipientEnabled?    : boolean;
+
+
+
 
 }
 
@@ -103,10 +127,10 @@ export class IgnisignSignatureProfile_SignerInputsConstraints {
   inputsNeeded: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
 }
 
-export class IgnisignSignatureProfile_IdContainerDto {
-  @IsString()
-  signatureProfileId: string;
-}
+// export class IgnisignSignatureProfile_IdContainerDto {
+//   @IsString()
+//   signatureProfileId: string;
+// }
 
 export class IgnisignSignerStatus_FromSignatureProfile {
   @IsBoolean()
