@@ -324,7 +324,7 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];
-  signerIdsAsApprover    ?: string[];
+  // signerIdsAsApprover    ?: string[];
   documents             : IgnisignDocument_Context[];  
   statements           ?: IgnisignSignatureRequest_Statement[];
   applicationMetadata  ?: IgnisignApplication_SignatureMetadata;
