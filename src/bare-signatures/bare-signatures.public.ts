@@ -6,7 +6,7 @@ import { IGNISIGN_SIGNER_CLAIM_REF } from "../signers/signer-claims.public";
 
 
 
-export class Ignisign_BareSignature_GetAuthrozationUrlRequest {
+export class IgnisignBareSignature_GetAuthrozationUrlRequest {
   redirectUri       : string;
   hashes            : string[];
   externalId       ?: string;
@@ -14,7 +14,7 @@ export class Ignisign_BareSignature_GetAuthrozationUrlRequest {
   codeChallenge    ?: string;
 }
 
-export class Ignisign_BareSignature_GetAuthrozationUrlResponse {
+export class IgnisignBareSignature_GetAuthrozationUrlResponse {
   authorizationUrl  : string;
   codeVerifier?     : string;
   codeChallenge     : string;
@@ -24,7 +24,7 @@ export class Ignisign_BareSignature_GetAuthrozationUrlResponse {
 
 
 
-export class Ignisign_BareSignature_ProofAccessTokenRequest {
+export class IgnisignBareSignature_ProofAccessTokenRequest {
   client_id      : string;
   client_secret  : string;
   code_verifier  : string;
@@ -35,7 +35,7 @@ export class Ignisign_BareSignature_ProofAccessTokenRequest {
 
 
 
-export class Ignisign_BareSignature_GetProofAccessToken {
+export class IgnisignBareSignature_GetProofAccessToken {
   appEnv         : IGNISIGN_APPLICATION_ENV;
   client_id      : string;
   client_secret  : string;
@@ -45,7 +45,7 @@ export class Ignisign_BareSignature_GetProofAccessToken {
   code           : string;
 }
 
-export class Ignisign_BareSignature_ProofAccessToken {
+export class IgnisignBareSignature_ProofAccessToken {
   access_token : string;
   token_type  : string;
   expires_in  : number;
@@ -53,7 +53,7 @@ export class Ignisign_BareSignature_ProofAccessToken {
 }
 
 
-export class Ignisign_BareSignature_Proof {
+export class IgnisignBareSignature_Proof {
   appId              : string;
   appEnv             : IGNISIGN_APPLICATION_ENV;
   signatureRequestId : string;

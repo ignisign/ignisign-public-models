@@ -23,7 +23,7 @@ export class IgnisignM2M {
   
 }
 
-export class IgniSign_SignM2MDocumentRequestDto {
+export class IgnisignSealM2M_DocumentRequestDto {
   documentType : IGNISIGN_DOCUMENT_TYPE;
   documentHash : string;
   label?       : string;
@@ -35,13 +35,13 @@ export class IgniSign_SignM2MDocumentRequestDto {
       this.label = label;
   }
 }
-export class IgniSign_SignM2MDocumentHashRequestDto extends IgniSign_SignM2MDocumentRequestDto {
+export class IgnisignSealM2M_DocumentHashRequestDto extends IgnisignSealM2M_DocumentRequestDto {
   constructor(documentHash : string, label? : string){
     super(IGNISIGN_DOCUMENT_TYPE.PRIVATE_FILE, documentHash, label);
   }
 }
 
-export class IgniSign_SignM2MDocumentContentRequestDto  extends IgniSign_SignM2MDocumentRequestDto {
+export class IgnisignSealM2M_DocumentContentRequestDto  extends IgnisignSealM2M_DocumentRequestDto {
   
   contentB64 : string;
   mimeType  ?: string;
@@ -58,7 +58,7 @@ export class IgniSign_SignM2MDocumentContentRequestDto  extends IgniSign_SignM2M
   }
 }
 
-export class IgniSign_SignM2MDocumentXMLRequestDto  extends IgniSign_SignM2MDocumentRequestDto {
+export class IgnisignSealM2M_DocumentXMLRequestDto  extends IgnisignSealM2M_DocumentRequestDto {
 
   xmlContent                 : string;
 
@@ -69,7 +69,7 @@ export class IgniSign_SignM2MDocumentXMLRequestDto  extends IgniSign_SignM2MDocu
   }
 }
 
-export class IgniSign_SignM2MDocumentJSONRequestDto extends IgniSign_SignM2MDocumentRequestDto {
+export class IgnisignSealM2M_DocumentJSONRequestDto extends IgnisignSealM2M_DocumentRequestDto {
   
   jsonContent                : any;
   templateDisplayerId       ?: string;
@@ -89,15 +89,15 @@ export class IgniSign_SignM2MDocumentJSONRequestDto extends IgniSign_SignM2MDocu
   }
 }
 
-export class IgniSign_SignM2MRequestDto {
+export class IgnisignSealM2M_RequestDto {
   m2mId           : string;
   title          ?: string;
-  document        : IgniSign_SignM2MDocumentHashRequestDto | IgniSign_SignM2MDocumentContentRequestDto | IgniSign_SignM2MDocumentXMLRequestDto | IgniSign_SignM2MDocumentJSONRequestDto;
+  document        : IgnisignSealM2M_DocumentHashRequestDto | IgnisignSealM2M_DocumentContentRequestDto | IgnisignSealM2M_DocumentXMLRequestDto | IgnisignSealM2M_DocumentJSONRequestDto;
   externalId     ?: string;
   documentHashSignedByM2MPrivateKey : string;
 }
 
-export class IgniSign_SignM2MResponseDto {
+export class IgnisignSealM2M_ResponseDto {
   signatureRequestId  : string;
   documentId          : string;
   documentHash        : string;

@@ -21,5 +21,6 @@ yarn install;
 rm -f "tsconfig.tsbuildinfo";
 yarn build;
 
-npm publish --tag beta;
+npm publish;
 
+# npm publish --tag beta;
