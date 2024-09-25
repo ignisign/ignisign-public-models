@@ -101,4 +101,5 @@ export class IgnisignSealM2M_ResponseDto {
   signatureRequestId  : string;
   documentId          : string;
   documentHash        : string;
+  proofBase64?        : string;
 }

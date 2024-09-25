@@ -25,6 +25,7 @@ export enum IGNISIGN_SIGNATURE_PROOF_TYPE {
 }
 
 
+
 export enum IGNISIGN_SIGNATURE_STATUS {
   INIT       = 'INIT',
   SIGNED     = 'SIGNED',
@@ -45,11 +46,16 @@ export class IgnisignSignature {
   signerKeyId            : string;
   sessionId             ?: string;
   documentId             : string;
+  contentHash           ?: string;
   status                 : IGNISIGN_SIGNATURE_STATUS;
   mode                   : IGNISIGN_SIGNATURE_MODE;
   ocspCheckValue        ?: any;
   signingIp             ?: string;
   eidasLevel?            : IGNISIGN_EIDAS_LEVEL;
+  reasonLabel           ?: string;
+  contactInfoLabel      ?: string;
+  locationLabel         ?: string;
+  signerNameLabel       ?: string;
   signatures             : { type: IGNISIGN_SIGNATURE_PROOF_TYPE; signatureFilePath: string; signingTime: Date; }[];
 }
 
