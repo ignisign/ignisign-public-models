@@ -1,9 +1,11 @@
-import { IsBoolean, IsOptional, IsString } from "class-validator";
+import { Type } from "class-transformer";
+import { IsBoolean, IsObject, IsOptional, IsString, ValidateNested } from "class-validator";
 import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
 import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
 import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
+import 'reflect-metadata';
 
 /******************** GLOBAL CONFIG *******************/
 
@@ -15,6 +17,32 @@ export class IgnisignApplication_Configuration {
 
 
 /******************** ENV Settings *******************/
+
+export class Ignisign_OAuth2_Fields {
+  @IsString()
+  sub : string;
+
+  @IsString()
+  given_name : string;
+
+  @IsString()
+  family_name : string;
+
+  @IsString()
+  email : string;
+  
+  @IsString()
+  nationality : string;
+
+  @IsString()
+  birth_date : string;
+
+  @IsString()
+  birth_place : string;
+
+  @IsString()
+  birth_country : string;
+}
 export class Ignisign_OAuth2_Settings {
   @IsOptional()
   @IsString()
@@ -27,6 +55,11 @@ export class Ignisign_OAuth2_Settings {
   @IsOptional()
   @IsUrlOrEmpty()
   serverUrl?: string;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => Ignisign_OAuth2_Fields)
+  fields?: Ignisign_OAuth2_Fields;
 }
 
 export const MANDATORY_FIELDS_TO_ACTIVATE_OAUTH2 = ['clientId', 'clientSecret', 'serverUrl'];
