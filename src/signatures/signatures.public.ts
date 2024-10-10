@@ -21,7 +21,9 @@ export enum IGNISIGN_SIGNATURE_PROOF_TYPE {
   XADES                    = "XADES",
   CADES                    = "CADES",
   PKCS7                    = "PKCS7",
-  JWS                      = "JWS",    
+  JWS                      = "JWS",
+  XMLDSIG_DETACHED         = "XMLDSIGDET",
+  XMLDSIG_ATTACHED         = "XMLDSIGATT",
 }
 
 
