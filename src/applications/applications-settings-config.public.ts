@@ -6,6 +6,7 @@ import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
 import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
 import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
 import 'reflect-metadata';
+import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
 
 /******************** GLOBAL CONFIG *******************/
 
@@ -141,6 +142,7 @@ export class IgnisignApplication_EnvSettings {
   sharingRestricted            : boolean;
   apiKeys                      : IgnisignApplication_EnvApiKeys[];
   ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
+  defaultSignatureLevel       ?: IGNISIGN_SIGNATURE_METHOD_REF;
   activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
   originalFileRetentionDurationInDays     ?: number; // TODO remove optional
   highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
