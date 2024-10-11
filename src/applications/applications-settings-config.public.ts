@@ -139,7 +139,6 @@ export class IgnisignApplication_EnvSettings {
   defaultLanguage             ?: IGNISIGN_SIGNATURE_LANGUAGES;
   languageCanBeChanged        ?: boolean;
   extendedAuthSessionEnabled   : boolean;
-  sharingRestricted            : boolean;
   apiKeys                      : IgnisignApplication_EnvApiKeys[];
   ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
   defaultSignatureLevel       ?: IGNISIGN_SIGNATURE_METHOD_REF;

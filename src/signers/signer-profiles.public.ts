@@ -60,6 +60,11 @@ export class IgnisignSignerProfile {
   signerIds ?: string[];
 }
 
+export class IgnisignSignerProfileArchiveDto {
+  @IsString()
+  signerProfileIdToTransfer : string;
+}
+
 export class IgnisignSignerProfileDto {
   @IsString()
   appId                    : string;
