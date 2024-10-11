@@ -10,10 +10,6 @@ import "reflect-metadata";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";
 import { IgnisignSignerProfile } from "../signers/signer-profiles.public";
 
-export enum IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET {
-  SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
-  DOCUMENT          = 'DOCUMENT'
-}
 
 export enum IGNISIGN_SIGNATURE_REQUEST_DIFFUSION_MODE {
   WHEN_READY  = 'WHEN_READY',
@@ -194,7 +190,6 @@ export class IgnisignSignatureRequest_Statement {
   appEnv              : IGNISIGN_APPLICATION_ENV;
   signatureRequestId  : string;
   documentId         ?: string;
-  target              : IGNISIGN_SIGNATURE_REQUEST_STATEMENT_TARGET;
   labelMd             : string;
 }
 
