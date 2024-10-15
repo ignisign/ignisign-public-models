@@ -142,6 +142,8 @@ export class IgnisignApplication_EnvSettings {
   apiKeys                      : IgnisignApplication_EnvApiKeys[];
   ssoConfigs                   : IgnisignApplicationEnv_SSO_Config[];
   defaultSignatureLevel       ?: IGNISIGN_SIGNATURE_METHOD_REF;
+  defaultApproverIds          ?: string[];
+  defaultRecipients           ?: string[];
   activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
   originalFileRetentionDurationInDays     ?: number; // TODO remove optional
   highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
