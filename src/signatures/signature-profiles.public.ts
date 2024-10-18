@@ -58,9 +58,6 @@ export class IgnisignSignatureProfile {
   @IsBoolean()
   individualizeRequests? : boolean;
 
-  @IsBoolean()
-  sharingRestricted?    : boolean;
-
   /**
   * @deprecated 
   */
