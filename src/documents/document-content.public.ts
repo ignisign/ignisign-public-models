@@ -28,5 +28,4 @@ export class IgnisignDocument_PrivateFileDto {
   @IsOptional()
   @IsString()
   bearer  ?: string;   
-  
 }
