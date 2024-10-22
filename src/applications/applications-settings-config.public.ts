@@ -4,7 +4,7 @@ import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
 import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
-import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
+import { IGNISIGN_SIGNATURE_PROOF_PROCESSING_MODE, IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
 import 'reflect-metadata';
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
 
@@ -144,7 +144,11 @@ export class IgnisignApplication_EnvSettings {
   defaultSignatureLevel       ?: IGNISIGN_SIGNATURE_METHOD_REF;
   defaultApproverIds          ?: string[];
   defaultRecipients           ?: string[];
-  activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
+  // activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
+  alwaysGeneratePdfProof            : boolean;
+  onlineProofsEnabled               : boolean;
+  alwaysGenerateAdvancedProof       : boolean;
+  signatureProofProcessingMode      : IGNISIGN_SIGNATURE_PROOF_PROCESSING_MODE;
   originalFileRetentionDurationInDays     ?: number; // TODO remove optional
   highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
 }

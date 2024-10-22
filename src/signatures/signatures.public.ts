@@ -9,25 +9,54 @@ export enum IGNISIGN_SIGNATURE_MODE {
   CLIENT_SIDE_SIGNATURE           = "CLIENT_SIDE_SIGNATURE",
 }
 
+export enum IGNISIGN_SIGNATURE_PROOF_PROCESSING_MODE {
+  DOCUMENT_SIGNATURE     = "DOCUMENT_SIGNATURE",
+  VERIFIABLE_CREDENTIAL  = "VERIFIABLE_CREDENTIAL",
+  C2PA                   = "C2PA",
+  DATA_SIGNATURE         = "DATA_SIGNATURE",
+}
+
+export const AVAILABLE_SIGNATURE_PROOF_PROCESSING_MODES = [
+  IGNISIGN_SIGNATURE_PROOF_PROCESSING_MODE.DOCUMENT_SIGNATURE,
+  IGNISIGN_SIGNATURE_PROOF_PROCESSING_MODE.DATA_SIGNATURE,
+];
+
+
 export enum IGNISIGN_SIGNATURE_PROOF_TYPE {
 
   // HIGH LEVEL
   PDF_WITH_SIGNATURES      = "PDF_WITH_SIGNATURES",
-  PROOF_WEB_PAGE           = "PROOF_WEB_PAGE",
+  // PROOF_WEB_PAGE           = "PROOF_WEB_PAGE",
   C2PA                     = "C2PA",
   ADVANCED_LEGAL_KIT       = "ADVANCED_LEGAL_KIT",
+  SIGNED_DATA              = "SIGNED_DATA",
 
   // LOW LEVEL
-  XADES                    = "XADES",
+  // XADES                    = "XADES",
+  // CADES                    = "CADES",
+  // PKCS7                    = "PKCS7",
+  // JWS                      = "JWS",
+  // JADES_DETACHED           = "JADESDET",
+  // JADES_ATTACHED           = "JADESATT",
+  // XMLDSIG_DETACHED         = "XMLDSIGDET",
+  // XMLDSIG_ATTACHED         = "XMLDSIGATT",
+}
+
+
+
+export enum IGNISIGN_SIGNATURE_LOW_LEVEL_PROOF_TYPE {
+
   CADES                    = "CADES",
   PKCS7                    = "PKCS7",
+
   JWS                      = "JWS",
   JADES_DETACHED           = "JADESDET",
   JADES_ATTACHED           = "JADESATT",
+  
+  XADES                    = "XADES",
   XMLDSIG_DETACHED         = "XMLDSIGDET",
   XMLDSIG_ATTACHED         = "XMLDSIGATT",
 }
-
 
 
 export enum IGNISIGN_SIGNATURE_STATUS {
@@ -60,7 +89,7 @@ export class IgnisignSignature {
   contactInfoLabel      ?: string;
   locationLabel         ?: string;
   signerNameLabel       ?: string;
-  signatures             : { type: IGNISIGN_SIGNATURE_PROOF_TYPE; signatureFilePath: string; signingTime: Date; }[];
+  signatures             : { type: IGNISIGN_SIGNATURE_LOW_LEVEL_PROOF_TYPE; signatureFilePath: string; signingTime: Date; }[];
 }
 
 export class IgnisignApplication_SignatureMetadata {
