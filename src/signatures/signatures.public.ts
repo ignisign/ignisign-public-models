@@ -49,11 +49,13 @@ export enum IGNISIGN_SIGNATURE_LOW_LEVEL_PROOF_TYPE {
   CADES                    = "CADES",
   PKCS7                    = "PKCS7",
 
-  JWS                      = "JWS",
-  JADES_DETACHED           = "JADESDET",
+  JWS_DETACHED             = "JWSDET",    // Not yet implemented
+  JWS_ATTACHED             = "JWSATT",
+  JADES_DETACHED           = "JADESDET",  // Not yet implemented
   JADES_ATTACHED           = "JADESATT",
   
-  XADES                    = "XADES",
+  XADES_DETACHED           = "XADESDET",
+  XADES_ATTACHED           = "XADESATT",  // Not yet implemented
   XMLDSIG_DETACHED         = "XMLDSIGDET",
   XMLDSIG_ATTACHED         = "XMLDSIGATT",
 }
