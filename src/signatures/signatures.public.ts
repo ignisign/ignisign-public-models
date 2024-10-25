@@ -48,6 +48,7 @@ export enum IGNISIGN_SIGNATURE_LOW_LEVEL_PROOF_TYPE {
 
   CADES                    = "CADES",
   PKCS7                    = "PKCS7",
+  PADES_ATTACHED           = "PADES_ATTACHED",
 
   JWS_DETACHED             = "JWSDET",    // Not yet implemented
   JWS_ATTACHED             = "JWSATT",
