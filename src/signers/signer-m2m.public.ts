@@ -10,6 +10,7 @@ export enum IGNISIGN_M2M_STATUS {
   ARCHIVED = "ARCHIVED",
 }
 
+
 export class IgnisignM2M {
   _id           ?: string;
   appId          : string;
