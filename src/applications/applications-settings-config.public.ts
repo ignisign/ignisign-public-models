@@ -145,10 +145,7 @@ export class IgnisignApplication_EnvSettings {
   defaultApproverIds          ?: string[];
   defaultRecipients           ?: string[];
   // activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
-  alwaysGeneratePdfProof            : boolean;
   onlineProofsEnabled               : boolean;
-  alwaysGenerateAdvancedProof       : boolean;
-  signatureProofProcessingMode      : IGNISIGN_SIGNATURE_PROOF_PROCESSING_MODE;
   originalFileRetentionDurationInDays     ?: number; // TODO remove optional
   highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
 }

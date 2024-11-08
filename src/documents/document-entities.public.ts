@@ -10,7 +10,6 @@ export enum IGNISIGN_DOCUMENT_TYPE {
   DATA_JSON                = "DATA_JSON",
   DATA_XML                 = "DATA_XML",
   PRIVATE_FILE             = "PRIVATE_FILE",
-  // PDF_TEMPLATE             = "PDF_TEMPLATE",
   // VERIFIABLE_CREDENTIAL    = "VERIFIABLE_CREDENTIAL",
   // WEB3_FILE                = "WEB3_FILE",
 
@@ -49,25 +48,26 @@ export const IGNISIGN_ACCEPTED_DOCS = [
 ]
 
 export class IgnisignDocument {
-  _id                       ?: string;
-  appId                      : string;
-  appEnv                     : IGNISIGN_APPLICATION_ENV;
-  documentNature             : IGNISIGN_DOCUMENT_TYPE;
-  status                     : IGNISIGN_DOCUMENT_STATUS;
-  documentHash               : string;
-  signatureRequestId         : string;
-  externalId                ?: string;
-  label                     ?: string;
-  description               ?: string;
-  fileName                  ?: string;
-  fileSize                  ?: number;
-  mimeType                  ?: string;
-  dataJsonContent           ?: string;
-  relatedDocumentId         ?: string;
-  relatedDocumentType       ?: IGNISIGN_DOCUMENT_TYPE;
-  templateDisplayerId       ?: string;
-  templateDisplayerVersion  ?: number;
-  _createdAt                ?: Date;
+  _id                            ?: string;
+  appId                           : string;
+  appEnv                          : IGNISIGN_APPLICATION_ENV;
+  documentNature                  : IGNISIGN_DOCUMENT_TYPE;
+  status                          : IGNISIGN_DOCUMENT_STATUS;
+  documentHash                    : string;
+  signatureRequestId              : string;
+  externalId                     ?: string;
+  label                          ?: string;
+  description                    ?: string;
+  fileName                       ?: string;
+  fileSize                       ?: number;
+  mimeType                       ?: string;
+  dataJsonContent                ?: string;
+  relatedDocumentId              ?: string;
+  relatedDocumentType            ?: IGNISIGN_DOCUMENT_TYPE;
+  templateDisplayerId            ?: string;
+  templateDisplayerVersion       ?: number;
+  _createdAt                     ?: Date;
+  dataVisualizationAvailable          ?: boolean;
 }
 
 export class IgnisignDocument_Container {

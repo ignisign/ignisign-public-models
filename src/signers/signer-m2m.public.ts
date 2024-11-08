@@ -2,6 +2,7 @@ import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_DOCUMENT_TYPE } from "../documents/document-entities.public";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "../signatures/signature-methods.public";
+import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
 
 const crypto = require('crypto');
 
@@ -103,4 +104,5 @@ export class IgnisignSealM2M_ResponseDto {
   documentId          : string;
   documentHash        : string;
   proofBase64?        : string;
+  proofType          ?: IGNISIGN_SIGNATURE_PROOF_TYPE;
 }
