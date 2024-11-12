@@ -29,32 +29,35 @@ export class IgnisignSealM2M_DocumentRequestDto {
   documentType : IGNISIGN_DOCUMENT_TYPE;
   documentHash : string;
   label?       : string;
+  mimeType     ?: string;
 
-  constructor(documentType : IGNISIGN_DOCUMENT_TYPE, documentHash : string, label? : string){
+  constructor(documentType : IGNISIGN_DOCUMENT_TYPE, documentHash : string, label? : string, mimeType? : string){
     this.documentType = documentType;
     this.documentHash = documentHash;
     if(label)
       this.label = label;
+    if(mimeType)
+      this.mimeType = mimeType;
   }
 }
 export class IgnisignSealM2M_DocumentHashRequestDto extends IgnisignSealM2M_DocumentRequestDto {
-  constructor(documentHash : string, label? : string){
-    super(IGNISIGN_DOCUMENT_TYPE.PRIVATE_FILE, documentHash, label);
+  constructor(documentHash : string, label? : string, mimeType? : string){
+    super(IGNISIGN_DOCUMENT_TYPE.PRIVATE_FILE, documentHash, label, mimeType);
   }
 }
 
 export class IgnisignSealM2M_DocumentContentRequestDto  extends IgnisignSealM2M_DocumentRequestDto {
   
   contentB64 : string;
-  mimeType  ?: string;
 
   constructor(contentBinary: Buffer, mimeType : string, label? : string){
     super(
       (mimeType === "application/pdf")? IGNISIGN_DOCUMENT_TYPE.PDF : IGNISIGN_DOCUMENT_TYPE.FILE, 
       null, 
-      label);
+      label, 
+      mimeType
+    );
 
-    this.mimeType     = mimeType;
     this.contentB64   = contentBinary.toString('base64');
     this.documentHash = crypto.createHash('sha256').update(contentBinary).digest('hex');
   }
@@ -65,8 +68,9 @@ export class IgnisignSealM2M_DocumentXMLRequestDto  extends IgnisignSealM2M_Docu
   xmlContent                 : string;
 
   constructor(xmlContent : string, label? : string){
-    super(IGNISIGN_DOCUMENT_TYPE.DATA_XML, null, label);
+    super(IGNISIGN_DOCUMENT_TYPE.DATA_XML, null, label, "application/xml");
     this.xmlContent = xmlContent;
+
     this.documentHash = crypto.createHash('sha256').update(xmlContent).digest('hex');
   }
 }
@@ -74,19 +78,11 @@ export class IgnisignSealM2M_DocumentXMLRequestDto  extends IgnisignSealM2M_Docu
 export class IgnisignSealM2M_DocumentJSONRequestDto extends IgnisignSealM2M_DocumentRequestDto {
   
   jsonContent                : any;
-  templateDisplayerId       ?: string;
-  templateDisplayerVersion  ?: number;
 
-  constructor(jsonContent : any, templateDisplayerId? : string, templateDisplayerVersion? : number, label? : string){
-    super(IGNISIGN_DOCUMENT_TYPE.DATA_JSON, null, label);
+  constructor(jsonContent : any, label? : string){
+    super(IGNISIGN_DOCUMENT_TYPE.DATA_JSON, null, label, "application/json" );
     this.jsonContent         = jsonContent;
     
-    if(templateDisplayerId)
-      this.templateDisplayerId      = templateDisplayerId;
-
-    if(templateDisplayerVersion)
-      this.templateDisplayerVersion = templateDisplayerVersion;
-
     this.documentHash = crypto.createHash('sha256').update(JSON.stringify(jsonContent)).digest('hex');
   }
 }
