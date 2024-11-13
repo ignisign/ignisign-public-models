@@ -58,6 +58,10 @@ export class IgnisignSignerProfile {
 
   @IsString({ each: true })
   signerIds ?: string[];
+
+  @IsOptional()
+  @IsBoolean()
+  accept2FADelegation ?: boolean;
 }
 
 export class IgnisignSignerProfileArchiveDto {
@@ -101,6 +105,7 @@ export class IgnisignSignerProfileDto {
   @IsString({ each: true })
   emailDomains ?: string[];
 
+  @IsOptional()
   @IsBoolean()
   accept2FADelegation ?: boolean;
 }
