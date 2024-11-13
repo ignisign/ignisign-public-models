@@ -100,6 +100,9 @@ export class IgnisignSignerProfileDto {
 
   @IsString({ each: true })
   emailDomains ?: string[];
+
+  @IsBoolean()
+  accept2FADelegation ?: boolean;
 }
 
 export class IgnisignSigner_To_SignerProfile { 
