@@ -99,6 +99,7 @@ export class IgnisignApplication_SignatureMetadata {
   appEnv          : IGNISIGN_APPLICATION_ENV;
   appName         : string;
   appType         : IGNISIGN_APPLICATION_TYPE;
+  orgName        ?: string;
   logoB64        ?: string;
   logoDarkB64    ?: string;
   colors         ?: CustomPalette;
