@@ -49,13 +49,13 @@ export enum IGNISIGN_SIGNATURE_LOW_LEVEL_PROOF_TYPE {
   PKCS7                    = "PKCS7",
   PADES_ATTACHED           = "PADES_ATTACHED",
 
-  JWS_DETACHED             = "JWSDET",    // Not yet implemented
+  JWS_DETACHED             = "JWSDET",    // Not yet implemented (see https://www.rfc-editor.org/rfc/rfc7515.html#appendix-F)
   JWS_ATTACHED             = "JWSATT",
-  JADES_DETACHED           = "JADESDET",  // Not yet implemented
+  JADES_DETACHED           = "JADESDET",
   JADES_ATTACHED           = "JADESATT",
   
   XADES_DETACHED           = "XADESDET",
-  XADES_ATTACHED           = "XADESATT",  // Not yet implemented
+  XADES_ATTACHED           = "XADESATT",
   XMLDSIG_DETACHED         = "XMLDSIGDET",
   XMLDSIG_ATTACHED         = "XMLDSIGATT",
 }
