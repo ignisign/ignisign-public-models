@@ -136,7 +136,6 @@ export class IgnisignApplication_EnvSettings {
   defaultSignerProfileId        ?: string;
   currentVersion               : number;
   webhooks                     : IgnisignWebhook_SettingsDescription[];
-  defaultLanguage             ?: IGNISIGN_SIGNATURE_LANGUAGES;
   languageCanBeChanged        ?: boolean;
   extendedAuthSessionEnabled   : boolean;
   apiKeys                      : IgnisignApplication_EnvApiKeys[];

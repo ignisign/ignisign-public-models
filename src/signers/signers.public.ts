@@ -35,7 +35,7 @@ export class IgnisignSigner {
   fromUserId                        ?: string;
 }
 
-export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 
+export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {  
   FIRST_NAME    = "firstName",
   LAST_NAME     = "lastName",
   EMAIL         = "email",
