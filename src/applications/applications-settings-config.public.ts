@@ -1,6 +1,6 @@
 import { Type } from "class-transformer";
 import { IsBoolean, IsObject, IsOptional, IsString, ValidateNested } from "class-validator";
-import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
+import { IGNISIGN_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_APPLICATION_ENV } from "./applications.public";
 import { IsUrlOrEmpty } from "../_utils/custom-validator.public";
 import { IGNISIGN_IAM_PERMISSIONS } from "../auth/right_management_v2.public";
@@ -163,7 +163,7 @@ export class IgnisignWebhook_SettingsDescription {
 export class IgnisignApplication_Settings {
   appId                  : string;
   orgId                  : string;
-  defaultLanguage       ?: IGNISIGN_SIGNATURE_LANGUAGES;
+  defaultLanguage       ?: IGNISIGN_LANGUAGES;
   customerSupportEmail  ?: string;
   logoB64               ?: string;
   logoDarkB64           ?: string;

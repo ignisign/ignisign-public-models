@@ -1,5 +1,5 @@
 import { IsBoolean, IsEnum, IsOptional, IsString } from "class-validator";
-import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
+import { IGNISIGN_LANGUAGES } from "../_commons/languages.public";
 import { IGNISIGN_DOCUMENT_TYPE } from "../documents/document-entities.public";
 import { IGNISIGN_ID_PROOFING_METHOD_REF } from "../id-proofing/id-proofing-methods.public";
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from "./signature-auth.public";
@@ -43,8 +43,8 @@ export class IgnisignSignatureProfile {
   @IsEnum(IGNISIGN_AUTH_FULL_MECHANISM_REF, {each: true})
   authMethods               : IGNISIGN_AUTH_FULL_MECHANISM_REF[];
 
-  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
-  defaultLanguage           : IGNISIGN_SIGNATURE_LANGUAGES;
+  @IsEnum(IGNISIGN_LANGUAGES)
+  defaultLanguage           : IGNISIGN_LANGUAGES;
 
   @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
   signatureRequestType      : IGNISIGN_SIGNATURE_REQUEST_TYPE = IGNISIGN_SIGNATURE_REQUEST_TYPE.STANDARD;
