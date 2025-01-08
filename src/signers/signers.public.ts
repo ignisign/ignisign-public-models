@@ -203,7 +203,12 @@ export class IgnisignSigner_Summary {
 
   @IsString()
   fromUserId ?: string;
+
+  @IsOptional()
+  @IsBoolean()
+  certificateDisseminationAgreement ?: boolean;
 }
+
 
 export class IgnisignSigner_Context extends IgnisignSigner_Summary {
   claims    : {
