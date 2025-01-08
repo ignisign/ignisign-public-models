@@ -41,4 +41,3 @@ export * from "./auth/right_management_v2.public";
 export * from "./_commons/eidas.public";
 export * from "./bare-signatures/bare-signatures.public";
 export * from "./log-capsules/log-capsules.public";
-

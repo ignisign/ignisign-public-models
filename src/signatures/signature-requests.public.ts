@@ -2,7 +2,7 @@ import { Type } from "class-transformer";
 import { IsArray, IsBoolean, IsDate, IsDateString, IsEnum, IsNumber, IsObject, IsOptional, IsString, MaxLength, ValidateNested } from "class-validator";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
-import { IGNISIGN_SIGNATURE_LANGUAGES } from "../_commons/languages.public";
+import { IGNISIGN_LANGUAGES } from "../_commons/languages.public";
 import { IgnisignApplication_SignatureMetadata } from "./signatures.public";
 import { IgnisignSignatureProfile } from "./signature-profiles.public";
 import { IgnisignSigner_Summary } from "../signers/signers.public";
@@ -93,8 +93,8 @@ export class IgnisignSignatureRequest {
   description               ?: string;
 
   @IsOptional()
-  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
-  language                  ?: IGNISIGN_SIGNATURE_LANGUAGES;
+  @IsEnum(IGNISIGN_LANGUAGES)
+  language                  ?: IGNISIGN_LANGUAGES;
 
   @IsEnum(IGNISIGN_SIGNATURE_REQUEST_STATUS)
   status                     : IGNISIGN_SIGNATURE_REQUEST_STATUS;
@@ -212,8 +212,8 @@ export class IgnisignSignatureRequest_UpdateDto {
   expirationDateIsActivated ?: boolean;
 
   @IsOptional()
-  @IsEnum(IGNISIGN_SIGNATURE_LANGUAGES)
-  language? : IGNISIGN_SIGNATURE_LANGUAGES;
+  @IsEnum(IGNISIGN_LANGUAGES)
+  language? : IGNISIGN_LANGUAGES;
 
   @IsOptional()
   @IsString({ each: true })

@@ -6,6 +6,7 @@ import { IgnisignSignatureRequest_WithDocName } from "../signatures/signature-re
 import { IGNISIGN_SIGNER_CLAIM_REF, IGNISIGN_SIGNER_CLAIM_STATUS } from "./signer-claims.public";
 
 import { COUNTRIES } from "../_commons/countries.public";
+import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from "../signatures/signature-auth.public";
 
 /*********************************** SIGNER ***********************************/
 
@@ -33,9 +34,10 @@ export class IgnisignSigner {
   externalId                        ?: string;
   isRecurrent                       ?: boolean;
   fromUserId                        ?: string;
+  authMethodPreffered               ?: IGNISIGN_AUTH_FULL_MECHANISM_REF;
 }
 
-export enum IGNISIGN_SIGNER_CREATION_INPUT_REF { 
+export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {  
   FIRST_NAME    = "firstName",
   LAST_NAME     = "lastName",
   EMAIL         = "email",
