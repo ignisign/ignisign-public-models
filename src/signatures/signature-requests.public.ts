@@ -168,6 +168,17 @@ export class IgnisignSignatureRequest {
   @IsString()
   m2mId?: string;
   
+  @IsOptional()
+  @IsBoolean()
+  highLevelProofCleaned ?: boolean;
+
+  @IsOptional()
+  @IsBoolean()
+  originalFilesCleaned  ?: boolean;
+
+  @IsOptional()
+  @IsDate()
+  closedAt ?: Date;
 }
 
 
