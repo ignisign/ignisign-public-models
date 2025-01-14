@@ -218,6 +218,7 @@ export class IgnisignWebhookDto_SignatureRequestSignerBySide {
 export class IgnisignWebhookDto_SignatureRequestSignerEmbedded {
   signerId   : string;
   signerExternalId : string;
+  token?      : string;
 }
 
 export class IgnisignWebhookDto_SignatureProfile {
