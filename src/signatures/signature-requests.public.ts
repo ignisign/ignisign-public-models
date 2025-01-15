@@ -326,6 +326,7 @@ export enum IGNISIGN_DOCUMENT_GENERATED_STATUS {
   WAITING_IMAGES  = "WAITING_IMAGES",
   ON_ERROR        = "ON_ERROR",
   CREATED         = "CREATED",
+  CLEANED         = "CLEANED",
 }
 export class IgnisignSignatureRequest_Context extends IgnisignSignatureRequest {
   signers               : IgnisignSigner_Summary[];

@@ -19,6 +19,7 @@ export enum IGNISIGN_DOCUMENT_STATUS {
   CREATED          = "CREATED",
   PROVIDED         = "PROVIDED",
   ARCHIVED         = "ARCHIVED",
+  CLEANED          = "CLEANED",
 }
 
 export enum GET_PRIVATE_FILE_ERRORS {
