@@ -85,12 +85,13 @@ export enum IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS {
 export class IgnisignApplication_EnvApiKeys {
   _id               ?: string;
   appId              : string;
+  appEnv             : IGNISIGN_APPLICATION_ENV;
   name               : string;
   description       ?: string;
-  appEnv             : IGNISIGN_APPLICATION_ENV;
+  
   isRestricted       : boolean;
-  permissions       ?: IGNISIGN_IAM_PERMISSIONS[];
-  displayableSecret  : string; // Like stripe, we display the first and last 4 digits
+  permissions       ?: IGNISIGN_IAM_PERMISSIONS[]; // not used yet, api keys are not restricted to permissions right now
+  displayableSecret  : string; // The mechanism is similar to stripe, we display only the 4 first and last digits
   status             : IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS;
 }
 
@@ -132,8 +133,7 @@ export class IgnisignApplication_EnvSettings {
   orgId                        : string;
   appEnv                       : IGNISIGN_APPLICATION_ENV;
   isApiKeyGenerated           ?: boolean; // Only used in appContext
-  // defaultSignatureProfileId   ?: string;
-  defaultSignerProfileId        ?: string;
+  defaultSignerProfileId      ?: string;
   currentVersion               : number;
   webhooks                     : IgnisignWebhook_SettingsDescription[];
   languageCanBeChanged        ?: boolean;
@@ -143,7 +143,6 @@ export class IgnisignApplication_EnvSettings {
   defaultSignatureLevel       ?: IGNISIGN_SIGNATURE_METHOD_REF;
   defaultApproverIds          ?: string[];
   defaultRecipients           ?: string[];
-  // activatedSignatureProofs                ?: IGNISIGN_SIGNATURE_PROOF_TYPE[]; // TODO remove optional
   onlineProofsEnabled               : boolean;
   originalFileRetentionDurationInDays     ?: number; // TODO remove optional
   highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional

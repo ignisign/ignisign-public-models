@@ -10,9 +10,6 @@ export enum IGNISIGN_DOCUMENT_TYPE {
   DATA_JSON                = "DATA_JSON",
   DATA_XML                 = "DATA_XML",
   PRIVATE_FILE             = "PRIVATE_FILE",
-  // VERIFIABLE_CREDENTIAL    = "VERIFIABLE_CREDENTIAL",
-  // WEB3_FILE                = "WEB3_FILE",
-
 }
 
 export enum IGNISIGN_DOCUMENT_STATUS {

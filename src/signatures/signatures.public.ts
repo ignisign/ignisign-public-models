@@ -23,22 +23,10 @@ export const AVAILABLE_SIGNATURE_PROOF_PROCESSING_MODES = [
 
 export enum IGNISIGN_SIGNATURE_PROOF_TYPE {
 
-  // HIGH LEVEL
   PDF_WITH_SIGNATURES      = "PDF_WITH_SIGNATURES",
-  // PROOF_WEB_PAGE           = "PROOF_WEB_PAGE",
-  C2PA                     = "C2PA",
   ADVANCED_LEGAL_KIT       = "ADVANCED_LEGAL_KIT",
   SIGNED_DATA              = "SIGNED_DATA",
-
-  // LOW LEVEL
-  // XADES                    = "XADES",
-  // CADES                    = "CADES",
-  // PKCS7                    = "PKCS7",
-  // JWS                      = "JWS",
-  // JADES_DETACHED           = "JADESDET",
-  // JADES_ATTACHED           = "JADESATT",
-  // XMLDSIG_DETACHED         = "XMLDSIGDET",
-  // XMLDSIG_ATTACHED         = "XMLDSIGATT",
+  C2PA                     = "C2PA", // NOT YET IMPLEMENTED
 }
 
 
