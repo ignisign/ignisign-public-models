@@ -4,7 +4,6 @@ import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IgnisignDocument_Context } from "../documents/document-entities.public";
 import { IGNISIGN_LANGUAGES } from "../_commons/languages.public";
 import { IgnisignApplication_SignatureMetadata } from "./signatures.public";
-import { IgnisignSignatureProfile } from "./signature-profiles.public";
 import { IgnisignSigner_Summary } from "../signers/signers.public";
 import "reflect-metadata";
 import { IGNISIGN_SIGNATURE_METHOD_REF } from "./signature-methods.public";

@@ -9,11 +9,13 @@ import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNER_CREATION_INPUT_REF } from "../signers/signers.public";
 import { IGNISIGN_SIGNATURE_REQUEST_TYPE } from "./signature-requests.public";
 
+/** @deprecated("Use IgnisignSignerProfile instead") */
 export enum IGNISIGN_SIGNATURE_PROFILE_STATUS {
   PUBLISHED = "PUBLISHED",
   ARCHIVED  = "ARCHIVED",
 }
 
+/** @deprecated("Use IgnisignSignerProfileinstead") */
 export class IgnisignSignatureProfile {
   @IsOptional()
   @IsString()
@@ -114,11 +116,13 @@ export class IgnisignSignatureProfile {
 
 }
 
+/** @deprecated("Use IgnisignSignerProfile instead") */
 export class IgnisignSignatureProfile_StatusWrapper {
   @IsEnum(IGNISIGN_SIGNATURE_PROFILE_STATUS)
   status: IGNISIGN_SIGNATURE_PROFILE_STATUS;
 }
 
+/** @deprecated("Use IgnisignSignerProfile instead") */
 export class IgnisignSignatureProfile_SignerInputsConstraints {
   @IsEnum(IGNISIGN_SIGNER_CREATION_INPUT_REF, { each: true })
   inputsNeeded: IGNISIGN_SIGNER_CREATION_INPUT_REF[];
@@ -129,6 +133,7 @@ export class IgnisignSignatureProfile_SignerInputsConstraints {
 //   signatureProfileId: string;
 // }
 
+/** @deprecated("Use IgnisignSignerProfile instead") */
 export class IgnisignSignerStatus_FromSignatureProfile {
   @IsBoolean()
   signerIsSetup     : boolean;
