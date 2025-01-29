@@ -44,6 +44,30 @@ export class Ignisign_OAuth2_Fields {
   @IsString()
   birth_country : string;
 }
+
+export class Ignisign_SAML_Fields {
+  @IsString()
+  given_name : string;
+
+  @IsString()
+  family_name : string;
+
+  @IsString()
+  email : string;
+  
+  @IsString()
+  nationality : string;
+
+  @IsString()
+  birth_date : string;
+
+  @IsString()
+  birth_place : string;
+
+  @IsString()
+  birth_country : string;
+}
+
 export class Ignisign_OAuth2_Settings {
   @IsOptional()
   @IsString()
@@ -73,9 +97,18 @@ export class Ignisign_SAML_Settings {
   @IsOptional()
   @IsString()
   spEntityId?: string;
+
+  @IsOptional()
+  @IsString()
+  certificate ? : string;
+
+  @IsOptional()
+  @ValidateNested()
+  @Type(() => Ignisign_SAML_Fields)
+  fields?: Ignisign_SAML_Fields;
 }
 
-export const MANDATORY_FIELDS_TO_ACTIVATE_SAML = ['idpMetadataUrl', 'spEntityId'];
+export const MANDATORY_FIELDS_TO_ACTIVATE_SAML = ['idpMetadataUrl', 'spEntityId', 'certificate'];
 
 export enum IGNISIGN_APPLICATION_ENV_API_KEYS_STATUS {
   ACTIVE    = 'ACTIVE',
