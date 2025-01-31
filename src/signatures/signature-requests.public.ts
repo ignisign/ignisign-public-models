@@ -291,6 +291,55 @@ export class IgnisignSignatureRequest_UpdateDto {
 
 }
 
+class oneCallSignSigner {
+  @IsString()
+  email: string;
+
+  @IsOptional()
+  @IsString()
+  firstName?: string;
+
+  @IsOptional()
+  @IsString()
+  lastName?: string;
+
+  @IsOptional()
+  @IsString()
+  signerProfileId?: string;
+}
+
+class oneCallSignDocument {
+  @IsString()
+  originalName: string;
+  
+  @IsString()
+  mimeType: string;
+
+  @IsString()
+  @IsOptional()
+  base64?: string;
+
+  @IsString()
+  @IsOptional()
+  url?: string;
+};
+
+export class IgnisignSignatureRequest_OneCallCreationDto {
+  @IsString()
+  title: string;
+
+  @IsEnum(IGNISIGN_SIGNATURE_METHOD_REF)
+  signatureMethod: IGNISIGN_SIGNATURE_METHOD_REF;
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  signers: oneCallSignSigner[];
+
+  @IsArray()
+  @ValidateNested({ each: true })
+  documents: oneCallSignDocument[];
+}
+
 export class IgnisignSignatureRequest_IdContainer {
   signatureRequestId?: string;
 }
