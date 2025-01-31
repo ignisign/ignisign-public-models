@@ -11,7 +11,38 @@ export enum IGNISIGN_M2M_STATUS {
   ARCHIVED = "ARCHIVED",
 }
 
+/**
+ * Signer M2M (Machine-to-Machine) Public Model
+ * 
+ * @summary Defines structures and operations for machine-to-machine signature processes,
+ * enabling automated document signing and sealing with cryptographic verification.
+ * 
+ * @key_points
+ * - Supports multiple document types (PDF, XML, JSON)
+ * - Implements cryptographic verification
+ * - Manages M2M signer lifecycle
+ * - Handles document sealing and proofs
+ * - Supports various content formats
+ * 
+ * @integration_points
+ * - Document sealing operations
+ * - Cryptographic verification
+ * - Proof generation and validation
+ * - Content hash verification
+ * - Response handling
+ * 
+ * @gotchas
+ * - Key management is critical
+ * - Hash verification must be exact
+ * - Content encoding matters
+ * - Proof types vary by document
+ * - Status affects available operations
+ */
 
+/**
+ * Core M2M signer entity with cryptographic capabilities.
+ * Manages key pairs and signature operations.
+ */
 export class IgnisignM2M {
   _id           ?: string;
   appId          : string;
@@ -25,6 +56,10 @@ export class IgnisignM2M {
   
 }
 
+/**
+ * Base class for document sealing requests.
+ * Handles common document properties and hashing.
+ */
 export class IgnisignSealM2M_DocumentRequestDto {
   documentType : IGNISIGN_DOCUMENT_TYPE;
   documentHash : string;
@@ -40,13 +75,22 @@ export class IgnisignSealM2M_DocumentRequestDto {
       this.mimeType = mimeType;
   }
 }
+
+/**
+ * Specialized request for hash-based document sealing.
+ * Used when document content is external.
+ */
 export class IgnisignSealM2M_DocumentHashRequestDto extends IgnisignSealM2M_DocumentRequestDto {
   constructor(documentHash : string, label? : string, mimeType? : string){
     super(IGNISIGN_DOCUMENT_TYPE.PRIVATE_FILE, documentHash, label, mimeType);
   }
 }
 
-export class IgnisignSealM2M_DocumentContentRequestDto  extends IgnisignSealM2M_DocumentRequestDto {
+/**
+ * Handles binary content document sealing.
+ * Supports PDF and general file types.
+ */
+export class IgnisignSealM2M_DocumentContentRequestDto extends IgnisignSealM2M_DocumentRequestDto {
   
   contentB64 : string;
 
@@ -63,7 +107,11 @@ export class IgnisignSealM2M_DocumentContentRequestDto  extends IgnisignSealM2M_
   }
 }
 
-export class IgnisignSealM2M_DocumentXMLRequestDto  extends IgnisignSealM2M_DocumentRequestDto {
+/**
+ * Specialized handling for XML document sealing.
+ * Includes XML-specific content processing.
+ */
+export class IgnisignSealM2M_DocumentXMLRequestDto extends IgnisignSealM2M_DocumentRequestDto {
 
   xmlContent                 : string;
 
@@ -75,6 +123,10 @@ export class IgnisignSealM2M_DocumentXMLRequestDto  extends IgnisignSealM2M_Docu
   }
 }
 
+/**
+ * Specialized handling for JSON document sealing.
+ * Includes JSON-specific content processing.
+ */
 export class IgnisignSealM2M_DocumentJSONRequestDto extends IgnisignSealM2M_DocumentRequestDto {
   
   jsonContent                : any;
@@ -87,6 +139,10 @@ export class IgnisignSealM2M_DocumentJSONRequestDto extends IgnisignSealM2M_Docu
   }
 }
 
+/**
+ * Complete M2M sealing request with verification.
+ * Combines document and cryptographic proof.
+ */
 export class IgnisignSealM2M_RequestDto {
   m2mId           : string;
   title          ?: string;
@@ -95,6 +151,10 @@ export class IgnisignSealM2M_RequestDto {
   documentHashSignedByM2MPrivateKey : string;
 }
 
+/**
+ * Response containing seal results and proofs.
+ * Provides verification materials and references.
+ */
 export class IgnisignSealM2M_ResponseDto {
   signatureRequestId  : string;
   documentId          : string;

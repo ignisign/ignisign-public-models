@@ -1,0 +1,70 @@
+/**
+ * @module ModuleName
+ * 
+ * @description
+ * Brief description of the module's purpose and functionality.
+ * 
+ * @keyPoints
+ * - Key feature 1
+ * - Key feature 2
+ * - Key feature 3
+ * 
+ * @integrationPoints
+ * - Integration point 1
+ * - Integration point 2
+ * - Integration point 3
+ * 
+ * @dependencies
+ * - dependency1: Description of dependency
+ * - dependency2: Description of dependency
+ * 
+ * @gotchas
+ * - Important consideration 1
+ * - Important consideration 2
+ */
+
+import { /* dependencies */ } from 'dependency';
+
+/**
+ * @enum EnumName
+ * @description Description of the enumeration
+ */
+export enum EnumName {
+  /** Description of this value */
+  VALUE1 = 'VALUE1',
+  /** Description of this value */
+  VALUE2 = 'VALUE2'
+}
+
+/**
+ * @class ClassName
+ * @description Detailed description of the class purpose and functionality
+ */
+export class ClassName {
+  /** @property Description of this property */
+  property1: string;
+
+  /** @property Description of this property */
+  property2: number;
+
+  /**
+   * @description Description of what this method does
+   * @param param1 Description of param1
+   * @param param2 Description of param2
+   * @returns Description of return value
+   */
+  method(param1: string, param2: number): boolean {
+    // Implementation
+  }
+}
+
+/**
+ * @type TypeName
+ * @description Description of this type
+ */
+export type TypeName = {
+  /** Description of this field */
+  field1: string;
+  /** Description of this field */
+  field2: number;
+}; 

@@ -1,3 +1,34 @@
+/**
+ * Countries Public Model
+ * 
+ * Provides standardized country code handling using ISO 3166-1 alpha-2 codes. Implements both an enum 
+ * for type safety and a detailed list with country names for display purposes, covering all recognized 
+ * sovereign states and territories.
+ * 
+ * Key Points:
+ * - Uses ISO 3166-1 alpha-2 two-letter codes for standardization
+ * - Includes 249 countries and territories for comprehensive coverage
+ * - Provides both enum (COUNTRIES) for type safety and detailed list (COUNTRY_LIST) for display
+ * - Maintains official country names in English
+ * 
+ * Integration Points:
+ * - Used in address validation for user profiles and documents
+ * - Referenced in document localization for regional compliance
+ * - Used for signer nationality tracking in KYC processes
+ * - Applied in compliance verification for regulated operations
+ * 
+ * Dependencies:
+ * - No external dependencies required
+ * - Used by various modules requiring country information
+ * 
+ * Gotchas:
+ * - All country codes are uppercase (differs from some standards using lowercase)
+ * - Includes territories that may not be universally recognized (e.g., 'XK' for Kosovo)
+ * - Some countries have multiple names/codes in different systems
+ * - Must match exactly when comparing codes (case-sensitive)
+ * - List order is alphabetical by country code, not by name
+ */
+
 export enum COUNTRIES {
   AW = 'AW', AF = 'AF', AO = 'AO', AI = 'AI', AL = 'AL', AD = 'AD', AE = 'AE', AR = 'AR', AM = 'AM', AS = 'AS', AG = 'AG', AU = 'AU', AT = 'AT',
   AZ = 'AZ', BI = 'BI', BE = 'BE', BJ = 'BJ', BF = 'BF', BD = 'BD', BG = 'BG', BH = 'BH', BS = 'BS', BA = 'BA', BL = 'BL', BY = 'BY', BZ = 'BZ',

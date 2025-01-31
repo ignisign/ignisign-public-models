@@ -1,119 +1,253 @@
+/**
+ * Rights Management Public Model (v2)
+ * 
+ * Defines the comprehensive IAM (Identity and Access Management) system for the Ignisign platform.
+ * Implements roles, permissions, functions, and scopes with organization accreditation levels.
+ * This model provides a complete security framework for access control across the platform.
+ * 
+ * Key Points:
+ * - Three organization accreditation levels (BASIC, ADVANCED, CRITICAL)
+ * - Hierarchical IAM structure (functions, scopes, rights, permissions)
+ * - Predefined roles with specific permission sets
+ * - Function-to-scope mapping implementation
+ * 
+ * Integration Points:
+ * - Used in access control decisions throughout the platform
+ * - Referenced in role assignments and user management
+ * - Applied in permission checks for all operations
+ * - Controls feature availability based on accreditation
+ * 
+ * Dependencies:
+ * - No external dependencies required
+ * - Core component used by all platform security systems
+ * 
+ * Gotchas:
+ * - Some functions are scope-specific and cannot be used elsewhere
+ * - Permissions require specific organization accreditation levels
+ * - Role hierarchy is strict and cannot be modified
+ * - Some permissions have multiple rights that must be considered
+ * - Accreditation level changes affect permission availability
+ */
+
+/**
+ * Organization accreditation levels defining security requirements.
+ * Higher levels enable more sensitive operations.
+ */
 export enum IGNISIGN_AUTH_ORGANIZATION_ACCREDITATION_LEVEL {
+  /** Basic operations with minimal security requirements */
   BASIC     = "BASIC",
+  /** Advanced operations requiring enhanced security */
   ADVANCED  = "ADVANCED",
+  /** Critical operations with highest security requirements */
   CRITICAL  = "CRITICAL",
 }
 
+/**
+ * Platform functions representing distinct operational areas.
+ * Each function maps to a specific scope and set of permissions.
+ */
 export enum IGNISIGN_IAM_FUNCTIONS {
+  /** Platform-wide management operations */
   PLATFORM_MANAGEMENT          = 'PLATFORM_MANAGEMENT',
-  ORG_ARCHIVING                = 'ORG_ARCHIVING',             
-  BILLING                      = 'BILLING',
-  ORG_MEMBER_MANAGEMENT        = 'ORG_MEMBER_MANAGEMENT',
-  DELEGATION_AGREEMENT         = 'DELEGATION_AGREEMENT',
-  ORG_BASIC_INFORMATION        = 'ORG_BASIC_INFORMATION',
-  APP_CUSTOMIZATION            = 'APP_CUSTOMIZATION',
-  APP_MEMBERS_MANAGEMENT       = 'APP_MEMBERS_MANAGEMENT',
-  API_KEYS                     = 'API_KEYS',
-  WEBHOOKS                     = 'WEBHOOKS',                     
-  DOC_TEMPLATE                 = 'DOC_TEMPLATE',                 
-  SIGNATURE_PROFILE            = 'SIGNATURE_PROFILE',            
-  SIGNATURE_REQUEST            = 'SIGNATURE_REQUEST',            
-  SIGNERS                      = 'SIGNERS',                      
-  SIGNATURE_SESSION            = 'SIGNATURE_SESSION',            
-  SIGNATURE_PROOF_RESTRICTED   = 'SIGNATURE_PROOF_RESTRICTED',   
-  SIGNATURE_PROOF_SHARED       = 'SIGNATURE_PROOF_SHARED',       
-  PROVIDE_DOCUMENT_INVITED     = 'PROVIDE_DOCUMENT_INVITED',      
+  /** Organization archival operations */
+  ORG_ARCHIVING               = 'ORG_ARCHIVING',             
+  /** Billing and payment operations */
+  BILLING                     = 'BILLING',
+  /** Organization member management */
+  ORG_MEMBER_MANAGEMENT       = 'ORG_MEMBER_MANAGEMENT',
+  /** Delegation agreement handling */
+  DELEGATION_AGREEMENT        = 'DELEGATION_AGREEMENT',
+  /** Basic organization information management */
+  ORG_BASIC_INFORMATION      = 'ORG_BASIC_INFORMATION',
+  /** Application customization */
+  APP_CUSTOMIZATION          = 'APP_CUSTOMIZATION',
+  /** Application member management */
+  APP_MEMBERS_MANAGEMENT     = 'APP_MEMBERS_MANAGEMENT',
+  /** API key management */
+  API_KEYS                   = 'API_KEYS',
+  /** Webhook management */
+  WEBHOOKS                   = 'WEBHOOKS',                     
+  /** Document template management */
+  DOC_TEMPLATE              = 'DOC_TEMPLATE',                 
+  /** Signature profile management */
+  SIGNATURE_PROFILE         = 'SIGNATURE_PROFILE',            
+  /** Signature request handling */
+  SIGNATURE_REQUEST         = 'SIGNATURE_REQUEST',            
+  /** Signer management */
+  SIGNERS                   = 'SIGNERS',                      
+  /** Signature session handling */
+  SIGNATURE_SESSION         = 'SIGNATURE_SESSION',            
+  /** Restricted signature proof access */
+  SIGNATURE_PROOF_RESTRICTED = 'SIGNATURE_PROOF_RESTRICTED',   
+  /** Shared signature proof access */
+  SIGNATURE_PROOF_SHARED    = 'SIGNATURE_PROOF_SHARED',       
+  /** Document provision for invited users */
+  PROVIDE_DOCUMENT_INVITED  = 'PROVIDE_DOCUMENT_INVITED',      
 }
 
+/**
+ * Access scopes defining the context of operations.
+ * Each scope represents a distinct security boundary.
+ */
 export enum IGNISIGN_IAM_SCOPES {
+  /** Platform-wide scope */
   PLATFORM          = 'PLATFORM',
+  /** Organization-level scope */
   ORGANIZATION      = 'ORGANIZATION',
+  /** Application-level scope */
   APPLICATION       = 'APPLICATION',
+  /** Environment-specific application scope */
   APPLICATION_ENV   = 'APPLICATION_ENV',
+  /** Signature profile scope */
   SIGNATURE_PROFILE = 'SIGNATURE_PROFILE',
+  /** Signature request scope */
   SIGNATURE_REQUEST = 'SIGNATURE_REQUEST',
+  /** Signature session scope */
   SIGNATURE_SESSION = 'SIGNATURE_SESSION',
 }
 
-
+/**
+ * Basic rights that can be granted within permissions.
+ * Combined to create comprehensive permission sets.
+ */
 export enum IGNISIGN_IAM_RIGHTS {
+  /** Read access */
   READ     = 'READ',
+  /** Write access */
   WRITE    = 'WRITE',
+  /** Generation capability */
   GENERATE = 'GENERATE',
+  /** Execution capability */
   EXECUTE  = 'EXECUTE',
+  /** Archival capability */
   ARCHIVE  = 'ARCHIVE',
+  /** Deletion capability */
   DELETE   = 'DELETE',
+  /** Provision capability */
   PROVIDE  = 'PROVIDE',
+  /** Initialization capability */
   INIT     = 'INIT',
 }
 
+/**
+ * Comprehensive permissions combining functions and rights.
+ * Each permission requires specific accreditation level.
+ */
 export enum IGNISIGN_IAM_PERMISSIONS {
+  /** Platform KPI access */
   PLATFORM_KPI                     = "PLATFORM_KPI",
+  /** Platform organization management */
   PLATFORM_ORGANIZATION_MANAGEMENT = "PLATFORM_ORGANIZATION_MANAGEMENT",
+  /** Platform user management */
   PLATFORM_USER_MANAGEMENT         = "PLATFORM_APPLICATION_MANAGEMENT",
+  /** Organization archival */
   ORG_ARCHIVING                    = "ORG_ARCHIVING", 
+  /** Organization billing */
   ORG_BILLING                      = "ORG_BILLING", 
+  /** Organization member management */
   ORG_MEMBER_MANAGEMENT            = "ORG_MEMBER_MANAGEMENT", 
+  /** Organization delegation agreement */
   ORG_DELEGATION_AGREEMENT         = "ORG_DELEGATION_AGREEMENT", 
+  /** Organization basic info read */
   ORG_BASICINFORMATION_READ        = "ORG_BASICINFORMATION_READ", 
+  /** Organization basic info write */
   ORG_BASICINFORMATION_WRITE       = "ORG_BASICINFORMATION_WRITE", 
+  /** Application customization */
   APP_CUSTOMIZATION                = "APP_CUSTOMIZATION", 
+  /** Application member management */
   APP_MEMBER_MANAGEMENT            = "APP_MEMBER_MANAGEMENT", 
+  /** API key management */
   API_KEYS_MANAGEMENT              = "API_KEYS_MANAGEMENT", 
+  /** Webhook management */
   WEBHOOKS_MANAGEMENT              = "WEBHOOKS_MANAGEMENT", 
+  /** Document template management */
   DOC_TEMPLATE_MANAGEMENT          = "DOC_TEMPLATE_MANAGEMENT", 
+  /** Document template read */
   DOC_TEMPLATE_READ                = "DOC_TEMPLATE_READ", 
+  /** Signature profile management */
   SIGNATURE_PROFILE_MANAGEMENT     = "SIGNATURE_PROFILE_MANAGEMENT", 
+  /** Signature profile read */
   SIGNATURE_PROFILE_READ           = "SIGNATURE_PROFILE_READ", 
+  /** Signature request management */
   SIGNATURE_REQUEST_MANAGEMENT     = "SIGNATURE_REQUEST_MANAGEMENT", 
+  /** Signature request read */
   SIGNATURE_REQUEST_READ           = "SIGNATURE_REQUEST_READ", 
+  /** Signer management */
   SIGNERS_MANAGEMENT               = "SIGNERS_MANAGEMENT", 
+  /** Signer read */
   SIGNERS_READ                     = "SIGNERS_READ", 
+  /** Signature session execution */
   SIGNATURE_SESSION_EXECUTION      = "SIGNATURE_SESSION_EXECUTION", 
+  /** Restricted signature proof read */
   SIGNATURE_PROOF_RESTRICTED_READ  = "SIGNATURE_PROOF_RESTRICTED_READ", 
+  /** Shared signature proof read */
   SIGNATURE_PROOF_SHARED_READ      = "SIGNATURE_PROOF_SHARED_READ", 
+  /** Document provider capability */
   DOCUMENT_PROVIDER                = "DOCUMENT_PROVIDER", 
 }
 
+/**
+ * Platform roles defining user types and capabilities.
+ * Each role has a specific set of permissions.
+ */
 export enum IGNISIGN_IAM_ROLE {
+  /** Internal API access */
   INTERNAL_API              = 'INTERNAL_API',
-  SUPER_ADMIN               = 'SUPER_ADMIN',
-  ORG_OWNER                 = 'ORG_OWNER',
-  ORG_ADMIN                 = 'ORG_ADMIN',
-  ORG_BILLING               = 'ORG_BILLING',
-  ORG_USER                  = 'ORG_USER',
-  APP_ADMIN                 = 'APP_ADMIN',
-  APP_MANAGER               = 'APP_MANAGER',
-  APP_OPERATOR              = 'APP_OPERATOR',
-  APP_READER                = 'APP_READER',
-  SIGNERS                   = 'SIGNERS',
-  INVITED_PROOF_READER      = 'INVITED_PROOF_READER',
+  /** Super administrator */
+  SUPER_ADMIN              = 'SUPER_ADMIN',
+  /** Organization owner */
+  ORG_OWNER               = 'ORG_OWNER',
+  /** Organization administrator */
+  ORG_ADMIN               = 'ORG_ADMIN',
+  /** Organization billing manager */
+  ORG_BILLING             = 'ORG_BILLING',
+  /** Organization user */
+  ORG_USER                = 'ORG_USER',
+  /** Application administrator */
+  APP_ADMIN               = 'APP_ADMIN',
+  /** Application manager */
+  APP_MANAGER             = 'APP_MANAGER',
+  /** Application operator */
+  APP_OPERATOR            = 'APP_OPERATOR',
+  /** Application reader */
+  APP_READER              = 'APP_READER',
+  /** Signers */
+  SIGNERS                 = 'SIGNERS',
+  /** Invited proof reader */
+  INVITED_PROOF_READER    = 'INVITED_PROOF_READER',
+  /** Invited document provider */
   INVITED_DOCUMENT_PROVIDER = 'INVITED_PROOF_PROVIDER',
 }
 
-
+/**
+ * Maps IAM functions to their appropriate scopes.
+ * Defines the security boundaries for each function.
+ */
 export const IgnisignIam_FunctionScopeMapping : {[keys in IGNISIGN_IAM_FUNCTIONS] : IGNISIGN_IAM_SCOPES }= {
   [IGNISIGN_IAM_FUNCTIONS.PLATFORM_MANAGEMENT]         : IGNISIGN_IAM_SCOPES.PLATFORM,
-  [IGNISIGN_IAM_FUNCTIONS.ORG_ARCHIVING]               : IGNISIGN_IAM_SCOPES.ORGANIZATION,
-  [IGNISIGN_IAM_FUNCTIONS.BILLING]                     : IGNISIGN_IAM_SCOPES.ORGANIZATION,
-  [IGNISIGN_IAM_FUNCTIONS.ORG_MEMBER_MANAGEMENT]       : IGNISIGN_IAM_SCOPES.ORGANIZATION,
-  [IGNISIGN_IAM_FUNCTIONS.DELEGATION_AGREEMENT]        : IGNISIGN_IAM_SCOPES.ORGANIZATION,
-  [IGNISIGN_IAM_FUNCTIONS.ORG_BASIC_INFORMATION]       : IGNISIGN_IAM_SCOPES.ORGANIZATION,
-  [IGNISIGN_IAM_FUNCTIONS.APP_CUSTOMIZATION]           : IGNISIGN_IAM_SCOPES.APPLICATION,
-  [IGNISIGN_IAM_FUNCTIONS.APP_MEMBERS_MANAGEMENT]      : IGNISIGN_IAM_SCOPES.APPLICATION,
-  [IGNISIGN_IAM_FUNCTIONS.API_KEYS]                    : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
-  [IGNISIGN_IAM_FUNCTIONS.WEBHOOKS]                    : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
-  [IGNISIGN_IAM_FUNCTIONS.DOC_TEMPLATE]                : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
-  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_PROFILE]           : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
-  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_REQUEST]           : IGNISIGN_IAM_SCOPES.SIGNATURE_PROFILE,
-  [IGNISIGN_IAM_FUNCTIONS.SIGNERS]                     : IGNISIGN_IAM_SCOPES.SIGNATURE_PROFILE,
-  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_SESSION]           : IGNISIGN_IAM_SCOPES.SIGNATURE_PROFILE,
-  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_PROOF_RESTRICTED]  : IGNISIGN_IAM_SCOPES.SIGNATURE_REQUEST,
-  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_PROOF_SHARED]      : IGNISIGN_IAM_SCOPES.SIGNATURE_REQUEST,
-  [IGNISIGN_IAM_FUNCTIONS.PROVIDE_DOCUMENT_INVITED]    : IGNISIGN_IAM_SCOPES.SIGNATURE_REQUEST,
+  [IGNISIGN_IAM_FUNCTIONS.ORG_ARCHIVING]              : IGNISIGN_IAM_SCOPES.ORGANIZATION,
+  [IGNISIGN_IAM_FUNCTIONS.BILLING]                    : IGNISIGN_IAM_SCOPES.ORGANIZATION,
+  [IGNISIGN_IAM_FUNCTIONS.ORG_MEMBER_MANAGEMENT]      : IGNISIGN_IAM_SCOPES.ORGANIZATION,
+  [IGNISIGN_IAM_FUNCTIONS.DELEGATION_AGREEMENT]       : IGNISIGN_IAM_SCOPES.ORGANIZATION,
+  [IGNISIGN_IAM_FUNCTIONS.ORG_BASIC_INFORMATION]      : IGNISIGN_IAM_SCOPES.ORGANIZATION,
+  [IGNISIGN_IAM_FUNCTIONS.APP_CUSTOMIZATION]          : IGNISIGN_IAM_SCOPES.APPLICATION,
+  [IGNISIGN_IAM_FUNCTIONS.APP_MEMBERS_MANAGEMENT]     : IGNISIGN_IAM_SCOPES.APPLICATION,
+  [IGNISIGN_IAM_FUNCTIONS.API_KEYS]                   : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
+  [IGNISIGN_IAM_FUNCTIONS.WEBHOOKS]                   : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
+  [IGNISIGN_IAM_FUNCTIONS.DOC_TEMPLATE]               : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
+  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_PROFILE]          : IGNISIGN_IAM_SCOPES.APPLICATION_ENV,
+  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_REQUEST]          : IGNISIGN_IAM_SCOPES.SIGNATURE_PROFILE,
+  [IGNISIGN_IAM_FUNCTIONS.SIGNERS]                    : IGNISIGN_IAM_SCOPES.SIGNATURE_PROFILE,
+  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_SESSION]          : IGNISIGN_IAM_SCOPES.SIGNATURE_PROFILE,
+  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_PROOF_RESTRICTED] : IGNISIGN_IAM_SCOPES.SIGNATURE_REQUEST,
+  [IGNISIGN_IAM_FUNCTIONS.SIGNATURE_PROOF_SHARED]     : IGNISIGN_IAM_SCOPES.SIGNATURE_REQUEST,
+  [IGNISIGN_IAM_FUNCTIONS.PROVIDE_DOCUMENT_INVITED]   : IGNISIGN_IAM_SCOPES.SIGNATURE_REQUEST,
 }
 
-
+/**
+ * Defines permissions with their functions, rights, and required accreditation levels.
+ * This is the core mapping that drives the platform's security model.
+ */
 export const IgnisignIam_PermissionsDef : {[keys in IGNISIGN_IAM_PERMISSIONS] : { function: IGNISIGN_IAM_FUNCTIONS, rights: IGNISIGN_IAM_RIGHTS[], orgAuthAccreditationLevel : IGNISIGN_AUTH_ORGANIZATION_ACCREDITATION_LEVEL } }= {
   [IGNISIGN_IAM_PERMISSIONS.PLATFORM_ORGANIZATION_MANAGEMENT] : { 
     function: IGNISIGN_IAM_FUNCTIONS.PLATFORM_MANAGEMENT,        

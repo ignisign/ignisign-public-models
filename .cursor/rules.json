@@ -1,0 +1,141 @@
+{
+  "version": "1.1",
+  "documentation": {
+    "principles": {
+      "inline_first": "Documentation should be inline with the code using JSDoc format",
+      "module_readme": "Each module should have a comprehensive README.md",
+      "code_first": "Read and understand the actual code before documenting",
+      "no_invention": "Never document features or types that don't exist in code"
+    },
+    "templates": {
+      "typescript": {
+        "path": "templates/model.ts.template",
+        "usage": "Use for new TypeScript files with inline documentation"
+      },
+      "readme": {
+        "path": "templates/README.md.template",
+        "usage": "Use for new module documentation"
+      }
+    },
+    "readme_structure": {
+      "required_sections": [
+        "Overview",
+        "Key Components",
+        "Integration Points",
+        "Dependencies",
+        "Best Practices",
+        "Common Patterns",
+        "Files",
+        "Common Gotchas",
+        "Security Considerations",
+        "Implementation Guide"
+      ],
+      "section_rules": {
+        "Overview": {
+          "max_length": 400,
+          "must_mention": ["purpose", "core functionality"],
+          "template": "Brief description of what this module does and its role in the Ignisign platform."
+        },
+        "Key Components": {
+          "style": "nested_bullet_points",
+          "must_include": ["file references", "main features"],
+          "template": "### ComponentName (`filename.public.ts`)\n- Feature list"
+        },
+        "Integration Points": {
+          "style": "bullet_points",
+          "must_cover": ["system interactions", "external dependencies"],
+          "template": "- Integration point description"
+        },
+        "Dependencies": {
+          "style": "bullet_points",
+          "format": "package: description",
+          "template": "- `package-name`: Description of usage"
+        },
+        "Best Practices": {
+          "style": "numbered_sections",
+          "must_include": ["implementation guidelines", "usage patterns"],
+          "template": "1. **Area**:\n   - Guidelines"
+        },
+        "Common Patterns": {
+          "style": "bullet_points",
+          "focus": ["recurring patterns", "standard approaches"],
+          "template": "- Pattern description"
+        },
+        "Files": {
+          "style": "bullet_points",
+          "must_include": ["file descriptions", "main purposes"],
+          "template": "- `filename.public.ts`: Purpose description"
+        },
+        "Common Gotchas": {
+          "style": "bullet_points",
+          "focus": ["known issues", "limitations", "edge cases"],
+          "template": "- Gotcha description"
+        },
+        "Security Considerations": {
+          "style": "numbered_sections",
+          "required_if": ["auth", "tokens", "signatures", "sensitive_data"],
+          "template": "1. **Security Area**:\n   - Considerations"
+        },
+        "Implementation Guide": {
+          "style": "code_examples",
+          "must_include": ["typical usage", "error handling"],
+          "template": "```typescript\n// Code example\n```"
+        }
+      }
+    },
+    "inline_documentation": {
+      "template": {
+        "path": "templates/model.ts.template",
+        "sections": {
+          "module": ["@module", "@description", "@keyPoints", "@integrationPoints", "@dependencies", "@gotchas"],
+          "class": ["@class", "@description"],
+          "method": ["@description", "@param", "@returns"],
+          "enum": ["@enum", "@description"],
+          "type": ["@type", "@description"],
+          "property": ["@property", "@description"]
+        }
+      },
+      "required_annotations": {
+        "module": ["@module", "@description", "@keyPoints", "@integrationPoints", "@dependencies", "@gotchas"],
+        "class": ["@class", "@description"],
+        "method": ["@description", "@param", "@returns"],
+        "enum": ["@enum", "@description"],
+        "type": ["@type", "@description"],
+        "property": ["@property", "@description"]
+      }
+    },
+    "validation": {
+      "rules": [
+        "inline_docs_present",
+        "readme_sections_complete",
+        "code_examples_valid",
+        "security_sections_when_needed"
+      ],
+      "file_patterns": {
+        "source": ["**/*.public.ts", "**/*.ts"],
+        "docs": ["**/README.md"],
+        "exclude": ["**/node_modules/**", "**/dist/**"],
+        "templates": ["templates/*.template"]
+      }
+    }
+  },
+  "workflow": {
+    "documentation_steps": [
+      "read_source_file",
+      "add_inline_documentation",
+      "update_readme",
+      "validate_documentation",
+      "add_code_examples"
+    ],
+    "review_requirements": {
+      "code_review": "must verify inline documentation accuracy",
+      "readme_review": "must verify completeness and examples"
+    },
+    "templates": {
+      "usage": {
+        "new_module": "Use README.md.template",
+        "new_file": "Use model.ts.template"
+      }
+    }
+  }
+} 

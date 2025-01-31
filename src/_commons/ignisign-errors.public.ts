@@ -1,9 +1,61 @@
+/**
+ * Error Handling Public Model
+ * 
+ * @summary Defines the core error handling system used across the Ignisign platform.
+ * Implements a standardized error class `IgnisignError` with error codes and optional
+ * context, organized by functional domains (auth, documents, signatures, etc.).
+ * 
+ * @key_points
+ * - Uses enum-based error codes for type safety
+ * - Groups errors by functional domain (auth, docs, signers, etc.)
+ * - Supports optional context data for detailed error info
+ * - Standardizes error format across platform
+ * 
+ * @integration_points
+ * - Used in API error responses
+ * - Referenced in error handling middleware
+ * - Used for client-side error parsing
+ * - Integrated with logging systems
+ * 
+ * @gotchas
+ * - Error codes are uppercase strings (differs from HTTP codes)
+ * - Context object structure varies by error type
+ * - Some errors require specific handling (e.g. auth errors)
+ * - Error codes should match exactly when comparing
+ */
+
+/**
+ * Core error class for the Ignisign platform.
+ * Provides standardized error structure with code and optional context.
+ * 
+ * @remarks
+ * - Always includes an error code from IGNISIGN_ERROR_CODES
+ * - Optional message for human-readable description
+ * - Optional context for additional error details
+ */
 export class IgnisignError {
   errorCode : IGNISIGN_ERROR_CODES;
   message?  : string;
   context?  : object;
 }
 
+/**
+ * Comprehensive enumeration of all possible error codes.
+ * Organized by functional domain for better maintainability.
+ * 
+ * @remarks
+ * Domains include:
+ * - General errors (validation, auth, etc.)
+ * - Context errors (headers, tokens)
+ * - Rights errors (permissions)
+ * - App errors (configuration, settings)
+ * - Organization errors (billing, members)
+ * - Auth errors (authentication, sessions)
+ * - Document errors (status, access)
+ * - ID Proofing errors (verification)
+ * - Signature errors (validation, sessions)
+ * - Signer errors (status, profiles)
+ */
 export enum IGNISIGN_ERROR_CODES {
   // General errors
   BAD_REQUEST                         = "BAD_REQUEST",

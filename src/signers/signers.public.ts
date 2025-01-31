@@ -8,6 +8,33 @@ import { IGNISIGN_SIGNER_CLAIM_REF, IGNISIGN_SIGNER_CLAIM_STATUS } from "./signe
 import { COUNTRIES } from "../_commons/countries.public";
 import { IGNISIGN_AUTH_FULL_MECHANISM_REF } from "../signatures/signature-auth.public";
 
+/**
+ * Signers Public Model
+ * 
+ * @summary Defines core signer types and structures in the Ignisign platform, including entity types,
+ * statuses, and metadata handling for digital signature processes.
+ * 
+ * @key_points
+ * - Multiple entity types (NATURAL_PERSON, LEGAL_PERSON) for different signer categories
+ * - Extensive status tracking (CREATED, ACTIVE, ARCHIVED) for lifecycle management
+ * - Rich metadata support for signer identification and verification
+ * - Flexible creation and update operations with validation
+ * 
+ * @integration_points
+ * - Signer creation and management
+ * - Profile association and updates
+ * - Status transitions and lifecycle events
+ * - Identity verification flows
+ * - Signature request association
+ * 
+ * @gotchas
+ * - Entity type affects available operations and required fields
+ * - Status transitions follow strict rules
+ * - Some fields are environment-specific
+ * - Profile changes may impact existing signature requests
+ * - Validation rules vary by entity type
+ */
+
 /*********************************** SIGNER ***********************************/
 
 export enum IGNISIGN_SIGNER_ENTITY_TYPE {
@@ -22,6 +49,11 @@ export enum IGNISIGN_SIGNER_STATUS {
   ACTIVE    = "ACTIVE",
   CORRUPTED = "CORRUPTED",
 }
+
+/**
+ * Represents a signer entity in the Ignisign platform.
+ * Core class for managing signer identity and metadata.
+ */
 export class IgnisignSigner { 
   _id?                              : string;
   appId                             : string;
@@ -48,6 +80,10 @@ export enum IGNISIGN_SIGNER_CREATION_INPUT_REF {
   BIRTH_COUNTRY = "birthCountry",
 }
 
+/**
+ * Data transfer object for creating new signers.
+ * Enforces validation rules for signer creation.
+ */
 export class IgnisignSigner_CreationRequestDto {
   @IsOptional()
   @IsString()
@@ -90,6 +126,10 @@ export class IgnisignSigner_CreationRequestDto {
   externalId ?: string;
 }
 
+/**
+ * Data transfer object for updating existing signers.
+ * Supports partial updates with validation.
+ */
 export class IgnisignSigner_UpdateRequestDto {
   @IsOptional()
   @IsMongoId()
@@ -211,7 +251,10 @@ export class IgnisignSigner_Summary {
   certificateDisseminationAgreement ?: boolean;
 }
 
-
+/**
+ * Extended signer information including claims and requests.
+ * Used for detailed signer context in operations.
+ */
 export class IgnisignSigner_Context extends IgnisignSigner_Summary {
   claims    : {
     claimRef : IGNISIGN_SIGNER_CLAIM_REF;

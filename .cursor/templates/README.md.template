@@ -1,0 +1,103 @@
+# Module Name Public Models
+
+## Overview
+Brief description of what this module does and its role in the Ignisign platform.
+
+## Key Components
+
+### Component Name (`filename.public.ts`)
+- Feature 1
+- Feature 2
+- Feature 3
+- Feature 4
+- Feature 5
+
+### Additional Components
+- Component 1
+- Component 2
+- Component 3
+
+## Integration Points
+- Integration point 1
+- Integration point 2
+- Integration point 3
+- Integration point 4
+- Integration point 5
+
+## Dependencies
+- `package1`: Description of what this dependency is used for
+- `package2`: Description of what this dependency is used for
+- Various internal modules
+
+## Best Practices
+1. **Practice Area 1**:
+   - Guideline 1
+   - Guideline 2
+   - Guideline 3
+   - Guideline 4
+
+2. **Practice Area 2**:
+   - Guideline 1
+   - Guideline 2
+   - Guideline 3
+   - Guideline 4
+
+3. **Practice Area 3**:
+   - Guideline 1
+   - Guideline 2
+   - Guideline 3
+   - Guideline 4
+
+## Common Patterns
+- Pattern 1
+- Pattern 2
+- Pattern 3
+- Pattern 4
+
+## Files
+- `file1.public.ts`: Description of this file's purpose
+- `file2.public.ts`: Description of this file's purpose
+
+## Common Gotchas
+- Gotcha 1
+- Gotcha 2
+- Gotcha 3
+- Gotcha 4
+- Gotcha 5
+
+## Security Considerations
+1. **Security Area 1**:
+   - Consideration 1
+   - Consideration 2
+   - Consideration 3
+   - Consideration 4
+
+2. **Security Area 2**:
+   - Consideration 1
+   - Consideration 2
+   - Consideration 3
+   - Consideration 4
+
+## Implementation Guide
+1. **Use Case 1**:
+   ```typescript
+   import { Component } from './component.public';
+   
+   // Example implementation
+   const instance = new Component({
+     property1: 'value1',
+     property2: 'value2'
+   });
+   ```
+
+2. **Use Case 2**:
+   ```typescript
+   import { OtherComponent } from './other.public';
+   
+   // Example error handling
+   try {
+     const result = await component.method();
+   } catch (error) {
+     // Handle error
+   }
+   ``` 

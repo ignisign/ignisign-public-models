@@ -1,4 +1,35 @@
+/**
+ * Signer Claims Public Model
+ * 
+ * @summary Defines verifiable claims about signer identity and capabilities,
+ * supporting various levels of identity proofing and possession verification.
+ * 
+ * @key_points
+ * - Extensive claim types for identity verification
+ * - Multiple possession proof methods
+ * - Support for AES and QES levels
+ * - Identity document verification
+ * - Corporate and social account integration
+ * 
+ * @integration_points
+ * - Identity verification flows
+ * - Authentication method validation
+ * - Signature level requirements
+ * - Corporate SSO integration
+ * - Session management
+ * 
+ * @gotchas
+ * - Claim verification affects signature levels
+ * - Some claims require external verification
+ * - Status transitions are strict
+ * - Environment affects available claims
+ * - SSO claims need organization setup
+ */
 
+/**
+ * Comprehensive enumeration of verifiable signer claims.
+ * Defines all possible claims that can be made about a signer.
+ */
 export enum IGNISIGN_SIGNER_CLAIM_REF {
   EID_POSSESSION_AES                = "EID_POSSESSION_AES",
   EID_POSSESSION_QES                = "EID_POSSESSION_QES",
@@ -30,8 +61,10 @@ export enum IGNISIGN_SIGNER_CLAIM_REF {
   EXTENDED_SESSION                  = "EXTENDED_SESSION",
 }
 
-
-
+/**
+ * Defines possible states for signer claims.
+ * Tracks verification status of each claim.
+ */
 export enum IGNISIGN_SIGNER_CLAIM_STATUS {
   DECLARED    = 'DECLARED',
   VERIFIED    = 'VERIFIED',

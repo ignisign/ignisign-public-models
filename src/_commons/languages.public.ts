@@ -1,43 +1,85 @@
+/**
+ * Languages Public Model
+ * 
+ * @summary Defines supported languages in the Ignisign platform using ISO 639-1 codes.
+ * Provides both an enum of all possible languages and an array of currently available
+ * languages for runtime checks.
+ * 
+ * @key_points
+ * - Uses ISO 639-1 two-letter codes
+ * - Supports 37 languages including major EU languages
+ * - Available languages list for feature enablement
+ * 
+ * @integration_points
+ * - Used in UI language selection
+ * - Referenced in document templates
+ * - Used for signature interface localization
+ * - Applied in email notifications
+ * 
+ * @gotchas
+ * - Language codes are uppercase (differs from some i18n libraries)
+ * - Available languages list must be kept in sync with translations
+ * - Some RTL languages (AR) require special UI handling
+ */
+
+/**
+ * Enumeration of all supported languages.
+ * Uses ISO 639-1 two-letter codes in uppercase.
+ * 
+ * @remarks
+ * - Includes all EU official languages
+ * - Supports major world languages (AR, ZH, JA, KO)
+ * - RTL languages (AR) require special handling
+ */
 export enum IGNISIGN_LANGUAGES {
-  AR = "AR",
-  BG = "BG",
-  BN = "BN",
-  CS = "CS",
-  DA = "DA",
-  DE = "DE",
-  EL = "EL",
-  EN = "EN",
-  ES = "ES",
-  ET = "ET",
-  FI = "FI",
-  FR = "FR",
-  GA = "GA",
-  HI = "HI",
-  HR = "HR",
-  HU = "HU",
-  IS = "IS",
-  IT = "IT",
-  JA = "JA",
-  KO = "KO",
-  LT = "LT",
-  LV = "LV",
-  MT = "MT",
-  NL = "NL",
-  NO = "NO",
-  PL = "PL",
-  PT = "PT",
-  RO = "RO",
-  RU = "RU",
-  SK = "SK",
-  SL = "SL",
-  SQ = "SQ",
-  SR = "SR",
-  SV = "SV",
-  TR = "TR",
-  UK = "UK",
-  ZH = "ZH",
+  AR = "AR", // Arabic
+  BG = "BG", // Bulgarian
+  BN = "BN", // Bengali
+  CS = "CS", // Czech
+  DA = "DA", // Danish
+  DE = "DE", // German
+  EL = "EL", // Greek
+  EN = "EN", // English
+  ES = "ES", // Spanish
+  ET = "ET", // Estonian
+  FI = "FI", // Finnish
+  FR = "FR", // French
+  GA = "GA", // Irish
+  HI = "HI", // Hindi
+  HR = "HR", // Croatian
+  HU = "HU", // Hungarian
+  IS = "IS", // Icelandic
+  IT = "IT", // Italian
+  JA = "JA", // Japanese
+  KO = "KO", // Korean
+  LT = "LT", // Lithuanian
+  LV = "LV", // Latvian
+  MT = "MT", // Maltese
+  NL = "NL", // Dutch
+  NO = "NO", // Norwegian
+  PL = "PL", // Polish
+  PT = "PT", // Portuguese
+  RO = "RO", // Romanian
+  RU = "RU", // Russian
+  SK = "SK", // Slovak
+  SL = "SL", // Slovenian
+  SQ = "SQ", // Albanian
+  SR = "SR", // Serbian
+  SV = "SV", // Swedish
+  TR = "TR", // Turkish
+  UK = "UK", // Ukrainian
+  ZH = "ZH", // Chinese
 }
 
+/**
+ * Array of currently available languages.
+ * Used for runtime checks and feature enablement.
+ * 
+ * @remarks
+ * - Must be kept in sync with available translations
+ * - Used to validate language selection
+ * - Controls language availability in UI
+ */
 export const IGNISIGN_LANGUAGES_AVAILABLE = [
   IGNISIGN_LANGUAGES.AR,
   IGNISIGN_LANGUAGES.BG,
