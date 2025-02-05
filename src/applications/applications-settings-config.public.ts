@@ -179,7 +179,11 @@ export class IgnisignApplication_EnvSettings {
   onlineProofsEnabled               : boolean;
   originalFileRetentionDurationInDays     ?: number; // TODO remove optional
   highLevelProofsRetentionDurationInDays  ?: number; // TODO remove optional
-  googleDriveEnabled          ?: boolean;
+  googleDrive : {
+    enabled    : boolean;
+    userId     : string;
+    folderName : string;
+  }
 }
 
 export class IgnisignWebhook_SettingsDescription {
