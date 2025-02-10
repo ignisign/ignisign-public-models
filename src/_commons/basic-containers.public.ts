@@ -22,3 +22,8 @@ export class IgnisignEmailsContainer {
   @IsString({ each: true })
   emails : string[];
 }
+
+export class SSOResctrictedContainer {
+  @IsBoolean()
+  ssoResctricted : boolean;
+}

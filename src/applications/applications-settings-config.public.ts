@@ -150,6 +150,7 @@ export class IgnisignApplicationEnv_SSO_Config {
   // config         : Ignisign_OAuth2_Settings | Ignisign_SAML_Settings;
   settingsOAuth2 ?: Ignisign_OAuth2_Settings;
   settingsSAML   ?: Ignisign_SAML_Settings;
+  isFromOrg      ?: boolean;
 }
 
 export class IgnisignApplicationEnv_SSO_ConfigDto {
