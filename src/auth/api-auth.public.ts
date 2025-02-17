@@ -10,5 +10,6 @@ export class IgnisignApiAuth_RequestDto {
   
   @IsString()
   secret : string;
+  
 }
 

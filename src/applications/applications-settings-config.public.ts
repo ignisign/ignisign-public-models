@@ -161,7 +161,6 @@ export class IgnisignApplicationEnv_SSO_ConfigDto {
   settingsSAML   ?: Ignisign_SAML_Settings;
 }
 
-
 export class IgnisignApplication_EnvSettings {
   appId                        : string;
   orgId                        : string;
