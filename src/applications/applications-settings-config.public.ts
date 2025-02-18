@@ -45,6 +45,17 @@ export class Ignisign_OAuth2_Fields {
   birth_country : string;
 }
 
+export enum ORG_SSO_FIELDS {
+  SUB            = 'sub',
+  GIVEN_NAME     = 'given_name',
+  FAMILY_NAME    = 'family_name',
+  EMAIL          = 'email',
+  NATIONALITY    = 'nationality',
+  BIRTH_DATE     = 'birth_date',
+  BIRTH_PLACE    = 'birth_place',
+  BIRTH_COUNTRY  = 'birth_country'
+}
+
 export class Ignisign_SAML_Fields {
   @IsString()
   given_name : string;
