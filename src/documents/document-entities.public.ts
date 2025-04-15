@@ -128,3 +128,8 @@ export class IgnisignDocument_UpdateDto {
   @IsNumber()
   templateDisplayerVersion  ?: number;
 }
+
+export class IgnisignDocument_IdDto {
+  @IsString()
+  documentId: string;
+}
