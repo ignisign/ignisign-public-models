@@ -1,3 +1,4 @@
+import { IGNISIGN_ID_PROOFING_METHOD_REF } from "src/id-proofing/id-proofing-methods.public";
 import { IGNISIGN_EIDAS_LEVEL } from "../_commons/eidas.public";
 import { IGNISIGN_APPLICATION_ENV } from "../applications/applications.public";
 import { IGNISIGN_SIGNATURE_PROOF_TYPE } from "../signatures/signatures.public";
@@ -73,6 +74,9 @@ export class IgnisignBareSignature_Proof {
     lastName        ?: string;
     firstName       ?: string;
   };
+
+  idProofingsProcessed  ?: IGNISIGN_ID_PROOFING_METHOD_REF[];
+  // authProcessed         ?: IGNISIGN_SINGLE_AUTH_METHOD_REF[];
 
 
 }
