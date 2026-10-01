@@ -241,8 +241,10 @@ export enum IGNISIGN_ERROR_CODES {
   SIGNER_PROFILE__INVALID_SIGNATURE_METHOD                  = "SIGNER_PROFILE__INVALID_SIGNATURE_METHOD",
   SSO_CONFIG_USE_IN_SIGNER_PROFILES_CANNOT_BE_ARCHIVED      = "SSO_CONFIG_USE_IN_SIGNER_PROFILES_CANNOT_BE_ARCHIVED",
   APPLICATION_TYPE_NOT_ALLOWED_TO_CREATE_SIGNER_PROFILES    = "APPLICATION_TYPE_NOT_ALLOWED_TO_CREATE_SIGNER_PROFILES",
+  /** Returned when a signer profile is created or updated with a method that is not available, including the retired identification refs RA_NATURAL_AES, RA_NATURAL_QES, ORG_SSO_AES and ORG_SSO_QES. Sending an existing profile back unchanged is rejected as well. */
   SIGNER_PROFILE_METHODS_NOT_AVAILABLE                      = "SIGNER_PROFILE_METHODS_NOT_AVAILABLE",
   SIGNER_PROFILE_SSO_CONFIG_REQUIRED                        = "SIGNER_PROFILE_SSO_CONFIG_REQUIRED",
+  /** @deprecated Unreachable. Retired identification methods are rejected first with SIGNER_PROFILE_METHODS_NOT_AVAILABLE. */
   YOU_NEED_UNLOCK_ORG_DELEGATION_FOR_USE_THIS_ID_PROOFINGS  = "YOU_NEED_UNLOCK_ORG_DELEGATION_FOR_USE_THIS_ID_PROOFINGS",
 
   // Signature request errors
