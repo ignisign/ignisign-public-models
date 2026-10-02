@@ -4,7 +4,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": false,
-    "strict": false,
+    "strict": true,
     "skipLibCheck": true,
     "module": "commonjs",
     "moduleResolution": "node",
@@ -14,7 +14,12 @@
     "esModuleInterop": true,
     "allowJs": false,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   },
   "include": ["src"],
   "exclude": [
