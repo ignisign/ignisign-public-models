@@ -163,6 +163,13 @@ export class IgnisignSignatureRequest {
   @IsBoolean()
   individualizeRequests ?: boolean;
 
+  // Requests with several documents. Absent or false (default): each signer signs the documents one by one, and can
+  // finish with some left unsigned (those move to a new request, closed as CANCELLED, whose initialSignatureRequestId
+  // is this request). true: one swipe signs every document.
+  @IsOptional()
+  @IsBoolean()
+  signDocumentsTogether ?: boolean;
+
   @IsOptional()
   @IsString()
   m2mId?: string;
@@ -283,6 +290,12 @@ export class IgnisignSignatureRequest_UpdateDto {
   @IsOptional()
   @IsBoolean()
   individualizeRequests ?: boolean;
+
+  // Requests with several documents. Absent or false (default): each signer signs the documents one by one.
+  // true: one swipe signs every document.
+  @IsOptional()
+  @IsBoolean()
+  signDocumentsTogether ?: boolean;
 
   // @IsOptional()
   // @IsEnum(IGNISIGN_SIGNATURE_REQUEST_TYPE)
