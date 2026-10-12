@@ -81,7 +81,7 @@ This project uses `resolutions` in package.json to ensure vulnerable transitive 
   "validator": ">=13.15.22",
   "minimatch": ">=3.1.4", 
   "brace-expansion": ">=1.1.18",
-  "shell-quote": ">=1.9.0",
+  "shell-quote": ">=1.11.0",
   "diff": ">=4.0.4"
 }
 ```
@@ -90,7 +90,7 @@ These resolutions address:
 - CVE-2025-56200, CVE-2025-12758 (validator - XSS, DoS)
 - CVE-2026-26996, CVE-2026-27903, CVE-2026-27904 (minimatch - ReDoS)
 - CVE-2025-5889, CVE-2026-33750, CVE-2026-13149, CVE-2026-14257, CVE-2026-69152 (brace-expansion - DoS)
-- CVE-2026-9277, CVE-2026-13311 (shell-quote - Command injection, DoS)
+- CVE-2026-9277, CVE-2026-13311, CVE-2026-102422 (shell-quote - Command injection, DoS)
 - CVE-2026-24001 (diff - DoS)
 
 ## TypeScript Strict Mode

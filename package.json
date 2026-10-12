@@ -40,7 +40,7 @@
     "validator": ">=13.15.22",
     "minimatch": ">=3.1.4",
     "brace-expansion": ">=1.1.18",
-    "shell-quote": ">=1.9.0",
+    "shell-quote": ">=1.11.0",
     "diff": ">=4.0.4"
   }
 }

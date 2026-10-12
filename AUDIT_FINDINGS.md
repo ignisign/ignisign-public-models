@@ -1,6 +1,6 @@
 # Security Audit Findings - IgniSign Public Models
 
-**Audit Date:** 2026-09-15  
+**Audit Date:** 2026-10-12 (Updated from 2026-09-15)  
 **Repository:** ignisign/ignisign-public-models  
 **Scope:** Defensive security hardening only
 
@@ -8,24 +8,35 @@
 
 ## Executive Summary
 
-This security audit identified and resolved **13 dependency vulnerabilities** (1 critical, 8 high, 2 moderate, 2 low) and **2 configuration weaknesses**. All findings have been addressed with minimal, backward-compatible changes.
+This security audit identified and resolved **14 dependency vulnerabilities** (2 critical, 8 high, 2 moderate, 2 low) and **2 configuration weaknesses**. All findings have been addressed with minimal, backward-compatible changes.
 
-**Total Issues Fixed:** 15  
+**Total Issues Fixed:** 16  
 **Breaking Changes:** None  
 **API Changes:** None
+
+**Update 2026-10-12:** Added CVE-2026-102422 (shell-quote 1.11.0 required, published 2026-10-06)
 
 ---
 
 ## Findings by Severity
 
-### CRITICAL (1)
+### CRITICAL (2)
 
 #### 1. shell-quote Command Injection (CVE-2026-9277)
 - **Severity:** CRITICAL (CVSS 8.1)
 - **Component:** shell-quote@1.8.2 (devDependency via npm-run-all)
 - **Impact:** Shell command injection through `.op` values containing newlines
-- **Fix:** Upgraded to shell-quote@1.9.0 via package.json resolutions
+- **Fix:** Upgraded to shell-quote@1.11.0 via package.json resolutions
 - **Status:** ✅ RESOLVED
+
+#### 2. shell-quote Command Injection after comment token (CVE-2026-102422, GHSA-pqg4-j6r4-53mv)
+- **Severity:** CRITICAL (CVSS 8.1)
+- **Component:** shell-quote@1.10.0 (devDependency via npm-run-all)
+- **Impact:** quote() emits comment tokens that can allow command injection via line terminators in subsequent tokens
+- **Advisory:** https://github.com/advisories/GHSA-pqg4-j6r4-53mv
+- **Fix:** Upgraded to shell-quote@1.11.0 (resolved to 1.12.0) via package.json resolutions
+- **Discovered:** 2026-10-06 (post initial PR)
+- **Status:** ✅ RESOLVED (2026-10-12)
 
 ---
 
@@ -56,7 +67,7 @@ This security audit identified and resolved **13 dependency vulnerabilities** (1
 - **Severity:** HIGH (CVSS 7.5)
 - **Component:** shell-quote@1.8.2 (devDependency via npm-run-all)
 - **Impact:** O(n²) parse() performance causing event loop starvation
-- **Fix:** Upgraded to shell-quote@1.9.0 via package.json resolutions
+- **Fix:** Upgraded to shell-quote@1.11.0 via package.json resolutions
 - **Status:** ✅ RESOLVED
 
 ---
