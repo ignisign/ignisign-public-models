@@ -53,7 +53,7 @@ export class IgnisignSealM2M_DocumentContentRequestDto  extends IgnisignSealM2M_
   constructor(contentBinary: Buffer, mimeType : string, label? : string){
     super(
       (mimeType === "application/pdf")? IGNISIGN_DOCUMENT_TYPE.PDF : IGNISIGN_DOCUMENT_TYPE.FILE, 
-      null, 
+      '', 
       label, 
       mimeType
     );
@@ -68,7 +68,7 @@ export class IgnisignSealM2M_DocumentXMLRequestDto  extends IgnisignSealM2M_Docu
   xmlContent                 : string;
 
   constructor(xmlContent : string, label? : string){
-    super(IGNISIGN_DOCUMENT_TYPE.DATA_XML, null, label, "application/xml");
+    super(IGNISIGN_DOCUMENT_TYPE.DATA_XML, '', label, "application/xml");
     this.xmlContent = xmlContent;
 
     this.documentHash = crypto.createHash('sha256').update(xmlContent).digest('hex');
@@ -80,7 +80,7 @@ export class IgnisignSealM2M_DocumentJSONRequestDto extends IgnisignSealM2M_Docu
   jsonContent                : any;
 
   constructor(jsonContent : any, label? : string){
-    super(IGNISIGN_DOCUMENT_TYPE.DATA_JSON, null, label, "application/json" );
+    super(IGNISIGN_DOCUMENT_TYPE.DATA_JSON, '', label, "application/json" );
     this.jsonContent         = jsonContent;
     
     this.documentHash = crypto.createHash('sha256').update(JSON.stringify(jsonContent)).digest('hex');
